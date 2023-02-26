@@ -16,13 +16,4 @@ exports.createPages = async ({ graphql, actions }) => {
         } 
     `)
 
-  result.data.allMicrocmsBlog.edges.forEach(({ node }) => {
-    createPage({
-      path: node.slug,
-      component: path.resolve(`./src/templates/single-blog.js`),
-      context: {
-        slug: node.slug,
-      },
-    })
-  })
 }

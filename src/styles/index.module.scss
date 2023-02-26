@@ -1,27 +1,251 @@
 @import './variables.scss';
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+
+body {
+    background-color: #EDEDED;
+}
+.mask {
+    overflow: hidden;
+}
+// Header
+.headerWrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: transparent;
+    margin-top: 15px;
+    .container {
+        @extend %container;
+
+        .flexContainer {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            height: 70px;
+
+            a {
+                color: inherit;
+                font-weight: 500;
+            }
+            ul{
+                display: flex;
+                justify-content: space-between;
+                li {
+                    display: inline-block;
+                    margin: 0 0 0 6rem;
+                
+                    @media(max-width: $break-xs) {
+                    margin: 0 0 0 4rem;
+                    }
+                }
+                
+                .switchButton {
+                    background-color: white;
+                    width: 240px;
+                    height: 36px;
+                    border-radius: 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    z-index: 0;
+                    position: relative;
+
+                    p {
+                        color: black;
+                        margin-right: 10%;
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: 200;
+                        letter-spacing: 0.16rem;
+                        line-height: 36px;
+                        transform: translate(15%, -170%);
+                    }
+
+                    .playButton {
+                        width: 26px;
+                        /* 幅を指定 */
+                        height: 26px;
+                        /* 高さを指定 */
+                        background-color: #B0EA0A;
+                        /* 背景色を緑に指定 */
+                        border-radius: 25px;
+                        /* 角を丸くする */
+                        border-style: none;
+                        position: relative;
+                        /* 基準位置とする */
+                        transform: translate(-20%, 22%);
+                    }
+
+                    .playButton::after {
+                        content: '';
+                        /* 疑似要素に必須 */
+                        width: 0;
+                        /* 幅を0に指定 */
+                        height: 0;
+                        /* 高さを0に指定 */
+                        border-style: solid;
+                        /* 線の種類を指定 */
+                        border-width: 6px 0 6px 12px;
+                        /* 線の幅を指定して三角を作る */
+                        border-color: transparent transparent transparent #fff;
+                        /* 左のみ線の色を指定 */
+                        position: absolute;
+                        /* 相対位置に指定 */
+                        top: 50%;
+                        /* 上から50%の位置に配置 */
+                        left: 50%;
+                        /* 左から50%の位置に配置 */
+                        transform: translate(-50%, -50%);
+                        /* 要素の半分ぶんだけ左上方向に移動。 */
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}
 
 .hero {
     text-align: center; 
     position: relative;
     min-height: 350px;
+    z-index: 9999;
+    overflow: hidden;
+    -webkit-user-drag: none;
+    .uneune{
+        position: absolute;
+        z-index: 9998;
+        top: -78%;
+        left: -103%;
+        width: 250vw;
+        transform: rotate(10deg);
+        filter: opacity(40%);
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 3s;
+    }
+    .large{
+        position: absolute;
+        z-index: 9998;
+        top: -5%;
+        left: 0%;
+        width: 130%;
+        transform: rotate(10deg);
+        filter: opacity(30%);
+        -webkit-user-drag: none;
+    }
+    .medium {
+        position: absolute;
+        z-index: 9997;
+        top: -15%;
+        left: 0%;
+        width: 110%;
+        transform: rotate(30deg);
+        filter: opacity(30%);
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 1.5s;
+    }
+    @keyframes huwahuwa {
+        0% {
+            transform: translate(0, 0px);
+        }
+
+        100% {
+            transform: translate(0, -15px)
+        }
+    }
+    .small {
+        position: absolute;
+        z-index: 9998;
+        width: 110%;
+        top: -10%;
+        left: 0%;
+        transform: rotate(15deg);
+        filter: opacity(30%);
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 1.5s;
+        animation-delay: 0.2s;
+    }
     .heroImg {
         min-height: 350px;
+        height: 100vh;
+        width: 100%;
     }
     .textContainer {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(10%, -50%);
         color: white;
-        background-color: rgba(128, 128, 128, 0.8);
         padding: 0rem 2rem 1rem;
         border-radius: 5px;
+        display: flex;
+        flex-flow: column;
+        z-index: 10000;
         @media(max-width: $break-s) { 
             width: 80%;
             padding: 1.5rem 1rem 3rem;
         }
-        h1 {
-            font-size: 5rem;
+        .mask {
+            overflow: hidden;
+            display: inline-block;
+        }
+        .KvText {
+            animation-name:fadeUpAnime;
+            animation-duration:0.5s;
+            animation-fill-mode:forwards;
+            opacity:0;
+            
+        }
+        .lineVertical {
+            width: 1px;
+            margin-left: -350px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            animation-name: fadeUpAnime;
+            animation-duration: 0.5s;
+            animation-delay: 0.25s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        h3 {
+            font-size: 28px;
+            font-weight: 300;
+            text-align: left;
+            line-height: 170%;
+            letter-spacing: 0.16em;
+            animation-name: fadeUpAnime;
+            animation-duration: 0.5s;
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        @keyframes fadeUpAnime {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
  }
@@ -30,64 +254,84 @@
     @extend %container;
 }
  
-.company {
-    padding: 10rem 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-    grid-column-gap: 5rem;
-    grid-auto-flow: dense;
-    @media(max-width: $break-s){ 
-        padding: 5rem 0;
-        grid-template-columns: 1fr;
-        grid-row-gap: 3rem;
-    }
-    p {
-        margin-bottom: 0;
-    }
-}
+.about {
+    background-color: #ffffff;
+    border-bottom-left-radius: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: o;
+    padding-top: 132px;
+    padding-bottom: 80px;
+    position: relative;
 
-.service{ 
-    padding: 0 0 10rem;
+    .line0 {
+        background-color: #E6E6E6;
+        width: 64%;
+        margin-left: 0;
+        margin-right: auto;
+        height: 2px;
+        border: none;
+    }
+
+    .aboutImage {
+        position: absolute;
+        top: 6%;
+        right: 0;
+    }
+
+    h1 {
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 15%;
+        
+    }
+
     h2 {
-        text-align: center;
-        margin-bottom: 7rem;
-        @media(max-width: $break-s){ 
-            margin-bottom: 3rem;
-        }
+        font-size: 42px;
+        font-weight: 400;
+        color: #595959;
+        margin-left: 15%;
+        margin-top: 20px;
+        letter-spacing: 0.12em;
     }
-    .serviceContainer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: start;
-        align-items: center;
-        grid-row-gap: 3rem;
-        @media(max-width: $break-s){ grid-template-columns: 1fr }
-        div {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 500;
-        }
-        img {
-            width: 100px;
-        }
-    }
-}
 
-.ctaButton {
-    padding: 0 0 10rem;
-    text-align: center;
-    a {
-        display: inline-block;
-        margin: 10rem 0;
-        padding: 1.3rem 6rem;
-        background-color: $primary-color;
-        border-radius: 25px; 
-        color: #fff;
-        &:hover {
-            opacity: 0.8;
+    .line1 {
+        background-color: #E6E6E6;
+        width: 55%;
+        margin-left: auto;
+        margin-right: 0;
+        height: 2px;
+        border: none;
+        margin-top: 20px;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 190%;
+        margin-left: 45%;
+        letter-spacing: 0.12em;
+    }
+
+    .reference {
+        margin-left: 20%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 46px;
+
+        .RMark {
+            width: 63px;
+            height: 63px;
+            margin-right: 25px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 190%;
+            letter-spacing: 0.12em;
         }
     }
+
+
 }

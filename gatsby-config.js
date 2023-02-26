@@ -16,9 +16,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    defaultTitle: `Jack of All Trades Official Site`,
+    defaultTitle: `ERISA 認知症リスク検査`,
     defaultDescription: `モダン開発を得意とするJack of All Tradesの公式サイトです。`,
-    defaultImage: `src/image/social-card.png`,
+
   },
   plugins: [
     `gatsby-plugin-sass`,
