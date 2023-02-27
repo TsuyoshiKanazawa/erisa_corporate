@@ -1,0 +1,12 @@
+.nshow {
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 15%;
+}
+
+.show {
+    animation: fadeUpAbout 500ms linear both;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
