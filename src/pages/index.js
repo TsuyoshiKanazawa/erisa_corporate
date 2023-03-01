@@ -21,7 +21,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
     <Layout>
     <body>
       <div className={style.hero}>
-        <StaticImage src="../images/KV.png" alt="hero" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
+        <StaticImage src="../images/KV.svg" alt="hero" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
         <StaticImage src="../images/uneune.png" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
         <div className={style.textContainer}>
           <div className={style.mask}>
@@ -37,7 +37,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
       </div>
 
-      <div className={style.about}>
+      <div id="about" className={style.about}>
         
           <div className={style.mask}>
             <AnimationTrigger animation={style.aboutTitle}>
@@ -53,56 +53,44 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <div className={style.aboutCopy}>
           <div className={style.mask}>
             <AnimationTrigger animation={style.copy}>
-              脳の状態から
-            </AnimationTrigger>
-          </div>
-          
-          <div className={style.mask}>
-            <AnimationTrigger animation={style.copy}>
-              3年後の認知症リスクを知り、
-            </AnimationTrigger>
-          </div>
-
-          <div className={style.mask}>
-            <AnimationTrigger animation={style.copy}>
-              3将来を見据えたライフスタイルを
-            </AnimationTrigger>
-          </div>
-
-          <div className={style.mask}>
-            <AnimationTrigger animation={style.copy}>
+              脳の状態から<br />
+              3年後の認知症リスクを知り、<br />
+              3将来を見据えたライフスタイルを<br />
               見直すきっかけに。
             </AnimationTrigger>
           </div>
         </div>
         <hr className={style.line1}></hr>
 
-          <AnimationTrigger animation={style.aboutText0}>
-            認知症リスク検査は、島根大学医学部、滋賀医科大学、<br />
-            株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、<br />
-            脳の状態から3年後の認知症リスクを検査します。<br />
-            脳の一部だけではなく、脳全体を膨大なデータと比較することで、<br />
-            高い精度を実現。将来を見据えた認知症予防の検討材料として、<br />
-            受診者様のライフスタイル見直しに貢献します。
-          </AnimationTrigger>
-
+          <div className={style.mask}>
+            <AnimationTrigger animation={style.aboutText0}>
+              認知症リスク検査は、島根大学医学部、滋賀医科大学、<br />
+              株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、<br />
+              脳の状態から3年後の認知症リスクを検査します。<br />
+              脳の一部だけではなく、脳全体を膨大なデータと比較することで、<br />
+              高い精度を実現。将来を見据えた認知症予防の検討材料として、<br />
+              受診者様のライフスタイル見直しに貢献します。
+            </AnimationTrigger>
+          </div>
+          
         <div className={style.reference}>
           <StaticImage src="../images/RMark.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
           
-          <AnimationTrigger animation={style.aboutText1}>
-            日本における65歳以上の認知症患者数は約600万人。<br/>
-            高齢者の<font color="#BD0000">6人に1人</font>が発症する身近な問題です。<br/>
-            症状が現れる20年以上前から徐々に脳の変化が<br/>
-            始まっているとされ、早期から対策することにより<br/>
-            ある程度予防できることがわかっています。
-          </AnimationTrigger>
-
+          <div className={style.mask}>
+            <AnimationTrigger animation={style.aboutText1}>
+              日本における65歳以上の認知症患者数は約600万人。<br/>
+              高齢者の<font color="#BD0000">6人に1人</font>が発症する身近な問題です。<br/>
+              症状が現れる20年以上前から徐々に脳の変化が<br/>
+              始まっているとされ、早期から対策することにより<br/>
+              ある程度予防できることがわかっています。
+            </AnimationTrigger>
+          </div>
           <StaticImage src="../images/referenceImage.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.referenceImage} />
         </div>
 
       </div>
 
-      <div className={style.featureContainer}>
+      <div id="feature" className={style.featureContainer}>
         <div className={style.feature}>
           <AnimationTrigger animation={style.featureAnime}>
             <StaticImage src="../images/feature.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} />
@@ -233,7 +221,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
       </div>
 
-      <div className={style.questionContainer0}>
+      <div id="question" className={style.questionContainer0}>
         
         <StaticImage src="../images/question.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.questionImage} />
         <div className={style.questionContainer1}>
@@ -298,7 +286,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
       </div>
 
-      <div className={style.Introduce}>
+      <div id="introduce" className={style.Introduce}>
 
         <div className={style.title}>
           <h1>導入医療機関</h1>
@@ -322,7 +310,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         )
         )}
         </div>
-        <StaticImage src="../images/search.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
+        <StaticImage src="../images/search.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
       </div>
 
     </body>
