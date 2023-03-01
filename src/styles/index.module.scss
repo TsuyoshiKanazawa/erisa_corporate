@@ -1,7 +1,7 @@
 @import './variables.scss';
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
 
 body {
     background-color: #EDEDED;
@@ -16,14 +16,153 @@ body {
 }
 
 // Header
+
 .headerWrapper {
+    transition: 0.5s;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10000;
     background-color: transparent;
     margin-top: 15px;
+
+    .show {
+        @extend %container;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: 0.3s;
+
+
+        .flexContainer {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                height: 70px;
+        
+                a {
+                    color: inherit;
+                    font-weight: 500;
+                }
+        
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+        
+                    li {
+                        display: inline-block;
+                        margin: 0 0 0 6rem;
+        
+                        @media(max-width: $break-xs) {
+                            margin: 0 0 0 4rem;
+                        }
+                    }
+        
+                    .switchButton {
+                        background-color: white;
+                        width: 240px;
+                        height: 36px;
+                        border-radius: 25px;
+                        display: flex;
+                        justify-content: space-between;
+                        z-index: 0;
+                        position: relative;
+                        overflow: hidden;
+        
+                        p {
+                            color: black;
+                            margin-right: 10%;
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: 300;
+                            letter-spacing: 0.16rem;
+                            line-height: 36px;
+                            transform: translate(15%, -170%);
+                            transition: .3s;
+                        }
+        
+                        .playButton {
+                            width: 26px;
+                            /* 幅を指定 */
+                            height: 26px;
+                            /* 高さを指定 */
+                            background-color: #B0EA0A;
+                            /* 背景色を緑に指定 */
+                            border-radius: 25px;
+                            /* 角を丸くする */
+                            border-style: none;
+                            position: relative;
+                            /* 基準位置とする */
+                            transform: translate(-20%, 22%);
+                            transition: .3s;
+                        }
+        
+                        .playButton::after {
+                            content: '';
+                            /* 疑似要素に必須 */
+                            width: 0;
+                            /* 幅を0に指定 */
+                            height: 0;
+                            /* 高さを0に指定 */
+                            border-style: solid;
+                            /* 線の種類を指定 */
+                            border-width: 6px 0 6px 12px;
+                            /* 線の幅を指定して三角を作る */
+                            border-color: transparent transparent transparent #fff;
+                            /* 左のみ線の色を指定 */
+                            position: absolute;
+                            /* 相対位置に指定 */
+                            top: 50%;
+                            /* 上から50%の位置に配置 */
+                            left: 50%;
+                            /* 左から50%の位置に配置 */
+                            transform: translate(-40%, -50%);
+                            /* 要素の半分ぶんだけ左上方向に移動。 */
+                            transition: .3s;
+                        }
+                    }
+        
+                    .switchButton::after {
+                        background-color: #B0EA0A;
+                        border-radius: 25px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        transform: scale(0, 1);
+                        transform-origin: left top;
+                        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+                        z-index: -1;
+                    }
+        
+                    .switchButton:hover::after {
+                        transform: scale(1, 1);
+                    }
+        
+                    .switchButton:hover {
+                        transition: 0.3s;
+        
+                        p {
+                            color: #fff;
+                        }
+        
+                        .playButton {
+                            background-color: #fff;
+                        }
+        
+                        .playButton::after {
+                            border-color: transparent transparent transparent #B0EA0A;
+                        }
+                    }
+                }
+            }
+    }
+
     .container {
+        transition: 0.3s;
         @extend %container;
 
         .flexContainer {
@@ -38,9 +177,11 @@ body {
                 color: inherit;
                 font-weight: 500;
             }
-            ul{
+
+            ul {
                 display: flex;
                 justify-content: space-between;
+
                 li {
                     display: inline-block;
                     margin: 0 0 0 6rem;
@@ -58,6 +199,7 @@ body {
                     justify-content: space-between;
                     z-index: 0;
                     position: relative;
+                    overflow: hidden;
 
                     p {
                         color: black;
@@ -68,6 +210,7 @@ body {
                         letter-spacing: 0.16rem;
                         line-height: 36px;
                         transform: translate(15%, -170%);
+                        transition: .3s;
                     }
 
                     .playButton {
@@ -83,6 +226,7 @@ body {
                         position: relative;
                         /* 基準位置とする */
                         transform: translate(-20%, 22%);
+                        transition: .3s;
                     }
 
                     .playButton::after {
@@ -104,15 +248,46 @@ body {
                         /* 上から50%の位置に配置 */
                         left: 50%;
                         /* 左から50%の位置に配置 */
-                        transform: translate(-50%, -50%);
+                        transform: translate(-40%, -50%);
                         /* 要素の半分ぶんだけ左上方向に移動。 */
+                        transition: .3s;
                     }
                 }
 
+                .switchButton::after {
+                    background-color: #B0EA0A;
+                    border-radius: 25px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    transform: scale(0, 1);
+                    transform-origin: left top;
+                    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+                    z-index: -1;
+                }
+                
+                .switchButton:hover::after {
+                    transform: scale(1, 1);
+                }
 
+                .switchButton:hover {
+                    transition: 0.3s;
+                    p {
+                        color: #fff;
+                    }
+
+                    .playButton {
+                        background-color: #fff;
+                    }
+
+                    .playButton::after {
+                        border-color: transparent transparent transparent #B0EA0A;
+                    }
+                }
             }
-
-
         }
     }
 }
@@ -218,6 +393,7 @@ body {
         .KvText {
             animation-name:fadeUpAnime;
             animation-duration:0.5s;
+            animation-delay: 1s;
             animation-fill-mode:forwards;
             opacity:0;
         }
@@ -228,7 +404,7 @@ body {
             margin-bottom: 20px;
             animation-name: fadeUpAnime;
             animation-duration: 0.5s;
-            animation-delay: 0.25s;
+            animation-delay: 1.25s;
             animation-fill-mode: forwards;
             opacity: 0;
         }
@@ -240,7 +416,7 @@ body {
             letter-spacing: 0.16em;
             animation-name: fadeUpAnime;
             animation-duration: 0.5s;
-            animation-delay: 0.5s;
+            animation-delay: 1.5s;
             animation-fill-mode: forwards;
             opacity: 0;
         }
@@ -409,9 +585,31 @@ body {
         width: 100%;
         overflow: hidden;
 
-        .featureImage {
+        @keyframes fadeinfeature {
+            from {
+                opacity: 0;
+                transform: translateX(500px);
+            }
+    
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .featureAnime {
+            opacity: 0;
+            animation: fadeinfeature 500ms linear both;
+            animation-duration: 0.5s;
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+
+            .featureImage {
                 width: 1920px;
             }
+        }
+
+
         
             .featureTitle {
                 background-color: #fff;
@@ -433,8 +631,37 @@ body {
             }
     }
 
+    @keyframes fadeinleft {
+        from {
+            opacity: 0;
+            transform: translateX(-150px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes fadeinright {
+        from {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
     .mri {
         height: 650px;
+        opacity: 0;
+        animation: fadeinleft 500ms linear both;
+        animation-duration: 0.3s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+
         .mriImage {
                 margin-top: 69px;
                 border-top-right-radius: 20px;
@@ -484,6 +711,12 @@ body {
 
     .examination {
         height: 520px;
+        margin-bottom: 69px;
+        opacity: 0;
+        animation: fadeinright 500ms linear both;
+        animation-duration: 0.3s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
 
         .examinationImage{
             display: block;
@@ -540,9 +773,14 @@ body {
 
     .prevention {
         height: 650px;
+        opacity: 0;
+        animation: fadeinleft 500ms linear both;
+        animation-duration: 0.3s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
 
         .preventionImage {
-            margin-top: 69px;
+            margin-top: 0;
             border-top-right-radius: 20px;
         }
 
@@ -869,6 +1107,245 @@ body {
                     font-size: 18px;
                 }
             }
+        }
+    }
+}
+
+.Introduce {
+    margin-top: 90px;
+    padding-bottom: 150px;
+    background-color: #fff;
+
+    .title{
+        border-style: solid;
+        border-width: 2px;
+        width: 360px;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 10px;
+        background-color: #fff;
+        transform: translateY(-50%);
+
+        h1 {
+                font-size: 20px;
+                font-weight: 400;
+                text-align: center;
+                width: 360px;
+                height: 50px;
+                line-height: 50px;
+
+        }
+    }
+
+
+    .region {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+        .blogCard {
+
+            display: flex;
+            justify-content: center;
+
+            .soueces {
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 0.05rem;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 25px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .triangle {
+                width: 8px;
+                height: 8px;
+                border-left: solid 1px currentColor;
+                border-top: solid 1px currentColor;
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                margin-top: 10px;
+                margin-bottom: auto;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .hospitalContainer{
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .hospital {
+            background-color: #EBEBEB;
+            width: 360px;
+            height: 206px;
+            border-radius: 20px;
+            h1 {
+                font-size: 20px;
+                text-decoration: underline;
+                color: #595959;
+                margin-top: 30px;
+                margin-left: 40px;
+                letter-spacing: 0.12rem;
+            }
+            h2 {
+                font-size: 14px;
+                color: #595959;
+                margin-top: 15px;
+                margin-left: 40px;
+                letter-spacing: 0.12rem;
+            }
+            h3 {
+                font-size: 14px;
+                color: #595959;
+                margin-left: 40px;
+                letter-spacing: 0.12rem;
+            }
+            .hospitalButton {
+                background-color: white;
+                width: 210px;
+                height: 36px;
+                border-radius: 25px;
+                display: flex;
+                justify-content: space-between;
+                z-index: 0;
+                margin-left: 35px;
+                margin-right: auto;
+                margin-top: 30px;
+
+                p {
+                    color: black;
+                    margin-right: 10%;
+                    margin-left: 50px;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 300;
+                    letter-spacing: 0.16rem;
+                    line-height: 36px;
+                    transform: translate(15%, -170%);
+                }
+
+                .playButton {
+                    width: 26px;
+                    height: 26px;
+                    background-color: #B0EA0A;
+                    border-radius: 25px;
+                    border-style: none;
+                    position: relative;
+                    transform: translate(-20%, 22%);
+                }
+
+                .playButton::after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 6px 0 6px 12px;
+                    border-color: transparent transparent transparent #fff;
+                    /* 左のみ線の色を指定 */
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    
+    }
+}
+
+footer {
+    background-image: url("../images/footter.png");
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    margin-top: 147px;
+
+    padding-top: 50px;
+    
+    .footerContainer{
+        display: flex;
+        justify-content: center;
+        gap: 390px;
+
+        h1 {
+            font-size: 18px;
+            color: #fff;
+        
+        }
+    
+        .listFooter {
+            margin-top: 40px;
+    
+            ul {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 80px;
+                width: 600px;
+                text-align: left;
+    
+                .list {
+                    width: 247px;
+                    display: flex;
+                    justify-content: flex-start;
+                    text-align: left;
+    
+                    li {
+                        color: #fff;
+                        font-size: 16px;
+                        letter-spacing: 0.16rem;
+                        text-align: left;
+                        margin-left: 15px;
+                        
+                    }
+
+                    hr {
+                        width: 30px;
+                        height: 1px;
+                        background-color: #fff;
+                        border: 0;
+                        margin: 0;
+                        margin-top: 12.5px;
+                    }
+                }
+                .list:hover {
+                    li {
+                        color: #595959;
+                    }
+                }
+            }
+        }
+    }
+    
+    .copyright {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 120px;
+
+        hr {
+            width: 85%;
+            height: 1px;
+            background-color: #fff;
+            border: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        p {
+            color: #fff;
+            line-height: 12px;
+            font-size: 12px;
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 4px;
+            margin-top: 3px;
         }
     }
 }

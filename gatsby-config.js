@@ -27,11 +27,23 @@ module.exports = {
     {
       resolve: `gatsby-source-microcms`,
       options: {
-        apiKey: `o5EdYnuYtjrVklOeLXZJhmEaPiMVtZmy9CGs`,
-        serviceId: `abjtrh1zux`,
+        apiKey: `E4IlIqsobIKK67NGUFD8qfb5O0xDVFlse6cX`,
+        serviceId: `erisaproduct`,
         apis: [
           {
-            endpoint: `blog`,
+            endpoint: `introduce`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-microcms`,
+      options: {
+        apiKey: `E4IlIqsobIKK67NGUFD8qfb5O0xDVFlse6cX`,
+        serviceId: `erisaproduct`,
+        apis: [
+          {
+            endpoint: `region`,
           },
         ],
       },
@@ -41,13 +53,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/src/data`,
       },
     },
     `gatsby-transformer-sharp`,

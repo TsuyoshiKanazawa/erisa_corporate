@@ -1,15 +1,17 @@
-import React, { } from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { graphql, Link } from "gatsby"
 import { useInView } from "react-intersection-observer"
-import AnimationTrigger from "../components/AnimationTrigger";
+import AnimationTrigger from "../components/AnimationTrigger"
 
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import lineVertical from '../images/line-vertical.png'
+import lineVertical from '../images/line-vertical.png';
 
-const Index = (rootMargin, triggerOnce) => {
+export const Index = (props, rootMargin, triggerOnce) => {
+  console.log(props)
+  
   const { ref, inView } = useInView({
     rootMargin: rootMargin,
     triggerOnce: triggerOnce
@@ -18,26 +20,6 @@ const Index = (rootMargin, triggerOnce) => {
   return (
     <Layout>
     <body>
-      <header className={style.headerWrapper}>
-        <div className={style.container}>
-          <div className={style.flexContainer}>
-            < Link to="/">
-              < StaticImage src="../images/logo.png" alt=" logo" quality={90} placeholder=" blurred" formats={[" AUTO", "WEBP", "AVIF"]} width={50} />
-            </Link >
-            <ul>
-              < Link to="/">
-                <div className={style.switchButton}>
-                  <p>医療関係者の方はこちら</p>
-                  <div className={style.playButton}></div>
-                </div>
-              </Link>
-
-              <li>=</li>
-            </ul>
-          </div>
-        </div>
-      </header>
-
       <div className={style.hero}>
         <StaticImage src="../images/KV.png" alt="hero" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
         <StaticImage src="../images/uneune.png" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
@@ -76,13 +58,13 @@ const Index = (rootMargin, triggerOnce) => {
           </div>
           
           <div className={style.mask}>
-              <AnimationTrigger animation={style.copy}>
+            <AnimationTrigger animation={style.copy}>
               3年後の認知症リスクを知り、
             </AnimationTrigger>
           </div>
 
           <div className={style.mask}>
-              <AnimationTrigger animation={style.copy}>
+            <AnimationTrigger animation={style.copy}>
               3将来を見据えたライフスタイルを
             </AnimationTrigger>
           </div>
@@ -122,13 +104,15 @@ const Index = (rootMargin, triggerOnce) => {
 
       <div className={style.featureContainer}>
         <div className={style.feature}>
-          <StaticImage src="../images/feature.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} />
+          <AnimationTrigger animation={style.featureAnime}>
+            <StaticImage src="../images/feature.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} />
+          </AnimationTrigger>
           <div className={style.featureTitle}>
             <h1>認知症リスク検査の特徴</h1>
           </div>
         </div>
 
-        <div className={style.mri}>
+        <AnimationTrigger animation={style.mri}>
           <StaticImage src="../images/mriImage.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} />
           <div className={style.mriText}>
             <div className={style.mriTexttextContainer}>
@@ -143,9 +127,9 @@ const Index = (rootMargin, triggerOnce) => {
                 以上に正確な脳状態を確認できます。</p>
             </div>
           </div>
-        </div>
+        </AnimationTrigger>
 
-        <div className={style.examination}>
+          <AnimationTrigger animation={style.examination}>
             <StaticImage src="../images/examination.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} />
             <div className={style.examinationText}>
               <div className={style.examinationTextContainer}>
@@ -158,9 +142,9 @@ const Index = (rootMargin, triggerOnce) => {
                   期対策・予防に活用できます。</p>
               </div>
             </div>
-        </div>
+          </AnimationTrigger>
 
-        <div className={style.prevention}>
+        <AnimationTrigger animation={style.prevention}>
           <StaticImage src="../images/prevention.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} />
           <div className={style.preventionText}>
             <div className={style.preventionTextContainer}>
@@ -174,7 +158,7 @@ const Index = (rootMargin, triggerOnce) => {
                   しを検討することに繋がります。</p>
             </div>
           </div>
-        </div>
+        </AnimationTrigger>
       </div>
       <div className={style.voiceContainer}>
         <h1>受診者の声</h1>
@@ -314,12 +298,61 @@ const Index = (rootMargin, triggerOnce) => {
         </div>
       </div>
 
+      <div className={style.Introduce}>
+
+        <div className={style.title}>
+          <h1>導入医療機関</h1>
+        </div>
+        <div className={style.region}>
+        </div>
+        <div className={style.hospitalContainer}>
+        {props.data.allMicrocmsIntroduce.edges.map((singleBlog, index) => (
+          
+            <div className={style.hospital} key={index}>
+              <h1>{singleBlog.node.name}</h1>
+              <h2>Address：{singleBlog.node.address}</h2>
+              <h3>Tel：{singleBlog.node.number}</h3>
+              < Link to="/">
+                <div className={style.hospitalButton}>
+                  <p>VIEW WEB</p>
+                  <div className={style.playButton}></div>
+                </div>
+              </Link>
+            </div>
+        )
+        )}
+        </div>
+        <StaticImage src="../images/search.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
+      </div>
+
     </body>
     </Layout>
   )
 }
 
 export default Index
+export const query0 = graphql`
+query MicrocmsRegionQuery {
+  allMicrocmsRegion {
+    edges {
+      node {
+        region
+        prefectures
+      }
+    }
+  }
+    allMicrocmsIntroduce {
+    edges {
+      node {
+        address
+        name
+        number
+      }
+    }
+  }
+}
+`
+
 
 export const Head = () => {
   return (
