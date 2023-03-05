@@ -2,11 +2,14 @@ import React, { useState, useEffect} from "react"
 import { Link } from "gatsby" 
 import { StaticImage } from "gatsby-plugin-image" 
 import * as style from "../styles/index.module.scss"
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+
+import logoWhite from '../images/logoWhite.svg'
+import logoColor from '../images/logoColor.svg'
 
 const Header = (state) => {
 
-    //ヘッダーが表示・非表示になる
+//ヘッダーが表示・非表示になる/////////////////
     const [isHeaderShown, setIsHeaderShown] = useState(true);
     const [lastPosition, setLastPosition] = useState(0);
     const headerHeight = 100;
@@ -34,26 +37,26 @@ const Header = (state) => {
             window.removeEventListener('scroll', scrollEvent);
         };
     }, [scrollEvent]);
-    ////ヘッダーが表示・非表示になる
+///////////////////////////////////////////
 
-
+//ハンバーガーメニューの開閉/////////////////
 const [isShow, setIsShow] = useState(false);
   const closeWithClickOutSideMethod = (e, setter) => {
-    console.log("e.target", e.target);
-    console.log("e.currentTarget", e.currentTarget);
     if (e.target === e.currentTarget) {
-      //メニューの外側をクリックしたときだけメニューを閉じる
-      setter(false);
-    document.body.style.overflow = "auto";
+      setter(false);//メニューの外側をクリックしたときだけメニューを閉じる
+      document.body.style.overflow = "auto"; //スクロール禁止解除
     }
   };
+///////////////////////////////////////////
+
 
     return (
         <header className={style.headerWrapper}>
             <div className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
                 <div className={style.flexContainer}>
                     < Link to="/">
-                        < StaticImage src="../images/logo.png" alt=" logo" quality={90} placeholder=" blurred" formats={[" AUTO", "WEBP", "AVIF"]} width={50} />
+                        <img src={logoWhite} className={style.logoWhite} />
+                        <img src={logoColor} className={style.logoColor} />
                     </Link >
                     <ul>
                         < Link to="/">
@@ -66,9 +69,10 @@ const [isShow, setIsShow] = useState(false);
                         <button 
                             className={style.hmb} 
                             onClick={() => {
-                            setIsShow(!isShow);
-                            document.body.style.overflow = "hidden";
-                        }}>
+                                setIsShow(!isShow);
+                                document.body.style.overflow = "hidden"; //スクロール禁止
+                            }}
+                        >
                             <StaticImage src="../images/hamberger.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.hamberger} />
                         </button>
                     </ul>
@@ -103,7 +107,7 @@ const [isShow, setIsShow] = useState(false);
                                     }}> 
                                     <hr /><li>認知症リスク検査とは？</li>
                                 </AnchorLink>
-                                <AnchorLink href="#feature"
+                                <AnchorLink href="#flow"
                                     className={style.list}
                                     onClick={() => {
                                         setIsShow(!isShow);
@@ -127,14 +131,16 @@ const [isShow, setIsShow] = useState(false);
                                     }}> 
                                     <hr /><li>導入医療機関</li>
                                 </AnchorLink>
-                                <AnchorLink href="#about"
+                                <a href="https://www.erisa.co.jp/#contact"
+                                    target="_blank"
+                                    rel="noopener"
                                     className={style.list}
                                     onClick={() => {
                                         setIsShow(!isShow);
                                         document.body.style.overflow = "auto";
                                     }}> 
                                     <hr /><li>お問い合わせ</li>
-                                </AnchorLink>
+                                </a>
                             </ul>
 
                         </div>
