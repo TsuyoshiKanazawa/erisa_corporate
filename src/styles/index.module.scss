@@ -150,7 +150,6 @@ body::-webkit-scrollbar {
         z-index: 0;
         position: relative;
         overflow: hidden;
-        margin-left: 500px;
 
         p {
             color: black;
@@ -264,7 +263,7 @@ body::-webkit-scrollbar {
         transition: 0.8s;
 
         &__active {
-            transform: none;
+            transform: translate(-3.5%, 0);
             opacity: 1;
             transition: 0.8s;
         }
@@ -279,10 +278,12 @@ body::-webkit-scrollbar {
             padding-top: 40px;
 
             .menuTop {
+                margin-right: 0;
+                margin-left: auto;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: flex-end;
                 gap: 12px;
-                transform: translateX(30px);
+                margin-right: 70px;
 
                 .close {
                     display: block;
@@ -571,7 +572,7 @@ body::-webkit-scrollbar {
             animation-name:fadeUpAnime;
             animation-duration:0.5s;
             animation-delay: 1s;
-            animation-fill-mode:forwards;
+            animation-fill-mode: forwards;
             opacity:0;
         }
         .KvTextSp0 {
