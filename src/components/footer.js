@@ -10,11 +10,11 @@ import logoFooter from '../images/logoFooter.svg'
 const Footer = () => {
     return (
         <footer>
-            <div className={style.footerContainer}>
-                <img src={footerBack} className={style.footerBack} />
+            <div className={style.footerContainer} loading="lazy">
+                <img src={footerBack} className={style.footerBack} loading="lazy" />
 
                 <div className={style.logoFooter}>
-                    <img src={logoFooter} className={style.logo} />
+                    <img src={logoFooter} className={style.logo} loading="lazy" />
                     <h1>あなたらしさを支える<br />
                         「BRAIN」に
                     </h1>

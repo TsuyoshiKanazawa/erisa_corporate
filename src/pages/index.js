@@ -659,7 +659,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
         </div>
 
-        <img src={aboutBack} id="aboutBack" className={style.aboutBack} />
+        <img src={aboutBack} id="aboutBack" className={style.aboutBack} loading="lazy" />
 
       </div>
 
@@ -668,7 +668,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <img src={featureBackBottom} className={style.featureBackBottom} loading="lazy" />
         <div className={style.feature}>
           <div id="featureAnime" className={style.featureAnime}>
-            <StaticImage src="../images/feature.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} />
+              <StaticImage src="../images/feature.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} loading="lazy" />
           </div>
           <div className={style.featureTitle}>
             <h1>認知症リスク検査の特徴</h1>
