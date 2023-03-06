@@ -400,16 +400,14 @@ export const Index = (props, rootMargin, triggerOnce) => {
   }
   //アニメーション専用/////////////////////////
 
-  const [visible, setVisible] = useState(true);
-
   return (
     <Layout>
-      <body visible={visible} onLoad={() => setVisible(!visible)}>
+      <body>
 
       <div id="hero" className={style.hero}>
-        <StaticImage src="../images/KV.jpg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
+        <StaticImage src="../images/KV.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
         <img src={KVsp} className={style.heroImg_sp} />
-        <img src={uneune} className={style.uneune} />
+        <StaticImage src="../images/uneune.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
 
         <div className={style.textContainer}>
           <div className={style.mask}>
