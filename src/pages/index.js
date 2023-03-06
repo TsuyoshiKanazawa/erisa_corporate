@@ -9,17 +9,15 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import uneune from '../images/uneune.png'
-import KV from '../images/KV.jpg'
 import KVsp from '../images/KVSP.jpg'
 import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
 import featureBack from '../images/featureBack.png'
 import featureBackBottom from '../images/featureBackBottom.png'
 import lineVertical from '../images/line-vertical.png';
-import mri from '../images/mriImage.png' 
-import examination from '../images/examination.png' 
-import prevention from '../images/prevention.png' 
+import mri from '../images/mriImage.jpg' 
+import examination from '../images/examination.jpg' 
+import prevention from '../images/prevention.jpg' 
 import voiceImage from '../images/voiceImage.png'
 import flowImage from '../images/flow.png'
 import questionImage from '../images/question.png'
@@ -49,10 +47,10 @@ export const Index = (props, rootMargin, triggerOnce) => {
   //ドロップダウンメニューの開閉////////////////
 
   //アニメーション専用/////////////////////////
-    const div = useRef();
-    useEffect(() => {
-      setAnimation()
-    }, [div])
+  const div = useRef();
+  useEffect(() => {
+    setAnimation()
+  }, [div])
 
   const setAnimation = () => {
 
@@ -411,7 +409,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage id="KvText" src="../images/KvText.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
+            <StaticImage id="KvText" src="../images/KvText.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
             <StaticImage id="KvText" src="../images/KvTextSp1.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
           </div>
 

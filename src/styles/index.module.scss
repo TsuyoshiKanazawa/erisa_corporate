@@ -470,6 +470,9 @@ body::-webkit-scrollbar {
             overflow: hidden;
             display: inline-block;
         }
+        .KvText {
+            width: 533px;
+        }
 
         .KvTextSp0 {
             display: none;
@@ -703,8 +706,10 @@ body::-webkit-scrollbar {
 
         .mriImage {
             margin-top: 69px;
+            width: 1040px;
+            height: 480px;
+            object-fit: cover;
             border-top-right-radius: 20px;
-            z-index: 1;
         }
         
         .mriText {
@@ -766,6 +771,7 @@ body::-webkit-scrollbar {
         .examinationImage{
             height: 480px;
             width: 1040px;
+            object-fit: cover;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             position: absolute;
@@ -831,6 +837,9 @@ body::-webkit-scrollbar {
         .preventionImage {
             margin-top: 0;
             border-top-right-radius: 20px;
+            width: 1040px;
+            height: 480px;
+            object-fit: cover;
         }
 
         .preventionText {
