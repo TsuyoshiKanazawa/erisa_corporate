@@ -50,9 +50,10 @@ export const Index = (props, rootMargin, triggerOnce) => {
   //ドロップダウンメニューの開閉////////////////
 
   //アニメーション専用/////////////////////////
-  useEffect(() => {
-    setAnimation()
-  }, [])
+
+    useEffect(() => {
+      setAnimation()
+    }, [])
 
   const setAnimation = () => {
 
@@ -361,7 +362,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
     <body>
 
       <div id="hero" className={style.hero}>
-        <img src={KV} className={style.heroImg} />
+        <StaticImage src="../images/KV.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
         <img src={KVsp} className={style.heroImg_sp} />
         <img src={uneune} className={style.uneune} />
 
