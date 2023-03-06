@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { useInView } from "react-intersection-observer"
-import AnimationTrigger from "../components/AnimationTrigger"
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -665,8 +664,8 @@ export const Index = (props, rootMargin, triggerOnce) => {
       </div>
 
       <div id="feature" className={style.featureContainer}>
-        <img src={featureBack} className={style.featureBack} />
-        <img src={featureBackBottom} className={style.featureBackBottom} />
+        <img src={featureBack} className={style.featureBack} loading="lazy" />
+        <img src={featureBackBottom} className={style.featureBackBottom} loading="lazy" />
         <div className={style.feature}>
           <div id="featureAnime" className={style.featureAnime}>
             <StaticImage src="../images/feature.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} />
@@ -679,7 +678,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         
 
         <div id="mri" className={style.mri}>
-          <img src={mri} className={style.mriImage} />
+          <img src={mri} className={style.mriImage} loading="lazy" />
           <div className={style.mriText}>
             <div className={style.mriTexttextContainer}>
               <h1>AIによる<br />
@@ -695,7 +694,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
 
         <div id="examination" className={style.examination}>
-          <img src={examination} className={style.examinationImageSp} />
+          <img src={examination} className={style.examinationImageSp} loading="lazy" />
           <div className={style.examinationText}>
               <h1>3年後の脳状態を予測し<br />
                 認知症リスクを検査</h1>
@@ -703,11 +702,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
               <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
               <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
             </div>
-          <img src={examination} className={style.examinationImage} />
+          <img src={examination} className={style.examinationImage} loading="lazy" />
         </div>
 
         <div id="prevention" className={style.prevention}>
-          <img src={prevention} className={style.preventionImage} />
+          <img src={prevention} className={style.preventionImage} loading="lazy" />
           <div className={style.preventionText}>
             <div className={style.preventionTextContainer}>
             <h1>
@@ -755,13 +754,13 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="flow" className={style.flowContainer}>
         <h1>検査の流れ</h1>
-        <div id="flowImageMask" className={style.flowImageMask}>
-          <img src={flowImage} className={style.flowImage} />
+        <div id="flowImageMask" className={style.flowImageMask} >
+          <img src={flowImage} className={style.flowImage} loading="lazy" />
         </div>
 
         <div className={style.circleContainer}>
             <div id="circle" className={style.circle}>
-            <img src={number1} className={style.number} />
+            <img src={number1} className={style.number} loading="lazy" />
             <h3>導入医療機関で予約</h3>
               <h4>予約方法は<br />
                 各医療機関により異なりますので<br />
@@ -804,7 +803,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         
         <div className={style.questionContainer1}>
           <div id="questionImageMask" className={style.questionImageMask}>
-            <img src={questionImage} className={style.questionImage} />
+            <img src={questionImage} className={style.questionImage} loading="lazy" />
           </div>
           <h1>よくあるご質問</h1>
           
