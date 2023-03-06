@@ -662,8 +662,8 @@ export const Index = (props, rootMargin, triggerOnce) => {
       </div>
 
       <div id="feature" className={style.featureContainer}>
-        <img src={featureBack} className={style.featureBack} loading="lazy" />
-        <img src={featureBackBottom} className={style.featureBackBottom} loading="lazy" />
+        <StaticImage src="../images/featureBack.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" />
+        <StaticImage src="../images/featureBackBottom.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
         <div className={style.feature}>
           <div id="featureAnime" className={style.featureAnime}>
               <StaticImage src="../images/feature.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} loading="lazy" />
