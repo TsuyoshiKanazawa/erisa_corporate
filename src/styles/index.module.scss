@@ -567,39 +567,20 @@ body::-webkit-scrollbar {
             overflow: hidden;
             display: inline-block;
         }
-        .KvText {
-            animation-name:fadeUpAnime;
-            animation-duration:0.5s;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-            opacity:0;
-        }
         .KvTextSp0 {
             display: none;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.7s;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-            opacity: 0;
+
         }
         .KvTextSp1 {
             display: none;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.2s;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-            opacity: 0;
+
         }
         .lineVertical {
             width: 1px;
             margin-left: -350px;
             margin-top: 20px;
             margin-bottom: 20px;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.5s;
-            animation-delay: 1.25s;
-            animation-fill-mode: forwards;
-            opacity: 0;
+
         }
         h3 {
             font-size: 28px;
@@ -607,11 +588,7 @@ body::-webkit-scrollbar {
             text-align: left;
             line-height: 170%;
             letter-spacing: 0.16em;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.5s;
-            animation-delay: 1.5s;
-            animation-fill-mode: forwards;
-            opacity: 0;
+
         }
         @keyframes fadeUpAnime {
             from {
@@ -2455,10 +2432,6 @@ footer {
                 gap: 5px;
                 margin: 20px 0 20px 0;
                 overflow-x: scroll;
-
-                .scrollbutton {
-                    
-                }
 
                 .button {
                     height: 35px;

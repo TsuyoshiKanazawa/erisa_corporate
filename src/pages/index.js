@@ -57,6 +57,20 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
   const setAnimation = () => {
 
+    gsap.fromTo(
+      '#KvText',
+      { y: 100, opacity: 0 }, //fromの設定
+      {  //toの設定
+        y: 0,
+        opacity: 1,
+        delay: 1,
+        duration: 0.5,
+        stagger: {
+          each: 0.2,
+        },
+      }
+    )
+
     //about//////////////////////
     gsap.fromTo(
       '#aboutTitle',
@@ -368,19 +382,19 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage src="../images/KvText.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
-            <StaticImage src="../images/KvTextSp1.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
+            <StaticImage id="KvText" src="../images/KvText.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
+            <StaticImage id="KvText" src="../images/KvTextSp1.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
-            <img src={lineVertical} className={style.lineVertical} />
+            <img src={lineVertical} id="KvText" className={style.lineVertical} />
           </div>
 
           <div className={style.mask}>
-            <StaticImage src="../images/KvTextSp0.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
+            <StaticImage id="KvText" src="../images/KvTextSp0.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
           </div>
 
-          <div className={style.mask}>
+          <div id="KvText" className={style.mask}>
             <h3>世界で唯一のAI解析技術で、<br></br>
               3年後の認知症リスクを知る。</h3>
           </div>
