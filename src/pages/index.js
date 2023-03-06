@@ -240,7 +240,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 0.4,
         scrollTrigger: {
           trigger: '#voiceMask',
-          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 80%', //要素のトップが、画面の中央まできたら開始
         },
       }
     )
@@ -323,8 +323,35 @@ export const Index = (props, rootMargin, triggerOnce) => {
         },
       }
     )
-
     //introduce///////////////////
+
+    gsap.fromTo(
+      '#hospital',
+      { y: 0 }, //fromの設定
+      {  //toの設定
+        y: -30,
+        scrollTrigger: {
+          trigger: '#hospital',
+          start: 'top 50%',
+          end: 'bottom 50%',
+          scrub: 1.5,
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#voiceMask',
+      { y: 0 }, //fromの設定
+      {  //toの設定
+        y: -50,
+        scrollTrigger: {
+          trigger: ' #voiceMask',
+          start: 'top 40%',
+          end: 'bottom 70%',
+          scrub: 1.5,
+        },
+      }
+    )
 
   }
   //アニメーション専用/////////////////////////
