@@ -11,7 +11,7 @@ import * as style from "../styles/index.module.scss"
 
 import uneune from '../images/uneune.png'
 import KV from '../images/KV.jpg'
-import KVsp from '../images/KVSP.svg'
+import KVsp from '../images/KVSP.jpg'
 import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
 import featureBack from '../images/featureBack.png'
@@ -411,8 +411,8 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage id="KvText" src="../images/KvText.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
-            <StaticImage id="KvText" src="../images/KvTextSp1.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
+            <StaticImage id="KvText" src="../images/KvText.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
+            <StaticImage id="KvText" src="../images/KvTextSp1.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
@@ -420,7 +420,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
           <div className={style.mask}>
-            <StaticImage id="KvText" src="../images/KvTextSp0.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
+            <StaticImage id="KvText" src="../images/KvTextSp0.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
           </div>
 
           <div id="KvText" className={style.mask}>
