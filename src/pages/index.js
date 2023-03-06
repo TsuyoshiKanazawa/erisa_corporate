@@ -10,7 +10,7 @@ import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
 import uneune from '../images/uneune.png'
-import KV from '../images/KV.png'
+import KV from '../images/KV.jpg'
 import KVsp from '../images/KVSP.svg'
 import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
@@ -400,9 +400,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
   }
   //アニメーション専用/////////////////////////
 
+  const [visible, setVisible] = useState(true);
+
   return (
     <Layout>
-    <body>
+      <body visible={visible} onLoad={() => setVisible(!visible)}>
 
       <div id="hero" className={style.hero}>
         <StaticImage src="../images/KV.jpg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
