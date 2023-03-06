@@ -2093,7 +2093,8 @@ footer {
         .flowImageMask {
             transform: translateY(-50px);
             .flowImage {
-                width: 300vw;
+                display: block;
+                height: 190px;
                 margin-left: -10%;
             }
         }

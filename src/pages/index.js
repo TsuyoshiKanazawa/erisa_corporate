@@ -12,14 +12,8 @@ import * as style from "../styles/index.module.scss"
 import KVsp from '../images/KVSP.jpg'
 import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
-import featureBack from '../images/featureBack.png'
-import featureBackBottom from '../images/featureBackBottom.png'
 import lineVertical from '../images/line-vertical.png';
-import mri from '../images/mriImage.jpg' 
 import examination from '../images/examination.jpg' 
-import prevention from '../images/prevention.jpg' 
-import voiceImage from '../images/voiceImage.png'
-import flowImage from '../images/flow.png'
 import questionImage from '../images/question.png'
 import number1 from '../images/01.png' 
 import number2 from '../images/02.png' 
@@ -410,7 +404,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <div className={style.textContainer}>
           <div className={style.mask}>
             <StaticImage id="KvText" src="../images/KvText.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
-            <StaticImage id="KvText" src="../images/KvTextSp1.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
+            <StaticImage id="KvText" src="../images/KvTextSp1.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
@@ -662,11 +656,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
       </div>
 
       <div id="feature" className={style.featureContainer}>
-        <StaticImage src="../images/featureBack.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" />
-        <StaticImage src="../images/featureBackBottom.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
+        <StaticImage src="../images/featureBack.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" />
+        <StaticImage src="../images/featureBackBottom.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
         <div className={style.feature}>
           <div id="featureAnime" className={style.featureAnime}>
-              <StaticImage src="../images/feature.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} loading="lazy" />
+            <StaticImage src="../images/feature.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} loading="lazy" />
           </div>
           <div className={style.featureTitle}>
             <h1>認知症リスク検査の特徴</h1>
@@ -676,7 +670,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         
 
         <div id="mri" className={style.mri}>
-          <img src={mri} className={style.mriImage} loading="lazy" />
+          <StaticImage src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
           <div className={style.mriText}>
             <div className={style.mriTexttextContainer}>
               <h1>AIによる<br />
@@ -692,7 +686,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
 
         <div id="examination" className={style.examination}>
-          <img src={examination} className={style.examinationImageSp} loading="lazy" />
+          <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
           <div className={style.examinationText}>
               <h1>3年後の脳状態を予測し<br />
                 認知症リスクを検査</h1>
@@ -704,7 +698,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
 
         <div id="prevention" className={style.prevention}>
-          <img src={prevention} className={style.preventionImage} loading="lazy" />
+          <StaticImage src="../images/prevention.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
           <div className={style.preventionText}>
             <div className={style.preventionTextContainer}>
             <h1>
@@ -753,7 +747,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
       <div id="flow" className={style.flowContainer}>
         <h1>検査の流れ</h1>
         <div id="flowImageMask" className={style.flowImageMask} >
-          <img src={flowImage} className={style.flowImage} loading="lazy" />
+          <StaticImage src="../images/flow.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.flowImage} loading="lazy" />
         </div>
 
         <div className={style.circleContainer}>
