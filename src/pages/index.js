@@ -11,7 +11,7 @@ import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
 import uneune from '../images/uneune.svg'
-import KV from '../images/KV.svg'
+import KV from '../images/KV.png'
 import KVsp from '../images/KVSP.svg'
 import aboutBack from '../images/aboutBack.svg'
 import about from '../images/about.png'
@@ -316,7 +316,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#hospital',
-          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 70%', //要素のトップが、画面の中央まできたら開始
         },
         stagger: {
           each: 0.2,
@@ -329,11 +329,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
       '#hospital',
       { y: 0 }, //fromの設定
       {  //toの設定
-        y: -30,
+        y: -50,
         scrollTrigger: {
           trigger: '#hospital',
-          start: 'top 50%',
-          end: 'bottom 50%',
+          start: 'top 90%',
+          end: 'top 0%',
           scrub: 1.5,
         },
       }
@@ -343,11 +343,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
       '#voiceMask',
       { y: 0 }, //fromの設定
       {  //toの設定
-        y: -50,
+        y: -70,
         scrollTrigger: {
           trigger: ' #voiceMask',
-          start: 'top 40%',
-          end: 'bottom 70%',
+          start: 'top 90%',
+          end: 'top 0%',
           scrub: 1.5,
         },
       }
