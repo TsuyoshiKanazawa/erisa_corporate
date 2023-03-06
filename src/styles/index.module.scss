@@ -419,7 +419,7 @@ body::-webkit-scrollbar {
 }
 
 .hero {
-    text-align: center; 
+    text-align: center;
     position: relative;
     min-height: 350px;
     z-index: 9999;
@@ -449,6 +449,7 @@ body::-webkit-scrollbar {
         height: 100vh;
         object-fit: cover;
     }
+
     .heroImg_sp {
         display: none;
     }
@@ -469,14 +470,17 @@ body::-webkit-scrollbar {
             overflow: hidden;
             display: inline-block;
         }
+
         .KvTextSp0 {
             display: none;
 
         }
+
         .KvTextSp1 {
             display: none;
 
         }
+
         .lineVertical {
             width: 1px;
             margin-left: -350px;
@@ -484,6 +488,7 @@ body::-webkit-scrollbar {
             margin-bottom: 20px;
 
         }
+
         h3 {
             font-size: 28px;
             font-weight: 300;
@@ -492,6 +497,7 @@ body::-webkit-scrollbar {
             letter-spacing: 0.16em;
 
         }
+
         @keyframes fadeUpAnime {
             from {
                 opacity: 0;
@@ -504,7 +510,7 @@ body::-webkit-scrollbar {
             }
         }
     }
- }
+}
 
 .container {    
     @extend %container;

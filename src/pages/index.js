@@ -9,13 +9,13 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import uneune from '../images/uneune.jpg'
+import uneune from '../images/uneune.png'
 import KV from '../images/KV.png'
 import KVsp from '../images/KVSP.svg'
-import aboutBack from '../images/aboutBack.svg'
+import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
-import featureBack from '../images/featureBack.svg'
-import featureBackBottom from '../images/featureBackBottom.svg'
+import featureBack from '../images/featureBack.png'
+import featureBackBottom from '../images/featureBackBottom.png'
 import lineVertical from '../images/line-vertical.png';
 import mri from '../images/mriImage.png' 
 import examination from '../images/examination.png' 
