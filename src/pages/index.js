@@ -50,10 +50,10 @@ export const Index = (props, rootMargin, triggerOnce) => {
   //ドロップダウンメニューの開閉////////////////
 
   //アニメーション専用/////////////////////////
-
+    const div = useRef();
     useEffect(() => {
       setAnimation()
-    }, [])
+    }, [div])
 
   const setAnimation = () => {
 
@@ -296,7 +296,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
       '#questionImageMask',
       { width: 0 }, //fromの設定
       {  //toの設定
-        width: 918,
+        width: "100%",
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionImageMask',
@@ -340,15 +340,16 @@ export const Index = (props, rootMargin, triggerOnce) => {
     )
     //introduce///////////////////
 
+    //スクロール量に応じて変化///////////////////
     gsap.fromTo(
-      '#hospital',
+      '#hospitalContainer',
       { y: 0 }, //fromの設定
       {  //toの設定
         y: -50,
         scrollTrigger: {
-          trigger: '#hospital',
+          trigger: '#hospitalContainer',
           start: 'top 90%',
-          end: 'top 0%',
+          end: 'bottom 0%',
           scrub: 1.5,
         },
       }
@@ -368,6 +369,35 @@ export const Index = (props, rootMargin, triggerOnce) => {
       }
     )
 
+    gsap.fromTo(
+      '.mriImage',
+      { zoom: 1 }, //fromの設定
+      {  //toの設定
+        zoom: 1.2,
+        scrollTrigger: {
+          trigger: '.mriImage',
+          start: 'top 90%',
+          end: 'top 0%',
+          scrub: 1.5,
+          markers: true,
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#aboutBack',
+      { y: 0 }, //fromの設定
+      {  //toの設定
+        y: -100,
+        scrollTrigger: {
+          trigger: ' #aboutBack',
+          start: 'center 90%',
+          end: 'center 0%',
+          scrub: 1.5,
+        },
+      }
+    )
+  //スクロール量に応じて変化///////////////////
   }
   //アニメーション専用/////////////////////////
 
@@ -630,7 +660,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
         </div>
 
-        <img src={aboutBack} className={style.aboutBack} />
+        <img src={aboutBack} id="aboutBack" className={style.aboutBack} />
 
       </div>
 
@@ -725,7 +755,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="flow" className={style.flowContainer}>
         <h1>検査の流れ</h1>
-          <div id="flowImageMask" className={style.flowImageMask}>
+        <div id="flowImageMask" className={style.flowImageMask}>
           <img src={flowImage} className={style.flowImage} />
         </div>
 
@@ -900,7 +930,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         </div>
 
 
-        <div className={style.hospitalContainer}>
+        <div id="hospitalContainer" className={style.hospitalContainer}>
         {props.data.allMicrocmsIntroduce.edges.map((Introduce, index) => (
           
           <div id="hospital" className={style.hospital} key={index}>

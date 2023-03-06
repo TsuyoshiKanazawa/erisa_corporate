@@ -31,8 +31,6 @@ body::-webkit-scrollbar {
     z-index: 10000;
     background-color: transparent;
 
-
-    
     .logoColor {
         transform: translateX(-80px);
         display: none;
@@ -363,13 +361,11 @@ body::-webkit-scrollbar {
         transform: translateY(-100%);
         opacity: 0;
         transition: 0.3s;
-
+        margin-top: 20px;
 
         .flexContainer {
                 display: flex;
                 justify-content: space-between;
-                flex-direction: row;
-                flex-wrap: wrap;
                 align-items: center;
                 height: 70px;
         
@@ -382,100 +378,6 @@ body::-webkit-scrollbar {
                     display: flex;
                     justify-content: flex-start;
                     gap: 10px;
-        
-                    li {
-                        .navButton {
-                            width: 36px;
-                            height: 36px;
-                            background-color: transparent;
-                            border-radius: 25px;
-                            border-color: #fff;
-                        }
-                    }
-        
-                    .switchButton {
-                        background-color: white;
-                        width: 240px;
-                        height: 36px;
-                        border-radius: 25px;
-                        display: flex;
-                        justify-content: space-between;
-                        z-index: 0;
-                        position: relative;
-                        overflow: hidden;
-        
-                        p {
-                            color: black;
-                            margin-right: 10%;
-                            text-align: center;
-                            font-size: 14px;
-                            font-weight: 300;
-                            letter-spacing: 0.16rem;
-                            line-height: 36px;
-                            transform: translate(15%, -170%);
-                            transition: .3s;
-                        }
-        
-                        .playButton {
-                            width: 26px;
-                            height: 26px;
-                            background-color: #B0EA0A;
-                            border-radius: 25px;
-                            border-style: none;
-                            position: relative;
-                            transform: translate(-20%, 22%);
-                            transition: .3s;
-                        }
-        
-                        .playButton::after {
-                            content: '';
-                            width: 0;
-                            height: 0;
-                            border-style: solid;
-                            border-width: 6px 0 6px 12px;
-                            border-color: transparent transparent transparent #fff;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-40%, -50%);
-                            transition: .3s;
-                        }
-                    }
-        
-                    .switchButton::after {
-                        background-color: #B0EA0A;
-                        border-radius: 25px;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        content: '';
-                        width: 100%;
-                        height: 100%;
-                        transform: scale(0, 1);
-                        transform-origin: left top;
-                        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-                        z-index: -1;
-                    }
-        
-                    .switchButton:hover::after {
-                        transform: scale(1, 1);
-                    }
-        
-                    .switchButton:hover {
-                        transition: 0.3s;
-        
-                        p {
-                            color: #fff;
-                        }
-        
-                        .playButton {
-                            background-color: #fff;
-                        }
-        
-                        .playButton::after {
-                            border-color: transparent transparent transparent #B0EA0A;
-                        }
-                    }
                 }
             }
     }
@@ -499,7 +401,7 @@ body::-webkit-scrollbar {
             ul {
                 display: flex;
                 justify-content: space-between;
-                gap: 7px;
+                gap: 10px;
 
             }
         }
@@ -1261,6 +1163,9 @@ body::-webkit-scrollbar {
 
         .questionImage {
             width: 918px;
+            display: block;
+            margin-right: 0;
+            margin-left: auto;
         }
     }
 
@@ -1710,20 +1615,16 @@ footer {
     .headerWrapper {
         width: 100vw;
 
-        .container {
-            padding-left: 5%;
-        }
         .logoWhite {
             width: 50px;
             margin-left: 0;
             margin-right: auto;
             z-index: 1;
-            display: none;
+            
         }
         .logoColor {
             width: 50px;
             transform: translate(0);
-            display: block;
             z-index: 1;
         }
 
@@ -1788,6 +1689,22 @@ footer {
                     }
                 }
             }
+        }
+
+        .show {
+            @extend %container;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.3s;
+            margin-top: 20px;
+            padding-left: 5%
+        }
+    
+        .container {
+            margin-top: 20px;
+            transition: 0.3s;
+            @extend %container;
+            padding-left: 5%
         }
     }
 
@@ -2053,7 +1970,7 @@ footer {
 
             .preventionImage {
                 width: 95vw;
-                height: 40%;
+                height: 250px;
                 object-fit: cover;
                 border-bottom-right-radius: 10px;
             }
@@ -2096,7 +2013,7 @@ footer {
 
     .voiceMask {
         height: 862px;
-        margin: 30px auto 50px auto; 
+        margin: 50px auto 50px auto; 
 
         .voiceContainer {
             background-image: url("../images/voiceSp.png");
@@ -2106,6 +2023,7 @@ footer {
             height: 862px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 0;
 
             .voiceImage {
                 display: none;
@@ -2113,7 +2031,7 @@ footer {
 
             .voiceText {
                 display: block;
-                margin-top: 50%;
+                margin-top: 53%;
 
                 .voiceTextContainer {
                     width: 325px;
@@ -2157,11 +2075,14 @@ footer {
             transform: translateY(150px);
         }
 
-        .flowImage {
-            width: 300vw;
-            margin-left: -10%;
+        .flowImageMask {
             transform: translateY(-50px);
+            .flowImage {
+                width: 300vw;
+                margin-left: -10%;
+            }
         }
+
 
         .circleContainer {
             display: block;
@@ -2319,15 +2240,20 @@ footer {
     }
 
     .questionContainer0{
-    overflow: hidden;
+        overflow: hidden;
+        margin-top: 20%;
 
-    .questionImage {
-            transform: translate(0);
-            transform: translateY(100%);
+    .questionImageMask{
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        .questionImage {
             width: 103vw;
-            z-index: 1;
             opacity: 0.5;
         }
+    }
+
 
     .questionContainer1 {
         width: 95vw;
@@ -2343,10 +2269,9 @@ footer {
             height: 40px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 15%;
             transform: translateY(0);
         }
-
-
 
         .questionText {
             margin-left: 5%;
@@ -2471,6 +2396,7 @@ footer {
         .hospitalContainer {
             display: block;
             width: 100vw;
+            margin-top: 10%;
 
             .hospital {
                 background-color: #EBEBEB;
