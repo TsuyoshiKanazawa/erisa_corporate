@@ -9,7 +9,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import uneune from '../images/uneune.png'
+import uneune from '../images/uneune.jpg'
 import KV from '../images/KV.png'
 import KVsp from '../images/KVSP.svg'
 import aboutBack from '../images/aboutBack.svg'
