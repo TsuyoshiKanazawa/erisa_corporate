@@ -22,6 +22,8 @@ import mri from '../images/mriImage.png'
 import examination from '../images/examination.png' 
 import prevention from '../images/prevention.png' 
 import voiceImage from '../images/voiceImage.png'
+import flowImage from '../images/flow.png'
+import questionImage from '../images/question.png'
 import number1 from '../images/01.png' 
 import number2 from '../images/02.png' 
 import number3 from '../images/03.png' 
@@ -213,6 +215,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         },
       }
     )
+
     gsap.fromTo(
       '#prevention',
       { width: 0 }, //fromの設定
@@ -228,6 +231,100 @@ export const Index = (props, rootMargin, triggerOnce) => {
     //feature////////////////////
 
     //voice//////////////////////
+    gsap.fromTo(
+      '#voiceMask',
+      { scale: 0, opacity: 0 }, //fromの設定
+      {  //toの設定
+        scale: 1,
+        opacity: 1,
+        duration: 0.4,
+        scrollTrigger: {
+          trigger: '#voiceMask',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+      }
+    )
+    //voice//////////////////////
+    //flow///////////////////////
+    gsap.fromTo(
+      '#flowImageMask',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: "100%",
+        duration: 2,
+        scrollTrigger: {
+          trigger: '#flowImageMask',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+      }
+    )
+    gsap.fromTo(
+      '#circle',
+      { scale: 0 }, //fromの設定
+      {  //toの設定
+        scale: 1,
+        duration: 0.5,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: '#circle',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+        stagger: {
+          each: 0.2,
+        },
+      }
+    )
+    //flow///////////////////////
+
+    //question///////////////////
+    gsap.fromTo(
+      '#questionImageMask',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: 918,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#questionImageMask',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#questionText',
+      { opacity: 0, x: 400}, //fromの設定
+      {  //toの設定
+        opacity: 1,
+        x: 0,
+        delay: 0.3,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#questionText',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+        stagger: {
+          each: 0.2,
+        },
+      }
+    )
+    //introduce///////////////////
+    gsap.fromTo(
+      '#hospital',
+      { scale: 0 }, //fromの設定
+      {  //toの設定
+        scale: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#hospital',
+          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+        },
+        stagger: {
+          each: 0.2,
+        },
+      }
+    )
+
+    //introduce///////////////////
 
   }
   //アニメーション専用/////////////////////////
@@ -517,11 +614,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
                 高精度のMRI画像解析で<br />
                 脳全体の状態を把握</h1>
                 <hr />
-              <p>脳の一部（海馬）のみならず、脳全体の状態<br />
-                を把握することで、膨大なデータベースと照<br />
-                合し高精度の解析を実現。脳各部位の体積の<br />
-                将来変化を予測することで、これまでの解析<br />
-                以上に正確な脳状態を確認できます。</p>
+              <p>脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
               <p className={style.textSp}>
                 脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
             </div>
@@ -535,10 +628,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
               <h1>3年後の脳状態を予測し<br />
                 認知症リスクを検査</h1>
               <hr />
-              <p>脳全体の状態から3年後の脳状態を予測する<br />
-                ことで、受診者様それぞれの認知症リスクを<br />
-                検査。解説付きの検査レポートを通じて、早<br />
-                期対策・予防に活用できます。</p>
+              <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
               <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
             </div>
           <img src={examination} className={style.examinationImage} />
@@ -552,22 +642,17 @@ export const Index = (props, rootMargin, triggerOnce) => {
               早期対策・予防方針から<br />
               生活習慣の見直しに繋がる</h1>
             <hr />
-              <p>自身の脳状態や将来の認知症リスクを知るこ<br />
-                とで、レポートや医療機関を通じた早期対<br />
-                策・予防方針から、効果的な生活習慣の見直<br />
-                しを検討することに繋がります。</p>
+              <p>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
+              <p className={style.textSp}>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
             </div>
           </div>
             
         </div>
         
       </div>
-
     
       <div id="voiceMask" className={style.voiceMask}>
         <div id="voice" className={style.voiceContainer}>
-            <img src={voiceImage} className={style.voiceImage} />
-
             <div className={style.voiceText}>
 
               <div className={style.voiceTextContainer}>
@@ -598,15 +683,18 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="flow" className={style.flowContainer}>
         <h1>検査の流れ</h1>
-        <StaticImage src="../images/flow.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.flowImage} />
+          <div id="flowImageMask" className={style.flowImageMask}>
+          <img src={flowImage} className={style.flowImage} />
+        </div>
 
         <div className={style.circleContainer}>
-          <div className={style.circle}>
+            <div id="circle" className={style.circle}>
             <img src={number1} className={style.number} />
             <h3>導入医療機関で予約</h3>
               <h4>予約方法は<br />
                 各医療機関により異なりますので<br />
                 直接お問い合わせください</h4>
+
             <AnchorLink href="#introduce">
                 <div className={style.flowButton}>
                 <p>導入医療機関を探す</p>
@@ -618,7 +706,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
             <img src={pointLine} className={style.pointLine} />
           </div>
 
-          <div className={style.circle}>
+          <div id="circle" className={style.circle}>
             <img src={number2} className={style.number} />
             <h3>頭部MRI撮影</h3>
               <h4>ご予約の医療機関にて<br />
@@ -629,7 +717,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           <div>
             <img src={pointLine} className={style.pointLine} />
           </div>
-          <div className={style.circle}>
+          <div id="circle" className={style.circle}>
             <img src={number3} className={style.number} />
               <h3>レポート受取</h3>
               <h4>解説付きの検査レポートが<br />
@@ -642,11 +730,13 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="question" className={style.questionContainer0}>
         
-        <StaticImage src="../images/question.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.questionImage} />
         <div className={style.questionContainer1}>
+          <div id="questionImageMask" className={style.questionImageMask}>
+            <img src={questionImage} className={style.questionImage} />
+          </div>
           <h1>よくあるご質問</h1>
           
-          <div className={style.questionText}>
+          <div id="questionText" className={style.questionText}>
             <hr />
 
             <div className={style.question}>
@@ -660,7 +750,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
           </div>
 
-          <div className={style.questionText}>
+          <div id="questionText" className={style.questionText}>
             <hr />
 
             <div className={style.question}>
@@ -674,7 +764,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
           </div>
 
-          <div className={style.questionText}>
+          <div id="questionText" className={style.questionText}>
             <hr />
 
             <div className={style.question}>
@@ -688,7 +778,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
           </div>
 
-          <div className={style.questionText}>
+          <div id="questionText" className={style.questionText}>
             <hr />
 
             <div className={style.question}>
@@ -715,25 +805,26 @@ export const Index = (props, rootMargin, triggerOnce) => {
             <ul id="spacey2" className={style.spacey2}>
               {props.data.allMicrocmsRegion.edges.map((region, index) => (
                 <li key={index}>
-                  <div
-                    className={style.button}
-                    type="button"
-                    onClick={() => {
-                      handleClick(index);
-                    }}>
-                    <p>{region.node.region}</p>
+                  
+                  <div className={style.scrollbutton}>
+                    <div className={style.button}
+                      type="button"
+                      onClick={() => {
+                        handleClick(index);
+                      }}>
+                      <p>{region.node.region}</p>
 
-                    <div 
-                      className={style.triangle}
-                      style={
-                        clicked === index
-                          ? {
-                            borderColor: "transparent transparent #565656 #565656", marginTop: "11px"
-                          }
-                          : { borderColor: "#565656 #565656 transparent transparent", marginTop: "15px"}
-                      }
-                      >
+                      <div className={style.triangle}
+                        style={
+                          clicked === index
+                            ? {
+                              borderColor: "transparent transparent #565656 #565656", marginTop: "11px"
+                            }
+                            : { borderColor: "#565656 #565656 transparent transparent", marginTop: "15px"}
+                        }
+                        >
 
+                      </div>
                     </div>
                   </div>
                   <hr
@@ -746,22 +837,23 @@ export const Index = (props, rootMargin, triggerOnce) => {
                         : { height: "0", opacity: "0", transitionDelay: "0.5s" }
                     } />
                     
-                    <li
-                      className={style.menus}
-                      style={
-                        clicked === index
-                          ? {
-                            height: "85px",
-                            backgroundColor: "#fff",
-                            transitionDelay: "0.3s"
-                          }
-                          : { height: "0", opacity: "0"}
-                      }>
-                      <li>北海道</li><li>青森県</li><li>岩手県</li><li>北海道</li><li>北海道</li><li>北海道</li><li>北海道</li>
-                    </li>
+                  <li
+                    className={style.menus}
+                    style={
+                      clicked === index
+                        ? {
+                          height: "85px",
+                          backgroundColor: "#fff",
+                          transitionDelay: "0.3s"
+                        }
+                        : { height: "0", opacity: "0"}
+                    }>
+                    <li>北海道</li><li>青森県</li><li>岩手県</li><li>北海道</li><li>北海道</li><li>北海道</li><li>北海道</li>
+                  </li>
 
                 </li>
               ))}
+
             </ul>
         </div>
 
@@ -769,21 +861,21 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <div className={style.hospitalContainer}>
         {props.data.allMicrocmsIntroduce.edges.map((Introduce, index) => (
           
-            <div className={style.hospital} key={index}>
-              <h1>{Introduce.node.name}</h1>
-              <h2>Address：{Introduce.node.address}</h2>
-              <h3>Tel：{Introduce.node.number}</h3>
-              <a href={Introduce.node.url}>
-                <div className={style.hospitalButton}>
-                  <p>VIEW WEB</p>
-                  <div className={style.playButton}></div>
-                </div>
-              </a>
-            </div>
+          <div id="hospital" className={style.hospital} key={index}>
+            <h1>{Introduce.node.name}</h1>
+            <h2>Address：{Introduce.node.address}</h2>
+            <h3>Tel：{Introduce.node.number}</h3>
+            <a href={Introduce.node.url}>
+              <div className={style.hospitalButton}>
+                <p>VIEW WEB</p>
+                <div className={style.playButton}></div>
+              </div>
+            </a>
+          </div>
         )
         )}
         </div>
-        <StaticImage src="../images/search.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
+        <StaticImage src="../images/search.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
       </div>
 
     </body>
