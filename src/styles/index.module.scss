@@ -482,11 +482,11 @@ body::-webkit-scrollbar {
 
 @keyframes huwahuwa {
     0% {
-        transform: translate(0, 0px);
+        transform: skew(0);
     }
 
     100% {
-        transform: translate(0, -15px)
+        transform: skew(15deg);
     }
 }
 
@@ -1374,9 +1374,9 @@ body::-webkit-scrollbar {
         .spacey2 {
             width: 885px;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 15px;
-            margin: 20px auto 50px auto;
+            margin: 20px auto 60px auto;
             position: relative;
 
 
@@ -1416,7 +1416,8 @@ body::-webkit-scrollbar {
                 margin-top: 15px;
                 position: absolute;
                 top: 35px;
-                left: 0;
+                left: 50%;
+                transform: translateX(-50%);
                 width: 885px;
                 padding-left: 70px;
                 color: #595959;
