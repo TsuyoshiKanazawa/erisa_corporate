@@ -273,7 +273,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         delay: 0.3,
         scrollTrigger: {
           trigger: '#circle',
-          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 40%', //要素のトップが、画面の中央まできたら開始
         },
         stagger: {
           each: 0.2,
@@ -411,7 +411,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
           <div className={style.mask}>
-            <StaticImage src="../images/KvTextSp0.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
+            <StaticImage src="../images/KvTextSp0.svg" quality={90} className={style.KvTextSp0} />
           </div>
 
           <div id="KvText" className={style.mask}>
