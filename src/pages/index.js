@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { useInView } from "react-intersection-observer"
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,15 +10,17 @@ import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
 import KvText from '../images/Kvtext.svg'
+import KvTextSp0 from '../images/KvTextSp0.svg'
+import KvTextSp1 from '../images/KvTextSp1.svg'
 import about from '../images/about.png'
-import lineVertical from '../images/line-vertical.png';
-import featureImage from '../images/feature.png';
-import flowImage from '../images/flow.png';
+import lineVertical from '../images/line-vertical.png'
+import featureImage from '../images/feature.png'
+import flowImage from '../images/flow.png'
 import questionImage from '../images/question.png'
-import number1 from '../images/01.png' 
-import number2 from '../images/02.png' 
-import number3 from '../images/03.png' 
-import pointLine from '../images/pointLine.png' 
+import number1 from '../images/01.png'
+import number2 from '../images/02.png'
+import number3 from '../images/03.png'
+import pointLine from '../images/pointLine.png';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -404,7 +406,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <div className={style.textContainer}>
           <div className={style.mask}>
             <img src={KvText} className={style.KvText} />
-            <StaticImage src="../images/KvTextSp1.svg" placeholder={"none"} className={style.KvTextSp1} />
+            <img src={KvTextSp1} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
@@ -412,7 +414,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
           <div className={style.mask}>
-            <StaticImage src="../images/KvTextSp0.svg" quality={90} className={style.KvTextSp0} />
+            <img src={KvTextSp0} className={style.KvTextSp0} />
           </div>
 
           <div id="KvText" className={style.mask}>
