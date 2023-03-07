@@ -86,7 +86,7 @@ const [isShow, setIsShow] = useState(false);
                         }}
                     >
                         <div className={style.menu}>
-                        <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
+                            <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
                             <div className={style.menuTop}>
                                 < Link to="/">
                                     <div className={style.menuSwitchButton} >
@@ -147,7 +147,10 @@ const [isShow, setIsShow] = useState(false);
                                     <hr /><li>お問い合わせ</li>
                                 </a>
                             </ul>
-
+                            <div className={style.copyright}>
+                                <hr />
+                                <p>©2023 ERISA Co. </p>
+                            </div>
                         </div>
                     </div>
                 </div>

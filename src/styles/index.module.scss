@@ -382,8 +382,29 @@ body::-webkit-scrollbar {
                         background-color: #595959;
                     }
                 }
-
             }
+            .copyright {
+                display: flex;
+                justify-content: flex-start;
+                margin-top: 170px;
+
+                hr {
+                    width: 767px;
+                    height: 1px;
+                    border: none;
+                    background-color: #595959;
+                    margin-left: 0;
+                    margin-right: auto;
+                    margin-top: 17px;
+                }
+                p {
+                    margin-right: 90px;
+                    line-height: 12px;
+                    font-size: 12px;
+                    font-family: 'Montserrat', sans-serif;
+                }
+            }
+
         }
     }
 
@@ -738,224 +759,223 @@ body::-webkit-scrollbar {
                 text-align: center;
             }
         }
-    }
 
-    .mri {
-        height: 650px;
-        overflow: hidden;
-        position: relative;
+        .mri {
+            height: 650px;
+            overflow: hidden;
+            position: relative;
 
-        .mriImage {
-            margin-top: 69px;
-            width: 1040px;
-            height: 480px;
-            object-fit: cover;
-            border-top-right-radius: 20px;
-        }
-        
-        .mriText {
-            background-color: #fff;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            width: 480px;
-            height: 377px;
-            transform: translate(180%, -90%);
-            z-index: 1;
+            .mriImage {
+                margin-top: 69px;
+                width: 1040px;
+                height: 480px;
+                object-fit: cover;
+                border-top-right-radius: 20px;
+            }
             
-            .mriTexttextContainer {
-                padding-top: 40px;
+            .mriText {
+                background-color: #fff;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                width: 480px;
+                height: 377px;
+                transform: translate(180%, -90%);
+                z-index: 1;
+                
+                .mriTexttextContainer {
+                    padding-top: 40px;
 
-                h1 {
-                    font-size: 26px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
-            
-                hr {
-                    width: 60px;
-                    margin-top: 20px;
-                    margin-bottom: 15px;
-                    margin-left: 60px;
-                    color: #595959;
-                }
-            
-                p {
-                    font-size: 16px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
+                    h1 {
+                        font-size: 26px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
+                
+                    hr {
+                        width: 60px;
+                        margin-top: 20px;
+                        margin-bottom: 15px;
+                        margin-left: 60px;
+                        color: #595959;
+                    }
+                
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
 
-                .textSp {
-                    display: none;
+                    .textSp {
+                        display: none;
+                    }
                 }
             }
         }
-    }
 
-    .examination {
-        height: 570px;
-        margin-bottom: 20px;
-        overflow: hidden;
-        margin-right: 0;
-        margin-left: auto;
-        position: relative;
-        z-index: 1;
-
-        .examinationImage{
-            height: 480px;
-            width: 1040px;
-            object-fit: cover;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-        .examinationImageSp{
-            display: none;
-        }
-
-        .examinationText {
-            background-color: #fff;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            width: 480px;
-            height: 307px;
-            padding-top: 70px;
-            position: absolute;
-            right: 865px;
-            top: 145px;
+        .examination {
+            height: 570px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            margin-right: 0;
+            margin-left: auto;
+            position: relative;
             z-index: 1;
 
-                h1 {
-                    font-size: 26px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
+            .examinationImage{
+                height: 480px;
+                width: 1040px;
+                object-fit: cover;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .examinationImageSp{
+                display: none;
+            }
 
-                hr {
-                    width: 60px;
-                    margin-top: 20px;
-                    margin-bottom: 15px;
-                    margin-left: 60px;
-                    color: #595959;
-                }
-
-                p {
-                    font-size: 16px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
-
-                .textSp {
-                    display: none;
-                }
-            
-        }
-    }
-
-    .prevention {
-        height: 650px;
-        overflow: hidden;
-        position: relative;
-
-        .preventionImage {
-            margin-top: 0;
-            border-top-right-radius: 20px;
-            width: 1040px;
-            height: 480px;
-            object-fit: cover;
-        }
-
-        .preventionText {
-            background-color: #fff;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            width: 480px;
-            height: 377px;
-            transform: translate(180%, -90%);
-
-            .preventionTextContainer {
+            .examinationText {
+                background-color: #fff;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                width: 480px;
+                height: 307px;
                 padding-top: 70px;
+                position: absolute;
+                right: 865px;
+                top: 145px;
+                z-index: 1;
 
-                h1 {
-                    font-size: 26px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
+                    h1 {
+                        font-size: 26px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
 
-                hr {
-                    width: 60px;
-                    margin-top: 20px;
-                    margin-bottom: 15px;
-                    margin-left: 60px;
-                    color: #595959;
-                }
+                    hr {
+                        width: 60px;
+                        margin-top: 20px;
+                        margin-bottom: 15px;
+                        margin-left: 60px;
+                        color: #595959;
+                    }
 
-                p {
-                    font-size: 16px;
-                    font-weight: 400;
-                    color: #595959;
-                    letter-spacing: 0.12rem;
-                    display: block;
-                    width: 365px;
-                    margin: auto;
-                }
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
 
-                .textSp {
-                    display: none;
+                    .textSp {
+                        display: none;
+                    }
+                
+            }
+        }
+
+        .prevention {
+            height: 650px;
+            overflow: hidden;
+            position: relative;
+
+            .preventionImage {
+                margin-top: 0;
+                border-top-right-radius: 20px;
+                width: 1040px;
+                height: 480px;
+                object-fit: cover;
+            }
+
+            .preventionText {
+                background-color: #fff;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                width: 480px;
+                height: 377px;
+                transform: translate(180%, -90%);
+
+                .preventionTextContainer {
+                    padding-top: 70px;
+
+                    h1 {
+                        font-size: 26px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
+
+                    hr {
+                        width: 60px;
+                        margin-top: 20px;
+                        margin-bottom: 15px;
+                        margin-left: 60px;
+                        color: #595959;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #595959;
+                        letter-spacing: 0.12rem;
+                        display: block;
+                        width: 365px;
+                        margin: auto;
+                    }
+
+                    .textSp {
+                        display: none;
+                    }
                 }
             }
         }
-    }
 
-    .featureBack {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        z-index: 0;
-        -webkit-user-drag: none;
-        animation-name: huwahuwa;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        animation-duration: 3s;
+        .featureBack {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 0;
+            -webkit-user-drag: none;
+            animation-name: huwahuwa;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-duration: 3s;
+        }
+        .featureBackBottom {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            width: 100vw;
+            z-index: 0;
+            -webkit-user-drag: none;
+            animation-name: huwahuwa;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-duration: 3s;
+        }
     }
-    .featureBackBottom {
-        position: absolute;
-        top: 50%;
-        left: 0%;
-        width: 100vw;
-        z-index: 0;
-        -webkit-user-drag: none;
-        animation-name: huwahuwa;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        animation-duration: 3s;
-    }
-
 }
 
 .voiceMask {
@@ -1718,7 +1738,10 @@ footer {
                 padding-top: 37px;
     
                 .menuTop {
-                    transform: translateX(0);
+                    margin-right: 5%;
+                    .menuSwitchButton {
+                        margin-left: 0;
+                    }
                 }
 
                 .menuList {
@@ -1744,6 +1767,23 @@ footer {
                             margin-right: 20px;
                             background-color: #595959;
                         }
+                    }
+                }
+
+                .copyright {
+                    position: absolute;
+                    bottom: 1%;
+                    left: 0;
+
+                    hr {
+                        width: 260px;
+                        margin-top: 15px;
+                    }
+
+                    p {
+                        font-size: 10px;
+                        margin-right: 0;
+                        margin-left: 2px
                     }
                 }
             }
@@ -1996,6 +2036,7 @@ footer {
                     width: 95vw;
                     height: 40%;
                     object-fit: cover;
+                    border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                 }
     
@@ -2096,6 +2137,7 @@ footer {
                     width: 95vw;
                     height: 250px;
                     object-fit: cover;
+                    border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                 }
     
