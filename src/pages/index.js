@@ -402,8 +402,8 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage id="KvText" src=".../images/KvText.svg" placeholder={"none"} className={style.KvText} />
-            <StaticImage id="KvText" src=".../images/KvTextSp1.svg" placeholder={"none"} className={style.KvTextSp1} />
+            <StaticImage src="../images/KvText.svg" placeholder={"none"} className={style.KvText} />
+            <StaticImage src="../images/KvTextSp1.svg" placeholder={"none"} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
@@ -411,7 +411,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
           <div className={style.mask}>
-            <StaticImage id="KvText" src=".../images/KvTextSp0.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
+            <StaticImage src="../images/KvTextSp0.svg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp0} />
           </div>
 
           <div id="KvText" className={style.mask}>
