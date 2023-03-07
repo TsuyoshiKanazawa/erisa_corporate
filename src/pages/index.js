@@ -42,7 +42,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
   };
   //ドロップダウンメニューの開閉////////////////
 
-  //アニメーション専用/////////////////////////
+  //アニメーション専用/////////////////////////////////////////
   const div = useRef();
   useEffect(() => {
     setAnimation()
@@ -185,16 +185,15 @@ export const Index = (props, rootMargin, triggerOnce) => {
     )
 
     gsap.fromTo(
-      '#mriImage',
-      { objectFit: "50% 50%" }, //fromの設定
+      '#mri',
+      { opacity: 1 }, //fromの設定
       {  //toの設定
-        objectFit: "70% 30%",
+        opacity: 0,
         scrollTrigger: {
-          trigger: '#mriImage',
-          start: 'top 90%',
+          trigger: '#mri',
+          start: 'bottom 50%',
           end: 'bottom 0%',
           scrub: 1.5,
-          markers: true,
         },
       }
     )
@@ -213,6 +212,20 @@ export const Index = (props, rootMargin, triggerOnce) => {
     )
 
     gsap.fromTo(
+      '#examination',
+      { opacity: 1 }, //fromの設定
+      {  //toの設定
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '#examination',
+          start: 'bottom 50%',
+          end: 'bottom 0%',
+          scrub: 1.5,
+        },
+      }
+    )
+
+    gsap.fromTo(
       '#prevention',
       { width: 0 }, //fromの設定
       {  //toの設定
@@ -221,6 +234,20 @@ export const Index = (props, rootMargin, triggerOnce) => {
         scrollTrigger: {
           trigger: '#prevention',
           start: 'top 40%', //要素のトップが、画面の中央まできたら開始
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#prevention',
+      { opacity: 1 }, //fromの設定
+      {  //toの設定
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '#prevention',
+          start: 'bottom 50%',
+          end: 'bottom 0%',
+          scrub: 1.5,
         },
       }
     )
@@ -391,8 +418,9 @@ export const Index = (props, rootMargin, triggerOnce) => {
       }
     )
   //スクロール量に応じて変化///////////////////
+
   }
-  //アニメーション専用/////////////////////////
+  //アニメーション専用/////////////////////////////////////////
 
   return (
     <Layout>
@@ -423,6 +451,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
               3年後の認知症リスクを知る。</h3>
           </div>
         </div>
+        <StaticImage src="../images/scroll.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.scroll} />
       </div>
 
       <div id="about" className={style.about}>
@@ -660,63 +689,63 @@ export const Index = (props, rootMargin, triggerOnce) => {
       <div id="feature" className={style.featureContainer}>
         <StaticImage src="../images/featureBack.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" />
         <StaticImage src="../images/featureBackBottom.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
+        
         <div className={style.feature}>
+
           <div id="featureAnime" className={style.featureAnime}>
             <img src={featureImage} className={style.featureImage} loading="lazy" />
           </div>
+
           <div className={style.featureTitle}>
             <h1>認知症リスク検査の特徴</h1>
           </div>
-            <div id="mri" className={style.mri}>
-              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
-              <div className={style.mriText}>
-                <div className={style.mriTexttextContainer}>
-                  <h1>AIによる<br />
-                    高精度のMRI画像解析で<br />
-                    脳全体の状態を把握</h1>
-                  <hr />
-                  <p>脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
-                  <p className={style.textSp}>
-                    脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
-                </div>
-              </div>
 
-            </div>
+          <div id="mri" className={style.mri}>
+            <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
+            <div className={style.mriText}>
 
-            <div id="examination" className={style.examination}>
-              <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
-              <div className={style.examinationText}>
-                <h1>3年後の脳状態を予測し<br />
-                  認知症リスクを検査</h1>
+              <div className={style.mriTexttextContainer}>
+                <h1>AIによる<br />
+                  高精度のMRI画像解析で<br />
+                  脳全体の状態を把握</h1>
                 <hr />
-                <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
-                <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
-              </div>
-              <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
-            </div>
-
-            <div id="prevention" className={style.prevention}>
-              <StaticImage src="../images/prevention.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
-              <div className={style.preventionText}>
-                <div className={style.preventionTextContainer}>
-                  <h1>
-                    早期対策・予防方針から<br />
-                    生活習慣の見直しに繋がる</h1>
-                  <hr />
-                  <p>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
-                  <p className={style.textSp}>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
-                </div>
+                <p>脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
+                <p className={style.textSp}>
+                  脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
               </div>
 
             </div>
 
+            </div>
+
+          <div id="examination" className={style.examination}>
+            <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
+            <div className={style.examinationText}>
+              <h1>3年後の脳状態を予測し<br />
+                認知症リスクを検査</h1>
+              <hr />
+              <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
+              <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
+            </div>
+            <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
+          </div>
+
+          <div id="prevention" className={style.prevention}>
+            <StaticImage src="../images/prevention.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
+            <div className={style.preventionText}>
+              <div className={style.preventionTextContainer}>
+                <h1>
+                  早期対策・予防方針から<br />
+                  生活習慣の見直しに繋がる</h1>
+                <hr />
+                <p>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
+                <p className={style.textSp}>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
+              </div>
+            </div>
+
+          </div>
 
         </div>
-
-        
-
-
-        
       </div>
     
       <div id="voiceMask" className={style.voiceMask}>

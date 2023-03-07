@@ -594,6 +594,12 @@ body::-webkit-scrollbar {
 
 
     }
+
+    .scroll {
+        position: absolute;
+        bottom: 3%;
+        right: 10%;
+    }
 }
 
 .container {    
@@ -1860,7 +1866,7 @@ footer {
 
         .textContainer {
             transform: translate(0);
-            transform: translateY(-40%);
+            transform: translateY(-20%);
             padding: 0;
             display: block;
             width: 295px;
@@ -1920,6 +1926,10 @@ footer {
                 animation-timing-function: ease-out;
                 animation-fill-mode: forwards;
             }
+        }
+
+        .scroll {
+            right: 4%;
         }
     }
     
