@@ -901,7 +901,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <div className={style.region}>
             <ul id="spacey2" className={style.spacey2}>
               {props.data.allMicrocmsRegion.edges.map((region, index) => (
-                <li key={index}>
+                <li >
                   
                   <div className={style.scrollbutton}>
                     <div className={style.button}

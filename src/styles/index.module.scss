@@ -1348,6 +1348,7 @@ body::-webkit-scrollbar {
     margin-top: 90px;
     padding-bottom: 70px;
     background-color: #fff;
+    position: relative;
 
     .title{
         border-style: solid;
@@ -1382,10 +1383,6 @@ body::-webkit-scrollbar {
             justify-content: center;
             gap: 15px;
             margin: 20px auto 60px auto;
-            position: relative;
-
-
-            
 
             .button {
                 cursor: pointer;
@@ -1420,11 +1417,10 @@ body::-webkit-scrollbar {
             .menus {
                 margin-top: 15px;
                 position: absolute;
-                top: 35px;
+                top: 110px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 885px;
-                padding-left: 70px;
                 color: #595959;
                 border-style: solid;
                 border-color: #595959;
@@ -1434,7 +1430,7 @@ body::-webkit-scrollbar {
                 transition: 0.3s;
                 line-height: 85px;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: center;
                 gap: 70px;
 
                 li {
@@ -2552,27 +2548,25 @@ footer {
             border-color: #E6E6E6;
             padding-top: 20px;
             padding-bottom: 20px;
+            overflow-x: scroll;
 
             .spacey2 {
-                width: 100%;
                 gap: 5px;
                 margin: 0;
-                overflow: wrap;
-                overflow-y: hidden;
 
-                .button {
-                    height: 35px;
-                    
-                    p {
-                        display: inline-block;
-                        min-width: 30px;
+                li {
+                    .button {
+                        p {
+                            display: inline-block;
+                        }
                     }
                 }
+
 
                 .menus {
                     margin-top: 15px;
                     position: absolute;
-                    top: 35px;
+                    top: 4.4%;
                     left: 50%;
                     width: 98vw;
                     padding-left: 0;
