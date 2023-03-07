@@ -270,6 +270,8 @@ body::-webkit-scrollbar {
         opacity: 0;
         transform: translate(100%, -200%);
         transition: 0.8s;
+        
+        border-color: #B0EA0A;
 
         &__active {
             transform: translate(-3.5%, 0);
@@ -285,6 +287,24 @@ body::-webkit-scrollbar {
             margin-right: 0;
             margin-left: auto;
             padding-top: 40px;
+            position: relative;
+            overflow: hidden;
+            border-left-style: solid;
+            border-bottom-style: solid;
+            border-color: #B0EA0A;
+
+            .menuBack {
+                position: absolute;
+                width: 1300px;
+                top: 0;
+                right: 0%;
+                -webkit-user-drag: none;
+                animation-name: huwahuwa;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-duration: 3s;
+            }
 
             .menuTop {
                 margin-right: 0;

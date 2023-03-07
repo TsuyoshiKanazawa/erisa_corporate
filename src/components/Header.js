@@ -54,10 +54,13 @@ const [isShow, setIsShow] = useState(false);
         <header className={style.headerWrapper}>
             <div className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
                 <div className={style.flexContainer}>
-                    < Link to="/">
+                    <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://www.erisa.co.jp/">
                         <img src={logoWhite} className={style.logoWhite} />
                         <img src={logoColor} className={style.logoColor} />
-                    </Link >
+                    </a>
                     <ul>
                         < Link to="/">
                             <div className={style.switchButton}>
@@ -83,12 +86,14 @@ const [isShow, setIsShow] = useState(false);
                         }}
                     >
                         <div className={style.menu}>
-
+                        <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
                             <div className={style.menuTop}>
-                                <div className={style.menuSwitchButton} >
-                                    <p>医療関係者の方はこちら</p>
-                                    <div className={style.playButton}></div>
-                                </div>
+                                < Link to="/">
+                                    <div className={style.menuSwitchButton} >
+                                        <p>医療関係者の方はこちら</p>
+                                        <div className={style.playButton}></div>
+                                    </div>
+                                </Link>
                                 <button 
                                     className={style.close}
                                     onClick={() => {
