@@ -12,6 +12,7 @@ import * as style from "../styles/index.module.scss"
 import KVsp from '../images/KVSP.jpg'
 import about from '../images/about.png'
 import lineVertical from '../images/line-vertical.png';
+import featureImage from '../images/feature.png';
 import flowImage from '../images/flow.png';
 import questionImage from '../images/question.png'
 import number1 from '../images/01.png' 
@@ -355,7 +356,6 @@ export const Index = (props, rootMargin, triggerOnce) => {
           start: 'top 90%',
           end: 'top 0%',
           scrub: 1.5,
-          markers: true,
         },
       }
     )
@@ -385,7 +385,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <StaticImage src="../images/KV.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
         <img src={KVsp} className={style.heroImg_sp} />
         <StaticImage src="../images/uneune.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
-
+          <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
         <div className={style.textContainer}>
           <div className={style.mask}>
             <StaticImage id="KvText" src="../images/KvText.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
@@ -635,7 +635,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
         </div>
-          <StaticImage src="../images/aboutBack.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.aboutBack} loading="lazy" />
+        <StaticImage src="../images/aboutBack.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.aboutBack} loading="lazy" />
 
       </div>
 
@@ -644,57 +644,60 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <StaticImage src="../images/featureBackBottom.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
         <div className={style.feature}>
           <div id="featureAnime" className={style.featureAnime}>
-            <StaticImage src="../images/feature.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.featureImage} loading="lazy" />
+            <img src={featureImage} className={style.featureImage} loading="lazy" />
           </div>
           <div className={style.featureTitle}>
             <h1>認知症リスク検査の特徴</h1>
           </div>
+            <div id="mri" className={style.mri}>
+              <StaticImage src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
+              <div className={style.mriText}>
+                <div className={style.mriTexttextContainer}>
+                  <h1>AIによる<br />
+                    高精度のMRI画像解析で<br />
+                    脳全体の状態を把握</h1>
+                  <hr />
+                  <p>脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
+                  <p className={style.textSp}>
+                    脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div id="examination" className={style.examination}>
+              <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
+              <div className={style.examinationText}>
+                <h1>3年後の脳状態を予測し<br />
+                  認知症リスクを検査</h1>
+                <hr />
+                <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
+                <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
+              </div>
+              <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
+            </div>
+
+            <div id="prevention" className={style.prevention}>
+              <StaticImage src="../images/prevention.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
+              <div className={style.preventionText}>
+                <div className={style.preventionTextContainer}>
+                  <h1>
+                    早期対策・予防方針から<br />
+                    生活習慣の見直しに繋がる</h1>
+                  <hr />
+                  <p>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
+                  <p className={style.textSp}>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
+                </div>
+              </div>
+
+            </div>
+
+
         </div>
 
         
 
-        <div id="mri" className={style.mri}>
-          <StaticImage src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
-          <div className={style.mriText}>
-            <div className={style.mriTexttextContainer}>
-              <h1>AIによる<br />
-                高精度のMRI画像解析で<br />
-                脳全体の状態を把握</h1>
-                <hr />
-              <p>脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
-              <p className={style.textSp}>
-                脳の一部（海馬）のみならず、脳全体の状態を把握することで、膨大なデータベースと照合し高精度の解析を実現。脳各部位の体積の将来変化を予測することで、これまでの解析以上に正確な脳状態を確認できます。</p>
-            </div>
-          </div>
-            
-        </div>
 
-        <div id="examination" className={style.examination}>
-          <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
-          <div className={style.examinationText}>
-              <h1>3年後の脳状態を予測し<br />
-                認知症リスクを検査</h1>
-              <hr />
-              <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
-              <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
-            </div>
-          <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
-        </div>
-
-        <div id="prevention" className={style.prevention}>
-          <StaticImage src="../images/prevention.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
-          <div className={style.preventionText}>
-            <div className={style.preventionTextContainer}>
-            <h1>
-              早期対策・予防方針から<br />
-              生活習慣の見直しに繋がる</h1>
-            <hr />
-              <p>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
-              <p className={style.textSp}>自身の脳状態や将来の認知症リスクを知ることで、レポートや医療機関を通じた早期対策・予防方針から、効果的な生活習慣の見直しを検討することに繋がります。</p>
-            </div>
-          </div>
-            
-        </div>
         
       </div>
     

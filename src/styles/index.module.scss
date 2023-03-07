@@ -34,7 +34,6 @@ body::-webkit-scrollbar {
 }
 
 
-// Header
 .headerWrapper {
     transition: 0.5s;
     position: fixed;
@@ -443,9 +442,8 @@ body::-webkit-scrollbar {
     .uneune {
         position: absolute;
         z-index: 9998;
-        top: -20%;
-        left: -15%;
-        width: 120%;
+        top: -30%;
+        left: 0%;
         height: 160vh;
         opacity: 0.3;
         -webkit-user-drag: none;
@@ -454,6 +452,10 @@ body::-webkit-scrollbar {
         animation-iteration-count: infinite;
         animation-direction: alternate;
         animation-duration: 3s;
+    }
+
+    .uneuneSp {
+        display: none;
     }
 
     .heroImg {
@@ -704,7 +706,7 @@ body::-webkit-scrollbar {
             height: 50px;
             border-radius: 10px;
             position: absolute;
-            top: 77%;
+            top: 7%;
             right: 50%;
             transform: translateX(50%);
     
@@ -1030,10 +1032,10 @@ body::-webkit-scrollbar {
         margin-right: auto;
         transform: translateY(180px);
     }
+
     .flowImageMask{
         overflow: hidden;
     }
-
 
     .circleContainer {
         display: flex;
@@ -1761,6 +1763,22 @@ footer {
         .uneune {
             display: none;
         }
+        .uneuneSp {
+            display: block;
+            opacity: 0.4;
+            position: absolute;
+            top: 0%;
+            left: -50%;
+            height: 180vw;
+            width: 180vw;
+            opacity: 0.3;
+            -webkit-user-drag: none;
+            animation-name: huwahuwa;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-duration: 3s;
+        }
 
         .textContainer {
             transform: translate(0);
@@ -1777,26 +1795,52 @@ footer {
                 display: none;
             }
 
-            .KvTextSp1 {
-                display: block;
-                width: 180px;
-            }
-
             .KvTextSp0 {
                 display: block;
                 width: 250px;
+                opacity: 0;
+                animation-name: fadeUpAnime;
+                animation-duration: 0.3s;
+                animation-delay: 0.9s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
             }
+
+            .KvTextSp1 {
+                display: block;
+                width: 180px;
+                opacity: 0;
+                animation-name: fadeUpAnime;
+                animation-duration: 0.3s;
+                animation-delay: 0.5s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+
+
 
             .lineVertical {
                 height: 25px;
                 margin: 0;
                 margin-left: 80px;
                 width: 2px;
+                opacity: 0;
+                animation-name: fadeUpAnime;
+                animation-duration: 0.3s;
+                animation-delay: 0.7s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
             }
 
             h3 {
                 font-size: 16px;
                 margin-top: 10%;
+                opacity: 0;
+                animation-name: fadeUpAnime;
+                animation-duration: 0.3s;
+                animation-delay: 1.1s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
             }
         }
     }
@@ -1893,50 +1937,111 @@ footer {
             height: 70px;
         }
 
+        .aboutBack {
+            width: 300vw;
+            left: -130%;
+        }
+
     }
 
     .featureContainer {
-        margin-top: 0%;
+        margin-top: 15%;
+        
+        .featureBack {
+            width: 300vw;
+            left: -30%;
+            top: -10%;
+        }
+
+        .featureBackBottom {
+            width: 300vw;
+            left: -20%;
+            top: 50%;
+        }
 
         .feature {
             .featureImage {
-                width: 500vw !important;
+                width: 210vw !important;
             }
-        }
 
-        .mri {
-            display: block;
-            .mriImage {
-                width: 95vw;
-                height: 40%;
-                object-fit: cover;
-                border-bottom-right-radius: 10px;
+            .featureTitle {
+                top: 5%;
             }
-            .mriText {
-                transform: translate(0);
-                transform: translateY(-10%);
-                width: 90vw;
-                height: 310px;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
 
-                .mriTexttextContainer {
+            .mri {
+                display: block;
+                margin-top: 10%;
+    
+                .mriImage {
+                    width: 95vw;
+                    height: 40%;
+                    object-fit: cover;
+                    border-bottom-right-radius: 10px;
+                }
+    
+                .mriText {
+                    transform: translate(0);
+                    transform: translateY(-10%);
+                    width: 90vw;
+                    height: 310px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+    
+                    .mriTexttextContainer {
+                        padding-left: 5%;
+    
+    
+                        h1 {
+                            font-size: 20px;
+                        }
+    
+                        hr {
+                            margin-left: 0;
+                            margin-right: auto;
+                        }
+    
+                        p {
+                            display: none;
+                        }
+    
+                        .textSp {
+                            display: block;
+                            font-size: 14px;
+                            width: 95%;
+                            margin-left: 0;
+                            margin-right: auto;
+                        }
+                    }
+                }
+            }
+    
+            .examination {
+                display: block;
+                height: 480px;
+    
+                .examinationText {
+                    width: 85vw;
+                    height: 200px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    top: 48%;
+                    right: 0;
                     padding-left: 5%;
-                    
-
+                    padding-top: 20px;
+    
                     h1 {
                         font-size: 20px;
                     }
-
+    
                     hr {
                         margin-left: 0;
                         margin-right: auto;
                     }
-
+    
                     p {
                         display: none;
                     }
-
+    
                     .textSp {
                         display: block;
                         font-size: 14px;
@@ -1945,106 +2050,73 @@ footer {
                         margin-right: auto;
                     }
                 }
-            }
-        }
-
-        .examination {
-            display: block;
-            height: 480px;
-
-            .examinationText {
-                width: 85vw;
-                height: 200px;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                top: 48%;
-                right: 0;
-                padding-left: 5%;
-                padding-top: 20px;
-
-                h1 {
-                    font-size: 20px;
-                }
-
-                hr {
-                    margin-left: 0;
-                    margin-right: auto;
-                }
-
-                p {
+    
+                .examinationImage {
                     display: none;
                 }
-                .textSp {
+    
+                .examinationImageSp {
+                    width: 95vw;
+                    height: 250px;
                     display: block;
-                    font-size: 14px;
-                    width: 95%;
-                    margin-left: 0;
-                    margin-right: auto;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    object-fit: cover;
+                    border-bottom-left-radius: 10px;
+                    border-top-left-radius: 10px;
                 }
             }
-
-            .examinationImage{
-                display: none;
-            }
-
-            .examinationImageSp {
-                width: 95vw;
-                height: 250px;
+    
+            .prevention {
                 display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
-                object-fit: cover;
-                border-bottom-left-radius: 10px;
-                border-top-left-radius: 10px;
-            }
-        }
-
-        .prevention {
-            display: block;
-            height: auto;
-
-            .preventionImage {
-                width: 95vw;
-                height: 250px;
-                object-fit: cover;
-                border-bottom-right-radius: 10px;
-            }
-            .preventionText {
-                transform: translate(0);
-                transform: translateY(-10%);
-                width: 90vw;
-                height: 230px;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-
-                .preventionTextContainer {
-                    padding-left: 5%;
-                    padding-top: 25px;
-                    
-                    h1 {
-                        font-size: 20px;
-                    }
-
-                    hr {
-                        margin-left: 0;
-                        margin-right: auto;
-                    }
-
-                    p {
-                        display: none;
-                    }
-
-                    .textSp {
-                        display: block;
-                        font-size: 14px;
-                        width: 95%;
-                        margin-left: 0;
-                        margin-right: auto;
+                height: auto;
+    
+                .preventionImage {
+                    width: 95vw;
+                    height: 250px;
+                    object-fit: cover;
+                    border-bottom-right-radius: 10px;
+                }
+    
+                .preventionText {
+                    transform: translate(0);
+                    transform: translateY(-10%);
+                    width: 90vw;
+                    height: 230px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+    
+                    .preventionTextContainer {
+                        padding-left: 5%;
+                        padding-top: 25px;
+    
+                        h1 {
+                            font-size: 20px;
+                        }
+    
+                        hr {
+                            margin-left: 0;
+                            margin-right: auto;
+                        }
+    
+                        p {
+                            display: none;
+                        }
+    
+                        .textSp {
+                            display: block;
+                            font-size: 14px;
+                            width: 95%;
+                            margin-left: 0;
+                            margin-right: auto;
+                        }
                     }
                 }
             }
         }
+
+
     }
 
     .voiceMask {
@@ -2115,8 +2187,9 @@ footer {
             transform: translateY(-50px);
             .flowImage {
                 display: block;
-                height: 190px;
-                margin-left: -10%;
+                height: 140px;
+                margin-left: 0;
+                margin-right: auto;
             }
         }
 
@@ -2530,6 +2603,11 @@ footer {
         position: relative;
         overflow: hidden;
 
+        .footerBack {
+            width: 350vw;
+            left: -140%;
+            top: 10%;
+        }
 
         .footerContainer {
             display: block;
