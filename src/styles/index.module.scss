@@ -44,7 +44,22 @@ body::-webkit-scrollbar {
 
     .logoColor {
         transform: translateX(-80px);
-        display: none;
+        visibility: hidden;
+        transition: 0.2s;
+        transition-delay: 0.2s;
+
+        &__active {
+            visibility: visible;
+        }
+    }
+
+    .logoWhite {
+        transition: 0.2s;
+        transition-delay: 0.2s;
+    }
+
+    .logoWhite__active {
+        visibility: hidden;
     }
 
     .switchButton {
@@ -304,6 +319,7 @@ body::-webkit-scrollbar {
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
                 animation-duration: 3s;
+                z-index: 0;
             }
 
             .menuTop {
@@ -313,6 +329,8 @@ body::-webkit-scrollbar {
                 justify-content: flex-end;
                 gap: 12px;
                 margin-right: 70px;
+                position: relative;
+                z-index: 1;
 
                 .close {
                     display: block;
@@ -362,7 +380,9 @@ body::-webkit-scrollbar {
                 flex-flow: column;
                 gap: 50px;
                 padding-left: 300px;
-                padding-top: 150px;
+                padding-top: 100px;
+                position: relative;
+                z-index: 1;
 
                 .list {
                     display: flex;
@@ -723,18 +743,6 @@ body::-webkit-scrollbar {
         width: 100%;
         overflow: hidden;
 
-        @keyframes fadeinfeature {
-            from {
-                opacity: 0;
-                transform: translateX(500px);
-            }
-    
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         .featureAnime {
             overflow: hidden;
             .featureImage {
@@ -948,33 +956,33 @@ body::-webkit-scrollbar {
                 }
             }
         }
+    }
 
-        .featureBack {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            z-index: 0;
-            -webkit-user-drag: none;
-            animation-name: huwahuwa;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-duration: 3s;
-        }
-        .featureBackBottom {
-            position: absolute;
-            top: 50%;
-            left: 0%;
-            width: 100vw;
-            z-index: 0;
-            -webkit-user-drag: none;
-            animation-name: huwahuwa;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-duration: 3s;
-        }
+    .featureBack {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 0;
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 3s;
+    }
+    .featureBackBottom {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        width: 100vw;
+        z-index: 0;
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 3s;
     }
 }
 
@@ -1693,18 +1701,28 @@ footer {
     .headerWrapper {
         width: 100vw;
 
-        .logoWhite {
-            width: 50px;
-            margin-left: 0;
-            margin-right: auto;
-            z-index: 1;
+        .flexContainer {
+            a {
+                position: relative;
+             .logoWhite {
+                    width: 50px;
+                    margin-left: 0;
+                    margin-right: auto;
+                    position: relative;
+                    z-index: 1;
+                }
             
+                .logoColor {
+                    width: 50px;
+                    position: absolute;
+                    top: 0;
+                    left: 80px;
+                    z-index: 1;
+                }
+            }
         }
-        .logoColor {
-            width: 50px;
-            transform: translate(0);
-            z-index: 1;
-        }
+
+
 
         .switchButton {
             width: 195px;
@@ -1746,7 +1764,7 @@ footer {
 
                 .menuList {
                     padding-left: 15%;
-                    padding-top: 25%;
+                    padding-top: 20%;
                     font-size: 18px;
                     gap: 50px;
 

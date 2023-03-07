@@ -10,43 +10,50 @@ import logoColor from '../images/logoColor.svg'
 const Header = (state) => {
 
 //ヘッダーが表示・非表示になる/////////////////
-    const [isHeaderShown, setIsHeaderShown] = useState(true);
-    const [lastPosition, setLastPosition] = useState(0);
-    const headerHeight = 100;
-    const scrollEvent = React.useCallback(() => {
-        const offset = window.pageYOffset;
+const [isHeaderShown, setIsHeaderShown] = useState(true);
+const [lastPosition, setLastPosition] = useState(0);
+const headerHeight = 100;
+const scrollEvent = React.useCallback(() => {
+    const offset = window.pageYOffset;
 
-        if (offset > headerHeight) {
-            setIsHeaderShown(false);
-            
-        } else {
-            setIsHeaderShown(true);
-        }
+    if (offset > headerHeight) {
+        setIsHeaderShown(false);
+        
+    } else {
+        setIsHeaderShown(true);
+    }
 
-        if (offset < lastPosition) {
-            setIsHeaderShown(true);
-        }
+    if (offset < lastPosition) {
+        setIsHeaderShown(true);
+    }
 
-        setLastPosition(offset);
-    }, [lastPosition]);
+    setLastPosition(offset);
+}, [lastPosition]);
 
-    useEffect(() => {
-        window.addEventListener('scroll', scrollEvent);
+useEffect(() => {
+    window.addEventListener('scroll', scrollEvent);
 
-        return () => {
-            window.removeEventListener('scroll', scrollEvent);
-        };
-    }, [scrollEvent]);
+    return () => {
+        window.removeEventListener('scroll', scrollEvent);
+    };
+}, [scrollEvent]);
 ///////////////////////////////////////////
 
 //ハンバーガーメニューの開閉/////////////////
 const [isShow, setIsShow] = useState(false);
   const closeWithClickOutSideMethod = (e, setter) => {
-    if (e.target === e.currentTarget) {
-      setter(false);//メニューの外側をクリックしたときだけメニューを閉じる
+    if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
+      setter(false);//メニューを閉じる
       document.body.style.overflow = "auto"; //スクロール禁止解除
     }
   };
+
+const [active, setActive] = useState(false);
+
+const classToggle = () => {
+    setActive(!active)
+}
+
 ///////////////////////////////////////////
 
 
@@ -58,8 +65,8 @@ const [isShow, setIsShow] = useState(false);
                     target="_blank"
                     rel="noopener"
                     href="https://www.erisa.co.jp/">
-                        <img src={logoWhite} className={style.logoWhite} />
-                        <img src={logoColor} className={style.logoColor} />
+                        <img src={logoWhite} className={`index-module--logoWhite--2bd0c ${isShow ? "index-module--logoWhite__active--7787c" : ""}`} />
+                        <img src={logoColor} className={`index-module--logoColor--f67bf ${isShow ? "index-module--logoColor__active--bad48" : ""}`} />
                     </a>
                     <ul>
                         < Link to="/">
@@ -74,6 +81,7 @@ const [isShow, setIsShow] = useState(false);
                             onClick={() => {
                                 setIsShow(!isShow);
                                 document.body.style.overflow = "hidden"; //スクロール禁止
+                                
                             }}
                         >
                             <StaticImage src="../images/hamberger.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.hamberger} />
@@ -86,7 +94,6 @@ const [isShow, setIsShow] = useState(false);
                         }}
                     >
                         <div className={style.menu}>
-                            <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
                             <div className={style.menuTop}>
                                 < Link to="/">
                                     <div className={style.menuSwitchButton} >
@@ -146,11 +153,22 @@ const [isShow, setIsShow] = useState(false);
                                     }}> 
                                     <hr /><li>お問い合わせ</li>
                                 </a>
+                                <a href="https://www.erisa.co.jp/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    className={style.list}
+                                    onClick={() => {
+                                        setIsShow(!isShow);
+                                        document.body.style.overflow = "auto";
+                                    }}>
+                                    <hr /><li>株式会社ERISA</li>
+                                </a>
                             </ul>
                             <div className={style.copyright}>
                                 <hr />
                                 <p>©2023 ERISA Co. </p>
                             </div>
+                            <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
                         </div>
                     </div>
                 </div>
