@@ -49,6 +49,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-8NW68GETB2" //※1
+        ],
+        pluginConfig: { //※2
+          head: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

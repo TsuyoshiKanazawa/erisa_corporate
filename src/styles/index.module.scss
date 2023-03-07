@@ -1703,7 +1703,7 @@ footer {
 
 
 @media screen and (max-width: 500px) {
-    /* 959px以下に適用されるCSS（タブレット・スマホ用） */
+    /* 500px以下に適用されるCSS（タブレット・スマホ用） */
     .headerWrapper {
         width: 100vw;
 
@@ -1938,7 +1938,7 @@ footer {
         padding: 0;
 
         .aboutImageMask {
-            transform: translateY(-90%);
+            transform: translateY(-10%);
             
 
             .aboutImage {

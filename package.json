@@ -8,6 +8,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "classnames": "^2.3.2",
     "gatsby": "^5.3.3",
+    "gatsby-plugin-google-gtag": "^5.7.0",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-manifest": "^5.3.1",
     "gatsby-plugin-sass": "^6.3.1",

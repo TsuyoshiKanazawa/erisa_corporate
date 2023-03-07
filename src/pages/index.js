@@ -391,32 +391,33 @@ export const Index = (props, rootMargin, triggerOnce) => {
     )
 
     gsap.fromTo(
-      '.mriImage',
-      { zoom: 1 }, //fromの設定
-      {  //toの設定
-        zoom: 1.2,
-        scrollTrigger: {
-          trigger: '.mriImage',
-          start: 'top 90%',
-          end: 'top 0%',
-          scrub: 1.5,
-        },
-      }
-    )
-
-    gsap.fromTo(
-      '#aboutBack',
+      '#aboutTitleMask, #aboutCopy, #line1, #aboutTriger0, #aboutText, #reference',
       { y: 0 }, //fromの設定
       {  //toの設定
-        y: -100,
+        y: -70,
         scrollTrigger: {
-          trigger: ' #aboutBack',
+          trigger: ' #aboutCopy',
           start: 'center 90%',
           end: 'center 0%',
           scrub: 1.5,
         },
       }
     )
+
+    gsap.fromTo(
+      '#aboutImage',
+      { y: -110 }, //fromの設定
+      {  //toの設定
+        y: -180,
+        scrollTrigger: {
+          trigger: ' #aboutCopy',
+          start: 'center 90%',
+          end: 'center 0%',
+          scrub: 1.5,
+        },
+      }
+    )
+
   //スクロール量に応じて変化///////////////////
 
   }
@@ -456,7 +457,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="about" className={style.about}>
         
-        <div className={style.mask}>
+        <div id="aboutTitleMask" className={style.mask}>
           <h1 id="aboutTitle" className={style.aboutTitle}>
             認知症リスク検査とは？
           </h1>
@@ -532,27 +533,27 @@ export const Index = (props, rootMargin, triggerOnce) => {
               認知症リスク検査は、島根大学医学部、滋賀医科大学、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0}>
               株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0}>
               脳の状態から3年後の認知症リスクを検査します。
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0}>
               脳の一部だけではなく、脳全体を膨大なデータと比較することで、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0}>
               高い精度を実現。将来を見据えた認知症予防の検討材料として、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0}>
               受診者様のライフスタイル見直しに貢献します。
             </div>
@@ -563,53 +564,53 @@ export const Index = (props, rootMargin, triggerOnce) => {
               認知症リスク検査は、島根大学医学部、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               滋賀医科大学株式会社ERISAで共同開
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               発された、世界で唯一の脳画像解析技術
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               で、脳の状態から3年後の認知症リスク
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               を検査します。脳の一部だけではなく、
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               脳全体を膨大なデータと比較すること
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               で、脳の状態から3年後の認知症リスク
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               で、高い精度を実現。将来を見据えた認
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               知症予防の検討材料として、受診者様の
             </div>
           </div>
-          <div className={style.mask}>
+          <div id="aboutText" className={style.mask}>
             <div id="aboutText0" className={style.aboutText0Sp}>
               ライフスタイル見直しに貢献します。
             </div>
           </div>
           
-        <div className={style.reference}>
+          <div id="reference" className={style.reference}>
           <div id="RMark" className={style.RMarkContainer}>
             <StaticImage src="../images/RMark.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
           </div>
