@@ -658,8 +658,9 @@ body::-webkit-scrollbar {
 
     .aboutBack {
         position: absolute;
-        top: -20%;
-        left: -30%;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
         -webkit-user-drag: none;
         animation-name: huwahuwa;
         animation-timing-function: ease-in-out;
@@ -908,8 +909,9 @@ body::-webkit-scrollbar {
 
     .featureBack {
         position: absolute;
-        top: -5%;
-        left: -10%;
+        top: 0;
+        left: 0;
+        width: 100vw;
         z-index: 0;
         -webkit-user-drag: none;
         animation-name: huwahuwa;
@@ -920,8 +922,9 @@ body::-webkit-scrollbar {
     }
     .featureBackBottom {
         position: absolute;
-        top: 55%;
-        left: -10%;
+        top: 50%;
+        left: 0%;
+        width: 100vw;
         z-index: 0;
         -webkit-user-drag: none;
         animation-name: huwahuwa;

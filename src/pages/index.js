@@ -10,10 +10,9 @@ import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
 import KVsp from '../images/KVSP.jpg'
-import aboutBack from '../images/aboutBack.png'
 import about from '../images/about.png'
 import lineVertical from '../images/line-vertical.png';
-import examination from '../images/examination.jpg' 
+import flowImage from '../images/flow.png';
 import questionImage from '../images/question.png'
 import number1 from '../images/01.png' 
 import number2 from '../images/02.png' 
@@ -274,7 +273,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
       { width: 0 }, //fromの設定
       {  //toの設定
         width: "100%",
-        duration: 0.5,
+        duration: 1.5,
         scrollTrigger: {
           trigger: '#questionImageMask',
           start: 'top 60%', //要素のトップが、画面の中央まできたら開始
@@ -636,8 +635,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
           </div>
 
         </div>
-
-        <img src={aboutBack} id="aboutBack" className={style.aboutBack} loading="lazy" />
+          <StaticImage src="../images/aboutBack.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.aboutBack} loading="lazy" />
 
       </div>
 
@@ -680,7 +678,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
               <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
               <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
             </div>
-          <img src={examination} className={style.examinationImage} loading="lazy" />
+          <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
         </div>
 
         <div id="prevention" className={style.prevention}>
@@ -733,7 +731,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
       <div id="flow" className={style.flowContainer}>
         <h1>検査の流れ</h1>
         <div id="flowImageMask" className={style.flowImageMask} >
-          <StaticImage src="../images/flow.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.flowImage} loading="lazy" />
+          <img src={flowImage} className={style.flowImage} loading="lazy" />
         </div>
 
         <div className={style.circleContainer}>
