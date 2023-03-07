@@ -1,5 +1,5 @@
 @import './variables.scss';
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
 
@@ -75,13 +75,13 @@ body::-webkit-scrollbar {
     
         p {
             color: black;
-            margin-right: 10%;
             text-align: center;
+            margin: 0;
+            margin-left: 20px;
             font-size: 14px;
             font-weight: 300;
             letter-spacing: 0.16rem;
             line-height: 36px;
-            transform: translate(15%, -170%);
             transition: .3s;
         }
     

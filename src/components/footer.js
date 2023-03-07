@@ -4,9 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as style from "../styles/index.module.scss"
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-import footerBack from '../images/footerBack.png'
-import logoFooter from '../images/logoFooter.svg'
-
 const Footer = () => {
     return (
         <footer>

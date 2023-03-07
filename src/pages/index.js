@@ -300,10 +300,10 @@ export const Index = (props, rootMargin, triggerOnce) => {
       {  //toの設定
         scale: 1,
         duration: 0.5,
-        delay: 0.3,
         scrollTrigger: {
           trigger: '#circle',
-          start: 'top 40%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 40%',
+          markers:true,
         },
         stagger: {
           each: 0.2,
@@ -321,7 +321,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 1.5,
         scrollTrigger: {
           trigger: '#questionImageMask',
-          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 60%',
         },
       }
     )
@@ -717,7 +717,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
             </div>
 
-            </div>
+          </div>
 
           <div id="examination" className={style.examination}>
             <StaticImage src="../images/examination.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />

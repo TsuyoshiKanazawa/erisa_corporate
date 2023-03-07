@@ -69,13 +69,14 @@ const classToggle = () => {
                         <img src={logoColor} className={`index-module--logoColor--f67bf ${isShow ? "index-module--logoColor__active--bad48" : ""}`} />
                     </a>
                     <ul>
-                        < Link to="/">
-                            <div className={style.switchButton}>
+
+                        <div className={style.switchButton}>
+                            < Link to="https://www.erisa.co.jp/">
                                 <p>医療関係者の方はこちら</p>
-                                <div className={style.playButton}></div>
-                            </div>
-                        </Link>
-                        
+                            </Link>
+                            <div className={style.playButton}></div>
+                        </div>
+
                         <button 
                             className={style.hmb} 
                             onClick={() => {
@@ -166,7 +167,7 @@ const classToggle = () => {
                             </ul>
                             <div className={style.copyright}>
                                 <hr />
-                                <p>©2023 ERISA Co. </p>
+                                <p>©2023 ERISA Co.</p>
                             </div>
                             <StaticImage src="../images/menuBack.png" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.menuBack} />
                         </div>
