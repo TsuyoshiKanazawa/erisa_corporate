@@ -9,6 +9,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
+import KvText from '../images/Kvtext.svg'
 import about from '../images/about.png'
 import lineVertical from '../images/line-vertical.png';
 import featureImage from '../images/feature.png';
@@ -402,7 +403,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage src="../images/KvText.svg" placeholder={"none"} className={style.KvText} />
+            <img src={KvText} className={style.KvText} />
             <StaticImage src="../images/KvTextSp1.svg" placeholder={"none"} className={style.KvTextSp1} />
           </div>
 

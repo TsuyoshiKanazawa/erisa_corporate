@@ -1827,7 +1827,9 @@ footer {
     .hero {
         width: 100vw;
 
-
+        .heroImg {
+            display: none;
+        }
 
         .heroImg_sp {
             height: 100%;
@@ -1868,7 +1870,7 @@ footer {
             flex-flow: column;
 
             .KvText {
-                display: none;
+
             }
 
             .KvTextSp0 {
