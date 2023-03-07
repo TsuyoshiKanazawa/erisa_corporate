@@ -48,20 +48,6 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
   const setAnimation = () => {
 
-    gsap.fromTo(
-      '#KvText',
-      { y: 100, opacity: 0 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        opacity: 1,
-        delay: 1,
-        duration: 0.5,
-        stagger: {
-          each: 0.2,
-        },
-      }
-    )
-
     //about//////////////////////
     gsap.fromTo(
       '#aboutTitle',

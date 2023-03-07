@@ -21,6 +21,18 @@ body::-webkit-scrollbar {
     opacity: 0;
 }
 
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 // Header
 .headerWrapper {
@@ -472,6 +484,12 @@ body::-webkit-scrollbar {
         }
         .KvText {
             width: 533px;
+            opacity: 0;
+            animation-name: fadeUpAnime;
+            animation-duration: 0.3s;
+            animation-delay: 0.5s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
         }
 
         .KvTextSp0 {
@@ -489,7 +507,12 @@ body::-webkit-scrollbar {
             margin-left: -350px;
             margin-top: 20px;
             margin-bottom: 20px;
-
+            opacity: 0;
+            animation-name: fadeUpAnime;
+            animation-duration: 0.3s;
+            animation-delay: 0.7s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
         }
 
         h3 {
@@ -498,20 +521,15 @@ body::-webkit-scrollbar {
             text-align: left;
             line-height: 170%;
             letter-spacing: 0.16em;
-
+            opacity: 0;
+            animation-name: fadeUpAnime;
+            animation-duration: 0.3s;
+            animation-delay: 0.9s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
         }
 
-        @keyframes fadeUpAnime {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     }
 }
 
