@@ -303,7 +303,6 @@ export const Index = (props, rootMargin, triggerOnce) => {
         scrollTrigger: {
           trigger: '#circle',
           start: 'top 40%',
-          markers:true,
         },
         stagger: {
           each: 0.2,
@@ -336,7 +335,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText',
-          start: 'top 60%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 60%',
         },
         stagger: {
           each: 0.2,
@@ -352,7 +351,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#hospital',
-          start: 'top 70%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 70%',
         },
         stagger: {
           each: 0.2,
@@ -930,7 +929,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
                       clicked === index
                         ? {
                           height: "15px",
-                          marginBottom: "70px"
+                          marginBottom: "85px"
                         }
                         : { height: "0", opacity: "0", transitionDelay: "0.5s" }
                     } />
@@ -963,12 +962,14 @@ export const Index = (props, rootMargin, triggerOnce) => {
             <h1>{Introduce.node.name}</h1>
             <h2>Address：{Introduce.node.address}</h2>
             <h3>Tel：{Introduce.node.number}</h3>
-            <a href={Introduce.node.url}>
+
               <div className={style.hospitalButton}>
-                <p>VIEW WEB</p>
+                <a href={Introduce.node.url}>
+                  <p>VIEW WEB</p>
+                </a>
                 <div className={style.playButton}></div>
               </div>
-            </a>
+            
           </div>
         )
         )}

@@ -96,12 +96,14 @@ const classToggle = () => {
                     >
                         <div className={style.menu}>
                             <div className={style.menuTop}>
-                                < Link to="/">
-                                    <div className={style.menuSwitchButton} >
+                                
+                                <div className={style.menuSwitchButton} >
+                                    < Link to="/">
                                         <p>医療関係者の方はこちら</p>
-                                        <div className={style.playButton}></div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                    <div className={style.playButton}></div>
+                                </div>
+                                
                                 <button 
                                     className={style.close}
                                     onClick={() => {

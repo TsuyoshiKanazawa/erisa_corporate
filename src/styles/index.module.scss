@@ -177,13 +177,13 @@ body::-webkit-scrollbar {
 
         p {
             color: black;
-            margin-right: 10%;
             text-align: center;
             font-size: 14px;
             font-weight: 300;
             letter-spacing: 0.16rem;
             line-height: 36px;
-            transform: translate(15%, -170%);
+            margin: 0;
+            margin-left: 20px;
             transition: .3s;
         }
 
@@ -389,7 +389,12 @@ body::-webkit-scrollbar {
                     justify-content: flex-start;
 
                     li {
-                        color: #595959
+                        color: #595959;
+                        transition: 0.3s;
+                    }
+
+                    li:hover {
+                        transform: scale(1.05, 1.05);
                     }
 
                     hr {
@@ -1500,14 +1505,13 @@ body::-webkit-scrollbar {
 
                 p {
                     color: black;
-                    margin-right: 10%;
-                    margin-left: 50px;
                     text-align: center;
                     font-size: 14px;
                     font-weight: 300;
                     letter-spacing: 0.16rem;
                     line-height: 36px;
-                    transform: translate(15%, -170%);
+                    margin: 0;
+                    margin-left: 50px;
                     transition: .3s;
                 }
 
@@ -1729,13 +1733,10 @@ footer {
             }
         }
 
-
-
         .switchButton {
             width: 195px;
             p {
-                transform: translate(0);
-                transform: translate(9%, -110%);
+                margin-left: 10px;
                 font-size: 12px;
                 width: 155px;
             }
@@ -1746,10 +1747,9 @@ footer {
             width: 195px;
 
             p {
-                transform: translate(0);
-                transform: translate(9%, -110%);
                 font-size: 12px;
                 width: 155px;
+                margin-left: 10px;
             }
 
         }
@@ -2547,27 +2547,33 @@ footer {
 
         .region {
             width: 100vw;
-            overflow: hidden;
             border-style: solid;
             border-width: 1px;
             border-color: #E6E6E6;
-            
+            padding-top: 20px;
+            padding-bottom: 20px;
 
             .spacey2 {
                 width: 100%;
                 gap: 5px;
-                margin: 20px 0 20px 0;
-                overflow-x: scroll;
+                margin: 0;
+                overflow: wrap;
+                overflow-y: hidden;
 
                 .button {
                     height: 35px;
+                    
+                    p {
+                        display: inline-block;
+                        min-width: 30px;
+                    }
                 }
 
                 .menus {
                     margin-top: 15px;
                     position: absolute;
                     top: 35px;
-                    left: 0;
+                    left: 50%;
                     width: 98vw;
                     padding-left: 0;
                     text-align: center;
@@ -2586,7 +2592,6 @@ footer {
                 hr {
                     transition: 0.3s;
                     background-color: #595959;
-                    border: none;
                     margin-top: 0;
                     width: 1px;
                 }
@@ -2638,14 +2643,11 @@ footer {
 
                     p {
                         color: black;
-                        margin-right: 10%;
-                        margin-left: 50px;
                         text-align: center;
                         font-size: 14px;
                         font-weight: 300;
                         letter-spacing: 0.16rem;
                         line-height: 36px;
-                        transform: translate(15%, -170%);
                         transition: .3s;
                     }
 
