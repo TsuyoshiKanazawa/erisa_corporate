@@ -486,7 +486,7 @@ body::-webkit-scrollbar {
     }
 
     100% {
-        transform: skew(15deg);
+        transform: skew(10deg);
     }
 }
 
@@ -512,7 +512,7 @@ body::-webkit-scrollbar {
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-        animation-duration: 3s;
+        animation-duration: 6s;
     }
 
     .uneuneSp {
