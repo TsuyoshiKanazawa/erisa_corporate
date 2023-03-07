@@ -10,8 +10,8 @@ import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
 import KvText from '../images/Kvtext.svg'
-import KvTextSp0 from '../images/KvTextSp0.svg'
 import KvTextSp1 from '../images/KvTextSp1.svg'
+import KvTextSp0 from '../images/KvTextSp0.svg'
 import about from '../images/about.png'
 import lineVertical from '../images/line-vertical.png'
 import featureImage from '../images/feature.png'
@@ -403,6 +403,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         <StaticImage src="../images/KVSP.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} />
         <StaticImage src="../images/uneune.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
         <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
+        
         <div className={style.textContainer}>
           <div className={style.mask}>
             <img src={KvText} className={style.KvText} />
