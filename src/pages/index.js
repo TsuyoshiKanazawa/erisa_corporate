@@ -9,7 +9,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import KVsp from '../images/KVSP.jpg'
 import about from '../images/about.png'
 import lineVertical from '../images/line-vertical.png';
 import featureImage from '../images/feature.png';
@@ -178,6 +177,21 @@ export const Index = (props, rootMargin, triggerOnce) => {
         scrollTrigger: {
           trigger: '#mri',
           start: 'top 40%', //要素のトップが、画面の中央まできたら開始
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#mriImage',
+      { objectFit: "50% 50%" }, //fromの設定
+      {  //toの設定
+        objectFit: "70% 30%",
+        scrollTrigger: {
+          trigger: '#mriImage',
+          start: 'top 90%',
+          end: 'bottom 0%',
+          scrub: 1.5,
+          markers: true,
         },
       }
     )
@@ -383,13 +397,13 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
       <div id="hero" className={style.hero}>
         <StaticImage src="../images/KV.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
-        <img src={KVsp} className={style.heroImg_sp} />
+        <StaticImage src="../images/KVSP.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} />
         <StaticImage src="../images/uneune.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
-          <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
+        <StaticImage src="../images/uneuneSp.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
         <div className={style.textContainer}>
           <div className={style.mask}>
-            <StaticImage id="KvText" src="../images/KvText.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvText} />
-            <StaticImage id="KvText" src="../images/KvTextSp1.svg" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.KvTextSp1} />
+            <StaticImage id="KvText" src="../images/KvText.svg" placeholder={"none"} className={style.KvText} />
+            <StaticImage id="KvText" src="../images/KvTextSp1.svg" placeholder={"none"} className={style.KvTextSp1} />
           </div>
 
           <div className={style.mask}>
@@ -650,7 +664,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
             <h1>認知症リスク検査の特徴</h1>
           </div>
             <div id="mri" className={style.mri}>
-              <StaticImage src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
+              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
               <div className={style.mriText}>
                 <div className={style.mriTexttextContainer}>
                   <h1>AIによる<br />
