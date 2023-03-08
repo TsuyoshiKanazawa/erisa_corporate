@@ -82,7 +82,6 @@ const classToggle = () => {
                             onClick={() => {
                                 setIsShow(!isShow);
                                 document.body.style.overflow = "hidden"; //スクロール禁止
-                                
                             }}
                         >
                             <StaticImage src="../images/hamberger.svg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.hamberger} />

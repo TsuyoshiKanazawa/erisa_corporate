@@ -283,7 +283,7 @@ body::-webkit-scrollbar {
         position: absolute;
         top: 0;
         opacity: 0;
-        transform: translate(100%, -200%);
+        transform: translateX(100%);
         transition: 0.8s;
         
         border-color: #B0EA0A;
@@ -518,6 +518,7 @@ body::-webkit-scrollbar {
         animation-iteration-count: infinite;
         animation-direction: alternate;
         animation-duration: 6s;
+        pointer-events: none;
     }
 
     .uneuneSp {
@@ -528,6 +529,7 @@ body::-webkit-scrollbar {
         width: 100%;
         height: 100vh;
         object-fit: cover;
+        pointer-events: none;
     }
 
     .heroImg_sp {
@@ -630,11 +632,13 @@ body::-webkit-scrollbar {
         margin-bottom: -130px;
         position: relative;
         transform: translateY(-120px);
+        pointer-events: none;
 
         .aboutImage {
             position: absolute;
             top: 0;
             right: -60px;
+            pointer-events: none;
         }
     }
 
@@ -644,6 +648,8 @@ body::-webkit-scrollbar {
         font-weight: 400;
         margin: 0;
         margin-left: 15%;
+        position: relative;
+        z-index: 1;
     }
     .aboutCopy {
         margin-top: 40px;
@@ -735,12 +741,12 @@ body::-webkit-scrollbar {
         top: 0%;
         left: 0%;
         width: 100vw;
-        -webkit-user-drag: none;
         animation-name: huwahuwa;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-direction: alternate;
         animation-duration: 3s;
+        pointer-events: none;
     }
 }
 
@@ -975,7 +981,7 @@ body::-webkit-scrollbar {
         left: 0;
         width: 100vw;
         z-index: 0;
-        -webkit-user-drag: none;
+        pointer-events: none;
         animation-name: huwahuwa;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
@@ -988,7 +994,7 @@ body::-webkit-scrollbar {
         left: 0%;
         width: 100vw;
         z-index: 0;
-        -webkit-user-drag: none;
+        pointer-events: none;
         animation-name: huwahuwa;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
@@ -1013,6 +1019,7 @@ body::-webkit-scrollbar {
     .voiceContainer {
         background-image: url("../images/voiceImage.png");
         background-repeat: no-repeat;
+        pointer-events: none;
         height: 493px;
         width: 1280px;
         margin-left: auto;
@@ -1293,51 +1300,53 @@ body::-webkit-scrollbar {
             margin-bottom: 100px;
         }
 
+        .questionTextMask {
+            overflow: hidden;
 
-
-        .questionText {
-            margin-left: 160px;
-
-            hr {
-                border: none;
-                height: 1px;
-                color: #595959;
-                background-color: #595959;
-                margin-bottom: 20px;
-            }
-
-            .question {
-                display: flex;
-                justify-content: flex-start;
-                margin-left: 10px;
-                margin-top: 28px;
-
-                .Q {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 30px;
-                    line-height: 30px;
-                    color: #71BED9;
-                }
-
-                .title {
-                    margin-left: 15px;
-                    color: #71BED9;
-                    font-size: 18px;
-                }
-
-                .A {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 30px;
-                    line-height: 30px;
+            .questionText {
+                margin-left: 160px;
+        
+                hr {
+                    border: none;
+                    height: 1px;
                     color: #595959;
-                    margin-left: 30px;
+                    background-color: #595959;
                     margin-bottom: 20px;
                 }
-
-                .answer {
-                    margin-left: 15px;
-                    color: #595959;
-                    font-size: 18px;
+        
+                .question {
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-left: 10px;
+                    margin-top: 28px;
+        
+                    .Q {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 30px;
+                        line-height: 30px;
+                        color: #71BED9;
+                    }
+        
+                    .title {
+                        margin-left: 15px;
+                        color: #71BED9;
+                        font-size: 18px;
+                    }
+        
+                    .A {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 30px;
+                        line-height: 30px;
+                        color: #595959;
+                        margin-left: 30px;
+                        margin-bottom: 20px;
+                    }
+        
+                    .answer {
+                        margin-left: 15px;
+                        color: #595959;
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -1430,11 +1439,17 @@ body::-webkit-scrollbar {
                 transition: 0.3s;
                 line-height: 85px;
                 display: flex;
-                justify-content: center;
-                gap: 70px;
+                flex-wrap: wrap;
+                z-index: 1;
 
                 li {
                     cursor: pointer;
+                    transition: 0.3s;
+                    margin-left: 65px;
+                }
+
+                li:hover {
+                    transform: scale(1.1, 1.1);
                 }
             }
 
@@ -2025,6 +2040,7 @@ footer {
         .aboutBack {
             width: 300vw;
             left: -130%;
+            pointer-events: none;
         }
 
     }
@@ -2447,86 +2463,89 @@ footer {
         overflow: hidden;
         margin-top: 20%;
 
-    .questionImageMask{
-        position: absolute;
-        right: 0;
-        top: 0;
+        .questionImageMask{
+            position: absolute;
+            right: 0;
+            top: 0;
 
-        .questionImage {
-            width: 103vw;
-            opacity: 0.5;
+            .questionImage {
+                width: 103vw;
+                opacity: 0.5;
+            }
         }
-    }
 
-
-    .questionContainer1 {
-        width: 95vw;
-        margin-right: 0;
-        margin-left: auto;
-        padding-top: 25%;
-        padding-bottom: 50px;
-
-        h1 {
-            font-size: 16px;
-            line-height: 40px;
-            width: 70%;
-            height: 40px;
+        .questionContainer1 {
+            width: 95vw;
+            margin-right: 0;
             margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 15%;
-            transform: translateY(0);
-        }
+            padding-top: 25%;
+            padding-bottom: 50px;
 
-        .questionText {
-            margin-left: 5%;
-            padding-bottom: 5%;
-
-            hr {
-                border: none;
-                height: 1px;
-                color: #595959;
-                background-color: #595959;
-                margin-bottom: 20px;
+            h1 {
+                font-size: 16px;
+                line-height: 40px;
+                width: 70%;
+                height: 40px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 15%;
+                transform: translateY(0);
             }
 
-            .question {
-                display: flex;
-                justify-content: flex-start;
-                margin-left: 10px;
-                margin-top: 28px;
+            .questionTextMask {
+                overflow: hidden;
 
-                .Q {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 26px;
-                    line-height: 26px;
-                    color: #71BED9;
-                }
-
-                .title {
-                    margin-left: 15px;
-                    color: #71BED9;
-                    font-size: 16px;
-                    width: 70vw;
-                }
-
-                .A {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 26px;
-                    line-height: 26px;
-                    color: #595959;
-                    margin-left: 30px;
-                    margin-bottom: 20px;
-                }
-
-                .answer {
-                    margin-left: 15px;
-                    color: #595959;
-                    font-size: 16px;
-                    width: 60vw;
+                .questionText {
+                    margin-left: 5%;
+                    padding-bottom: 5%;
+            
+                    hr {
+                        border: none;
+                        height: 1px;
+                        color: #595959;
+                        background-color: #595959;
+                        margin-bottom: 20px;
+                    }
+            
+                    .question {
+                        display: flex;
+                        justify-content: flex-start;
+                        margin-left: 10px;
+                        margin-top: 28px;
+            
+                        .Q {
+                            font-family: 'Montserrat', sans-serif;
+                            font-size: 26px;
+                            line-height: 26px;
+                            color: #71BED9;
+                        }
+            
+                        .title {
+                            margin-left: 15px;
+                            color: #71BED9;
+                            font-size: 16px;
+                            width: 70vw;
+                        }
+            
+                        .A {
+                            font-family: 'Montserrat', sans-serif;
+                            font-size: 26px;
+                            line-height: 26px;
+                            color: #595959;
+                            margin-left: 30px;
+                            margin-bottom: 20px;
+                        }
+            
+                        .answer {
+                            margin-left: 15px;
+                            color: #595959;
+                            font-size: 16px;
+                            width: 60vw;
+                        }
+                    }
                 }
             }
         }
-    }
     }
 
 
@@ -2581,12 +2600,11 @@ footer {
                     transition: 0.3s;
                     line-height: 85px;
                     display: flex;
-                    justify-content: center;
-                    gap: 10px;
                     font-size: 14px;
 
                     li {
                         cursor: pointer;
+                        margin-left: 40px;
                     }
                 }
 
