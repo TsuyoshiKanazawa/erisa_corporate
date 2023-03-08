@@ -326,7 +326,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#circle',
-          start: 'top 40%',
+          start: 'top 70%',
         },
         stagger: {
           each: 0.2,
