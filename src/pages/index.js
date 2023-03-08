@@ -390,9 +390,9 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
     gsap.fromTo(
       '#hospital',
-      { scale: 0 }, //fromの設定
+      { opacity: 0 }, //fromの設定
       {  //toの設定
-        scale: 1,
+        opacity: 1,
         duration: 0.5,
         scrollTrigger: {
           trigger: '#hospital',
