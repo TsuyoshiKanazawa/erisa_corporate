@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react"
+import React, { useState, useEffect, memo } from "react"
 import { Link } from "gatsby" 
 import { StaticImage } from "gatsby-plugin-image" 
 import * as style from "../styles/index.module.scss"
@@ -181,4 +181,4 @@ const classToggle = () => {
     )
 }
 
-export default Header
+export default memo(Header)
