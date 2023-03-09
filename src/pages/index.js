@@ -43,9 +43,12 @@ export const Index = (props) => {
   const div = useRef();
   useEffect(() => {
     setAnimation()
+    
   }, [div])
+  let mm = gsap.matchMedia();
 
   const setAnimation = () => {
+
 
     //KV/////////////////////////
     gsap.fromTo(
@@ -149,11 +152,11 @@ export const Index = (props) => {
 
     gsap.fromTo(
       '#RMark',
-      { scale: 0 }, //fromの設定
+      { y: 100, opacity: 1 }, //fromの設定
       {  //toの設定
-        scale: 1,
-        rotation: 1440,
-        duration: 1,
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
         scrollTrigger: {
           trigger: '#aboutTriger1',
           start: 'top 70%', //要素のトップが、画面の中央まできたら開始
@@ -288,9 +291,8 @@ export const Index = (props) => {
 
     gsap.fromTo(
       '#voiceMask',
-      { scale: 0, opacity: 0 }, //fromの設定
+      { opacity: 1 }, //fromの設定
       {  //toの設定
-        scale: 1,
         opacity: 1,
         duration: 0.4,
         scrollTrigger: {
@@ -300,23 +302,44 @@ export const Index = (props) => {
       }
     )
 
+    mm.add("(min-width: 501px)", () => {
     gsap.fromTo(
       '#voiceText',
-      { scale: 0, opacity: 0 }, //fromの設定
+      { y: 100, opacity: 0 }, //fromの設定
       {  //toの設定
-        scale: 1,
+        y: 0,
         opacity: 1,
         duration: 0.4,
         delay:0.3,
         scrollTrigger: {
           trigger: '#voiceMask',
-          start: 'top 80%', //要素のトップが、画面の中央まできたら開始
+          start: 'top 80%',
         },
         stagger: {
           each: 0.2,
         }
       }
     )
+    });
+
+    mm.add("(max-width: 500px)", () => {
+      // ここに500px以下のときのコードを書きます
+      ScrollTrigger.batch('#voiceText', {
+        onEnter: batch => gsap.fromTo(batch,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            start: 'top 60%',
+          }
+        ),
+        once: true
+      });
+    });
 
     //voice//////////////////////
 
@@ -335,22 +358,43 @@ export const Index = (props) => {
       }
     )
 
-    gsap.fromTo(
-      '#circle',
-      { scale: 0 }, //fromの設定
-      {  //toの設定
-        scale: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#circle',
-          start: 'top 70%',
-        },
-        stagger: {
-          each: 0.2,
-        },
-      }
-    )
+    mm.add("(min-width: 501px)", () => {
+      gsap.fromTo(
+        '#circle',
+        { scale: 0 }, //fromの設定
+        {  //toの設定
+          scale: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: '#circle',
+            start: 'top 70%',
+          },
+          stagger: {
+            each: 0.2,
+          },
+        }
+      )
+    });
 
+    mm.add("(max-width: 500px)", () => {
+      // ここに500px以下のときのコードを書きます
+      ScrollTrigger.batch('#circle', {
+        onEnter: batch => gsap.fromTo(batch,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            start: 'top 60%',
+          }
+
+        ),
+        once: true
+      });
+    });
     //flow///////////////////////
 
     //question///////////////////
@@ -369,19 +413,61 @@ export const Index = (props) => {
     )
 
     gsap.fromTo(
-      '#questionText',
-      { opacity: 0, x: 400}, //fromの設定
+      '#questionText0',
+      { opacity: 0, y: 70}, //fromの設定
       {  //toの設定
         opacity: 1,
-        x: 0,
+        y: 0,
         delay: 0.3,
         duration: 0.5,
         scrollTrigger: {
-          trigger: '#questionText',
+          trigger: '#questionText0',
           start: 'top 60%',
         },
-        stagger: {
-          each: 0.2,
+      }
+    )
+
+    gsap.fromTo(
+      '#questionText1',
+      { opacity: 0, y: 70 }, //fromの設定
+      {  //toの設定
+        opacity: 1,
+        y: 0,
+        delay: 0.3,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#questionText1',
+          start: 'top 60%',
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#questionText2',
+      { opacity: 0, y: 70 }, //fromの設定
+      {  //toの設定
+        opacity: 1,
+        y: 0,
+        delay: 0.3,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#questionText2',
+          start: 'top 60%',
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#questionText3',
+      { opacity: 0, y: 70 }, //fromの設定
+      {  //toの設定
+        opacity: 1,
+        y: 0,
+        delay: 0.3,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#questionText3',
+          start: 'top 60%',
         },
       }
     )
@@ -389,79 +475,29 @@ export const Index = (props) => {
     //question///////////////////
 
     //introduce///////////////////
-    gsap.fromTo(
-      '#hospitalContainer',
-      { opacity: 0, scale: 0 }, //fromの設定
-      {  //toの設定
-        opacity: 1,
-        scale: 1,
-        scrollTrigger: {
-          trigger: '#hospitalContainer',
-          start: 'top 70%',
-        },
-      }
-    )
+
+      ScrollTrigger.batch('#hospital',{
+        onEnter: batch => gsap.fromTo(batch,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            delay: 2,
+            start: 'top 30%',
+          }
+          
+        ),
+        once: true
+      });
+
     //introduce///////////////////
 
-    //スクロール量に応じて変化///////////////////
 
-    gsap.fromTo(
-      '#hospitalContainer',
-      { y: 0 }, //fromの設定
-      {  //toの設定
-        y: -50,
-        scrollTrigger: {
-          trigger: '#hospitalContainer',
-          start: 'top 90%',
-          end: 'bottom 0%',
-          scrub: 1.5,
-        },
-      }
-    )
 
-    gsap.fromTo(
-      '#voiceMask',
-      { y: 0 }, //fromの設定
-      {  //toの設定
-        y: -70,
-        scrollTrigger: {
-          trigger: ' #voiceMask',
-          start: 'top 90%',
-          end: 'top 0%',
-          scrub: 1.5,
-        },
-      }
-    )
-
-    gsap.fromTo(
-      '#aboutTitleMask, #aboutCopy, #line1, #aboutTriger0, #aboutText, #reference',
-      { y: 0 }, //fromの設定
-      {  //toの設定
-        y: -70,
-        scrollTrigger: {
-          trigger: ' #aboutCopy',
-          start: 'center 90%',
-          end: 'center 0%',
-          scrub: 1.5,
-        },
-      }
-    )
-
-    gsap.fromTo(
-      '#aboutImage',
-      { y: -110 }, //fromの設定
-      {  //toの設定
-        y: -180,
-        scrollTrigger: {
-          trigger: ' #aboutCopy',
-          start: 'center 90%',
-          end: 'center 0%',
-          scrub: 1.5,
-        },
-      }
-    )
-
-  //スクロール量に応じて変化///////////////////
 
   }
   //アニメーション専用/////////////////////////////////////////
@@ -654,8 +690,10 @@ export const Index = (props) => {
             </div>
             
             <div id="reference" className={style.reference}>
-            <div id="RMark" className={style.RMarkContainer}>
-              <StaticImage src="../images/RMark.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
+            <div className={style.RMarkContainer}>
+              <div id="RMark">
+                <StaticImage src="../images/RMark.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
+              </div>
             </div>
 
             <div>
@@ -878,58 +916,73 @@ export const Index = (props) => {
             <h1>よくあるご質問</h1>
             
             <div className={style.questionTextMask}>
-              <div id="questionText" className={style.questionText}>
+              <div className={style.questionText}>
                 <hr />
 
-                <div className={style.question}>
-                  <h2 className={style.Q}>Q.</h2>
-                  <h3 className={style.title}>どれくらいの頻度で受けるべきですか？</h3>
+                <div className={style.mask}>
+                  <div id="questionText0" className={style.question}>
+                    <h2 className={style.Q}>Q.</h2>
+                    <h3 className={style.title}>どれくらいの頻度で受けるべきですか？</h3>
+                  </div>
                 </div>
-                <div className={style.question}>
-                  <h2 className={style.A}>A.</h2>
-                  <h3 className={style.answer}>2～3年に1回の検査をおすすめします。</h3>
+
+                <div className={style.mask}>
+                  <div id="questionText0" className={style.question}>
+                    <h2 className={style.A}>A.</h2>
+                    <h3 className={style.answer}>2～3年に1回の検査をおすすめします。</h3>
+                  </div>
                 </div>
 
               </div>
 
-              <div id="questionText" className={style.questionText}>
+              <div className={style.questionText}>
                 <hr />
-
-                <div className={style.question}>
-                  <h2 className={style.Q}>Q.</h2>
-                  <h3 className={style.title}>何歳から受けられますか？</h3>
+                <div className={style.mask}>
+                  <div id="questionText1" className={style.question}>
+                    <h2 className={style.Q}>Q.</h2>
+                    <h3 className={style.title}>何歳から受けられますか？</h3>
+                  </div>
                 </div>
-                <div className={style.question}>
-                  <h2 className={style.A}>A.</h2>
-                  <h3 className={style.answer}>50歳以上の方に推奨しています。</h3>
+
+                <div className={style.mask}>
+                  <div id="questionText1" className={style.question}>
+                    <h2 className={style.A}>A.</h2>
+                    <h3 className={style.answer}>50歳以上の方に推奨しています。</h3>
+                  </div>
                 </div>
 
               </div>
 
-              <div id="questionText" className={style.questionText}>
+              <div className={style.questionText}>
                 <hr />
-
-                <div className={style.question}>
-                  <h2 className={style.Q}>Q.</h2>
-                  <h3 className={style.title}>この検査で認知症を診断することができますか？</h3>
+                <div className={style.mask}>
+                  <div id="questionText2" className={style.question}>
+                    <h2 className={style.Q}>Q.</h2>
+                    <h3 className={style.title}>この検査で認知症を診断することができますか？</h3>
+                  </div>
                 </div>
-                <div className={style.question}>
-                  <h2 className={style.A}>A.</h2>
-                  <h3 className={style.answer}>この検査で認知症を診断することはできません。</h3>
+                <div className={style.mask}>
+                  <div id="questionText2" className={style.question}>
+                    <h2 className={style.A}>A.</h2>
+                    <h3 className={style.answer}>この検査で認知症を診断することはできません。</h3>
+                  </div>
                 </div>
-
               </div>
 
-              <div id="questionText" className={style.questionText}>
+              <div className={style.questionText}>
                 <hr />
-
-                <div className={style.question}>
-                  <h2 className={style.Q}>Q.</h2>
-                  <h3 className={style.title}>脳が萎縮すると認知症になるのですか？</h3>
+                <div className={style.mask}>
+                  <div id="questionText3" className={style.question}>
+                    <h2 className={style.Q}>Q.</h2>
+                    <h3 className={style.title}>脳が萎縮すると認知症になるのですか？</h3>
+                  </div>
                 </div>
-                <div className={style.question}>
-                  <h2 className={style.A}>A.</h2>
-                  <h3 className={style.answer}>脳の萎縮のみから認知症の診断はできません。検査結果が心配な方は専門医の受診をお勧めします。</h3>
+
+                <div className={style.mask}>
+                  <div id="questionText3" className={style.question}>
+                    <h2 className={style.A}>A.</h2>
+                    <h3 className={style.answer}>脳の萎縮のみから認知症の診断はできません。検査結果が心配な方は専門医の受診をお勧めします。</h3>
+                  </div>
                 </div>
                 <hr />
               </div>
