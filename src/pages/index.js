@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import AnimationTrigger from "../components/AnimationTrigger";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
