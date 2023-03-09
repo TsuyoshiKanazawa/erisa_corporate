@@ -1473,11 +1473,25 @@ body::-webkit-scrollbar {
         margin-left: auto;
         margin-right: auto;
 
+        .fadeIn {
+            opacity: 1;
+            transform: scale(1);
+            transition: 0.3s;
+            transition-duration: 0.5s;
+        }
+
+        .noShow {
+            opacity: 0;
+            transform: scale(0);
+        }
+        
         .hospital {
             background-color: #EBEBEB;
+            margin-top: 0;
             width: 360px;
             height: 206px;
             border-radius: 20px;
+
             h1 {
                 font-size: 20px;
                 text-decoration: underline;

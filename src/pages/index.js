@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnimationTrigger from "../components/AnimationTrigger";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -327,6 +328,7 @@ export const Index = (props, rootMargin, triggerOnce) => {
         scrollTrigger: {
           trigger: '#circle',
           start: 'top 70%',
+          markers: true,
         },
         stagger: {
           each: 0.2,
@@ -385,25 +387,22 @@ export const Index = (props, rootMargin, triggerOnce) => {
         },
       }
     )
+    
+    //question///////////////////
 
     //introduce///////////////////
-
     gsap.fromTo(
-      '#hospital',
-      { opacity: 0 }, //fromの設定
+      '#hospitalContainer',
+      { opacity: 0, scale: 0 }, //fromの設定
       {  //toの設定
         opacity: 1,
-        duration: 0.5,
+        scale: 1,
         scrollTrigger: {
-          trigger: '#hospital',
+          trigger: '#hospitalContainer',
           start: 'top 70%',
-        },
-        stagger: {
-          each: 0.2,
         },
       }
     )
-
     //introduce///////////////////
 
     //スクロール量に応じて変化///////////////////
@@ -1008,20 +1007,20 @@ export const Index = (props, rootMargin, triggerOnce) => {
 
             {props.data.allMicrocmsIntroduce.edges.map((Introduce, index) => (
               
-              <div id="hospital" className={style.hospital} key={index}>
+                <div id="hospital" key={index} className={style.hospital}>
 
-                <h1>{Introduce.node.name}</h1>
-                <h2>Address：{Introduce.node.address}</h2>
-                <h3>Tel：{Introduce.node.number}</h3>
+                  <h1>{Introduce.node.name}</h1>
+                  <h2>Address：{Introduce.node.address}</h2>
+                  <h3>Tel：{Introduce.node.number}</h3>
 
-                  <div className={style.hospitalButton}>
-                    <a href={Introduce.node.url}>
-                      <p>VIEW WEB</p>
-                    </a>
-                    <div className={style.playButton}></div>
-                  </div>
-                
-              </div>
+                    <div className={style.hospitalButton}>
+                      <a href={Introduce.node.url}>
+                        <p>VIEW WEB</p>
+                      </a>
+                      <div className={style.playButton}></div>
+                    </div>
+                  
+                </div>
             ))}
 
           </div>
