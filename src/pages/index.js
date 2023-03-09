@@ -340,7 +340,6 @@ export const Index = (props) => {
         scrollTrigger: {
           trigger: '#circle',
           start: 'top 70%',
-          markers: true,
         },
         stagger: {
           each: 0.2,
