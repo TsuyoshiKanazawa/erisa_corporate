@@ -24,6 +24,7 @@ import pointLine from '../images/pointLine.png';
 
 
 gsap.registerPlugin(ScrollTrigger);
+
 export const Index = (props) => {
   console.log(props);
 
@@ -46,6 +47,7 @@ export const Index = (props) => {
 
   const setAnimation = () => {
 
+    //KV/////////////////////////
     gsap.fromTo(
       '#KvText',
       { y: 200 }, //fromの設定
@@ -62,6 +64,7 @@ export const Index = (props) => {
         }
       }
     )
+    //KV/////////////////////////
 
     //about//////////////////////
 
@@ -340,23 +343,6 @@ export const Index = (props) => {
         scrollTrigger: {
           trigger: '#circle',
           start: 'top 70%',
-        },
-        stagger: {
-          each: 0.2,
-        },
-      }
-    )
-
-    gsap.fromTo(
-      '#pointLine',
-      { scale: 0 }, //fromの設定
-      {  //toの設定
-        scale: 1,
-        duration: 0.5,
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: '#circle',
-          start: 'top 40%',
         },
         stagger: {
           each: 0.2,
@@ -857,7 +843,7 @@ export const Index = (props) => {
               </AnchorLink>
             </div>
             <div>
-                <img id="pointLine" src={pointLine} className={style.pointLine} />
+              <img id="circle" src={pointLine} className={style.pointLine} />
             </div>
 
             <div id="circle" className={style.circle}>
@@ -869,7 +855,7 @@ export const Index = (props) => {
                 <StaticImage src="../images/brain.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.brainImage} />
             </div>
             <div>
-              <img id="pointLine" src={pointLine} className={style.pointLine} />
+              <img id="circle" src={pointLine} className={style.pointLine} />
             </div>
             <div id="circle" className={style.circle}>
               <img src={number3} className={style.number} />
