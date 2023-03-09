@@ -476,23 +476,33 @@ export const Index = (props) => {
 
     //introduce///////////////////
 
-      ScrollTrigger.batch('#hospital',{
-        onEnter: batch => gsap.fromTo(batch,
-          {
-            y: 100,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            delay: 2,
-            start: 'top 30%',
-          }
-          
-        ),
-        once: true
-      });
+
+
+    ScrollTrigger.batch('#hospital', {
+      onEnter: batch => gsap.fromTo(batch,
+        {
+          y: 50,
+          autoAlpha: 0
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          delay: 0.6,
+          duration: 1.2,
+          ease: 'power2.out'
+        }
+      ),
+      once: true
+    });
+
+    gsap.set("#hospital", { opacity: 0, y: 100 }); //初期状態をセット
+
+    ScrollTrigger.batch("#hospital", {
+      onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, }),
+      start: "top 50%",
+      once: true,
+      markers: true
+    });
 
     //introduce///////////////////
 
