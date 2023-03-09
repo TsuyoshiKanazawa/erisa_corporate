@@ -47,6 +47,7 @@ body::-webkit-scrollbar {
         visibility: hidden;
         transition: 0.2s;
         transition-delay: 0.2s;
+        width: 80px;
 
         &__active {
             visibility: visible;
@@ -56,6 +57,7 @@ body::-webkit-scrollbar {
     .logoWhite {
         transition: 0.2s;
         transition-delay: 0.2s;
+        width: 80px;
     }
 
     .logoWhite__active {
@@ -269,6 +271,7 @@ body::-webkit-scrollbar {
 
         .hamberger {
             transition: 0.2s;
+            width: 36px;
         }
 
         .hamberger:hover {
@@ -591,6 +594,7 @@ body::-webkit-scrollbar {
         position: absolute;
         bottom: 3%;
         right: 10%;
+        width: 17px;
     }
 }
 

@@ -501,7 +501,6 @@ export const Index = (props) => {
       onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, }),
       start: "top 50%",
       once: true,
-      markers: true
     });
 
     //introduce///////////////////
