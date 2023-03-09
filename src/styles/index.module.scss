@@ -554,6 +554,7 @@ body::-webkit-scrollbar {
         }
         .KvText {
             width: 533px;
+            opacity: 0;
         }
 
         .KvTextSp0 {
@@ -571,6 +572,7 @@ body::-webkit-scrollbar {
             margin-left: -350px;
             margin-top: 20px;
             margin-bottom: 20px;
+            opacity: 0;
         }
 
         h3 {
@@ -579,7 +581,7 @@ body::-webkit-scrollbar {
             text-align: left;
             line-height: 170%;
             letter-spacing: 0.16em;
-
+            opacity: 0;
         }
 
 
