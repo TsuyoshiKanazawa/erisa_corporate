@@ -407,7 +407,7 @@ export const Index = (props) => {
         duration: 1.5,
         scrollTrigger: {
           trigger: '#questionImageMask',
-          start: 'top 60%',
+          start: 'top 80%',
         },
       }
     )
@@ -422,7 +422,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText0',
-          start: 'top 60%',
+          start: 'top 80%',
         },
       }
     )
@@ -437,7 +437,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText1',
-          start: 'top 60%',
+          start: 'top 80%',
         },
       }
     )
@@ -452,7 +452,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText2',
-          start: 'top 60%',
+          start: 'top 80%',
         },
       }
     )
@@ -467,7 +467,8 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText3',
-          start: 'top 60%',
+          start: 'top 80%',
+          markers: true,
         },
       }
     )
