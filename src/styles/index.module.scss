@@ -554,12 +554,6 @@ body::-webkit-scrollbar {
         }
         .KvText {
             width: 533px;
-            opacity: 0;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.3s;
-            animation-delay: 0.5s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
         }
 
         .KvTextSp0 {
@@ -577,12 +571,6 @@ body::-webkit-scrollbar {
             margin-left: -350px;
             margin-top: 20px;
             margin-bottom: 20px;
-            opacity: 0;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.3s;
-            animation-delay: 0.7s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
         }
 
         h3 {
@@ -591,12 +579,7 @@ body::-webkit-scrollbar {
             text-align: left;
             line-height: 170%;
             letter-spacing: 0.16em;
-            opacity: 0;
-            animation-name: fadeUpAnime;
-            animation-duration: 0.3s;
-            animation-delay: 0.9s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
+
         }
 
 
@@ -1908,23 +1891,12 @@ footer {
             .KvTextSp0 {
                 display: block;
                 width: 250px;
-                opacity: 0;
-                animation-name: fadeUpAnime;
-                animation-duration: 0.3s;
-                animation-delay: 0.9s;
-                animation-timing-function: ease-out;
-                animation-fill-mode: forwards;
             }
 
             .KvTextSp1 {
                 display: block;
                 width: 180px;
-                opacity: 0;
-                animation-name: fadeUpAnime;
-                animation-duration: 0.3s;
-                animation-delay: 0.5s;
-                animation-timing-function: ease-out;
-                animation-fill-mode: forwards;
+
             }
 
 
@@ -1934,23 +1906,11 @@ footer {
                 margin: 0;
                 margin-left: 80px;
                 width: 2px;
-                opacity: 0;
-                animation-name: fadeUpAnime;
-                animation-duration: 0.3s;
-                animation-delay: 0.7s;
-                animation-timing-function: ease-out;
-                animation-fill-mode: forwards;
             }
 
             h3 {
                 font-size: 16px;
                 margin-top: 10%;
-                opacity: 0;
-                animation-name: fadeUpAnime;
-                animation-duration: 0.3s;
-                animation-delay: 1.1s;
-                animation-timing-function: ease-out;
-                animation-fill-mode: forwards;
             }
         }
 

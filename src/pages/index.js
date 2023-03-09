@@ -24,12 +24,8 @@ import pointLine from '../images/pointLine.png';
 
 
 gsap.registerPlugin(ScrollTrigger);
-export const Index = (props, rootMargin, triggerOnce) => {
+export const Index = (props) => {
   console.log(props);
-  const { ref, inView } = useInView({
-    rootMargin: rootMargin,
-    triggerOnce: triggerOnce
-  });
 
   //ドロップダウンメニューの開閉////////////////
   const [clicked, setClicked] = useState(100);
@@ -49,6 +45,23 @@ export const Index = (props, rootMargin, triggerOnce) => {
   }, [div])
 
   const setAnimation = () => {
+
+    gsap.fromTo(
+      '#KvText',
+      { y: 200 }, //fromの設定
+      {  //toの設定
+        y: 0,
+        duration: 0.5,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: '#KvText',
+          start: 'top 90%', //要素のトップが、画面の中央まできたら開始
+        },
+        stagger: {
+          each: 0.2,
+        }
+      }
+    )
 
     //about//////////////////////
 
@@ -479,8 +492,8 @@ export const Index = (props, rootMargin, triggerOnce) => {
           
           <div className={style.textContainer}>
             <div className={style.mask}>
-              <img src={KvText} className={style.KvText} />
-              <img src={KvTextSpUp} className={style.KvTextSp1} />
+              <img id="KvText" src={KvText} className={style.KvText} />
+              <img id="KvText" src={KvTextSpUp} className={style.KvTextSp1} />
             </div>
 
             <div className={style.mask}>
@@ -488,11 +501,11 @@ export const Index = (props, rootMargin, triggerOnce) => {
             </div>
 
             <div className={style.mask}>
-              <img src={KvTextSpDown} className={style.KvTextSp0} />
+              <img id="KvText" src={KvTextSpDown} className={style.KvTextSp0} />
             </div>
 
-            <div id="KvText" className={style.mask}>
-              <h3>世界で唯一のAI解析技術で、<br></br>
+            <div className={style.mask}>
+              <h3 id="KvText">世界で唯一のAI解析技術で、<br></br>
                 3年後の認知症リスクを知る。</h3>
             </div>
           </div>
