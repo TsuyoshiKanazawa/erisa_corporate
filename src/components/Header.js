@@ -69,7 +69,9 @@ const classToggle = () => {
                         <img src={logoColor} className={`index-module--logoColor--f67bf ${isShow ? "index-module--logoColor__active--bad48" : ""}`} />
                     </a>
                     <ul>
-
+                        <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://salmon-pond-0af8d4c10.2.azurestaticapps.net" className={style.honyaku}>
+                            <p>英語</p>
+                        </a>
                         <div className={style.switchButton}>
                             < Link to="https://www.erisa.co.jp/">
                                 <p>医療関係者の方はこちら</p>
