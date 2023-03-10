@@ -485,7 +485,9 @@ body::-webkit-scrollbar {
                 p {
                     line-height: 36px;
                     margin: 0;
-                    font-weight: 400;
+                    font-weight: 300;
+                    font-size: 16px;
+                    color: #595959;
                 }
             }
 
@@ -529,6 +531,7 @@ body::-webkit-scrollbar {
         top: -5%;
         left: -10%;
         width: 110vw;
+        height: 110vh;
         opacity: 0.3;
         -webkit-user-drag: none;
         animation-name: huwahuwa;
@@ -1899,9 +1902,9 @@ footer {
             opacity: 0.4;
             position: absolute;
             top: 0%;
-            left: -50%;
-            height: 180vw;
-            width: 180vw;
+            left: -10%;
+            width: 130vw;
+            height: 110vh;
             opacity: 0.3;
             -webkit-user-drag: none;
             animation-name: huwahuwa;

@@ -52,9 +52,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-8NW68GETB2" //※1
+          "G-8NW68GETB2"
         ],
-        pluginConfig: { //※2
+        pluginConfig: {
           head: true,
         },
       },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -25,7 +25,6 @@ import pointLine from '../images/pointLine.png';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Index = (props) => {
-  console.log(props);
 
   //ドロップダウンメニューの開閉////////////////
   const [clicked, setClicked] = useState(100);
@@ -509,23 +508,23 @@ export const Index = (props) => {
       <body>
 
         <div id="hero" className={style.hero}>
-          <StaticImage src="../images/KV.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} />
-          <StaticImage src="../images/KVSP.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} />
-          <StaticImage src="../images/uneune.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} />
-          <StaticImage src="../images/uneuneSp.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} />
+          <StaticImage src="../images/KV.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} loading="lazy" />
+          <StaticImage src="../images/KVSP.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} loading="lazy" />
+          <StaticImage src="../images/uneune.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} loading="lazy" />
+          <StaticImage src="../images/uneuneSp.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} loading="lazy" />
           
           <div className={style.textContainer}>
             <div className={style.mask}>
-              <img id="KvText" src={KvText} className={style.KvText} />
-              <img id="KvText" src={KvTextSpUp} className={style.KvTextSp1} />
+              <img id="KvText" src={KvText} className={style.KvText} loading="lazy" />
+              <img id="KvText" src={KvTextSpUp} className={style.KvTextSp1} loading="lazy" />
             </div>
 
             <div className={style.mask}>
-              <img src={lineVertical} id="KvText" className={style.lineVertical} />
+              <img src={lineVertical} id="KvText" className={style.lineVertical} loading="lazy" />
             </div>
 
             <div className={style.mask}>
-              <img id="KvText" src={KvTextSpDown} className={style.KvTextSp0} />
+              <img id="KvText" src={KvTextSpDown} className={style.KvTextSp0} loading="lazy" />
             </div>
 
             <div className={style.mask}>
@@ -997,8 +996,7 @@ export const Index = (props) => {
               <ul id="spacey2" className={style.spacey2}>
                 {props.data.allMicrocmsRegion.edges.map((region, index) => (
                   <li >
-                    
-                    <div className={style.scrollbutton}>
+                  
                       <div className={style.button}
                         type="button"
                         onClick={() => {
@@ -1018,7 +1016,7 @@ export const Index = (props) => {
 
                         </div>
                       </div>
-                    </div>
+
                     <hr
                       style={
                         clicked === index
