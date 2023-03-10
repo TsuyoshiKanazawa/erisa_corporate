@@ -7,7 +7,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import logoWhite from '../images/logoWhite.svg'
 import logoColor from '../images/logoColor.svg'
 
-const Header = (state) => {
+const Header = () => {
 
 //ヘッダーが表示・非表示になる/////////////////
 const [isHeaderShown, setIsHeaderShown] = useState(true);
@@ -50,9 +50,6 @@ const [isShow, setIsShow] = useState(false);
 
 const [active, setActive] = useState(false);
 
-const classToggle = () => {
-    setActive(!active)
-}
 
 ///////////////////////////////////////////
 
