@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
-import { useInView } from "react-intersection-observer"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -502,9 +501,6 @@ export const Index = (props) => {
 
     //introduce///////////////////
 
-
-
-
   }
   //アニメーション専用/////////////////////////////////////////
 
@@ -789,7 +785,7 @@ export const Index = (props) => {
             </div>
 
             <div id="mri" className={style.mri}>
-              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} loading="lazy" />
+              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} />
               <div className={style.mriText}>
 
                 <div className={style.mriTexttextContainer}>
@@ -807,7 +803,7 @@ export const Index = (props) => {
             </div>
 
             <div id="examination" className={style.examination}>
-              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} loading="lazy" />
+              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} />
               <div className={style.examinationText}>
                 <h1>3年後の脳状態を予測し<br />
                   認知症リスクを検査</h1>
@@ -815,11 +811,11 @@ export const Index = (props) => {
                 <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
                 <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
               </div>
-              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} loading="lazy" />
+              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} />
             </div>
 
             <div id="prevention" className={style.prevention}>
-              <StaticImage src="../images/prevention.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} loading="lazy" />
+              <StaticImage src="../images/prevention.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} />
               <div className={style.preventionText}>
                 <div className={style.preventionTextContainer}>
                   <h1>
