@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react"
+import React, { useState, useLayoutEffect, useRef, useCallback } from "react"
 import { graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
@@ -39,7 +39,7 @@ export const Index = (props) => {
 
   //アニメーション専用/////////////////////////////////////////
   const div = useRef();
-  useEffect(() => {
+  useLayoutEffect(() => {
     setAnimation()
   }, [div])
 

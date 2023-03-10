@@ -56,7 +56,6 @@ const classToggle = () => {
 
 ///////////////////////////////////////////
 
-
     return (
         <header className={style.headerWrapper}>
             <div className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
