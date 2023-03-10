@@ -1,5 +1,4 @@
 @import './variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
 
@@ -472,24 +471,6 @@ body::-webkit-scrollbar {
             justify-content: space-between;
             align-items: center;
             height: 70px;
-
-            .honyaku {
-                display: block;
-                height: 36px;
-                width: 100px;
-                text-align: center;
-                margin-right: 20px;
-                background-color: #fff;
-                border-radius: 20px;
-
-                p {
-                    line-height: 36px;
-                    margin: 0;
-                    font-weight: 300;
-                    font-size: 16px;
-                    color: #595959;
-                }
-            }
 
             a {
                 color: inherit;
@@ -2001,10 +1982,10 @@ footer {
                 font-weight: 500;
                 color: #595959;
                 margin: 0;
-                margin-bottom: 7px;
+                margin-bottom: 0;
                 margin-left: 9%;
                 letter-spacing: 0.12em;
-                line-height: 160%;
+                line-height: 190%;
             }
         }
 
@@ -2028,9 +2009,16 @@ footer {
         .reference {
             display: block;
             margin-left: 9%;
+            
 
             .RMarkContainer {
-                margin-bottom: 5%;
+                margin-bottom: 10px;
+                height: 43px;
+
+                .RMark {
+                    width: 43px;
+                    height: 43px;
+                }
             }
             
             .aboutText1{
@@ -2141,11 +2129,11 @@ footer {
     
             .examination {
                 display: block;
-                height: 480px;
+                height: 510px;
     
                 .examinationText {
                     width: 85vw;
-                    height: 200px;
+                    height: 230px;
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
                     top: 48%;
@@ -2211,7 +2199,7 @@ footer {
                     transform: translate(0);
                     transform: translateY(-10%);
                     width: 90vw;
-                    height: 230px;
+                    height: 250px;
                     border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                     z-index: 1;
