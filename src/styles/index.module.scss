@@ -315,7 +315,7 @@ body::-webkit-scrollbar {
                 position: absolute;
                 width: 1300px;
                 top: 0;
-                right: 0%;
+                right: -10%;
                 -webkit-user-drag: none;
                 animation-name: huwahuwa;
                 animation-timing-function: ease-in-out;
@@ -510,10 +510,9 @@ body::-webkit-scrollbar {
 
     .uneune {
         position: absolute;
-        z-index: 9998;
-        top: -30%;
-        left: 0%;
-        height: 160vh;
+        top: -5%;
+        left: -10%;
+        width: 110vw;
         opacity: 0.3;
         -webkit-user-drag: none;
         animation-name: huwahuwa;
@@ -729,9 +728,9 @@ body::-webkit-scrollbar {
 
     .aboutBack {
         position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100vw;
+        top: -10%;
+        left: -10%;
+        width: 120vw;
         animation-name: huwahuwa;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
@@ -969,8 +968,8 @@ body::-webkit-scrollbar {
     .featureBack {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100vw;
+        right: -25%;
+        width: 130vw;
         z-index: 0;
         pointer-events: none;
         animation-name: huwahuwa;
@@ -983,7 +982,7 @@ body::-webkit-scrollbar {
         position: absolute;
         top: 50%;
         left: 0%;
-        width: 100vw;
+        width: 120vw;
         z-index: 0;
         pointer-events: none;
         animation-name: huwahuwa;
@@ -1615,7 +1614,8 @@ footer {
 
     .footerBack {
         position: absolute;
-        left: -10%;
+        width: 150vw;
+        left: -30%;
         top: -5%;
         -webkit-user-drag: none;
         animation-name: huwahuwa;
@@ -2705,7 +2705,7 @@ footer {
 
         .footerBack {
             width: 350vw;
-            left: -140%;
+            left: -150%;
             top: 10%;
         }
 

@@ -43,12 +43,11 @@ export const Index = (props) => {
   const div = useRef();
   useEffect(() => {
     setAnimation()
-    
   }, [div])
+
   let mm = gsap.matchMedia();
 
   const setAnimation = () => {
-
 
     //KV/////////////////////////
     gsap.fromTo(
@@ -407,7 +406,7 @@ export const Index = (props) => {
         duration: 1.5,
         scrollTrigger: {
           trigger: '#questionImageMask',
-          start: 'top 80%',
+          start: 'top 70%',
         },
       }
     )
@@ -422,7 +421,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText0',
-          start: 'top 80%',
+          start: 'top 70%',
         },
       }
     )
@@ -452,7 +451,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText2',
-          start: 'top 80%',
+          start: 'top 70%',
         },
       }
     )
@@ -467,8 +466,7 @@ export const Index = (props) => {
         duration: 0.5,
         scrollTrigger: {
           trigger: '#questionText3',
-          start: 'top 80%',
-          markers: true,
+          start: 'top 70%',
         },
       }
     )
@@ -476,8 +474,6 @@ export const Index = (props) => {
     //question///////////////////
 
     //introduce///////////////////
-
-
 
     ScrollTrigger.batch('#hospital', {
       onEnter: batch => gsap.fromTo(batch,
@@ -845,23 +841,17 @@ export const Index = (props) => {
               <div className={style.voiceText}>
 
                 <div id="voiceText" className={style.voiceTextContainer}>
-                  <p>認知症の今の状態が詳しくわかった
-                    ので、安心して暮らしていけると
-                    思っています。</p>
+                  <p>認知症の今の状態が詳しくわかったので、安心して暮らしていけると思っています。</p>
                   <hr />
                   <h6>80歳代・男性</h6>
                 </div>
                 <div id="voiceText" className={style.voiceTextContainer}>
-                  <p>認知機能低下予防のために生活習慣
-                    の見直しを決心できたので、また3年
-                    後に検査を受けたいです。</p>
+                  <p>認知機能低下予防のために生活習慣の見直しを決心できたので、また3年後に検査を受けたいです。</p>
                   <hr />
                   <h6>70代・女性</h6>
                 </div>
                 <div id="voiceText" className={style.voiceTextContainer}>
-                  <p>特定健康診査やがん検診と同じよう
-                    に、今後も定期的に検査していくつ
-                    もりです。</p>
+                  <p>特定健康診査やがん検診と同じように、今後も定期的に検査していくつもりです。</p>
                   <hr />
                   <h6>70代・女性</h6>
                 </div>
