@@ -1,5 +1,5 @@
 @import './variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
 
@@ -798,13 +798,14 @@ body::-webkit-scrollbar {
                 z-index: 1;
                 
                 .mriTexttextContainer {
-                    padding-top: 40px;
+                    padding-top: 30px;
 
                     h1 {
                         font-size: 26px;
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 160%;
                         display: block;
                         width: 365px;
                         margin: auto;
@@ -812,10 +813,12 @@ body::-webkit-scrollbar {
                 
                     hr {
                         width: 60px;
+                        height: 1px;
                         margin-top: 20px;
                         margin-bottom: 15px;
                         margin-left: 60px;
-                        color: #595959;
+                        background-color: #595959;
+                        border: none;
                     }
                 
                     p {
@@ -823,6 +826,7 @@ body::-webkit-scrollbar {
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 190%;
                         display: block;
                         width: 365px;
                         margin: auto;
@@ -875,6 +879,7 @@ body::-webkit-scrollbar {
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 160%;
                         display: block;
                         width: 365px;
                         margin: auto;
@@ -882,10 +887,12 @@ body::-webkit-scrollbar {
 
                     hr {
                         width: 60px;
+                        height: 1px;
                         margin-top: 20px;
                         margin-bottom: 15px;
                         margin-left: 60px;
-                        color: #595959;
+                        background-color: #595959;
+                        border: none;
                     }
 
                     p {
@@ -893,6 +900,7 @@ body::-webkit-scrollbar {
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 190%;
                         display: block;
                         width: 365px;
                         margin: auto;
@@ -934,6 +942,7 @@ body::-webkit-scrollbar {
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 160%;
                         display: block;
                         width: 365px;
                         margin: auto;
@@ -941,10 +950,12 @@ body::-webkit-scrollbar {
 
                     hr {
                         width: 60px;
+                        height: 1px;
                         margin-top: 20px;
                         margin-bottom: 15px;
                         margin-left: 60px;
-                        color: #595959;
+                        background-color: #595959;
+                        border: none;
                     }
 
                     p {
@@ -952,6 +963,7 @@ body::-webkit-scrollbar {
                         font-weight: 400;
                         color: #595959;
                         letter-spacing: 0.12rem;
+                        line-height: 190%;
                         display: block;
                         width: 365px;
                         margin: auto;
