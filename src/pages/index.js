@@ -29,12 +29,12 @@ export const Index = (props) => {
   //ドロップダウンメニューの開閉////////////////
   const [clicked, setClicked] = useState(100);
 
-  const handleClick = useCallback((index) => {
+  const handleClick = (index) => {
     if (clicked === index) {
       return setClicked(100);
     }
     setClicked(index);
-  });
+  };
   //ドロップダウンメニューの開閉////////////////
 
   //アニメーション専用/////////////////////////////////////////

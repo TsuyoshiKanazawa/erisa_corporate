@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react"
+import React, { useState, useLayoutEffect, memo } from "react"
 import { Link } from "gatsby" 
 import { StaticImage } from "gatsby-plugin-image" 
 import * as style from "../styles/index.module.scss"
@@ -30,7 +30,7 @@ const scrollEvent = React.useCallback(() => {
     setLastPosition(offset);
 }, [lastPosition]);
 
-useEffect(() => {
+useLayoutEffect(() => {
     window.addEventListener('scroll', scrollEvent);
 
     return () => {
