@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useCallback } from "react"
 import { graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
@@ -29,12 +29,12 @@ export const Index = (props) => {
   //ドロップダウンメニューの開閉////////////////
   const [clicked, setClicked] = useState(100);
 
-  const handleClick = (index) => {
+  const handleClick = useCallback((index) => {
     if (clicked === index) {
       return setClicked(100);
     }
     setClicked(index);
-  };
+  });
   //ドロップダウンメニューの開閉////////////////
 
   //アニメーション専用/////////////////////////////////////////
