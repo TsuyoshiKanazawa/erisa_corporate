@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
@@ -39,11 +39,12 @@ export const Index = (props) => {
 
   //アニメーション専用/////////////////////////////////////////
   const div = useRef();
-  useLayoutEffect(() => {
+  useEffect(() => {
     setAnimation()
   }, [div])
 
   let mm = gsap.matchMedia();
+
   const setAnimation = () => {
 
     //KV/////////////////////////
@@ -514,23 +515,23 @@ export const Index = (props) => {
       <body id="body">
 
         <div id="hero" className={style.hero}>
-          <StaticImage src="../images/KV.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} loading="lazy" />
-          <StaticImage src="../images/KVSP.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} loading="lazy" />
-          <StaticImage src="../images/uneune.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} loading="lazy" />
-          <StaticImage src="../images/uneuneSp.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} loading="lazy" />
+          <StaticImage src="../images/KV.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} loading="lazy" alt="background" />
+          <StaticImage src="../images/KVSP.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg_sp} loading="lazy" alt="background" />
+          <StaticImage src="../images/uneune.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneune} loading="lazy" alt="background" />
+          <StaticImage src="../images/uneuneSp.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.uneuneSp} loading="lazy" alt="background" />
           
           <div className={style.textContainer}>
             <div className={style.mask}>
-              <img id="KvText" src={KvText} className={style.KvText} loading="lazy" />
-              <img id="KvText" src={KvTextSpUp} className={style.KvTextSp1} loading="lazy" />
+              <img id="KvText" src={KvText} className={style.KvText} loading="lazy" alt="text" />
+              <img id="KvText" src={KvTextSpUp} className={style.KvTextSp1} loading="lazy" alt="text" />
             </div>
 
             <div className={style.mask}>
-              <img src={lineVertical} id="KvText" className={style.lineVertical} loading="lazy" />
+              <img src={lineVertical} id="KvText" className={style.lineVertical} loading="lazy" alt="text" />
             </div>
 
             <div className={style.mask}>
-              <img id="KvText" src={KvTextSpDown} className={style.KvTextSp0} loading="lazy" />
+              <img id="KvText" src={KvTextSpDown} className={style.KvTextSp0} loading="lazy" alt="text" />
             </div>
 
             <div className={style.mask}>
@@ -538,7 +539,7 @@ export const Index = (props) => {
                 3年後の認知症リスクを知る。</h3>
             </div>
           </div>
-          <StaticImage src="../images/scroll.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.scroll} />
+          <StaticImage src="../images/scroll.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.scroll} alt="scroll" />
         </div>
 
         <div id="about" className={style.about}>
@@ -550,7 +551,7 @@ export const Index = (props) => {
           </div>
           
           <div id="aboutImage" className={style.aboutImageMask}>
-            <img src={about} className={style.aboutImage} />
+            <img src={about} className={style.aboutImage} alt="background" />
           </div>
 
           <div id="aboutCopy" className={style.aboutCopy}>
@@ -597,6 +598,7 @@ export const Index = (props) => {
                 3将来を見据えた
               </p>
             </div>
+
             <div className={style.mask}>
               <p id="copy" className={style.copy}>
                 ライフスタイルを
@@ -619,26 +621,31 @@ export const Index = (props) => {
                 認知症リスク検査は、島根大学医学部、滋賀医科大学、
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0}>
                 株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0}>
                 脳の状態から3年後の認知症リスクを検査します。
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0}>
                 脳の一部だけではなく、脳全体を膨大なデータと比較することで、
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0}>
                 高い精度を実現。将来を見据えた認知症予防の検討材料として、
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0}>
                 受診者様のライフスタイル見直しに貢献します。
@@ -650,21 +657,26 @@ export const Index = (props) => {
                 認知症リスク検査は、島根大学医学部、
               </div>
             </div>
+
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0Sp}>
                 滋賀医科大学株式会社ERISAで共同開
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0Sp}>
                 発された、世界で唯一の脳画像解析技術
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0Sp}>
                 で、脳の状態から3年後の認知症リスク
               </div>
             </div>
+
             <div id="aboutText" className={style.mask}>
               <div id="aboutText0" className={style.aboutText0Sp}>
                 を検査します。脳の一部だけではなく、
@@ -699,7 +711,7 @@ export const Index = (props) => {
             <div id="reference" className={style.reference}>
             <div className={style.RMarkContainer}>
               <div id="RMark">
-                <StaticImage src="../images/RMark.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
+                <StaticImage src="../images/RMark.png" alt="RMark" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.RMark} />
               </div>
             </div>
 
@@ -765,24 +777,24 @@ export const Index = (props) => {
 
             <div className={style.mask}>
               <div id="referenceImage">
-                <StaticImage src="../images/referenceImage.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.referenceImage} />
-                <StaticImage src="../images/referenceImageSp.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.referenceImageSp} />
+                <StaticImage src="../images/referenceImage.png" alt="referenceImage" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.referenceImage} />
+                <StaticImage src="../images/referenceImageSp.png" alt="referenceImageSp" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.referenceImageSp} />
               </div>
             </div>
 
           </div>
-          <StaticImage src="../images/aboutBack.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.aboutBack} loading="lazy" />
+          <StaticImage src="../images/aboutBack.png" quality={90} placeholder={"none"} formats={["AUTO", "WEBP", "AVIF"]} className={style.aboutBack} loading="lazy" alt="background" />
 
         </div>
 
-        <div id="feature" className={style.featureContainer}>
-          <StaticImage src="../images/featureBack.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" />
-          <StaticImage src="../images/featureBackBottom.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" />
+        <div id="feature" className={style.featureContainer} loading="lazy">
+          <StaticImage src="../images/featureBack.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBack} loading="lazy" alt="background" />
+          <StaticImage src="../images/featureBackBottom.png" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.featureBackBottom} loading="lazy" alt="background" />
           
           <div className={style.feature}>
 
             <div id="featureAnime" className={style.featureAnime}>
-              <img src={featureImage} className={style.featureImage} loading="lazy" />
+              <img src={featureImage} className={style.featureImage} loading="lazy" alt="background" />
             </div>
 
             <div className={style.featureTitle}>
@@ -790,7 +802,7 @@ export const Index = (props) => {
             </div>
 
             <div id="mri" className={style.mri}>
-              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} />
+              <StaticImage id="mriImage" src="../images/mriImage.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.mriImage} alt="mriImage" />
               <div className={style.mriText}>
 
                 <div className={style.mriTexttextContainer}>
@@ -808,7 +820,7 @@ export const Index = (props) => {
             </div>
 
             <div id="examination" className={style.examination}>
-              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} />
+              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImageSp} alt="examinationImage" />
               <div className={style.examinationText}>
                 <h1>3年後の脳状態を予測し<br />
                   認知症リスクを検査</h1>
@@ -816,11 +828,11 @@ export const Index = (props) => {
                 <p>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
                 <p className={style.textSp}>脳全体の状態から3年後の脳状態を予測することで、受診者様それぞれの認知症リスクを検査。解説付きの検査レポートを通じて、早期対策・予防に活用できます。</p>
               </div>
-              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} />
+              <StaticImage src="../images/examination.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.examinationImage} alt="examinationImage" />
             </div>
 
             <div id="prevention" className={style.prevention}>
-              <StaticImage src="../images/prevention.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} />
+              <StaticImage src="../images/prevention.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.preventionImage} alt="preventionImage" />
               <div className={style.preventionText}>
                 <div className={style.preventionTextContainer}>
                   <h1>
@@ -837,7 +849,7 @@ export const Index = (props) => {
           </div>
         </div>
       
-        <div id="voiceMask" className={style.voiceMask}>
+        <div id="voiceMask" className={style.voiceMask} loading="lazy">
           <div id="voice" className={style.voiceContainer}>
               <div className={style.voiceText}>
 
@@ -861,58 +873,61 @@ export const Index = (props) => {
           </div>
         </div>
 
-        <div id="flow" className={style.flowContainer}>
+        <div id="flow" className={style.flowContainer} loading="lazy">
           <h1>検査の流れ</h1>
           <div id="flowImageMask" className={style.flowImageMask} >
-            <img src={flowImage} className={style.flowImage} loading="lazy" />
+            <img src={flowImage} className={style.flowImage} loading="lazy" alt="flowImage" />
           </div>
 
           <div className={style.circleContainer}>
               <div id="circle" className={style.circle}>
-              <img src={number1} className={style.number} loading="lazy" />
+              <img src={number1} className={style.number} loading="lazy" alt="01" />
               <h3>導入医療機関で予約</h3>
                 <h4>予約方法は<br />
                   各医療機関により異なりますので<br />
                   直接お問い合わせください</h4>
 
-              <AnchorLink href="#introduce">
+              
                 <div className={style.flowButton}>
-                  <p>導入医療機関を探す</p>
-                  <div className={style.playButton}></div>
+                  <AnchorLink href="#introduce">
+                    <p>導入医療機関を探す</p>
+                  </AnchorLink>
+                    <div className={style.playButton}></div>
+                  
                 </div>
-              </AnchorLink>
+              
             </div>
             <div>
-              <img id="circle" src={pointLine} className={style.pointLine} />
+              <img id="circle" src={pointLine} className={style.pointLine} alt="pointLine" />
             </div>
 
             <div id="circle" className={style.circle}>
-              <img src={number2} className={style.number} />
+              <img src={number2} className={style.number} alt="02" />
               <h3>頭部MRI撮影</h3>
                 <h4>ご予約の医療機関にて<br />
                   脳ドックを受診いただき<br />
                   MRI撮像による脳画像データを取得</h4>
-                <StaticImage src="../images/brain.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.brainImage} />
+              <StaticImage src="../images/brain.png" alt="brain" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.brainImage} />
             </div>
             <div>
-              <img id="circle" src={pointLine} className={style.pointLine} />
+              <img id="circle" src={pointLine} className={style.pointLine} alt="pointLine" />
             </div>
             <div id="circle" className={style.circle}>
-              <img src={number3} className={style.number} />
+              <img src={number3} className={style.number} alt="03" />
                 <h3>レポート受取</h3>
                 <h4>解説付きの検査レポートが<br />
                   発行され当日または翌日以降に<br />
                   お送りいたします</h4>
-                <StaticImage src="../images/report.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.reportImage} />
+              <StaticImage src="../images/report.png" alt="report" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.reportImage} />
             </div>
           </div>
         </div>
 
-        <div id="question" className={style.questionContainer0}>
+        <div id="question" className={style.questionContainer0} loading="lazy">
           
           <div className={style.questionContainer1}>
             <div id="questionImageMask" className={style.questionImageMask}>
-              <img src={questionImage} className={style.questionImage} loading="lazy" />
+              <img src={questionImage} className={style.questionImage} loading="lazy" alt="questionImage"/>
             </div>
             <h1>よくあるご質問</h1>
             
@@ -992,65 +1007,65 @@ export const Index = (props) => {
           </div>
         </div>
 
-        <div id="introduce" className={style.Introduce}>
+        <div id="introduce" className={style.Introduce} loading="lazy">
 
           <div className={style.title}>
             <h1>導入医療機関</h1>
           </div>
           
           <div className={style.region}>
-              <ul id="spacey2" className={style.spacey2}>
-                {props.data.allMicrocmsRegion.edges.map((region, index) => (
-                  <li >
-                  
-                      <div className={style.button}
-                        type="button"
-                        onClick={() => {
-                          handleClick(index);
-                        }}>
-                        <p>{region.node.region}</p>
+            <div id="spacey2" className={style.spacey2}>
+              {props.data.allMicrocmsRegion.edges.map((region, index) => (
+                <div>
+                    <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+                      className={style.button}
+                      type="button"
+                      onClick={() => {
+                        handleClick(index);
+                      }}>
+                      <p>{region.node.region}</p>
 
-                        <div className={style.triangle}
-                          style={
-                            clicked === index
-                              ? {
-                                borderColor: "transparent transparent #565656 #565656", marginTop: "11px"
-                              }
-                              : { borderColor: "#565656 #565656 transparent transparent", marginTop: "15px"}
-                          }
-                          >
+                      <div className={style.triangle}
+                        style={
+                          clicked === index
+                            ? {
+                              borderColor: "transparent transparent #565656 #565656", marginTop: "11px"
+                            }
+                            : { borderColor: "#565656 #565656 transparent transparent", marginTop: "15px"}
+                        }
+                        >
 
-                        </div>
                       </div>
+                    </div>
 
-                    <hr
-                      style={
-                        clicked === index
-                          ? {
-                            height: "15px",
-                            marginBottom: "85px"
-                          }
-                          : { height: "0", opacity: "0", transitionDelay: "0.5s" }
-                      } />
-                      
-                    <li
-                      className={style.menus}
-                      style={
-                        clicked === index
-                          ? {
-                            minheight: "85px",
-                            backgroundColor: "#fff",
-                            transitionDelay: "0.3s"
-                          }
-                          : { height: "0", opacity: "0"}
-                      }>
-                      <li>北海道</li><li>青森県</li><li>岩手県</li><li>北海道</li>
-                    </li>
+                  <hr
+                    style={
+                      clicked === index
+                        ? {
+                          height: "15px",
+                          marginBottom: "85px"
+                        }
+                        : { height: "0", opacity: "0", transitionDelay: "0.5s" }
+                    } />
+                    
+                  <div
+                    className={style.menus}
+                    style={
+                      clicked === index
+                        ? {
+                          minheight: "85px",
+                          backgroundColor: "#fff",
+                          transitionDelay: "0.3s"
+                        }
+                        : { height: "0", opacity: "0"}
+                    }>
+                    <p>北海道</p><p>青森県</p><p>岩手県</p><p>北海道</p>
+                  </div>
 
-                  </li>
-                ))}
+                </div>
+              ))}
 
-              </ul>
+            </div>
           </div>
 
 
@@ -1075,7 +1090,7 @@ export const Index = (props) => {
             ))}
 
           </div>
-          <StaticImage src="../images/search.png" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
+          <StaticImage src="../images/search.png" alt="searchImage" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />
         
         </div>
 

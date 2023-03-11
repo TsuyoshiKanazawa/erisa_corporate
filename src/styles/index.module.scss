@@ -391,12 +391,13 @@ body::-webkit-scrollbar {
                     display: flex;
                     justify-content: flex-start;
 
-                    li {
+                    p {
                         color: #595959;
                         transition: 0.3s;
+                        margin: 0;
                     }
 
-                    li:hover {
+                    p:hover {
                         transform: scale(1.05, 1.05);
                     }
 
@@ -478,7 +479,7 @@ body::-webkit-scrollbar {
                 font-weight: 500;
             }
 
-            ul {
+            .headerRight {
                 display: flex;
                 justify-content: space-between;
                 gap: 10px;
@@ -1178,13 +1179,13 @@ body::-webkit-scrollbar {
 
                     p {
                         color: black;
-                        margin-left: 20px;
+                        margin: 0;
+                        margin-left: 30px;
                         text-align: center;
                         font-size: 14px;
                         font-weight: 300;
                         letter-spacing: 0.16rem;
                         line-height: 36px;
-                        transform: translate(15%, -170%);
                         transition: .3s;
                     }
 
@@ -1448,15 +1449,16 @@ body::-webkit-scrollbar {
                 flex-wrap: wrap;
                 z-index: 1;
 
-                li {
+                p {
                     cursor: pointer;
                     transition: 0.3s;
                     margin-left: 65px;
                 }
-
-                li:hover {
+            
+                p:hover {
                     transform: scale(1.1, 1.1);
                 }
+
             }
 
             hr {
@@ -1472,7 +1474,7 @@ body::-webkit-scrollbar {
 
     .hospitalContainer{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 20px;
         width: 1120px;
@@ -1663,7 +1665,7 @@ footer {
             display: flex;
             z-index: 1;
     
-            ul {
+            .listStyle {
                 display: flex;
                 justify-content: flex-start;
                 flex-wrap: wrap;
@@ -1677,13 +1679,13 @@ footer {
                     justify-content: flex-start;
                     text-align: left;
     
-                    li {
+                    p {
                         color: #fff;
                         font-size: 16px;
                         letter-spacing: 0.16rem;
                         text-align: left;
+                        margin: 0;
                         margin-left: 15px;
-                        
                     }
 
                     hr {
@@ -1697,7 +1699,7 @@ footer {
                 }
 
                 .list:hover {
-                    li {
+                    p {
                         color: #595959;
                         transition: 0.3s;
                     }
@@ -1811,8 +1813,9 @@ footer {
                         display: flex;
                         justify-content: flex-start;
 
-                        li {
-                            color: #595959
+                        p {
+                            color: #595959;
+                            margin-top: 7px;
                         }
 
                         hr {
@@ -2394,7 +2397,6 @@ footer {
                         font-weight: 300;
                         letter-spacing: 0.16rem;
                         line-height: 36px;
-                        transform: translate(15%, -170%);
                         transition: .3s;
                     }
 
@@ -2736,6 +2738,10 @@ footer {
             margin-top: 0;
             margin-left: 10%;
             gap: 250px;
+
+            .listStyle {
+                gap: 30px !important;
+            }
 
             .logoFooter {
                 .logo {
