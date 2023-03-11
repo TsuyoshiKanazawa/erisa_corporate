@@ -48,13 +48,10 @@ const [isShow, setIsShow] = useState(false);
     }
   };
 
-const [active, setActive] = useState(false);
-
-
 ///////////////////////////////////////////
 
     return (
-        <header className={style.headerWrapper}>
+        <header id="body" className={style.headerWrapper}>
             <div className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
                 <div className={style.flexContainer}>
                     <a

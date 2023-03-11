@@ -6,7 +6,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Footer = () => {
     return (
-        <footer>
+        <footer id="body">
             <div className={style.footerContainer}>
                 <StaticImage src="../images/footerBack.png" quality={90} placeholder="blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.footerBack} loading="lazy" />
 

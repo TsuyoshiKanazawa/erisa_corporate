@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef, useCallback } from "react"
+import React, { useState, useLayoutEffect, useRef } from "react"
 import { graphql } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
@@ -44,10 +44,17 @@ export const Index = (props) => {
   }, [div])
 
   let mm = gsap.matchMedia();
-
   const setAnimation = () => {
 
     //KV/////////////////////////
+    gsap.fromTo(
+      '#body',
+      { visibility: "hidden" }, //fromの設定
+      {  //toの設定
+        visibility: "visible",
+      }
+    )
+
     gsap.fromTo(
       '#KvText',
       { y: 200 }, //fromの設定
@@ -499,13 +506,12 @@ export const Index = (props) => {
     });
 
     //introduce///////////////////
-
   }
   //アニメーション専用/////////////////////////////////////////
 
   return (
     <Layout>
-      <body>
+      <body id="body">
 
         <div id="hero" className={style.hero}>
           <StaticImage src="../images/KV.jpg" quality={90} placeholder=" blurred" formats={["AUTO", "WEBP", "AVIF"]} className={style.heroImg} loading="lazy" />
