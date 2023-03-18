@@ -1,6 +1,4 @@
 @import './variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,500&display=swap');
 
 body {
     background-color: #EDEDED;
@@ -9,30 +7,12 @@ body {
     -ms-overflow-style: none;
     visibility: hidden;
 }
-
 body::-webkit-scrollbar {
     display: none;
 }
-
 .mask {
     overflow: hidden;
 }
-.noShow {
-    opacity: 0;
-}
-
-@keyframes fadeUpAnime {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 .headerWrapper {
     transition: 0.5s;
@@ -89,48 +69,32 @@ body::-webkit-scrollbar {
     
         .playButton {
             width: 26px;
-            /* 幅を指定 */
             height: 26px;
-            /* 高さを指定 */
             background-color: #B0EA0A;
-            /* 背景色を緑に指定 */
             border-radius: 25px;
-            /* 角を丸くする */
             border-style: none;
             position: relative;
-            /* 基準位置とする */
             transform: translate(-20%, 22%);
             transition: .3s;
         }
     
         .playButton::after {
             content: '';
-            /* 疑似要素に必須 */
             width: 0;
-            /* 幅を0に指定 */
             height: 0;
-            /* 高さを0に指定 */
             border-style: solid;
-            /* 線の種類を指定 */
             border-width: 6px 0 6px 12px;
-            /* 線の幅を指定して三角を作る */
             border-color: transparent transparent transparent #fff;
-            /* 左のみ線の色を指定 */
             position: absolute;
-            /* 相対位置に指定 */
             top: 50%;
-            /* 上から50%の位置に配置 */
             left: 50%;
-            /* 左から50%の位置に配置 */
             transform: translate(-40%, -50%);
-            /* 要素の半分ぶんだけ左上方向に移動。 */
             transition: .3s;
         }
     }
     
     .switchButton::after {
         background-color: #B0EA0A;
-        
         border-radius: 25px;
         position: absolute;
         top: 0;
@@ -150,15 +114,12 @@ body::-webkit-scrollbar {
 
     .switchButton:hover {
         transition: 0.3s;
-
         p {
             color: #fff;
         }
-
         .playButton {
             background-color: #fff;
         }
-
         .playButton::after {
             border-color: transparent transparent transparent #B0EA0A;
         }
@@ -191,41 +152,26 @@ body::-webkit-scrollbar {
 
         .playButton {
             width: 26px;
-            /* 幅を指定 */
             height: 26px;
-            /* 高さを指定 */
             background-color: #B0EA0A;
-            /* 背景色を緑に指定 */
             border-radius: 25px;
-            /* 角を丸くする */
             border-style: none;
             position: relative;
-            /* 基準位置とする */
             transform: translate(-20%, 22%);
             transition: .3s;
         }
 
         .playButton::after {
             content: '';
-            /* 疑似要素に必須 */
             width: 0;
-            /* 幅を0に指定 */
             height: 0;
-            /* 高さを0に指定 */
             border-style: solid;
-            /* 線の種類を指定 */
             border-width: 6px 0 6px 12px;
-            /* 線の幅を指定して三角を作る */
             border-color: transparent transparent transparent #fff;
-            /* 左のみ線の色を指定 */
             position: absolute;
-            /* 相対位置に指定 */
             top: 50%;
-            /* 上から50%の位置に配置 */
             left: 50%;
-            /* 左から50%の位置に配置 */
             transform: translate(-40%, -50%);
-            /* 要素の半分ぶんだけ左上方向に移動。 */
             transition: .3s;
         }
     }
@@ -460,6 +406,11 @@ body::-webkit-scrollbar {
                     justify-content: flex-start;
                     gap: 10px;
                 }
+                .headerRight {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                }
             }
     }
 
@@ -483,7 +434,6 @@ body::-webkit-scrollbar {
                 display: flex;
                 justify-content: space-between;
                 gap: 10px;
-
             }
         }
     }
@@ -508,6 +458,9 @@ body::-webkit-scrollbar {
     height: 100vh;
     width: 100%;
     -webkit-user-drag: none;
+    background-image: url("../images/KV.jpg");
+    background-size: cover;
+    background-position: center center;
 
     .uneune {
         position: absolute;
@@ -526,17 +479,6 @@ body::-webkit-scrollbar {
     }
 
     .uneuneSp {
-        display: none;
-    }
-
-    .heroImg {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        pointer-events: none;
-    }
-
-    .heroImg_sp {
         display: none;
     }
 
@@ -587,8 +529,6 @@ body::-webkit-scrollbar {
             letter-spacing: 0.16em;
             opacity: 0;
         }
-
-
     }
 
     .scroll {
@@ -602,7 +542,7 @@ body::-webkit-scrollbar {
 .container {    
     @extend %container;
 }
- 
+
 .about {
     background-color: #ffffff;
     border-bottom-left-radius: 50px;
@@ -776,105 +716,158 @@ body::-webkit-scrollbar {
                 text-align: center;
             }
         }
-
         .mri {
             height: 650px;
             overflow: hidden;
             position: relative;
-
-            .mriImage {
-                margin-top: 69px;
-                width: 1040px;
-                height: 480px;
-                object-fit: cover;
-                border-top-right-radius: 20px;
-            }
             
-            .mriText {
-                background-color: #fff;
-                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
-                width: 480px;
-                height: 377px;
-                transform: translate(180%, -90%);
-                z-index: 1;
-                
-                .mriTexttextContainer {
-                    padding-top: 30px;
+            .mriImageAnime {
+                overflow: hidden;
 
-                    h1 {
-                        font-size: 26px;
-                        font-weight: 400;
-                        color: #595959;
-                        letter-spacing: 0.12rem;
-                        line-height: 160%;
-                        display: block;
-                        width: 365px;
-                        margin: auto;
+                .mriImageMask {
+                    margin-top: 69px;
+                    width: 1040px !important;
+                    height: 480px;
+                    overflow: hidden;
+                    border-top-right-radius: 20px;
+            
+                    .mriImage {
+                        height: 480px;
+                        object-fit: cover;
+                        transition: 0.8s;
                     }
-                
-                    hr {
-                        width: 60px;
-                        height: 1px;
-                        margin-top: 20px;
-                        margin-bottom: 15px;
-                        margin-left: 60px;
-                        background-color: #595959;
-                        border: none;
-                    }
-                
-                    p {
-                        font-size: 16px;
-                        font-weight: 400;
-                        color: #595959;
-                        letter-spacing: 0.12rem;
-                        line-height: 190%;
-                        display: block;
-                        width: 365px;
-                        margin: auto;
-                    }
-
-                    .textSp {
-                        display: none;
+                }
+                .mriImageMask:hover {
+                    .mriImage {
+                        transform: scale(1.1, 1.1);
                     }
                 }
             }
-        }
 
+            .mriTextMask {
+                width: 480px;
+                height: 377px;
+                margin-left: 850px;
+                overflow: hidden;
+                transform: translate(0%, -90%);
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                z-index: 1;
+
+                .mriText {
+                    background-color: #fff;
+                    width: 480px;
+                    height: 377px;
+
+                    .mriTexttextContainer {
+                        padding-top: 30px;
+            
+                        h1 {
+                            font-size: 26px;
+                            font-weight: 400;
+                            color: #595959;
+                            letter-spacing: 0.12rem;
+                            line-height: 160%;
+                            display: block;
+                            width: 365px;
+                            margin: auto;
+                        }
+            
+                        hr {
+                            width: 60px;
+                            height: 1px;
+                            margin-top: 20px;
+                            margin-bottom: 15px;
+                            margin-left: 60px;
+                            background-color: #595959;
+                            border: none;
+                        }
+            
+                        p {
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #595959;
+                            letter-spacing: 0.12rem;
+                            line-height: 190%;
+                            display: block;
+                            width: 365px;
+                            margin: auto;
+                        }
+            
+                        .textSp {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+        }
         .examination {
             height: 570px;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             overflow: hidden;
-            margin-right: 0;
-            margin-left: auto;
             position: relative;
-            z-index: 1;
 
-            .examinationImage{
-                height: 480px;
-                width: 1040px;
-                object-fit: cover;
-                border-top-left-radius: 20px;
-                border-bottom-left-radius: 20px;
+            .examinationImageAnime {
+                overflow: hidden;
                 position: absolute;
                 right: 0;
                 top: 0;
-            }
-            .examinationImageSp{
-                display: none;
+                height: 480px;
+                width: 1040px;
+
+                .examinationImageMask {
+                    height: 480px;
+                    width: 1040px;
+                    overflow: hidden;
+                    margin-right: 0;
+                    margin-left: auto;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: 1;
+
+                    .examinationImage {
+                        object-fit: cover;
+                        height: 480px;
+                        width: 1040px;
+                        transition: 0.8s;
+                    }
+            
+                    .examinationImageSp {
+                        display: none;
+                        transition: 0.8s;
+                    }
+                }
             }
 
-            .examinationText {
-                background-color: #fff;
-                border-top-left-radius: 20px;
-                border-bottom-left-radius: 20px;
+            .examinationImageMask:hover {
+                .examinationImage {
+                    transform: scale(1.1, 1.1);
+                }
+            }
+
+            .examinationTextMask {
+                overflow: hidden;
+                z-index: 2;
                 width: 480px;
-                height: 307px;
-                padding-top: 70px;
+                height: 377px;
                 position: absolute;
-                right: 865px;
-                top: 145px;
-                z-index: 1;
+                right: 880px;
+                top: 140px;
+
+                .examinationText {
+                    background-color: #fff;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    width: 480px;
+                    height: 307px;
+                    padding-top: 70px;
+                    z-index: 2;
+                    position: absolute;
+                    right: 0;
 
                     h1 {
                         font-size: 26px;
@@ -886,7 +879,7 @@ body::-webkit-scrollbar {
                         width: 365px;
                         margin: auto;
                     }
-
+            
                     hr {
                         width: 60px;
                         height: 1px;
@@ -896,7 +889,7 @@ body::-webkit-scrollbar {
                         background-color: #595959;
                         border: none;
                     }
-
+            
                     p {
                         font-size: 16px;
                         font-weight: 400;
@@ -907,78 +900,103 @@ body::-webkit-scrollbar {
                         width: 365px;
                         margin: auto;
                     }
-
+            
                     .textSp {
                         display: none;
                     }
-                
+            
+                }
             }
-        }
 
+        }
         .prevention {
             height: 650px;
             overflow: hidden;
             position: relative;
 
-            .preventionImage {
-                margin-top: 0;
-                border-top-right-radius: 20px;
-                width: 1040px;
-                height: 480px;
-                object-fit: cover;
-            }
+            .preventionImageAnime {
+                    overflow: hidden;
+            
+                    .preventionImageMask {
+                        margin-top: 0px;
+                        width: 1040px !important;
+                        height: 480px;
+                        overflow: hidden;
+                        border-top-right-radius: 20px;
+            
+                        .preventionImage {
+                            width: 1040px;
+                            height: 480px;
+                            object-fit: cover;
+                            transition: 0.8s;
+                        }
+                    }
+            
+                    .preventionImageMask:hover {
+                        .preventionImage {
+                            transform: scale(1.1, 1.1);
+                        }
+                    }
+                }
 
-            .preventionText {
-                background-color: #fff;
-                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
+            .preventionTextMask {
                 width: 480px;
                 height: 377px;
-                transform: translate(180%, -90%);
+                margin-left: 850px;
+                overflow: hidden;
+                transform: translate(0%, -90%);
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
 
-                .preventionTextContainer {
-                    padding-top: 70px;
-
-                    h1 {
-                        font-size: 26px;
-                        font-weight: 400;
-                        color: #595959;
-                        letter-spacing: 0.12rem;
-                        line-height: 160%;
-                        display: block;
-                        width: 365px;
-                        margin: auto;
-                    }
-
-                    hr {
-                        width: 60px;
-                        height: 1px;
-                        margin-top: 20px;
-                        margin-bottom: 15px;
-                        margin-left: 60px;
-                        background-color: #595959;
-                        border: none;
-                    }
-
-                    p {
-                        font-size: 16px;
-                        font-weight: 400;
-                        color: #595959;
-                        letter-spacing: 0.12rem;
-                        line-height: 190%;
-                        display: block;
-                        width: 365px;
-                        margin: auto;
-                    }
-
-                    .textSp {
-                        display: none;
+                .preventionText {
+                    background-color: #fff;
+                    width: 480px;
+                    height: 377px;
+            
+                    .preventionTextContainer {
+                        padding-top: 70px;
+            
+                        h1 {
+                            font-size: 26px;
+                            font-weight: 400;
+                            color: #595959;
+                            letter-spacing: 0.12rem;
+                            line-height: 160%;
+                            display: block;
+                            width: 365px;
+                            margin: auto;
+                        }
+            
+                        hr {
+                            width: 60px;
+                            height: 1px;
+                            margin-top: 20px;
+                            margin-bottom: 15px;
+                            margin-left: 60px;
+                            background-color: #595959;
+                            border: none;
+                        }
+            
+                        p {
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #595959;
+                            letter-spacing: 0.12rem;
+                            line-height: 190%;
+                            display: block;
+                            width: 365px;
+                            margin: auto;
+                        }
+            
+                        .textSp {
+                            display: none;
+                        }
                     }
                 }
             }
+
         }
     }
-
     .featureBack {
         position: absolute;
         top: 0;
@@ -1016,39 +1034,46 @@ body::-webkit-scrollbar {
     margin-right: auto;
     position: relative;
 
-    .voiceImage {
-        position: absolute;
-        left: 0;
-    }
-
     .voiceContainer {
-        background-image: url("../images/voiceImage.jpg");
+        background-image: url("../images/footer.jpg");
         background-repeat: no-repeat;
+        background-size: cover;
         pointer-events: none;
         height: 493px;
         width: 1280px;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 220px;
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
         overflow: hidden;
+        position: relative;
 
-        h1 {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 400;
-            transform: translate(280px, 100px);
+        .voiceImageMask {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 1426px;
+            height: 213px;
+            .voiceImage {
+                width: 1426px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .voiceImageSp {
+                display: none;
+            }
         }
 
-
+        .voiceTitleSp {
+            display: none;
+        }
 
         .voiceText {
             display: flex;
             gap: 20px;
             justify-content: center;
+            margin-top: 230px;
 
             .voiceTextContainer {
                 background-color: #fff;
@@ -1207,7 +1232,6 @@ body::-webkit-scrollbar {
                         border-style: solid;
                         border-width: 6px 0 6px 12px;
                         border-color: transparent transparent transparent #fff;
-                        /* 左のみ線の色を指定 */
                         position: absolute;
                         top: 50%;
                         left: 50%;
@@ -1237,15 +1261,12 @@ body::-webkit-scrollbar {
 
                 .flowButton:hover {
                     transition: 0.3s;
-
                     p {
                         color: #fff;
                     }
-
                     .playButton {
                         background-color: #fff;
                     }
-
                     .playButton::after {
                         border-color: transparent transparent transparent #B0EA0A;
                     }
@@ -1259,7 +1280,6 @@ body::-webkit-scrollbar {
     }
 }
 
-
 .questionContainer0{
     margin-top: 200px;
     position: relative;
@@ -1269,7 +1289,6 @@ body::-webkit-scrollbar {
         position: absolute;
         right: 0;
         top: -15%;
-
         .questionImage {
             width: 918px;
             display: block;
@@ -1277,7 +1296,6 @@ body::-webkit-scrollbar {
             margin-left: auto;
         }
     }
-
 
     .questionContainer1 {
         background-color: #fff;
@@ -1387,7 +1405,6 @@ body::-webkit-scrollbar {
         }
     }
 
-
     .region {
         width: 885px;
         margin-left: auto;
@@ -1453,14 +1470,12 @@ body::-webkit-scrollbar {
                     cursor: pointer;
                     transition: 0.3s;
                     margin-left: 65px;
-                }
-            
-                p:hover {
-                    transform: scale(1.1, 1.1);
-                }
 
+                    p:hover {
+                        transform: scale(1.1, 1.1);
+                    }
+                }
             }
-
             hr {
                 transition: 0.3s;
                 background-color: #595959;
@@ -1468,7 +1483,6 @@ body::-webkit-scrollbar {
                 margin-top: 0;
                 width: 1px;
             }
-
         }
     }
 
@@ -1481,18 +1495,9 @@ body::-webkit-scrollbar {
         margin-left: auto;
         margin-right: auto;
 
-        .fadeIn {
-            opacity: 1;
-            transform: scale(1);
-            transition: 0.3s;
-            transition-duration: 0.5s;
+        .hospitalNone {
+            display: none;
         }
-
-        .noShow {
-            opacity: 0;
-            transform: scale(0);
-        }
-        
         .hospital {
             background-color: #EBEBEB;
             margin-top: 0;
@@ -1521,7 +1526,6 @@ body::-webkit-scrollbar {
                 margin-left: 40px;
                 letter-spacing: 0.12rem;
             }
-
             .hospitalButton {
                 background-color: white;
                 width: 210px;
@@ -1566,7 +1570,6 @@ body::-webkit-scrollbar {
                     border-style: solid;
                     border-width: 6px 0 6px 12px;
                     border-color: transparent transparent transparent #fff;
-                    /* 左のみ線の色を指定 */
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -1589,7 +1592,7 @@ body::-webkit-scrollbar {
                     transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
                     z-index: -1;
                 }
-                
+
                 .hospitalButton:hover::after {
                     transform: scale(1, 1);
                 }
@@ -1610,15 +1613,15 @@ body::-webkit-scrollbar {
                     }
                 }
         }
-    
     }
 
     .searchImage {
         transform: translateY(80%);
+        display: none;
     }
 }
 
-footer {
+.footer {
     background-image: url("../images/footer.jpg");
     background-size: cover;
     width: 100%;
@@ -1740,1072 +1743,1149 @@ footer {
     }
 }
 
-
 @media screen and (max-width: 500px) {
-    /* 500px以下に適用されるCSS（スマホ用） */
-    .headerWrapper {
-        width: 100vw;
+.headerWrapper {
+    width: 100vw;
 
-        .flexContainer {
-            a {
+    .flexContainer {
+        a {
+            position: relative;
+            .logoWhite {
+                width: 50px;
+                margin-left: 0;
+                margin-right: auto;
                 position: relative;
-             .logoWhite {
-                    width: 50px;
+                z-index: 1;
+            }
+        
+            .logoColor {
+                width: 50px;
+                position: absolute;
+                top: 0;
+                left: 80px;
+                z-index: 1;
+            }
+        }
+    }
+
+    .switchButton {
+        width: 195px;
+        p {
+            margin-left: 10px;
+            font-size: 12px;
+            width: 155px;
+        }
+    }
+
+    .menuSwitchButton {
+        margin-left: 28%;
+        width: 195px;
+
+        p {
+            font-size: 12px;
+            width: 155px;
+            margin-left: 10px;
+        }
+    }
+
+
+    .menuWrapper {
+        .menu {
+            height: 92vh;
+            width: 100vw;
+            padding-top: 37px;
+
+            .menuTop {
+                margin-right: 5%;
+                .menuSwitchButton {
                     margin-left: 0;
-                    margin-right: auto;
-                    position: relative;
-                    z-index: 1;
-                }
-            
-                .logoColor {
-                    width: 50px;
-                    position: absolute;
-                    top: 0;
-                    left: 80px;
-                    z-index: 1;
                 }
             }
-        }
 
-        .switchButton {
-            width: 195px;
-            p {
-                margin-left: 10px;
-                font-size: 12px;
-                width: 155px;
-            }
-        }
+            .menuList {
+                padding-left: 15%;
+                padding-top: 20%;
+                font-size: 18px;
+                gap: 50px;
 
-        .menuSwitchButton {
-            margin-left: 28%;
-            width: 195px;
-
-            p {
-                font-size: 12px;
-                width: 155px;
-                margin-left: 10px;
-            }
-
-        }
-
-
-        .menuWrapper {
-            
-            .menu {
-                height: 92vh;
-                width: 100vw;
-                padding-top: 37px;
-    
-                .menuTop {
-                    margin-right: 5%;
-                    .menuSwitchButton {
-                        margin-left: 0;
-                    }
-                }
-
-                .menuList {
-                    padding-left: 15%;
-                    padding-top: 20%;
-                    font-size: 18px;
-                    gap: 50px;
-
-                    .list {
-                        display: flex;
-                        justify-content: flex-start;
-
-                        p {
-                            color: #595959;
-                            margin-top: 7px;
-                        }
-
-                        hr {
-                            border: none;
-                            width: 40px;
-                            height: 1px;
-                            margin: 0;
-                            margin-top: 22px;
-                            margin-right: 20px;
-                            background-color: #595959;
-                        }
-                    }
-                }
-
-                .copyright {
-                    position: absolute;
-                    bottom: 1%;
-                    left: 0;
-
-                    hr {
-                        width: 260px;
-                        margin-top: 15px;
-                    }
+                .list {
+                    display: flex;
+                    justify-content: flex-start;
 
                     p {
-                        font-size: 10px;
-                        margin-right: 0;
-                        margin-left: 2px
+                        color: #595959;
+                        margin-top: 7px;
+                    }
+
+                    hr {
+                        border: none;
+                        width: 40px;
+                        height: 1px;
+                        margin: 0;
+                        margin-top: 22px;
+                        margin-right: 20px;
+                        background-color: #595959;
                     }
                 }
             }
-        }
 
-        .show {
-            @extend %container;
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: 0.3s;
-            margin-top: 20px;
-            padding-left: 5%
-        }
-    
-        .container {
-            margin-top: 20px;
-            transition: 0.3s;
-            @extend %container;
-            padding-left: 5%
+            .copyright {
+                position: absolute;
+                bottom: 1%;
+                left: 0;
+
+                hr {
+                    width: 260px;
+                    margin-top: 15px;
+                }
+
+                p {
+                    font-size: 10px;
+                    margin-right: 0;
+                    margin-left: 2px
+                }
+            }
         }
     }
 
-    .hero {
-        width: 100vw;
-
-        .heroImg {
-            display: none;
-        }
-
-        .heroImg_sp {
-            height: 100%;
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        .uneune {
-            display: none;
-        }
-        .uneuneSp {
-            display: block;
-            opacity: 0.4;
-            position: absolute;
-            top: 0%;
-            left: -10%;
-            width: 130vw;
-            height: 110vh;
-            opacity: 0.3;
-            -webkit-user-drag: none;
-            animation-name: huwahuwa;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-duration: 3s;
-        }
-
-        .textContainer {
-            transform: translate(0);
-            transform: translateY(-20%);
-            padding: 0;
-            display: block;
-            width: 295px;
-            margin-left: -40%;
-            text-align: left;
-            display: flex;
-            flex-flow: column;
-
-            .KvText {
-                display: none;
-                opacity: 0;
-            }
-
-            .KvTextSp0 {
-                display: block;
-                width: 250px;
-                opacity: 0;
-            }
-
-            .KvTextSp1 {
-                display: block;
-                width: 180px;
-                opacity: 0;
-            }
-
-
-
-            .lineVertical {
-                height: 25px;
-                margin: 0;
-                margin-left: 80px;
-                width: 2px;
-                opacity: 0;
-            }
-
-            h3 {
-                font-size: 16px;
-                margin-top: 10%;
-                opacity: 0;
-            }
-        }
-
-        .scroll {
-            right: 4%;
-        }
+    .show {
+        @extend %container;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: 0.3s;
+        margin-top: 20px;
+        padding-left: 5%
     }
-    
-    .about {
-        width: 90%;
+
+    .container {
+        margin-top: 20px;
+        transition: 0.3s;
+        @extend %container;
+        padding-left: 5%
+    }
+}
+
+.hero {
+    width: 100vw;
+    background-image: url("../images/KVSP.jpg");
+    background-size: cover;
+    background-position: center center;
+
+    .heroImg {
+        display: none;
+    }
+
+    .heroImg_sp {
+        height: 100%;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    .uneune {
+        display: none;
+    }
+    .uneuneSp {
+        display: block;
+        opacity: 0.4;
+        position: absolute;
+        top: 0%;
+        left: -10%;
+        width: 130vw;
+        height: 110vh;
+        opacity: 0.3;
+        -webkit-user-drag: none;
+        animation-name: huwahuwa;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 3s;
+    }
+
+    .textContainer {
+        transform: translate(0);
+        transform: translateY(-20%);
         padding: 0;
+        display: block;
+        width: 295px;
+        margin-left: -40%;
+        text-align: left;
+        display: flex;
+        flex-flow: column;
 
-        .aboutImageMask {
-            transform: translateY(-80%);
-            
-
-            .aboutImage {
-                height: 55%;
-            }
-
+        .KvText {
+            display: none;
+            opacity: 0;
         }
 
-        .aboutTitle {
-            margin-left: 9%;
-            color: #595959;
+        .KvTextSp0 {
+            display: block;
+            width: 250px;
+            opacity: 0;
+        }
+
+        .KvTextSp1 {
+            display: block;
+            width: 180px;
+            opacity: 0;
+        }
+
+        .lineVertical {
+            height: 25px;
+            margin: 0;
+            margin-left: 80px;
+            width: 2px;
+            opacity: 0;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 10%;
+            opacity: 0;
+        }
+    }
+
+    .scroll {
+        right: 4%;
+    }
+}
+
+.about {
+    width: 90%;
+    padding: 0;
+
+    .aboutImageMask {
+        transform: translateY(-80%);
+
+        .aboutImage {
+            height: 55%;
+        }
+    }
+
+    .aboutTitle {
+        margin-left: 9%;
+        color: #595959;
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 40%;
+        letter-spacing: 0.12em;
+        line-height: 160%;
+    }
+
+    .aboutCopy {
+        display: none;
+    }
+
+    .aboutCopySp{
+        display: block;
+        transform: translateY(-10%);
+
+        .copy {
+            font-size: 24px;
             font-weight: 500;
-            font-size: 14px;
-            margin-top: 40%;
+            color: #595959;
+            margin: 0;
+            margin-bottom: 0;
+            margin-left: 9%;
             letter-spacing: 0.12em;
-            line-height: 160%;
+            line-height: 190%;
         }
+    }
 
-        .aboutCopy {
-            display: none;
-        }
+    .line1 {
+        width: 90% !important;
+    }
 
-        .aboutCopySp{
-            display: block;
-            transform: translateY(-10%);
+    .aboutText0 {
+        display: none;
+    }
 
-            .copy {
-                font-size: 24px;
-                font-weight: 500;
-                color: #595959;
-                margin: 0;
-                margin-bottom: 0;
-                margin-left: 9%;
-                letter-spacing: 0.12em;
-                line-height: 190%;
+    .aboutText0Sp {
+        font-size: 14px;
+        display: block;
+        margin-left: 10%;
+        color: #595959;
+        letter-spacing: 0.08em;
+        line-height: 190%;
+    }
+
+    .reference {
+        display: block;
+        margin-left: 9%;
+        
+
+        .RMarkContainer {
+            margin-bottom: 10px;
+            height: 43px;
+
+            .RMark {
+                width: 43px;
+                height: 43px;
             }
         }
-
-        .line1 {
-            width: 90% !important;
-        }
-
-        .aboutText0 {
+        
+        .aboutText1{
             display: none;
         }
-
-        .aboutText0Sp {
-            font-size: 14px;
+        .aboutText1Sp {
             display: block;
-            margin-left: 10%;
+            font-size: 14px;
             color: #595959;
             letter-spacing: 0.08em;
             line-height: 190%;
         }
-
-        .reference {
-            display: block;
-            margin-left: 9%;
-            
-
-            .RMarkContainer {
-                margin-bottom: 10px;
-                height: 43px;
-
-                .RMark {
-                    width: 43px;
-                    height: 43px;
-                }
-            }
-            
-            .aboutText1{
-                display: none;
-            }
-            .aboutText1Sp {
-                display: block;
-                font-size: 14px;
-                color: #595959;
-                letter-spacing: 0.08em;
-                line-height: 190%;
-            }
-        }
-
-        .referenceImage {
-            display: none;
-        }
-
-        .referenceImageSp {
-            display: inline-block !important;
-            margin-top: 8%;
-            margin-bottom: 15%;
-            height: 70px;
-        }
-
-        .aboutBack {
-            width: 300vw;
-            left: -130%;
-            pointer-events: none;
-        }
-
     }
 
-    .featureContainer {
-        margin-top: 15%;
-        
-        .featureBack {
-            width: 300vw;
-            left: -30%;
-            top: -10%;
-        }
+    .referenceImage {
+        display: none;
+    }
 
-        .featureBackBottom {
-            width: 300vw;
-            left: -20%;
-            top: 50%;
-        }
+    .referenceImageSp {
+        display: inline-block !important;
+        margin-top: 8%;
+        margin-bottom: 15%;
+        height: 70px;
+    }
 
-        .feature {
-            .featureImage {
-                width: 210vw !important;
-            }
+    .aboutBack {
+        width: 300vw;
+        left: -130%;
+        pointer-events: none;
+    }
 
-            .featureTitle {
-                top: 5%;
-            }
+}
 
-            .mri {
-                display: block;
-                margin-top: 10%;
+.featureContainer {
+    margin-top: 15%;
     
-                .mriImage {
-                    width: 95vw;
-                    height: 40%;
-                    object-fit: cover;
-                    border-top-right-radius: 10px;
-                    border-bottom-right-radius: 10px;
-                    z-index: 0;
+    .featureBack {
+        width: 300vw;
+        left: -30%;
+        top: -10%;
+    }
 
+    .featureBackBottom {
+        width: 300vw;
+        left: -20%;
+        top: 50%;
+    }
+
+    .feature {
+        .featureImage {
+            width: 210vw !important;
+        }
+
+        .featureTitle {
+            top: 5%;
+            width: 250px;
+            height: 40px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            h1 {
+                font-size: 16px;
+                line-height: 40px;
+            }
+        }
+
+        .mri {
+            display: block;
+            margin-top: 10%;
+
+            .mriImageAnime {
+                overflow: hidden;
+            
+                .mriImageMask {
+                    width: 97vw !important;
+                    height: 250px;
+                    .mriImage {
+                        height: 320px;
+                        transform: translateY(-30px);
+                    }
                 }
-    
+                .mriImageMask:hover {
+                    .mriImage {
+                        transform: scale(1);
+                    }
+                }
+            }
+            .mriTextMask {
+                width: 95vw;
+                height: 340px;
+                margin-left: 0;
+                overflow: hidden;
+                transform: translate(0, -20px);
+                z-index: 1;
+
                 .mriText {
-                    transform: translate(0);
-                    transform: translateY(-10%);
-                    width: 90vw;
-                    height: 310px;
+                    background-color: #fff;
+                    width: 95vw;
+                    height: 340px;
                     border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                     z-index: 1;
-    
+
                     .mriTexttextContainer {
-                        padding-left: 5%;
-    
-    
+                        padding-top: 30px;
+
                         h1 {
                             font-size: 20px;
+                            margin-left: 10%;
                         }
-    
+
                         hr {
-                            margin-left: 0;
+                            margin-left: 10%;
                             margin-right: auto;
                         }
-    
+
                         p {
                             display: none;
                         }
-    
+
                         .textSp {
                             display: block;
                             font-size: 14px;
-                            width: 95%;
-                            margin-left: 0;
+                            width: 83%;
+                            margin-left: 10%;
                             margin-right: auto;
                         }
                     }
                 }
             }
-    
-            .examination {
-                display: block;
-                height: 510px;
-    
+        }
+
+        .examination {
+            display: block;
+            height: 510px;
+
+            .examinationTextMask {
+                width: 88vw;
+                height: 340px;
+                margin-left: 0;
+                overflow: hidden;
+                z-index: 1;
+                top: 230px;
+                right: 0;
+
                 .examinationText {
-                    width: 85vw;
+                    width: 88vw;
                     height: 230px;
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
-                    top: 48%;
                     right: 0;
                     padding-left: 5%;
                     padding-top: 20px;
                     z-index: 1;
-    
+            
                     h1 {
                         font-size: 20px;
                     }
-    
+            
                     hr {
                         margin-left: 0;
                         margin-right: auto;
                     }
-    
+            
                     p {
                         display: none;
                     }
-    
+            
                     .textSp {
-                        display: block;
+                        display: block !important;
                         font-size: 14px;
-                        width: 95%;
+                        width: 97%;
                         margin-left: 0;
                         margin-right: auto;
                     }
                 }
-    
-                .examinationImage {
-                    display: none;
-                }
-    
-                .examinationImageSp {
-                    width: 95vw;
+            }
+
+
+            .examinationImage {
+                display: none;
+            }
+
+            .examinationImageSp {
+                width: 97vw;
+                height: 250px;
+                display: block !important;
+                position: absolute;
+                top: 0;
+                right: 0;
+                object-fit: cover;
+                border-bottom-left-radius: 10px;
+                border-top-left-radius: 10px;
+                z-index: 0;
+            }
+        }
+
+        .prevention {
+            display: block;
+            height: auto;
+
+            .preventionImageAnime {
+                overflow: hidden;
+        
+                .preventionImageMask {
+                    width: 97vw !important;
                     height: 250px;
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    object-fit: cover;
-                    border-bottom-left-radius: 10px;
-                    border-top-left-radius: 10px;
-                    z-index: 0;
+        
+                    .preventionImage {
+                        width: 97vw;
+                        height: 320px;
+                        transform: translateY(-30px);
+                    }
+                }
+            
+                .preventionImageMask:hover {
+                    .preventionImage {
+                        transform: scale(1);
+                    }
                 }
             }
-    
-            .prevention {
-                display: block;
-                height: auto;
-    
-                .preventionImage {
-                    width: 95vw;
-                    height: 250px;
-                    object-fit: cover;
-                    border-top-right-radius: 10px;
-                    border-bottom-right-radius: 10px;
-                    z-index: 0;
-                }
-    
+            
+            .preventionTextMask {
+                width: 95vw;
+                height: 280px;
+                margin-left: 0;
+                overflow: hidden;
+                transform: translate(0, -20px);
+                z-index: 1;
+        
                 .preventionText {
-                    transform: translate(0);
-                    transform: translateY(-10%);
-                    width: 90vw;
-                    height: 250px;
+                    background-color: #fff;
+                    width: 95vw;
+                    height: 280px;
                     border-top-right-radius: 10px;
                     border-bottom-right-radius: 10px;
                     z-index: 1;
-    
+        
                     .preventionTextContainer {
-                        padding-left: 5%;
-                        padding-top: 25px;
-    
+                        padding-top: 30px;
+        
                         h1 {
                             font-size: 20px;
+                            margin-left: 10%;
                         }
-    
+        
                         hr {
-                            margin-left: 0;
+                            margin-left: 10%;
                             margin-right: auto;
                         }
-    
+        
                         p {
                             display: none;
                         }
-    
+        
                         .textSp {
                             display: block;
                             font-size: 14px;
-                            width: 95%;
-                            margin-left: 0;
+                            width: 83%;
+                            margin-left: 10%;
                             margin-right: auto;
                         }
                     }
                 }
             }
         }
-
-
     }
+}
 
-    .voiceMask {
+.voiceMask {
+    height: 862px;
+    margin: 50px auto 50px auto; 
+
+    .voiceContainer {
+        background-image: url("../images/voiceBackSp.jpg");
+        background-repeat: no-repeat;
+        background-size: 96vw;
+        width: 96vw;
         height: 862px;
-        margin: 50px auto 50px auto; 
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 0;
 
-        .voiceContainer {
-            background-image: url("../images/voiceSp.jpg");
-            background-repeat: no-repeat;
-            background-size: 96vw;
-            width: 96vw;
-            height: 862px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 0;
+        .voiceImageMask {
+            height: 90px;
+            width: 363px;
+            right: 0;
 
             .voiceImage {
                 display: none;
             }
 
-            .voiceText {
+            .voiceImageSp {
                 display: block;
-                margin-top: 53%;
-
-                .voiceTextContainer {
-                    width: 325px;
-                    height: 200px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: -3%;
-
-                    p {
-                        font-size: 14px;
-                        margin-left: 20px;
-                        width: 300px;
-                        padding-top: 40px;
-                    }
-
-                    hr {
-                        width: 300px;
-                        color: #595959;
-                    }
-
-                }
-            }
-        }
-    }
-
-    .flowContainer {
-        background-color: #71BED9;
-        overflow: hidden;
-
-        h1 {
-            color: #fff;
-            font-size: 20px;
-            text-align: center;
-            width: 70vw;
-            height: 40px;
-            line-height: 40px;
-            border: 2px solid;
-            border-radius: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            transform: translateY(150px);
-        }
-
-        .flowImageMask {
-            transform: translateY(-50px);
-            .flowImage {
-                display: block;
-                height: 140px;
-                margin-left: 0;
-                margin-right: auto;
+                width: 363px;
+                position: absolute;
+                top: 0;
+                right: 0;
             }
         }
 
 
-        .circleContainer {
+        .voiceTitleSp {
             display: block;
-            padding-bottom: 60px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 10%;
+            width: 250px;
+            height: 40px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            margin: 100px auto 0 auto;
 
-            .pointLine {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 7%;
-                margin-bottom: 7%;
-                transform: rotate(90deg);
+            h1 {
+                font-size: 16px;
+                line-height: 40px;
+                color: #fff;
+                text-align: center;
             }
+        }
 
-            .circle {
+        .voiceText {
+            display: block;
+            margin-top: 13%;
+
+            .voiceTextContainer {
                 width: 325px;
-                height: 325px;
+                height: 200px;
                 margin-left: auto;
                 margin-right: auto;
+                margin-top: -3%;
 
-                .number {
-                    display: block;
-                    width: 55px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 20px;
-                }
-
-                h3 {
-                    color: #fff;
-                    font-size: 20px;
-                    text-align: center;
-                    letter-spacing: 0.12rem;
-                }
-
-                h4 {
-                    color: #fff;
+                p {
                     font-size: 14px;
-                    text-align: center;
-                    margin-top: 15px;
-                    font-weight: 300;
-                    letter-spacing: 0.12rem;
-                    line-height: 170%;
-                }
-
-                .brainImage {
-                    margin-left: 37%;
-                    margin-right: auto;
-                    margin-top: 30px;
-                }
-
-                .reportImage {
-                    margin-left: 43%;
-                    margin-right: auto;
-                    margin-top: 30px;
-                }
-
-                .flowButton {
-                    background-color: white;
-                    width: 240px;
-                    height: 36px;
-                    border-radius: 25px;
-                    display: flex;
-                    justify-content: space-between;
-                    z-index: 0;
-                    position: relative;
-                    overflow: hidden;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 30px;
-
-                    p {
-                        color: black;
-                        margin-left: 20px;
-                        text-align: center;
-                        font-size: 14px;
-                        font-weight: 300;
-                        letter-spacing: 0.16rem;
-                        line-height: 36px;
-                        transition: .3s;
-                    }
-
-                    .playButton {
-                        width: 26px;
-                        height: 26px;
-                        background-color: #B0EA0A;
-                        border-radius: 25px;
-                        border-style: none;
-                        position: relative;
-                        transform: translate(-20%, 22%);
-                        transition: .3s;
-                    }
-
-                    .playButton::after {
-                        content: '';
-                        width: 0;
-                        height: 0;
-                        border-style: solid;
-                        border-width: 6px 0 6px 12px;
-                        border-color: transparent transparent transparent #fff;
-                        /* 左のみ線の色を指定 */
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-40%, -50%);
-                        transition: .3s;
-                    }
-                }
-
-                .flowButton::after {
-                    background-color: #B0EA0A;
-                    border-radius: 25px;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    content: '';
-                    width: 100%;
-                    height: 100%;
-                    transform: scale(0, 1);
-                    transform-origin: left top;
-                    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-                    z-index: -1;
-                }
-
-                .flowButton:hover::after {
-                    transform: scale(1, 1);
-                }
-
-                .flowButton:hover {
-                    transition: 0.3s;
-
-                    p {
-                        color: #fff;
-                    }
-
-                    .playButton {
-                        background-color: #fff;
-                    }
-
-                    .playButton::after {
-                        border-color: transparent transparent transparent #B0EA0A;
-                    }
-                }
-            }
-
-            hr {
-                width: 46px;
-                height: 1px;
-            }
-        }
-    }
-
-    .questionContainer0{
-        overflow: hidden;
-        margin-top: 20%;
-
-        .questionImageMask{
-            position: absolute;
-            right: 0;
-            top: 0;
-
-            .questionImage {
-                width: 103vw;
-                opacity: 0.5;
-            }
-        }
-
-        .questionContainer1 {
-            width: 95vw;
-            margin-right: 0;
-            margin-left: auto;
-            padding-top: 25%;
-            padding-bottom: 50px;
-
-            h1 {
-                font-size: 16px;
-                line-height: 40px;
-                width: 70%;
-                height: 40px;
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 15%;
-                transform: translateY(0);
-            }
-
-            .questionTextMask {
-                overflow: hidden;
-
-                .questionText {
-                    margin-left: 5%;
-                    padding-bottom: 5%;
-            
-                    hr {
-                        border: none;
-                        height: 1px;
-                        color: #595959;
-                        background-color: #595959;
-                        margin-bottom: 20px;
-                    }
-            
-                    .question {
-                        display: flex;
-                        justify-content: flex-start;
-                        margin-left: 10px;
-                        margin-top: 28px;
-            
-                        .Q {
-                            font-family: 'Montserrat', sans-serif;
-                            font-size: 26px;
-                            line-height: 26px;
-                            color: #71BED9;
-                        }
-            
-                        .title {
-                            margin-left: 15px;
-                            color: #71BED9;
-                            font-size: 16px;
-                            width: 70vw;
-                        }
-            
-                        .A {
-                            font-family: 'Montserrat', sans-serif;
-                            font-size: 26px;
-                            line-height: 26px;
-                            color: #595959;
-                            margin-left: 30px;
-                            margin-bottom: 20px;
-                        }
-            
-                        .answer {
-                            margin-left: 15px;
-                            color: #595959;
-                            font-size: 16px;
-                            width: 60vw;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-    .Introduce {
-        margin-top: 90px;
-        padding-bottom: 70px;
-        background-color: #fff;
-
-        .title {
-            border-width: 1px;
-            width: 70%;
-            border-radius: 10px;
-
-            h1 {
-                font-size: 16px;
-                height: 40px;
-                line-height: 40px;
-            }
-        }
-
-
-        .region {
-            width: 100vw;
-            border-style: solid;
-            border-width: 1px;
-            border-color: #E6E6E6;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            overflow-x: scroll;
-
-            .spacey2 {
-                gap: 5px;
-                margin: 0;
-
-                li {
-                    .button {
-                        p {
-                            display: inline-block;
-                        }
-                    }
-                }
-
-
-                .menus {
-                    margin-top: 15px;
-                    position: absolute;
-                    top: 4.4%;
-                    left: 50%;
-                    width: 98vw;
-                    padding-left: 0;
-                    text-align: center;
-                    transition: 0.3s;
-                    line-height: 85px;
-                    display: flex;
-                    font-size: 14px;
-
-                    li {
-                        cursor: pointer;
-                        margin-left: 40px;
-                    }
+                    margin-left: 20px;
+                    width: 300px;
+                    padding-top: 40px;
                 }
 
                 hr {
-                    transition: 0.3s;
-                    background-color: #595959;
-                    margin-top: 0;
-                    width: 1px;
+                    width: 300px;
+                    color: #595959;
                 }
 
             }
         }
+    }
+}
 
-        .hospitalContainer {
+.flowContainer {
+    background-color: #71BED9;
+    overflow: hidden;
+
+    h1 {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        width: 70vw;
+        height: 40px;
+        line-height: 40px;
+        border: 2px solid;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(150px);
+    }
+
+    .flowImageMask {
+        transform: translateY(-50px);
+        .flowImage {
             display: block;
-            width: 100vw;
-            margin-top: 10%;
-
-            .hospital {
-                background-color: #EBEBEB;
-                width: 90%;
-                height: 206px;
-                border-radius: 20px;
-                margin-top: 7%;
-                margin-left: 5%;
-                margin-right: auto;
-                display: inline-block;
-
-                h1 {
-                    font-size: 18px;
-                    margin-top: 9%;
-                }
-
-                h2 {
-                    font-size: 12px;
-                }
-
-                h3 {
-                    font-size: 12px;
-                }
-
-                .hospitalButton {
-                    background-color: white;
-                    width: 210px;
-                    height: 36px;
-                    border-radius: 25px;
-                    display: flex;
-                    justify-content: space-between;
-                    z-index: 0;
-                    position: relative;
-                    overflow: hidden;
-                    margin-left: 35px;
-                    margin-right: auto;
-                    margin-top: 30px;
-
-                    p {
-                        color: black;
-                        text-align: center;
-                        font-size: 14px;
-                        font-weight: 300;
-                        letter-spacing: 0.16rem;
-                        line-height: 36px;
-                        transition: .3s;
-                    }
-
-                    .playButton {
-                        width: 26px;
-                        height: 26px;
-                        background-color: #B0EA0A;
-                        border-radius: 25px;
-                        border-style: none;
-                        position: relative;
-                        transform: translate(-20%, 22%);
-                        transition: .3s;
-                    }
-
-                    .playButton::after {
-                        content: '';
-                        width: 0;
-                        height: 0;
-                        border-style: solid;
-                        border-width: 6px 0 6px 12px;
-                        border-color: transparent transparent transparent #fff;
-                        /* 左のみ線の色を指定 */
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-40%, -50%);
-                        transition: .3s;
-                    }
-                }
-            }
-
-        }
-
-        .searchImage {
-            transform: translateY(80%);
-            opacity: 0.2;
+            height: 140px;
+            margin-left: 0;
+            margin-right: auto;
         }
     }
 
-    footer {
-        background-image: url("../images/footerSp.jpg");
-        width: 100%;
-        height: 550px;
-        margin-top: 10%;
-        padding-top: 10%;
-        position: relative;
-        overflow: hidden;
 
-        .footerBack {
-            width: 350vw;
-            left: -150%;
-            top: 10%;
+    .circleContainer {
+        display: block;
+        padding-bottom: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10%;
+
+        .pointLine {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 7%;
+            margin-bottom: 7%;
+            transform: rotate(90deg);
         }
 
-        .footerContainer {
-            display: block;
-            width: 65%;
-            margin-top: 0;
-            margin-left: 10%;
-            gap: 250px;
+        .circle {
+            width: 325px;
+            height: 325px;
+            margin-left: auto;
+            margin-right: auto;
 
-            .listStyle {
-                gap: 30px !important;
+            .number {
+                display: block;
+                width: 55px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
             }
 
-            .logoFooter {
-                .logo {
-                    width: 70px;
-                }
-                h1 {
+            h3 {
+                color: #fff;
+                font-size: 20px;
+                text-align: center;
+                letter-spacing: 0.12rem;
+            }
+
+            h4 {
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                margin-top: 15px;
+                font-weight: 300;
+                letter-spacing: 0.12rem;
+                line-height: 170%;
+            }
+
+            .brainImage {
+                margin-left: 37%;
+                margin-right: auto;
+                margin-top: 30px;
+            }
+
+            .reportImage {
+                margin-left: 43%;
+                margin-right: auto;
+                margin-top: 30px;
+            }
+
+            .flowButton {
+                background-color: white;
+                width: 240px;
+                height: 36px;
+                border-radius: 25px;
+                display: flex;
+                justify-content: space-between;
+                z-index: 0;
+                position: relative;
+                overflow: hidden;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 30px;
+
+                p {
+                    color: black;
+                    margin-left: 20px;
+                    text-align: center;
                     font-size: 14px;
-                    color: #fff;
-                    font-weight: 400;
-                    letter-spacing: 0.12rem;
-                    line-height: 160%;
-                    margin-top: 7%;
+                    font-weight: 300;
+                    letter-spacing: 0.16rem;
+                    line-height: 36px;
+                    transition: .3s;
+                }
+
+                .playButton {
+                    width: 26px;
+                    height: 26px;
+                    background-color: #B0EA0A;
+                    border-radius: 25px;
+                    border-style: none;
+                    position: relative;
+                    transform: translate(-20%, 22%);
+                    transition: .3s;
+                }
+
+                .playButton::after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 6px 0 6px 12px;
+                    border-color: transparent transparent transparent #fff;
+                    /* 左のみ線の色を指定 */
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-40%, -50%);
+                    transition: .3s;
                 }
             }
 
-            .listFooter {
-                margin-top: 18%;
+            .flowButton::after {
+                background-color: #B0EA0A;
+                border-radius: 25px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                width: 100%;
+                height: 100%;
+                transform: scale(0, 1);
+                transform-origin: left top;
+                transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+                z-index: -1;
+            }
 
-                ul {
-                    gap: 35px;
+            .flowButton:hover::after {
+                transform: scale(1, 1);
+            }
 
-                    .list {
+            .flowButton:hover {
+                transition: 0.3s;
 
-                        hr {
-                            width: 25px;
-                            margin-top: 10px;
-                        }
-                        li {
-                            font-size: 14px;
-                        }
+                p {
+                    color: #fff;
+                }
+
+                .playButton {
+                    background-color: #fff;
+                }
+
+                .playButton::after {
+                    border-color: transparent transparent transparent #B0EA0A;
+                }
+            }
+        }
+
+        hr {
+            width: 46px;
+            height: 1px;
+        }
+    }
+}
+
+.questionContainer0{
+    overflow: hidden;
+    margin-top: 20%;
+
+    .questionImageMask{
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        .questionImage {
+            width: 103vw;
+            opacity: 0.5;
+        }
+    }
+
+    .questionContainer1 {
+        width: 95vw;
+        margin-right: 0;
+        margin-left: auto;
+        padding-top: 25%;
+        padding-bottom: 50px;
+
+        h1 {
+            font-size: 16px;
+            line-height: 40px;
+            width: 70%;
+            height: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15%;
+            transform: translateY(0);
+        }
+
+        .questionTextMask {
+            overflow: hidden;
+
+            .questionText {
+                margin-left: 5%;
+                padding-bottom: 5%;
+        
+                hr {
+                    border: none;
+                    height: 1px;
+                    color: #595959;
+                    background-color: #595959;
+                    margin-bottom: 20px;
+                }
+        
+                .question {
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-left: 10px;
+                    margin-top: 28px;
+        
+                    .Q {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 26px;
+                        line-height: 26px;
+                        color: #71BED9;
+                    }
+        
+                    .title {
+                        margin-left: 15px;
+                        color: #71BED9;
+                        font-size: 16px;
+                        width: 70vw;
+                    }
+        
+                    .A {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 26px;
+                        line-height: 26px;
+                        color: #595959;
+                        margin-left: 30px;
+                        margin-bottom: 20px;
+                    }
+        
+                    .answer {
+                        margin-left: 15px;
+                        color: #595959;
+                        font-size: 16px;
+                        width: 60vw;
                     }
                 }
-
-
-                .toTop {
-                    position: absolute;
-                    top: 7%;
-                    right: 7%;
-                }
             }
         }
+    }
+}
 
-        .copyright {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 10%;
+.Introduce {
+    margin-top: 90px;
+    padding-bottom: 70px;
+    background-color: #fff;
+
+    .title {
+        border-width: 1px;
+        width: 70%;
+        border-radius: 10px;
+
+        h1 {
+            font-size: 16px;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+
+
+    .region {
+        width: 100vw;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #E6E6E6;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        overflow-x: scroll;
+
+        .spacey2 {
+            gap: 5px;
+            margin: 0;
+
+            li {
+                .button {
+                    p {
+                        display: inline-block;
+                    }
+                }
+            }
+
+
+            .menus {
+                margin-top: 15px;
+                position: absolute;
+                top: 4.4%;
+                left: 50%;
+                width: 98vw;
+                padding-left: 0;
+                text-align: center;
+                transition: 0.3s;
+                line-height: 85px;
+                display: flex;
+                font-size: 14px;
+
+                li {
+                    cursor: pointer;
+                    margin-left: 40px;
+                }
+            }
 
             hr {
-                width: 70%;
-                height: 1px;
-                background-color: #fff;
-                border: 0;
-                margin-left: 0;
-                margin-right: 0;
+                transition: 0.3s;
+                background-color: #595959;
+                margin-top: 0;
+                width: 1px;
             }
 
-            p {
+        }
+    }
+
+    .hospitalContainer {
+        display: block;
+        width: 100vw;
+        margin-top: 10%;
+
+        .hospital {
+            background-color: #EBEBEB;
+            width: 90%;
+            height: 206px;
+            border-radius: 20px;
+            margin-top: 7%;
+            margin-left: 5%;
+            margin-right: auto;
+            display: inline-block;
+
+            h1 {
+                font-size: 18px;
+                margin-top: 9%;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 12px;
+            }
+
+            .hospitalButton {
+                background-color: white;
+                width: 210px;
+                height: 36px;
+                border-radius: 25px;
+                display: flex;
+                justify-content: space-between;
+                z-index: 0;
+                position: relative;
+                overflow: hidden;
+                margin-left: 35px;
+                margin-right: auto;
+                margin-top: 30px;
+
+                p {
+                    color: black;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 300;
+                    letter-spacing: 0.16rem;
+                    line-height: 36px;
+                    transition: .3s;
+                }
+
+                .playButton {
+                    width: 26px;
+                    height: 26px;
+                    background-color: #B0EA0A;
+                    border-radius: 25px;
+                    border-style: none;
+                    position: relative;
+                    transform: translate(-20%, 22%);
+                    transition: .3s;
+                }
+
+                .playButton::after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 6px 0 6px 12px;
+                    border-color: transparent transparent transparent #fff;
+                    /* 左のみ線の色を指定 */
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-40%, -50%);
+                    transition: .3s;
+                }
+            }
+        }
+
+    }
+
+    .searchImage {
+        transform: translateY(80%);
+        opacity: 0.2;
+    }
+}
+
+.footer {
+    background-image: url("../images/footerSp.jpg");
+    width: 100%;
+    height: 550px;
+    margin-top: 10%;
+    padding-top: 10%;
+    position: relative;
+    overflow: hidden;
+
+    .footerBack {
+        width: 350vw;
+        left: -150%;
+        top: 10%;
+    }
+
+    .footerContainer {
+        display: block;
+        width: 65%;
+        margin-top: 0;
+        margin-left: 10%;
+        gap: 250px;
+
+        .listStyle {
+            gap: 30px !important;
+        }
+
+        .logoFooter {
+            .logo {
+                width: 70px;
+            }
+            h1 {
+                font-size: 14px;
                 color: #fff;
-                line-height: 10px;
-                font-size: 10px;
-                font-family: 'Montserrat', sans-serif;
-                margin-left: 4px;
-                margin-top: 3px;
+                font-weight: 400;
+                letter-spacing: 0.12rem;
+                line-height: 160%;
+                margin-top: 7%;
+            }
+        }
+
+        .listFooter {
+            margin-top: 18%;
+
+            ul {
+                gap: 35px;
+
+                .list {
+
+                    hr {
+                        width: 25px;
+                        margin-top: 10px;
+                    }
+                    li {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+
+            .toTop {
+                position: absolute;
+                top: 7%;
+                right: 7%;
             }
         }
     }
+
+    .copyright {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10%;
+
+        hr {
+            width: 70%;
+            height: 1px;
+            background-color: #fff;
+            border: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        p {
+            color: #fff;
+            line-height: 10px;
+            font-size: 10px;
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 4px;
+            margin-top: 3px;
+        }
+    }
+}
 }

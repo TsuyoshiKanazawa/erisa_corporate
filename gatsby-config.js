@@ -49,6 +49,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-microcms`,
+      options: {
+        apiKey: `E4IlIqsobIKK67NGUFD8qfb5O0xDVFlse6cX`,
+        serviceId: `erisaproduct`,
+        apis: [
+          {
+            endpoint: `ken`,
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
