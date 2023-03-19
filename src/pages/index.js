@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import axios from "axios";
+import Search from "../components/search";
 
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
@@ -760,31 +760,14 @@ export const Index = (props) => {
 
 
   //テスト/////////////////////////////////////////
-  const [infos, setInfos] = React.useState([]);
-  const [action, setAction] = React.useState(false);
+
   const [active, setActive] = useState(false);
 
-  const searchInfos = async (e) => {
-    console.log(e.target.id);
-    const keyword = e.target.id;
-
-    // 検索APIにリクエストを送信
-    const res = await axios.get("/api/search", {
-      params: {
-        keyword,
-      },
-    });
-    // 検索結果をステート変数にセット
-    setInfos(res.data.contents);
-
-    // 検索を実行した場合actionフラッグをtrueに
-    setAction(true)
     
     if (active === false){
       setActive(!active)
     }
-    
-  };
+
   //テスト/////////////////////////////////////////
 
 
@@ -1426,109 +1409,7 @@ export const Index = (props) => {
           <div id="questionTitle" className={style.title}>
             <h1>導入医療機関</h1>
           </div>
-
-          <div className={style.region}>
-            <div id="spacey2" className={style.spacey2}>
-              {props.data.allMicrocmsRegion.edges.map((region, index) => (
-                <div>
-                  <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-                    className={style.button}
-                    type="button"
-                    onClick={() => {
-                      handleClick(index);
-                    }}
-                    style={{ '-webkit-tap-highlight-color': 'rgba(0,0,0,0)' }}
-                  >
-                    <p>{region.node.region}</p>
-
-                    <div className={style.triangle}
-                      style={
-                        clicked === index
-                          ? {
-                            borderColor: "transparent transparent #565656 #565656", marginTop: "11px"
-                          }
-                          : { borderColor: "#565656 #565656 transparent transparent", marginTop: "15px" }
-                      }
-                    >
-
-                    </div>
-                  </div>
-
-                  <hr
-                    style={
-                      clicked === index
-                        ? {
-                          height: "15px",
-                          marginBottom: "85px"
-                        }
-                        : { height: "0", opacity: "0", transitionDelay: "0.5s" }
-                    } />
-
-                  <div
-                    className={style.menus}
-                    style={
-                      clicked === index
-                        ? {
-                          minheight: "85px",
-                          backgroundColor: "#fff",
-                          transitionDelay: "0.3s"
-                        }
-                        : { height: "0", visibility: "hidden", opacity: "0" }
-                    }>
-                      <p key={index} id={region.node.prefectures[0]} onClick={searchInfos}>{region.node.prefectures[0]}</p>
-                      <p key={index} id={region.node.prefectures[1]} onClick={searchInfos}>{region.node.prefectures[1]}</p>
-                      <p key={index} id={region.node.prefectures[2]} onClick={searchInfos}>{region.node.prefectures[2]}</p>
-                      <p key={index} id={region.node.prefectures[3]} onClick={searchInfos}>{region.node.prefectures[3]}</p>
-                      <p key={index} id={region.node.prefectures[4]} onClick={searchInfos}>{region.node.prefectures[4]}</p>
-                      <p key={index} id={region.node.prefectures[5]} onClick={searchInfos}>{region.node.prefectures[5]}</p>
-                      <p key={index} id={region.node.prefectures[6]} onClick={searchInfos}>{region.node.prefectures[6]}</p>
-                      <p key={index} id={region.node.prefectures[7]} onClick={searchInfos}>{region.node.prefectures[7]}</p>
-                      <p key={index} id={region.node.prefectures[8]} onClick={searchInfos}>{region.node.prefectures[8]}</p>
-                      <p key={index} id={region.node.prefectures[9]} onClick={searchInfos}>{region.node.prefectures[9]}</p>
-                  </div>
-                </div>
-              ))}
-              
-
-            </div>
-          </div>
-
-          <div id="hospitalContainer" className={style.hospitalContainer}>
-
-            {props.data.allMicrocmsIntroduce.edges.map((Introduce, index) => (
-              <div id="hospital" key={index} className={active ? "index-module--hospitalNone--4faa1" : "index-module--hospital--cf50b"}>
-                <h1>{Introduce.node.name}</h1>
-                <h2>Address：{Introduce.node.address}</h2>
-                <h3>Tel：{Introduce.node.number}</h3>
-
-                <a href={Introduce.node.url}>
-                  <span className={style.hospitalButton}>
-                    <p>VIEW WEB</p>
-                    <span className={style.playButton}></span>
-                  </span>
-                </a>
-              </div>
-            ))}
-
-            {/* 検索結果ブロック */}
-            {((infos.length > 0 && action == true) || (action == false)) ?
-              infos.map((info) => (
-                <div className={style.hospital}>
-                  <h1>{info.name}</h1>
-                  <h2>Address：{info.address}</h2>
-                  <h3>Tel：{info.number}</h3>
-
-                  <a href={info.url}>
-                    <span className={style.hospitalButton}>
-                      <p>VIEW WEB</p>
-                      <span className={style.playButton}></span>
-                    </span>
-                  </a>
-                </div>
-              )) : (<p>該当なし</p>)
-            }
-
-          </div>
+          <Search />
 
         </div>
         <StaticImage src="../images/search.png" alt="searchImage" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.searchImage} />

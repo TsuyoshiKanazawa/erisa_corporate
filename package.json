@@ -29,6 +29,8 @@
     "sass": "^1.57.1"
   },
   "devDependencies": {
+    "@netlify/plugin-gatsby": "^3.6.0",
+    "gatsby-plugin-netlify": "^5.1.0",
     "prettier": "^2.8.0"
   },
   "keywords": [

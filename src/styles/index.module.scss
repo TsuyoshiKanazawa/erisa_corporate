@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 body {
-    background-color: #EDEDED;
+    background-color: #EDEDED !important;
     margin: 0;
     padding: 0;
     -ms-overflow-style: none;
@@ -1469,7 +1469,8 @@ body::-webkit-scrollbar {
                 p {
                     cursor: pointer;
                     transition: 0.3s;
-                    margin-left: 65px;
+                    margin: 0 0 0 65px;
+                    width: 70px;
 
                     p:hover {
                         transform: scale(1.1, 1.1);
@@ -1496,7 +1497,7 @@ body::-webkit-scrollbar {
         margin-right: auto;
 
         .hospitalNone {
-            display: none;
+            display: block;
         }
         .hospital {
             background-color: #EBEBEB;

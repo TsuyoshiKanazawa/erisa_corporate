@@ -24,6 +24,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-remark`, 
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
+    `@netlify/plugin-gatsby`,
     {
       resolve: `gatsby-source-microcms`,
       options: {
