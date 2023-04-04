@@ -15,7 +15,7 @@ import kvBlock3SP from '../images/kvBlock3SP.svg'
 
 import KVTitle from '../images/KVTitle.svg'
 import KVTitleSp from '../images/KVTitleSp.svg'
-import KVText from '../images/KVText.svg'
+import KVText from '../images/KVTextPC.svg'
 import KVTextSp from '../images/KVTextSp.svg'
 
 gsap.registerPlugin(ScrollTrigger);
