@@ -22,41 +22,6 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `@netlify/plugin-gatsby`,
     {
-      resolve: `gatsby-source-microcms`,
-      options: {
-        apiKey: process.env.MICROCMS_APIKEY,
-        serviceId: `erisaproduct`,
-        apis: [
-          {
-            endpoint: `introduce`,
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-source-microcms`,
-      options: {
-        apiKey: process.env.MICROCMS_APIKEY,
-        serviceId: `erisaproduct`,
-        apis: [
-          {
-            endpoint: `region`,
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          "G-8NW68GETB2"
-        ],
-        pluginConfig: {
-          head: true,
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
