@@ -12,7 +12,6 @@ import kvBlock3 from '../images/kvBlock3.svg'
 import kvBlock1SP from '../images/kvBlock1SP.svg'
 import kvBlock2SP from '../images/kvBlock2SP.svg'
 import kvBlock3SP from '../images/kvBlock3SP.svg'
-import kvBlockBottom from '../images/kvBlockBottom.png'
 
 import KVTitle from '../images/KVTitle.svg'
 import KVTitleSp from '../images/KVTitleSp.svg'
@@ -20,6 +19,7 @@ import KVText from '../images/KVText.svg'
 import KVTextSp from '../images/KVTextSp.svg'
 
 gsap.registerPlugin(ScrollTrigger);
+
 
 export const Index = () => {
 
