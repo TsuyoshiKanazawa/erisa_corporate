@@ -10,6 +10,7 @@ import KVTitle from '../images/KVTitle.svg'
 import KVTitleSp from '../images/KVTitleSp.svg'
 import KVText from '../images/KVTextPC.svg'
 import KVTextSp from '../images/KVTextSp.svg'
+import ourMission from '../images/ourMission.jpg'
 
 import logoWhite from '../images/logoWhite.svg'
 import logoColor from '../images/logoColor.svg'
@@ -231,7 +232,7 @@ export const Index = () => {
     '#ourMissionImageMask',
     { width: 0 }, //fromの設定
     {  //toの設定
-      width: 720,
+      width: "50vw",
       duration: 0.5,
       scrollTrigger: {
         trigger: '#ourMissionImageMask',
@@ -748,7 +749,7 @@ export const Index = () => {
 
         <div id="ourMission" className={style.ourMission}>
           <div id="ourMissionImageMask" className={style.ourMissionImageMask}>
-            <StaticImage src="../images/ourMission.jpg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.ourMissionImage} />
+            <img src={ourMission} alt="profile" className={style.ourMissionImage}/>
           </div>
           
           <div id="ourMissionTexts" className={style.ourMissionText}>
@@ -853,13 +854,13 @@ export const Index = () => {
         </div>
 
         <div id="links" className={style.links}>
-          <a href="/" className={style.link}>
+          <a href="/about" className={style.link}>
             <h1>会社概要</h1>
           </a>
           <a href="/" className={style.link}>
             <h1>採用情報</h1>
           </a>
-          <a href="/" className={style.link}>
+          <a href="/contact" className={style.link}>
             <h1>お問い合わせ</h1>
           </a>
         </div>
