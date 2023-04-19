@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { StaticImage } from "gatsby-plugin-image"
 import * as style from "../styles/index.module.scss"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -23,21 +22,27 @@ const Footer = () => {
     let mm = gsap.matchMedia();
 
     const setAnimation = () => {
-
+        gsap.fromTo(
+            '#footer',
+            { visibility: "hidden" }, //fromの設定
+            {  //toの設定
+                visibility: "visible",
+            }
+        )
     }
   //アニメーション専用/////////////////////////////////////////
     return (
-        <footer className={style.footer}>
+        <footer id="footer" className={style.footer}>
             <div className={style.footerContainer}>
-                <AnchorLink href="#top" className={style.logoFooter}>
+                <a href="/" className={style.logoFooter}>
                     <img src={logoColor} alt="logo" className={style.logo} loading="lazy" />
-                </AnchorLink>
+                </a>
 
                 <div className={style.footerMenu}>
-                    <a href="/">-&emsp;INFORMATION</a>
+                    <a href="/information">-&emsp;INFORMATION</a>
                     <a href="/">-&emsp;RECRUIT</a>
-                    <a href="/">-&emsp;ABOUT</a>
-                    <a href="/">-&emsp;CONTACT</a>
+                    <a href="/about">-&emsp;ABOUT</a>
+                    <a href="/contact">-&emsp;CONTACT</a>
                     <a href="/">-&emsp;PRODUCT</a>
                     <a href="/">-&emsp;PRIVACY POLICY</a>
                     <a href="/">-&emsp;MEMBER</a>
@@ -48,7 +53,7 @@ const Footer = () => {
 
             <img src={footerEnd} alt="" className={style.footerEnd} />
             <img src={footerEndSP} alt="" className={style.footerEndSP} />
-            <AnchorLink href="#top" className={style.toTop}>to TOP</AnchorLink >
+            <AnchorLink href="#body" className={style.toTop}>to TOP</AnchorLink >
         </footer>
     )
 }

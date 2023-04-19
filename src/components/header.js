@@ -86,7 +86,6 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
 //アニメーション専用/////////////////////////////////////////
 
     return (
-
         <header id="headerWrapper" className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
             <div className={style.flexContainer}>
                 <a href="/">
@@ -94,12 +93,12 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                     <img src={logoWhite} id="logoWhite" className={style.logoWhite} alt="logo" />
                 </a>
                 <div className={style.headerRight}>
-                    <a href="/" ><p id="headerMenu">INFORMATION</p></a>
-                    <a href="/" ><p id="headerMenu">ABOUT</p></a>
+                    <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
+                    <a href="/about" ><p id="headerMenu">ABOUT</p></a>
                     <a href="/" ><p id="headerMenu">PRODUCT</p></a>
                     <a href="/" ><p id="headerMenu">MEMBER</p></a>
                     <a href="/" ><p id="headerMenu">RECRUIT</p></a>
-                    <a href="/" ><p id="headerMenu">CONTACT</p></a>
+                    <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
                     <button
                         className={style.hmb}
                         id="hamberger"
@@ -130,7 +129,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                         </div>
 
                         <div className={style.menuList}>
-                            <a href="/"
+                            <a href="/information"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -138,7 +137,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                                 }}>
                                 <p>INFORMATION</p>
                             </a>
-                            <a href="/"
+                            <a href="/about"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -192,7 +191,6 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                 </div>
             </div>
         </header>
-
     )
 } 
 

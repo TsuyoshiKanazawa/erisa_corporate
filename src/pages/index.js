@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -6,22 +6,73 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import * as style from "../styles/index.module.scss"
 
-import kvBlock1 from '../images/kvBlock1.svg'
-import kvBlock2 from '../images/kvBlock2.svg'
-import kvBlock3 from '../images/kvBlock3.svg'
-import kvBlock1SP from '../images/kvBlock1SP.svg'
-import kvBlock2SP from '../images/kvBlock2SP.svg'
-import kvBlock3SP from '../images/kvBlock3SP.svg'
-
 import KVTitle from '../images/KVTitle.svg'
 import KVTitleSp from '../images/KVTitleSp.svg'
 import KVText from '../images/KVTextPC.svg'
 import KVTextSp from '../images/KVTextSp.svg'
 
+import logoWhite from '../images/logoWhite.svg'
+import logoColor from '../images/logoColor.svg'
+import hamberger from '../images/hamberger.svg'
+
 gsap.registerPlugin(ScrollTrigger);
 
-
 export const Index = () => {
+
+  //ヘッダーが表示・非表示になる/////////////////
+  const [isHeaderShown, setIsHeaderShown] = useState(true);
+  const [lastPosition, setLastPosition] = useState(0);
+  const headerHeight = 100;
+  const scrollEvent = React.useCallback(() => {
+    const offset = window.pageYOffset;
+
+    if (offset > headerHeight) {
+      setIsHeaderShown(false);
+
+    } else {
+      setIsHeaderShown(true);
+    }
+
+    if (offset < lastPosition) {
+      setIsHeaderShown(true);
+    }
+
+    setLastPosition(offset);
+  }, [lastPosition]);
+
+  useLayoutEffect(() => {
+    window.addEventListener('scroll', scrollEvent);
+
+    return () => {
+      window.removeEventListener('scroll', scrollEvent);
+    };
+  }, [scrollEvent]);
+  ///////////////////////////////////////////
+  //ハンバーガーメニューの開閉////////////////
+  const handle = useCallback((e) => {
+    e.preventDefault();
+  }, []);
+
+  const scrollLock = () => {//ハンバーガーメニューを空けた時はスクロール禁止
+    document.addEventListener('touchmove', handle, { passive: false });
+    document.addEventListener('mousewheel', handle, { passive: false });
+  }
+
+  const scrollLockLift = () => {//ハンバーガーメニューを閉じたらスクロール禁止解除
+    document.removeEventListener('touchmove', handle,);
+    document.removeEventListener('mousewheel', handle,);
+  }
+
+
+  const [isShow, setIsShow] = useState(false);
+  const closeWithClickOutSideMethod = (e, setter) => {
+    if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
+      setter(false);//メニューを閉じる
+      document.body.style.overflow = "auto";
+      scrollLockLift();
+    }
+  };
+///////////////////////////////////////////
 
   //アニメーション専用/////////////////////////////////////////
   const div = useRef();
@@ -37,10 +88,9 @@ export const Index = () => {
   //共通/////////////////////////
     gsap.fromTo(
       '#headerWrapper',
-      { backgroundColor: "transparent", borderBottom: "none" }, //fromの設定
+      { backgroundColor: "transparent" }, //fromの設定
       {  //toの設定
         backgroundColor: "white",
-        borderBottom: "1px solid #000",
         duration: 0.3,
         scrollTrigger: {
           trigger: '#top',
@@ -67,7 +117,15 @@ export const Index = () => {
     )
 
     gsap.fromTo(
-      '#top',
+      '#body',
+      { visibility: "hidden" }, //fromの設定
+      {  //toの設定
+        visibility: "visible",
+      }
+    )
+    
+    gsap.fromTo(
+      '#headerWrapper',
       { visibility: "hidden" }, //fromの設定
       {  //toの設定
         visibility: "visible",
@@ -103,179 +161,181 @@ export const Index = () => {
     )
   //共通/////////////////////////
 
-    mm.add("(min-width: 901px)", () => {
+  mm.add("(min-width: 901px)", () => {
 
-  //KV/////////////////////////
-    gsap.fromTo(
-      '#lineMask',
-      { width: 0 }, //fromの設定
-      {  //toの設定
-        width: "100%",
-        duration: 2,
-        delay: 0.6,
+//KV/////////////////////////
+  gsap.fromTo(
+    '#lineMask',
+    { width: 0 }, //fromの設定
+    {  //toの設定
+      width: "100%",
+      duration: 1.5,
+      delay: 0.6,
+      stagger: {
+        each: 0.5,
       }
-    )
+    },
+  )
 
-    gsap.fromTo(
-      '#KVTitleMask',
-      { width: 0 }, //fromの設定
-      {  //toの設定
-        width: "60vw",
-        duration: 1.5,
-        delay: 1,
+  gsap.fromTo(
+    '#KVTitleMask',
+    { width: 0 }, //fromの設定
+    {  //toの設定
+      width: "60vw",
+      duration: 1.5,
+      delay: 1,
+    }
+  )
+
+  gsap.fromTo(
+    '#KVTextMask',
+    { width: 0 }, //fromの設定
+    {  //toの設定
+      width: "90vw",
+      duration: 1.5,
+      delay: 1.5,
+    }
+  )
+//KV/////////////////////////
+//information////////////////
+  gsap.fromTo(
+    '#informationTitle',
+    { y: 100 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#informationTitle',
+        start: 'top 80%',
+      },
+    }
+  )
+
+  gsap.fromTo(
+    '#informationContent',
+    { y: 70, autoAlpha: 0 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#informationContent',
+        start: 'top 80%',
+      },
+    }
+  )
+
+//information////////////////
+//ourmission////////////////
+  gsap.fromTo(
+    '#ourMissionImageMask',
+    { width: 0 }, //fromの設定
+    {  //toの設定
+      width: 720,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#ourMissionImageMask',
+        start: 'top 80%',
+      },
+    }
+  )
+
+  gsap.fromTo(
+    '#ourMissionText',
+    { autoAlpha: 0, y: 50 }, //fromの設定
+    {  //toの設定
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.5,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: '#ourMissionText',
+        start: 'top 70%',
+      },
+      stagger: {
+        each: 0.3,
       }
-    )
+    }
+  )
 
-    gsap.fromTo(
-      '#KVTextMask',
-      { width: 0 }, //fromの設定
-      {  //toの設定
-        width: "70vw",
-        duration: 1.5,
-        delay: 1.5,
-      }
-    )
-  //KV/////////////////////////
-  //information////////////////
-    gsap.fromTo(
-      '#informationTitle',
-      { y: 100 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#informationTitle',
-          start: 'top 80%',
-        },
-      }
-    )
+//ourmission////////////////
+//product///////////////////
+  gsap.fromTo(
+    '#productTitle',
+    { y: 70 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#productTitle',
+        start: 'top 80%',
+      },
+    }
+  )
 
-    gsap.fromTo(
-      '#informationContent',
-      { y: 70, autoAlpha: 0 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#informationContent',
-          start: 'top 80%',
-        },
-      }
-    )
-
-  //information////////////////
-  //ourmission////////////////
-    gsap.fromTo(
-      '#ourMissionImageMask',
-      { width: 0 }, //fromの設定
-      {  //toの設定
-        width: 720,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#ourMissionImageMask',
-          start: 'top 80%',
-        },
-      }
-    )
-    gsap.fromTo(
-      '#ourMissionText',
-      { autoAlpha: 0, y: 50 }, //fromの設定
-      {  //toの設定
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.5,
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: '#ourMissionText',
-          start: 'top 70%',
-        },
-        stagger: {
-          each: 0.3,
-        }
-      }
-    )
-
-
-  //ourmission////////////////
-  //product///////////////////
-    gsap.fromTo(
-      '#productTitle',
-      { y: 70 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#productTitle',
-          start: 'top 80%',
-        },
-      }
-    )
-
-    ScrollTrigger.batch('#productContent', {
-      onEnter: batch => gsap.fromTo(batch,
-        {
-          y: 100,
-          autoAlpha: 0,
-        },
-        {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.5,
-          start: 'top 80%',
-        }
-      ),
-      once: true
-    });
-
-  //product///////////////////
-  //details///////////////////
-    gsap.fromTo(
-      '#detailTitle1',
-      { y: 150, autoAlpha: 1 }, //fromの設定
-      {  //toの設定
+  ScrollTrigger.batch('#productContent', {
+    onEnter: batch => gsap.fromTo(batch,
+      {
+        y: 100,
+        autoAlpha: 0,
+      },
+      {
         y: 0,
         autoAlpha: 1,
         duration: 0.5,
-        scrollTrigger: {
-          trigger: '#detailTitle1',
-          start: 'top 80%',
-        },
+        start: 'top 80%',
       }
-    )
-    gsap.fromTo(
-      '#detailTitle2',
-      { y: 150, autoAlpha: 1 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#detailTitle1',
-          start: 'top 80%',
-        },
-      }
-    )
-    gsap.fromTo(
-      '#detailContent',
-      { y: 150, autoAlpha: 0 }, //fromの設定
-      {  //toの設定
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#detailContent',
-          start: 'top 80%',
-        },
-        stagger: {
-          each: 0.3,
-        }
-      }
-    )
-  //details///////////////////
+    ),
+    once: true
+  });
 
+//product///////////////////
+//details///////////////////
+  gsap.fromTo(
+    '#detailTitle1',
+    { y: 150, autoAlpha: 1 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#detailTitle1',
+        start: 'top 80%',
+      },
+    }
+  )
+  gsap.fromTo(
+    '#detailTitle2',
+    { y: 150, autoAlpha: 1 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#detailTitle1',
+        start: 'top 80%',
+      },
+    }
+  )
+  gsap.fromTo(
+    '#detailContent',
+    { y: 150, autoAlpha: 0 }, //fromの設定
+    {  //toの設定
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: '#detailContent',
+        start: 'top 80%',
+      },
+      stagger: {
+        each: 0.3,
+      }
+    }
+  )
+//details///////////////////
 
-    });
+  });
 
 
   mm.add("(max-width: 900px)", () => {
@@ -299,8 +359,20 @@ export const Index = () => {
       { width: 0 }, //fromの設定
       {  //toの設定
         width: "100%",
-        duration: 2,
+        duration: 1.5,
         delay: 0.6,
+        stagger: {
+          each: 0.5,
+        }
+      }
+    )
+    gsap.fromTo(
+      '#lineMaskSP',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: "85%",
+        duration: 0.8,
+        delay: 1.5,
       }
     )
 
@@ -318,7 +390,7 @@ export const Index = () => {
       '#KVTextMask',
       { width: 0 }, //fromの設定
       {  //toの設定
-        width: "90vw",
+        width: "95vw",
         duration: 1,
         delay: 1.5,
       }
@@ -491,6 +563,106 @@ export const Index = () => {
     <Layout>
       <body id="body" className={style.body}>
 
+        <header id="headerWrapper" className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
+          <div className={style.flexContainer}>
+            <a href="/">
+              <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
+              <img src={logoWhite} id="logoWhite" className={style.logoWhite} alt="logo" />
+            </a>
+            <div className={style.headerRight}>
+              <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
+              <a href="/about" ><p id="headerMenu">ABOUT</p></a>
+              <a href="/" ><p id="headerMenu">PRODUCT</p></a>
+              <a href="/" ><p id="headerMenu">MEMBER</p></a>
+              <a href="/" ><p id="headerMenu">RECRUIT</p></a>
+              <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
+              <button
+                className={style.hmb}
+                id="hamberger"
+                onClick={() => {
+                  setIsShow(!isShow);
+                  scrollLock();
+                }}
+              >
+                <img src={hamberger} id="hambergerSVG" className={style.hamberger} />
+              </button>
+            </div>
+            <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+              className={`index-module--menuWrapper--8e435 ${isShow ? "index-module--menuWrapper__active--16a38" : ""}`}
+              onClick={(e) => {
+                closeWithClickOutSideMethod(e, setIsShow);
+              }}
+              style={{ '-webkit-tap-highlight-color': 'rgba(0,0,0,0)' }}
+            >
+              <div id="menu" className={style.menu}>
+                <div className={style.menuTop}>
+                  <button
+                    className={style.close}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                  </button>
+                </div>
+
+                <div className={style.menuList}>
+                  <a href="/information"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>INFORMATION</p>
+                  </a>
+                  <a href="/about"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>ABOUT</p>
+                  </a>
+                  <a href="/"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>PRODUCT</p>
+                  </a>
+                  <a href="/"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>MEMBER</p>
+                  </a>
+                  <a href="/"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>RECRUIT</p>
+                  </a>
+                  <a href="/contact"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
+                    <p>CONTACT</p>
+                  </a>
+                </div>
+                <div className={style.copyright}>
+                  <p>©2023 ERISA Co.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
         <div id="top" className={style.hero}>
           <div id="lineMask" className={style.lineMask}><div className={style.line1}></div></div>
 
@@ -499,23 +671,27 @@ export const Index = () => {
               <img src={KVTitle} alt="KVTitle" className={style.KVTitle} />
               <img src={KVTitleSp} alt="KVTitle" className={style.KVTitleSp} />
             </div>
-            <img src={kvBlock1} alt="line" className={style.kvBlock1} />
-            <img src={kvBlock1SP} alt="line" className={style.kvBlock1SP} />
-          </div>
 
+            <div className={style.kvBlockUp} >
+              <div className={style.kvBlockUp0} ></div>
+              <div className={style.kvBlockUp1} ></div>
+            </div>
+          </div>
 
           <div id="lineMask" className={style.lineMask}><div className={style.line2}></div></div>
 
           <div className={style.kvBottom}>
-            <img src={kvBlock2} alt="line" className={style.kvBlock2}/>
-            <img src={kvBlock2SP} alt="line" className={style.kvBlock2SP}/>
-            <div className={style.kvBottomLineSP}></div>
-            <img src={kvBlock3} alt="line" className={style.kvBlock3}/>
-            <img src={kvBlock3SP} alt="line" className={style.kvBlock3SP}/>
+            <div className={style.kvBlockbottom0} ></div>
+            <div id="lineMaskSP" className={style.lineMaskSP}><div className={style.centerSP} ></div></div>
+            <div className={style.kvBlockbottom1} >
+              <div className={style.center}></div>
+              <div className={style.up}></div>
+              <div className={style.bottom}></div>
+            </div>
           </div>
 
           <div id="lineMask" className={style.lineMask}><div className={style.line3}></div></div>
-
+          
           <div id="KVTextMask" className={style.KVTextMask}>
             <img src={KVText} alt="KVText" className={style.KVText} />
             <img src={KVTextSp} alt="KVText" className={style.KVTextSp} />

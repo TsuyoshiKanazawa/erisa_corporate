@@ -21,6 +21,25 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-netlify`,
     `@netlify/plugin-gatsby`,
+    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-source-microcms`,
+      options: {
+        apiKey: `4olgSiK40Grms4KjzEQShSPx9LROyCFPNTB8`,
+        serviceId: `iaxlerntfh`,
+        apis: [
+          {
+            endpoint: `information`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
