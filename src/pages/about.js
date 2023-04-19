@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { graphql } from "gatsby"
+import { Helmet } from 'react-helmet'
 
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
@@ -26,6 +27,15 @@ import hamberger from '../images/hamberger.svg'
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = (props) => {
+
+  useLayoutEffect(() => {
+    window.gtranslateSettings = {
+      "default_language": "ja",
+      "detect_browser_language": false,
+      "languages": ["ja", "en", "zh-CN"],
+      "wrapper_selector": ".gtranslate_wrapper"
+    }
+  });
 
   //ヘッダーが表示・非表示になる/////////////////
   const [isHeaderShown, setIsHeaderShown] = useState(true);
@@ -614,8 +624,11 @@ const Index = (props) => {
   //アニメーション専用/////////////////////////////////////////
   return (
     <Layout>
+      <Helmet>
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
+      </Helmet>
       <body id="body" className={style.body}>
-
+        <div class="gtranslate_wrapper"></div>
         <header id="headerWrapper" className={isHeaderShown ? "about-module--container--517ce" : "about-module--show--6213c"}>
           <div className={style.flexContainer}>
             <a href="/">

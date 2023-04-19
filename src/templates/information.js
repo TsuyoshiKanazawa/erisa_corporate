@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useLayoutEffect, useState, useCallback } from
 import { graphql } from "gatsby"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Helmet } from 'react-helmet'
 
 import Layout from "../components/layout"
 import * as style from "../styles/information.module.scss"
@@ -14,6 +15,15 @@ import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
 
 const IndexPage = ({ data, pageContext }) => {
+  useLayoutEffect(() => {
+    window.gtranslateSettings = {
+      "default_language": "ja",
+      "detect_browser_language": false,
+      "languages": ["ja", "en", "zh-CN"],
+      "wrapper_selector": ".gtranslate_wrapper"
+    }
+  });
+
   //ヘッダーが表示・非表示になる/////////////////
   const [isHeaderShown, setIsHeaderShown] = useState(true);
   const [lastPosition, setLastPosition] = useState(0);
@@ -121,7 +131,11 @@ const IndexPage = ({ data, pageContext }) => {
 
     return (
         <Layout>
+        <Helmet>
+          <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
+        </Helmet>
             <body id="body" className={style.body}>
+            <div class="gtranslate_wrapper"></div>
                 <header id="headerWrapper" className={isHeaderShown ? "information-module--container--1d93f" : "information-module--show--360cd"}>
                   <div className={style.flexContainer}>
                     <a href="/">
