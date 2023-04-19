@@ -28,8 +28,8 @@ const Confirmation = props => {
     init("OhzGRqewkPcbhrZ0o");
 
     const template_param = {
-      orname: "所属：" + orname,
-      department: department,
+      orname: orname,
+      department: "部署名：" + department,
       name: name,
       mail: mail,
       mailText: "メールアドレス：" + mail,
