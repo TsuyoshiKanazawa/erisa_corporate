@@ -83,7 +83,27 @@ body {
                 display: none;
             }
         }
-
+        .headerRight a:nth-child(3) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
+        .headerRight a:nth-child(4) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
+        .headerRight a:nth-child(5) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
         .menuWrapper {
             display: none;
 
@@ -166,7 +186,27 @@ body {
                 display: none;
             }
         }
-
+        .headerRight a:nth-child(3) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
+        .headerRight a:nth-child(4) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
+        .headerRight a:nth-child(5) {
+            opacity: 0.3;
+            cursor: default;
+            p:hover {
+                color: #fff !important;
+            }
+        }
         .menuWrapper {
             display: none;
         }
@@ -177,7 +217,7 @@ body {
 }
 
 .contactTitle {
-        padding-top: 150px;
+    padding-top: 150px;
 
     h1 {
         font-size: 32px;
@@ -963,7 +1003,6 @@ body {
                     transform: scale(1.1, 1.1);
                 }
 
-
                 .menuList {
                     margin: auto;
                     display: flex;
@@ -1006,7 +1045,24 @@ body {
                         }
                     }
                 }
-
+                .menuList a:nth-child(3) {
+                    opacity: 0.3;
+                    p:hover {
+                        transform: scale(1);
+                    }
+                }
+                .menuList a:nth-child(4) {
+                    opacity: 0.3;
+                    p:hover {
+                        transform: scale(1);
+                    }
+                }
+                .menuList a:nth-child(5) {
+                    opacity: 0.3;
+                    p:hover {
+                        transform: scale(1);
+                    }
+                }
                 .copyright {
                     position: absolute;
                     bottom: 0;
@@ -1020,7 +1076,26 @@ body {
                         font-family: 'Montserrat', sans-serif;
                     }
                 }
+                .comingSoon {
+                    position: absolute;
+                    top: 250px;
+                    left: 7%;
+                    width: 300px;
+                    height: 200px;
+                    background-color: rgba(89, 89, 89, 0.35);
+                    text-align: left;
+                    border-radius: 10px;
 
+                    p {
+                        font-size: 35px;
+                        font-weight: 700;
+                        color: #000;
+                        margin: auto;
+                        margin-top: 45px;
+                        margin-left: 40px;
+                        letter-spacing: 0.2rem;
+                    }
+                }
             }
         }
     }
@@ -1193,7 +1268,6 @@ body {
                     transform: scale(1.1, 1.1);
                 }
 
-
                 .menuList {
                     margin: auto;
                     font-size: 30px;
@@ -1255,7 +1329,26 @@ body {
                         font-style: italic;
                     }
                 }
+                .comingSoon {
+                    position: absolute;
+                    top: 250px;
+                    left: 7%;
+                    width: 300px;
+                    height: 200px;
+                    background-color: rgba(89, 89, 89, 0.35);
+                    text-align: left;
+                    border-radius: 10px;
 
+                    p {
+                        font-size: 50px;
+                        font-weight: 700;
+                        color: #000;
+                        margin: auto;
+                        margin-top: 20px;
+                        margin-left: 50px;
+                        letter-spacing: 0.2rem;
+                    }
+                }
             }
         }
     }

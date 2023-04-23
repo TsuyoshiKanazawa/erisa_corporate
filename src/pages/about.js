@@ -12,8 +12,7 @@ import aboutTitle from '../images/aboutTitle.svg'
 import aboutTitlePic from '../images/aboutTitlePic.png'
 import aboutOurMission from '../images/aboutOurMission.jpg'
 import aboutOurMissionSP from '../images/aboutOurMissionSP.jpg'
-import aboutCopy from '../images/aboutCopyImg.svg'
-import aboutCopySP from '../images/aboutCopyImgSP.svg'
+import brain from '../images/brain.svg'
 import shimadzuLogo from '../images/shimadzuLogo.png'
 import fujikkoLogo from '../images/fujikkoLogo.svg'
 import mcsLogo from '../images/mcsLogo.svg'
@@ -126,6 +125,8 @@ const Index = (props) => {
   //共通/////////////////////////
 
   mm.add("(min-width: 901px)", () => {
+
+  //title///////////////////
     gsap.fromTo(
       '#aboutTitlePic',
       { width: 0 }, //fromの設定
@@ -137,6 +138,18 @@ const Index = (props) => {
       }
     )
 
+    gsap.fromTo(
+      '#aboutTitle',
+      { y: 100, autoAlpha: 0 }, //fromの設定
+      {  //toの設定
+        y: 0,
+        autoAlpha: 1,
+        delay: 0.5,
+        duration: 0.5,
+      }
+    )
+  //title///////////////////
+  //ourMission///////////////////
     gsap.fromTo(
       '#aboutOurMissionImg',
       { width: 0 }, //fromの設定
@@ -160,7 +173,8 @@ const Index = (props) => {
         }
       }
     )
-
+  //ourMission///////////////////
+  //ourVision///////////////////
     gsap.fromTo(
       '#ourVisionTitle',
       { y: 100 }, //fromの設定
@@ -191,12 +205,10 @@ const Index = (props) => {
 
     gsap.fromTo(
       '#aboutCopy',
-      { y: 100, autoAlpha: 0 }, //fromの設定
+      { opacity: 0 }, //fromの設定
       {  //toの設定
-        y: 0,
-        autoAlpha: 1,
+        opacity: 1,
         duration: 1.5,
-        ease: "power4.out",
         scrollTrigger: {
           trigger: '#aboutCopy',
           start: 'top 80%',
@@ -204,6 +216,21 @@ const Index = (props) => {
       }
     )
 
+    gsap.fromTo(
+      '#brain',
+      { opacity: 0 }, //fromの設定
+      {  //toの設定
+        opacity: 1,
+        duration: 1.75,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '#aboutCopy',
+          start: 'top 80%',
+        },
+      }
+    )
+  //ourVision///////////////////
+  //details///////////////////
     gsap.fromTo(
       '#detailsTitle1',
       { y: 100 }, //fromの設定
@@ -232,22 +259,34 @@ const Index = (props) => {
 
     gsap.fromTo(
       '#detailContents',
-      { y: 100, autoAlpha: 0 }, //fromの設定
+      { width: 0 }, //fromの設定
       {  //toの設定
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.5,
-        ease: "power4.out",
+        width: "100%",
+        duration: 0.3,
         scrollTrigger: {
           trigger: '#detailContents',
           start: 'top 80%',
         },
         stagger: {
-          each: 0.2,
+          each: 0.5,
+        }
+      }
+    )
+    gsap.fromTo(
+      '#detailContents0',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: "100%",
+        duration: 0.5,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '#detailContents',
+          start: 'top 80%',
         },
       }
     )
-
+  //details///////////////////
+  //profile///////////////////
     gsap.fromTo(
       '#companyTitle',
       { y: 150 }, //fromの設定
@@ -305,7 +344,8 @@ const Index = (props) => {
         }
       }
     )
-
+  //profile///////////////////
+  //partner///////////////////
     gsap.fromTo(
       '#partnerTitle',
       { y: 100 }, //fromの設定
@@ -335,7 +375,8 @@ const Index = (props) => {
         }
       }
     )
-
+  //partner//////////////////
+  //history//////////////////
     ScrollTrigger.batch('#historyContent', {
       onEnter: batch => gsap.fromTo(batch,
         {
@@ -364,7 +405,7 @@ const Index = (props) => {
         },
       }
     )
-
+  //history//////////////////
   });
 
   mm.add("(max-width: 900px)", () => {
@@ -436,11 +477,25 @@ const Index = (props) => {
 
     gsap.fromTo(
       '#aboutCopy',
-      { y: 100, visibility: "hidden" }, //fromの設定
+      { autoAlpha: 0 }, //fromの設定
       {  //toの設定
-        y: 0,
-        visibility: "visible",
+        autoAlpha: 1,
         duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: '#aboutCopy',
+          start: 'top 80%',
+        },
+      }
+    )
+
+    gsap.fromTo(
+      '#brain',
+      { autoAlpha: 0 }, //fromの設定
+      {  //toの設定
+        autoAlpha: 1,
+        duration: 1.75,
+        delay: 1,
         ease: "power4.out",
         scrollTrigger: {
           trigger: '#aboutCopy',
@@ -491,18 +546,29 @@ const Index = (props) => {
     ScrollTrigger.batch('#detailContents', {
       onEnter: batch => gsap.fromTo(batch,
         {
-          y: 50,
-          visibility: "hidden",
+          width: 0,
         },
         {
-          y: 0,
-          visibility: "visible",
+          width: "100%",
           duration: 0.5,
           start: 'top 80%',
         }
       ),
       once: true
     });
+
+    gsap.fromTo(
+      '#detailContents0',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: "100%",
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#detailContents0',
+          start: 'top 80%',
+        },
+      }
+    )
 
     gsap.fromTo(
       '#companyTitle',
@@ -723,13 +789,16 @@ const Index = (props) => {
                 <div className={style.copyright}>
                   <p>©2023 ERISA Co.</p>
                 </div>
+                <div className={style.comingSoon}>
+                  <p>COMING<br />SOON</p>
+                </div>
               </div>
             </div>
           </div>
         </header>
 
-        <div id="aboutTitle" className={style.aboutTitle}>
-          <div className={style.titleText}>
+        <div className={style.aboutTitle}>
+          <div id="aboutTitle" className={style.titleText}>
             <h1>ERISAについて</h1>
             <img src={aboutTitle} alt="aboutTitle" className={style.aboutTitleImg}/>
           </div>
@@ -786,10 +855,18 @@ const Index = (props) => {
           </div>
 
           <div id="aboutCopy" className={style.aboutCopy}>
+            {/* 
             <img src={aboutCopy} alt="aboutCopyImg" className={style.aboutCopyImg} />
             <img src={aboutCopySP} alt="aboutCopyImg" className={style.aboutCopyImgSP} />
+            */}
+            <img src={brain} id="brain" alt="aboutCopyImg" className={style.brain} />
+
+            <div className={style.copyText}>
+              <h1>あなたらしさを支える</h1>
+              <h2>「<color id="brain">BRAIN</color>」<span>に</span></h2>
+            </div>
           </div>
-          <hr className={style.bottomLine}></hr>
+          <div className={style.bottomLine}></div>
         </div>
 
         <div className={style.businessDetails}>
@@ -803,27 +880,42 @@ const Index = (props) => {
           </div>
 
           <div className={style.detailContents}>
-            <div id="detailContents" className={style.content}>
-              <h1>01</h1>
-              <h2>検査サービス</h2>
-              <h3>一般コンシューマ向けに脳ドックのオプションサービスや、
-                認知機能簡便チェックアプリを提供
-                日本や中国、その他地域で導入施設を拡大中</h3>
+
+            <div className={style.detailContainer}>
+              <div id="detailContents" className={style.mask}>
+                <div className={style.content}>
+                  <h1>01</h1>
+                  <h2>検査サービス</h2>
+                  <h3>一般コンシューマ向けに脳ドックのオプションサービスや、
+                    認知機能簡便チェックアプリを提供
+                    日本や中国、その他地域で導入施設を拡大中</h3>
+                </div>
+              </div>
             </div>
-            <div id="detailContents" className={style.content}>
-              <h1>02</h1>
-              <h2>診断支援<br />
-                ソフトウェア販売</h2>
-              <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、
-                医師向けのAIソフトウェアを開発
-                うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+
+            <div className={style.detailContainer}>
+              <div id="detailContents" className={style.mask}>
+                <div className={style.content}>
+                  <h1>02</h1>
+                  <h2>診断支援<br />
+                    ソフトウェア販売</h2>
+                  <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、
+                    医師向けのAIソフトウェアを開発
+                    うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+                </div>
+              </div>
             </div>
-            <div id="detailContents" className={style.content0}>
-              <h1>03</h1>
-              <h2>AI画像解析<br />
-                受託研究</h2>
-              <h3>AIを活用したデータ解析受託業務<br />
-                デジタルバイオマーカーへの応用を目指す</h3>
+
+            <div className={style.detailContainer0}>
+              <div id="detailContents0" className={style.mask}>
+                <div className={style.content}>
+                  <h1>03</h1>
+                  <h2>AI画像解析<br />
+                    受託研究</h2>
+                  <h3>AIを活用したデータ解析受託業務<br />
+                    デジタルバイオマーカーへの応用を目指す</h3>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -1004,7 +1096,6 @@ const Index = (props) => {
                 <div className={style.circle}></div>
                 <p className={style.year}>2023年</p>
                 <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>認知機能簡便チェックツール「CADi２」のリリース</p></p>
                   <p className={style.textContainer}><p className={style.point}>・</p><p>認知機能簡便チェックツール「CADi２」のリリース</p></p>
                 </div>
               </div>

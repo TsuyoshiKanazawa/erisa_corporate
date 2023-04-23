@@ -144,9 +144,9 @@ const IndexPage = ({ data, pageContext }) => {
                     <div className={style.headerRight}>
                       <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
                       <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-                      <a href="/" ><p id="headerMenu">PRODUCT</p></a>
-                      <a href="/" ><p id="headerMenu">MEMBER</p></a>
-                      <a href="/" ><p id="headerMenu">RECRUIT</p></a>
+                      <a><p id="headerMenu">PRODUCT</p></a>
+                      <a><p id="headerMenu">MEMBER</p></a>
+                      <a><p id="headerMenu">RECRUIT</p></a>
                       <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
                       <button
                         className={style.hmb}
@@ -194,28 +194,16 @@ const IndexPage = ({ data, pageContext }) => {
                             }}>
                             <p>ABOUT</p>
                           </a>
-                          <a href="/"
-                            className={style.list}
-                            onClick={() => {
-                              setIsShow(!isShow);
-                              scrollLockLift();
-                            }}>
+                          <a
+                            className={style.list}>
                             <p>PRODUCT</p>
                           </a>
-                          <a href="/"
-                            className={style.list}
-                            onClick={() => {
-                              setIsShow(!isShow);
-                              scrollLockLift();
-                            }}>
+                          <a
+                            className={style.list}>
                             <p>MEMBER</p>
                           </a>
-                          <a href="/"
-                            className={style.list}
-                            onClick={() => {
-                              setIsShow(!isShow);
-                              scrollLockLift();
-                            }}>
+                          <a
+                            className={style.list}>
                             <p>RECRUIT</p>
                           </a>
                           <a href="/contact"
@@ -229,6 +217,9 @@ const IndexPage = ({ data, pageContext }) => {
                         </div>
                         <div className={style.copyright}>
                           <p>©2023 ERISA Co.</p>
+                        </div>
+                        <div className={style.comingSoon}>
+                          <p>COMING<br />SOON</p>
                         </div>
                       </div>
                     </div>

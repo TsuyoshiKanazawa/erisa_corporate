@@ -40,12 +40,12 @@ const Footer = () => {
 
                 <div className={style.footerMenu}>
                     <a href="/information">-&emsp;INFORMATION</a>
-                    <a href="/">-&emsp;RECRUIT</a>
+                    <a>-&emsp;RECRUIT</a>
                     <a href="/about">-&emsp;ABOUT</a>
                     <a href="/contact">-&emsp;CONTACT</a>
-                    <a href="/">-&emsp;PRODUCT</a>
-                    <a href="/">-&emsp;PRIVACY POLICY</a>
-                    <a href="/">-&emsp;MEMBER</a>
+                    <a>-&emsp;PRODUCT</a>
+                    <a>-&emsp;PRIVACY POLICY</a>
+                    <a>-&emsp;MEMBER</a>
                 </div>
 
                 <p className={style.copyright}>©2023 ERISA Co.</p>

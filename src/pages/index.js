@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Helmet } from 'react-helmet'
+import { graphql } from "gatsby"
 
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
@@ -19,7 +20,7 @@ import hamberger from '../images/hamberger.svg'
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Index = () => {
+export const Index = (props) => {
 
   useLayoutEffect(() => {
     window.gtranslateSettings = {
@@ -180,10 +181,10 @@ export const Index = () => {
     { width: 0 }, //fromの設定
     {  //toの設定
       width: "100%",
-      duration: 1.5,
-      delay: 0.6,
+      duration: 0.85,
+      delay: 0.5,
       stagger: {
-        each: 0.5,
+        each: 0.3,
       }
     },
   )
@@ -193,7 +194,7 @@ export const Index = () => {
     { width: 0 }, //fromの設定
     {  //toの設定
       width: "60vw",
-      duration: 1.5,
+      duration: 0.85,
       delay: 1,
     }
   )
@@ -203,7 +204,37 @@ export const Index = () => {
     { width: 0 }, //fromの設定
     {  //toの設定
       width: "90vw",
-      duration: 1.5,
+      duration: 1.14,
+      delay: 1,
+    }
+  )
+
+  gsap.fromTo(
+    '#kvBlockUp',
+    { height: 0 }, //fromの設定
+    {  //toの設定
+      height: "300px",
+      duration: 0.57,
+      delay: 1,
+    }
+  )
+
+  gsap.fromTo(
+    '#kvBlockbottom0',
+    { height: 0 }, //fromの設定
+    {  //toの設定
+      height: "100%",
+      duration: 0.57,
+      delay: 1,
+    }
+  )
+
+  gsap.fromTo(
+    '#kvBlockbottom1',
+    { height: 0 }, //fromの設定
+    {  //toの設定
+      height: "100%",
+      duration: 0.57,
       delay: 1.5,
     }
   )
@@ -211,7 +242,7 @@ export const Index = () => {
 //information////////////////
   gsap.fromTo(
     '#informationTitle',
-    { y: 100 }, //fromの設定
+    { y: 120 }, //fromの設定
     {  //toの設定
       y: 0,
       duration: 0.5,
@@ -273,13 +304,13 @@ export const Index = () => {
 //product///////////////////
   gsap.fromTo(
     '#productTitle',
-    { y: 70 }, //fromの設定
+    { y: 120 }, //fromの設定
     {  //toの設定
       y: 0,
       duration: 0.5,
       scrollTrigger: {
         trigger: '#productTitle',
-        start: 'top 80%',
+        start: 'top 90%',
       },
     }
   )
@@ -304,7 +335,7 @@ export const Index = () => {
 //details///////////////////
   gsap.fromTo(
     '#detailTitle1',
-    { y: 150, autoAlpha: 1 }, //fromの設定
+    { y: 200, autoAlpha: 1 }, //fromの設定
     {  //toの設定
       y: 0,
       autoAlpha: 1,
@@ -329,19 +360,31 @@ export const Index = () => {
     }
   )
   gsap.fromTo(
-    '#detailContent',
-    { y: 150, autoAlpha: 0 }, //fromの設定
+    '#detailContents',
+    { width: 0 }, //fromの設定
     {  //toの設定
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.5,
+      width: "100%",
+      duration: 0.3,
       scrollTrigger: {
-        trigger: '#detailContent',
+        trigger: '#detailContents',
         start: 'top 80%',
       },
       stagger: {
-        each: 0.3,
+        each: 0.5,
       }
+    }
+  )
+  gsap.fromTo(
+    '#detailContents0',
+    { width: 0 }, //fromの設定
+    {  //toの設定
+      width: "100%",
+      duration: 0.5,
+      delay: 1,
+      scrollTrigger: {
+        trigger: '#detailContents',
+        start: 'top 80%',
+      },
     }
   )
 //details///////////////////
@@ -370,8 +413,8 @@ export const Index = () => {
       { width: 0 }, //fromの設定
       {  //toの設定
         width: "100%",
-        duration: 1.5,
-        delay: 0.6,
+        duration: 0.85,
+        delay: 0.5,
         stagger: {
           each: 0.5,
         }
@@ -381,9 +424,9 @@ export const Index = () => {
       '#lineMaskSP',
       { width: 0 }, //fromの設定
       {  //toの設定
-        width: "85%",
-        duration: 0.8,
-        delay: 1.5,
+        width: "100%",
+        duration: 1,
+        delay: 1.2,
       }
     )
 
@@ -392,8 +435,8 @@ export const Index = () => {
       { width: 0 }, //fromの設定
       {  //toの設定
         width: "auto",
-        duration: 1,
-        delay: 1,
+        duration: 0.57,
+        delay: 1.5,
       }
     )
 
@@ -402,17 +445,47 @@ export const Index = () => {
       { width: 0 }, //fromの設定
       {  //toの設定
         width: "95vw",
-        duration: 1,
+        duration: 0.57,
+        delay: 1.5,
+      }
+    )
+
+    gsap.fromTo(
+      '#kvBlockUp',
+      { height: 0 }, //fromの設定
+      {  //toの設定
+        height: "85px",
+        duration: 0.28,
+        delay: 1,
+      }
+    )
+
+    gsap.fromTo(
+      '#kvBlockbottom0',
+      { height: 0 }, //fromの設定
+      {  //toの設定
+        height: "100%",
+        duration: 0.85,
+        delay: 1,
+      }
+    )
+
+    gsap.fromTo(
+      '#kvBlockbottom1',
+      { height: 0 }, //fromの設定
+      {  //toの設定
+        height: "100%",
+        duration: 0.85,
         delay: 1.5,
       }
     )
     //information////////////////
     gsap.fromTo(
       '#informationTitle',
-      { y: 50, autoAlpha: 0 }, //fromの設定
+      { y: 50, opacity: 0 }, //fromの設定
       {  //toの設定
         y: 0,
-        autoAlpha: 1,
+        opacity: 1,
         duration: 0.5,
         scrollTrigger: {
           trigger: '#informationTitle',
@@ -468,9 +541,10 @@ export const Index = () => {
     //product///////////////////
     gsap.fromTo(
       '#productTitle',
-      { y: 70 }, //fromの設定
+      { y: 70, autoAlpha: 0 }, //fromの設定
       {  //toの設定
         y: 0,
+        autoAlpha: 1,
         duration: 0.5,
         scrollTrigger: {
           trigger: '#productTitle',
@@ -549,22 +623,33 @@ export const Index = () => {
         },
       }
     )
-
-    ScrollTrigger.batch('#detailContent', {
+    ScrollTrigger.batch('#detailContents', {
       onEnter: batch => gsap.fromTo(batch,
         {
-          y: 50,
-          autoAlpha: 0,
+          width: 0,
         },
         {
-          y: 0,
-          autoAlpha: 1,
+          width: "100%",
           duration: 0.5,
-          start: 'top 70%',
+          start: 'top 80%',
         }
       ),
       once: true
     });
+
+    gsap.fromTo(
+      '#detailContents0',
+      { width: 0 }, //fromの設定
+      {  //toの設定
+        width: "100%",
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#detailContents0',
+          start: 'top 80%',
+        },
+      }
+    )
+
     //details///////////////////
   });
 
@@ -575,6 +660,7 @@ export const Index = () => {
       <Helmet>
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
       </Helmet>
+
       <body id="body" className={style.body}>
         <div class="gtranslate_wrapper"></div>
         <header id="headerWrapper" className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
@@ -586,9 +672,9 @@ export const Index = () => {
             <div className={style.headerRight}>
               <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
               <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-              <a href="/" ><p id="headerMenu">PRODUCT</p></a>
-              <a href="/" ><p id="headerMenu">MEMBER</p></a>
-              <a href="/" ><p id="headerMenu">RECRUIT</p></a>
+              <a><p id="headerMenu">PRODUCT</p></a>
+              <a><p id="headerMenu">MEMBER</p></a>
+              <a><p id="headerMenu">RECRUIT</p></a>
               <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
               <button
                 className={style.hmb}
@@ -636,28 +722,16 @@ export const Index = () => {
                     }}>
                     <p>ABOUT</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>PRODUCT</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>MEMBER</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>RECRUIT</p>
                   </a>
                   <a href="/contact"
@@ -672,6 +746,10 @@ export const Index = () => {
                 <div className={style.copyright}>
                   <p>©2023 ERISA Co.</p>
                 </div>
+
+                <div className={style.comingSoon}>
+                  <p>COMING<br />SOON</p>
+                </div>
               </div>
             </div>
           </div>
@@ -685,23 +763,35 @@ export const Index = () => {
               <img src={KVTitle} alt="KVTitle" className={style.KVTitle} />
               <img src={KVTitleSp} alt="KVTitle" className={style.KVTitleSp} />
             </div>
+            <div className={style.kvBlockUpDamy}></div>
 
-            <div className={style.kvBlockUp} >
-              <div className={style.kvBlockUp0} ></div>
-              <div className={style.kvBlockUp1} ></div>
+            <div id="kvBlockUp" className={style.mask}>
+              <div className={style.kvBlockUp} >
+                <div className={style.kvBlockUp0} ></div>
+                <div className={style.kvBlockUp1} ></div>
+              </div>
             </div>
           </div>
 
           <div id="lineMask" className={style.lineMask}><div className={style.line2}></div></div>
 
           <div className={style.kvBottom}>
-            <div className={style.kvBlockbottom0} ></div>
-            <div id="lineMaskSP" className={style.lineMaskSP}><div className={style.centerSP} ></div></div>
-            <div className={style.kvBlockbottom1} >
-              <div className={style.center}></div>
-              <div className={style.up}></div>
-              <div className={style.bottom}></div>
+
+            <div id="kvBlockbottom0" className={style.kvBlockbottom0Mask}>
+              <div className={style.kvBlockbottom0} ></div>
             </div>
+            <div className={style.kvBlockbottomDamy} ></div>
+
+            <div id="lineMaskSP" className={style.lineMaskSP}><div className={style.centerSP} ></div></div>
+            
+            <div id="kvBlockbottom1" className={style.kvBlockbottom1Mask}>
+              <div className={style.kvBlockbottom1} >
+                <div className={style.center}></div>
+                <div className={style.up}></div>
+                <div className={style.bottom}></div>
+              </div>
+            </div>
+
           </div>
 
           <div id="lineMask" className={style.lineMask}><div className={style.line3}></div></div>
@@ -722,36 +812,19 @@ export const Index = () => {
           </div>
           
           <div className={style.informationContents}>
-            <hr id="informationContent" />
+            <hr />
 
-            <div id="informationContent" className={style.informationContent}>
-              <div className={style.informationText}>
-                <h1>2022/02/10</h1>
-                <hr className={style.vertical}></hr>
-                <h2>認知症に立ち向かうしまねっと　NEWS610 - NHK　2021.10.14 <br />
-                  <a href="/">Youtube動画へ遷移</a></h2>
+            {props.data.allMicrocmsInformation.edges.map((information, index) => (
+              <div className={style.informationContent} key={index}>
+                <div id="informationContent" className={style.informationText}>
+                  <h1>{information.node.date}</h1>
+                  <hr className={style.vertical}></hr>
+                  <div className={style.bodyText} dangerouslySetInnerHTML={{ __html: information.node.bodyText }} />
+                </div>
+                <hr />
               </div>
-              <hr />
-            </div>
-            <div id="informationContent" className={style.informationContent}>
-              <div className={style.informationText}>
-                <h1>2022/02/10</h1>
-                <hr className={style.vertical}></hr>
-                <h2>島根県の支援のもと、島根大学医学部、滋賀医科大学で開発されたAI による認知症の将来リスク判別プログラム全国初の実用化、認知症リスク検査がスタート－公益財団法人ヘルスサイエンスセンター島根と業務委託契約を締結<br />
-                  <a href="/">記事へ遷移</a></h2>
-              </div>
-              <hr />
-            </div>
-            <div id="informationContent" className={style.informationContent}>
-              <div className={style.informationText}>
-                <h1>2022/02/10</h1>
-                <hr className={style.vertical}></hr>
-                <h2>脳画像解析プログラム BAAD について島根県初となる プログラム医療機器認証を取得、販売開始<br />
-                  <a href="/">記事へ遷移</a></h2>
-              </div>
-              <hr />
-            </div>
-
+            )
+            )}
 
           </div>
         </div>
@@ -800,7 +873,7 @@ export const Index = () => {
                   <h2 id="productContentSPFlug">認知症リスク検査は、島根大学医学部、滋賀医科大学、株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、脳の状態から3年後の認知症リスクを検査します。<br />
                     脳の一部だけではなく、脳全体を膨大なデータと比較することで、高い精度を実現。将来を見据えた認知症予防の検討材料として、受診者様のライフスタイル見直しに貢献します。</h2>
 
-                  <a href="/" id="productContentSPFlug" className={style.productMore}>
+                  <a href="https://dementiarisk.erisa.co.jp/" id="productContentSPFlug" className={style.productMore}>
                     <p>製品サイトはこちら</p>
                     <span className={style.playButton}></span>
                   </a>
@@ -814,7 +887,7 @@ export const Index = () => {
                   <h2 id="productContentSPFlug"><b>認証番号：303AGBZX00065000脳画像解析プログラム</b><br />
                     BAAD（バード）は弊社が国立大学法人滋賀医科大学と共同開発したプログラムです。脳MRI画像を用いて、脳全体の萎縮度合いを視覚的・数値的に表現することにより、客観的な疾病診断を臨床医療現場へ普及させ、診断の迅速化や精度向上に資すると共に 、臨床医療現場でのMRI画像診断に関する負担軽減を目的としています。プログラム上の画面操作で、脳MRI画像を読み込み、画像処理や統計処理を行います。ROIごとの体積（ml）、萎縮率（%）、Z値の計算を脳全体に対して実施します。</h2>
 
-                  <a href="/" id="productContentSPFlug" className={style.productMore0}>
+                  <a href="https://www.las.jp/products/s22_BAAD/index.html" id="productContentSPFlug" className={style.productMore0}>
                     <p>製品サイトはこちら</p>
                     <span className={style.playButton}></span>
                   </a>
@@ -845,22 +918,42 @@ export const Index = () => {
           </div>
 
           <div className={style.detailContents}>
-            <div id="detailContent" className={style.content}>
-              <h1>01</h1>
-              <h2>検査サービス</h2>
-              <h3>一般コンシューマ向けに脳ドックのオプションサービスや、認知機能簡便チェックアプリを提供<br />日本や中国、その他地域で導入施設を拡大中</h3>
+
+            <div className={style.detailContainer}>
+              <div id="detailContents" className={style.mask}>
+                <div className={style.content}>
+                  <h1>01</h1>
+                  <h2>検査サービス</h2>
+                  <h3>一般コンシューマ向けに脳ドックのオプションサービスや、
+                    認知機能簡便チェックアプリを提供
+                    日本や中国、その他地域で導入施設を拡大中</h3>
+                </div>
+              </div>
             </div>
-            <div id="detailContent" className={style.content}>
-              <h1>02</h1>
-              <h2>診断支援<br />
-                ソフトウェア販売</h2>
-              <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、医師向けのAIソフトウェアを開発<br />うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+
+            <div className={style.detailContainer}>
+              <div id="detailContents" className={style.mask}>
+                <div className={style.content}>
+                  <h1>02</h1>
+                  <h2>診断支援<br />
+                    ソフトウェア販売</h2>
+                  <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、
+                    医師向けのAIソフトウェアを開発
+                    うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+                </div>
+              </div>
             </div>
-            <div id="detailContent" className={style.content0}>
-              <h1>03</h1>
-              <h2>AI画像解析&nbsp;<br />
-                受託研究</h2>
-              <h3>AIを活用したデータ解析受託業務<br />デジタルバイオマーカーへの応用を目指す</h3>
+
+            <div className={style.detailContainer0}>
+              <div id="detailContents0" className={style.mask}>
+                <div className={style.content}>
+                  <h1>03</h1>
+                  <h2>AI画像解析<br />
+                    受託研究</h2>
+                  <h3>AIを活用したデータ解析受託業務<br />
+                    デジタルバイオマーカーへの応用を目指す</h3>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -870,7 +963,7 @@ export const Index = () => {
           <a href="/about" className={style.link}>
             <h1>会社概要</h1>
           </a>
-          <a href="/" className={style.link}>
+          <a className={style.link0}>
             <h1>採用情報</h1>
           </a>
           <a href="/contact" className={style.link}>
@@ -885,6 +978,18 @@ export const Index = () => {
 
 export default Index
 
+export const query = graphql`
+  query MicrocmsInformationQuery {
+    allMicrocmsInformation(skip: 0, limit: 3) {
+      edges {
+        node {
+          bodyText
+          date(formatString: "YYYY/MM/DD")
+        }
+      }
+    }
+  }
+`
 
 export const Head = () => {
   return (
