@@ -241,7 +241,7 @@ body {
         position: relative;
 
         .aboutTitlePic {
-            width: 54.4vw;
+            width: 55.8vw;
             position: absolute;
             top: 0;
             right: 0;
@@ -283,7 +283,7 @@ body {
             border-right: 1px solid #000;
 
             .ourMissionText {
-                width: 35%;
+                width: 35.8%;
                 padding-top: 5%;
                 padding-bottom: 5%;
                 margin-left: auto;
@@ -295,7 +295,6 @@ body {
                     font-weight: 700;
                     letter-spacing: 0.02em;
                     line-height: 140%;
-                    white-space: nowrap;
                     visibility: hidden;
                 }
         
@@ -728,16 +727,24 @@ body {
             .shimadzuLogo {
                 width: 256px;
             }
+
+            .mcsLogo {
+                width: 299px;
+                margin-left: -30px;
+            }
     
             .fujikkoLogo {
                 width: 173px;
+                margin-left: -30px;
             }
-    
-            .mcsLogo {
-                width: 299px;
-                
-            }
-    
+        }
+        .partnerLogoContainer0 {
+            display: flex;
+            justify-content: space-between;
+            width: 900px;
+            margin: auto;
+            margin-bottom: 60px;
+
             .dvgLogo {
                 width: 112px;
                 margin-left: 60px;
@@ -754,9 +761,6 @@ body {
             }
         }
 
-        .partnerLogoContainerSP {
-            display: none;
-        }
     }
 
     .bottomSpace {
@@ -844,20 +848,28 @@ body {
                     font-weight: 400;
                     letter-spacing: 0.02rem;
                     transform: translateY(-5px);
+                    margin-left: 30px;
 
-                    .textContainer {
-                        margin: 0;
-                        line-height: 200%;
-                        display: flex;
+                    ul {
+                        list-style-type: none;
 
-                        .point {
-                            width: 3.5%;
-                        }
-
-                        p {
+                        li {
                             margin: 0;
+                            margin-top: -5px;
                             line-height: 250%;
                             width: 871px;
+                        }
+
+                        li::before {
+                            content: '';
+                            width: 3px;
+                            height: 3px;
+                            display: inline-block;
+                            border-radius: 100%;
+                            background: #000;
+                            position: relative;
+                            left: -15px;
+                            top: -5px;
                         }
                     }
 
@@ -1078,12 +1090,21 @@ body {
 
                     .menuList a:nth-child(3) {
                         opacity: 0.3;
+                        p:hover {
+                            transform: scale(1);
+                        }
                     }
                     .menuList a:nth-child(4) {
                         opacity: 0.3;
+                        p:hover {
+                            transform: scale(1);
+                        }
                     }
                     .menuList a:nth-child(5) {
                         opacity: 0.3;
+                        p:hover {
+                            transform: scale(1);
+                        }
                     }
 
                     .copyright {
@@ -1866,32 +1887,46 @@ body {
 
         .partnerLogo {
             background-color: #F6F6F6;
-            height: 300px;
-            padding-top: 120px;
+            height: 350px;
+            padding-top: 90px;
 
             .partnerLogoContainer {
                 display: flex;
                 justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 10px;
+                flex-flow: column;
+                gap: 30px;
                 width: 85%;
                 margin: auto;
                 margin-bottom: 30px;
 
                 .shimadzuLogo {
-                    width: 185px;
-                }
-
-                .fujikkoLogo {
-                    width: 123px;
+                    width: 190px;
+                    margin: auto;
                 }
 
                 .mcsLogo {
-                    display: none;
+                    width: 225px;
+                    margin: auto;
                 }
 
+                .fujikkoLogo {
+                    width: 129px;
+                    margin: auto;
+                }
+            }
+
+            .partnerLogoContainer0 {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 15px;
+                width: 85%;
+                margin: auto;
+                margin-bottom: 30px;
+
+
                 .dvgLogo {
-                    width: 95px;
+                    width: 84px;
                     margin-left: 0;
                 }
 
@@ -1901,24 +1936,9 @@ body {
                 }
 
                 .imaiLogo {
-                    width: 120px;
+                    width: 100px;
                     margin: 0;
                     margin-right: 0;
-                }
-            }
-
-            .partnerLogoContainerSP {
-                display: block;
-                margin: auto;
-                margin-bottom: 30px;
-
-                .mcsLogo {
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    object-fit: contain;
-                    width: 250px;
-                    
                 }
             }
         }
@@ -2002,22 +2022,31 @@ body {
                         font-size: 12px;
                         font-weight: 400;
                         letter-spacing: 0.02rem;
+                        margin-left: 18px;
 
-                        .textContainer {
-                            margin: 0;
-                            width: 85%;
-                            display: flex;
+                        ul {
+                            list-style-type: none;
+                            margin-top: 10px;
 
-                            p {
+                            li {
+                                margin: 0;
+                                margin-top: 8px;
                                 line-height: 150%;
-                                margin-top: 10px;
+                                width: 90% !important;
                             }
 
-                            .point {
-                                width: 5%;
+                            li::before {
+                                content: '';
+                                width: 3px;
+                                height: 3px;
+                                display: inline-block;
+                                border-radius: 100%;
+                                background: #000;
+                                position: relative;
+                                left: -15px;
+                                top: -3px;
                             }
                         }
-
                     }
                 }
             }
@@ -2039,7 +2068,7 @@ body {
                 .content {
                     height: 0;
                     margin-bottom: 100px;
-                    transform: translateY(30px);
+                    transform: translateY(20px);
                 }
             }
         }

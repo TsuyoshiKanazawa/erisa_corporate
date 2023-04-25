@@ -21,7 +21,6 @@ const Confirmation = props => {
   const name = values.name; //氏名
   const mail = values.email; //メールアドレス
   const tel = values.tel; //電話番号
-  const kinds = values.kinds; //お問い合わせ種別
   const message = values.contact; //お問い合わせ内容
 
   const sendMail = () => {
@@ -34,7 +33,6 @@ const Confirmation = props => {
       mail: mail,
       mailText: "メールアドレス：" + mail,
       tel: "電話番号：" + tel,
-      kinds: "お問い合わせ種別：" + kinds,
       message: message,
     };
 
@@ -49,37 +47,33 @@ const Confirmation = props => {
         <h1 className={style.note}>以下の内容でお間違いなければ<br />「送信」ボタンを押してください。</h1>
         <div className={style.forms}>
           <h1>所属</h1>
-          <p>{values.orname}</p>
+          <p translate="no">{values.orname}</p>
         </div>
-        <p>例) 株式会社〇〇〇〇</p>
+        <p>例) 〇〇病院、〇〇クリニック、株式会社〇〇〇〇<br />※個人の方は省略可</p>
         <div className={style.forms}>
           <h1>部署名</h1>
-          <p>{values.department}</p>
+          <p translate="no">{values.department}</p>
         </div>
-        <p>例) 〇〇〇〇部</p>
+        <p>例) 〇〇〇〇部　※個人の方は省略可</p>
         <div className={style.forms}>
           <h1>氏名<span>※</span></h1>
-          <p>{values.name}</p>
+          <p translate="no">{values.name}</p>
         </div>
         <p>例) 山田花子</p>
         <div className={style.forms}>
           <h1>メールアドレス<span>※</span></h1>
-          <p>{values.email}</p>
+          <p translate="no">{values.email}</p>
         </div>
         <p>例) abc@abc.com</p>
         <div className={style.forms}>
           <h1>電話番号</h1>
-          <p>{values.tel}</p>
+          <p translate="no">{values.tel}</p>
         </div>
         <p>例) 0311112222 市外局番よりご入力ください</p>
-        <div className={style.forms}>
-          <h1>お問い合わせ種別</h1>
-          <p>{values.kinds}</p>
-        </div>
-        <p>例) 0311112222 市外局番よりご入力ください</p>
+
         <div className={style.forms}>
           <h1>お問い合わせ内容<span>※</span></h1>
-          <p className={style.contactText}>{values.contact}</p>
+          <p className={style.contactText} translate="no">{values.contact}</p>
         </div>
 
         <div className={style.terms}>
@@ -95,8 +89,9 @@ const Confirmation = props => {
               type='button'
               onClick={hideConfirmation}
               //クリックでstateをクリアし、入力内容確認画面コンポーネントを非表示にする
-              value='入力に戻る'
+              value=' '
               className={style.backButton} />
+              <p>入力に戻る</p>
               <span className={style.playButton}></span>
           </div>
 

@@ -102,7 +102,16 @@ const Index = () => {
                 visibility: "visible",
             }
         )
-
+        gsap.fromTo(
+            '#contactTitle',
+            { y: 100, autoAlpha: 0 }, //fromの設定
+            {  //toの設定
+                y: 0,
+                autoAlpha: 1,
+                delay: 0.5,
+                duration: 0.5,
+            }
+        )
         //共通/////////////////////////
 
         mm.add("(min-width: 901px)", () => {
@@ -244,17 +253,14 @@ const Index = () => {
                                     </a>
                                 </div>
                                 <div className={style.copyright}>
-                                    <p>©2023 ERISA Co.</p>
-                                </div>
-                                <div className={style.comingSoon}>
-                                    <p>COMING<br />SOON</p>
+                                    <p>©2023 ERISA Co.,Ltd.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </header>
 
-                <div className={style.contactTitle}>
+                <div id="contactTitle" className={style.contactTitle}>
                     <div className={style.titleText}>
                         <h1>お問い合わせ</h1>
                         <img src={contactTitle} alt="contactTitle" className={style.contactTitleImg} />
@@ -277,7 +283,7 @@ const Index = () => {
                                     placeholder=''
                                     ref={register({ required: false })} />
                             </div>
-                            <p>例) 株式会社〇〇〇〇</p>
+                            <p>例) 〇〇病院、〇〇クリニック、株式会社〇〇〇〇　<br className={style.spbr}></br>※個人の方は省略可</p>
 
                             <div className={style.forms}>
                                 <label htmlFor='department '>部署名
@@ -287,7 +293,7 @@ const Index = () => {
                                     placeholder=''
                                     ref={register({ required: false })} />
                             </div>
-                            <p>例) 〇〇〇〇部</p>
+                            <p>例) 〇〇〇〇部　※個人の方は省略可</p>
 
                             <div className={style.forms}>
                                 <label htmlFor='name'>氏名
@@ -352,23 +358,6 @@ const Index = () => {
                             <p>例) 0311112222 市外局番よりご入力ください</p>
 
                             <div className={style.forms}>
-                                <label htmlFor='kinds'>お問い合わせ種別
-                                    <span>※</span>
-                                </label>
-                                <div className={style.selectContainer}>
-                                    <select
-                                        name='kinds'
-                                        placeholder=''
-                                        ref={register({ required: false })} >
-                                        <option>製品について（導入のご相談や資料請求など）</option>
-                                        <option>採用について</option>
-                                        <option>その他</option>
-                                    </select>
-                                    <span></span>
-                                </div>
-                            </div>
-
-                            <div className={style.forms}>
                                 <label htmlFor='contact'>お問い合わせ内容
                                     <span>※</span>
                                 </label>
@@ -387,9 +376,10 @@ const Index = () => {
                             <div className={style.nextbuttonContainer}>
                                 <input
                                     type='submit'
-                                    value='確認に進む'
+                                    value=' '
                                     className={style.nextButton}>
                                 </input>
+                                <p>確認に進む</p>
                                 <span className={style.playButton}></span>
                             </div>
 

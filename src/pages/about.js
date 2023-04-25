@@ -26,6 +26,7 @@ import hamberger from '../images/hamberger.svg'
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = (props) => {
+  console.log(props)
 
   useLayoutEffect(() => {
     window.gtranslateSettings = {
@@ -139,7 +140,7 @@ const Index = (props) => {
     )
 
     gsap.fromTo(
-      '#aboutTitle',
+      '#aboutTitleText',
       { y: 100, autoAlpha: 0 }, //fromの設定
       {  //toの設定
         y: 0,
@@ -267,9 +268,6 @@ const Index = (props) => {
           trigger: '#detailContents',
           start: 'top 80%',
         },
-        stagger: {
-          each: 0.5,
-        }
       }
     )
     gsap.fromTo(
@@ -278,7 +276,6 @@ const Index = (props) => {
       {  //toの設定
         width: "100%",
         duration: 0.5,
-        delay: 1,
         scrollTrigger: {
           trigger: '#detailContents',
           start: 'top 80%',
@@ -430,7 +427,16 @@ const Index = (props) => {
         ease: "power4.out",
       }
     )
-
+    gsap.fromTo(
+      '#aboutTitleText',
+      { y: 100, autoAlpha: 0 }, //fromの設定
+      {  //toの設定
+        y: 0,
+        autoAlpha: 1,
+        delay: 0.5,
+        duration: 0.5,
+      }
+    )
     ScrollTrigger.batch('#ourMissionText', {
       onEnter: batch => gsap.fromTo(batch,
         {
@@ -753,28 +759,16 @@ const Index = (props) => {
                     }}>
                     <p>ABOUT</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>PRODUCT</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>MEMBER</p>
                   </a>
-                  <a href="/"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
+                  <a
+                    className={style.list}>
                     <p>RECRUIT</p>
                   </a>
                   <a href="/contact"
@@ -787,18 +781,15 @@ const Index = (props) => {
                   </a>
                 </div>
                 <div className={style.copyright}>
-                  <p>©2023 ERISA Co.</p>
-                </div>
-                <div className={style.comingSoon}>
-                  <p>COMING<br />SOON</p>
+                  <p>©2023 ERISA Co.,Ltd.</p>
                 </div>
               </div>
             </div>
           </div>
         </header>
 
-        <div className={style.aboutTitle}>
-          <div id="aboutTitle" className={style.titleText}>
+        <div id="aboutTitle" className={style.aboutTitle}>
+          <div id="aboutTitleText" className={style.titleText}>
             <h1>ERISAについて</h1>
             <img src={aboutTitle} alt="aboutTitle" className={style.aboutTitleImg}/>
           </div>
@@ -825,9 +816,10 @@ const Index = (props) => {
                   あなたらしさを<br />
                   支える。</h1>
 
-                <h2 id="ourMissionText">人生１００年時代の超高齢社会。<br />
-                  要介護の原因で上位を占める認知症患者は６００万人を超え、<br />
-                  今後も増加が見込まれています。</h2>
+                <h2 id="ourMissionText">人生１００年時代の現代社会。<br />
+                  脳や神経、それに由来する疾患における脳の構造は人類未到の<br />
+                  超高齢化社会でますます多様化し、<br />
+                  その疾患人口は今後も増加が見込まれています。</h2>
                 <h2 id="ourMissionText">重要なのは脳の状態を把握して、<br />
                   いかに病気を予知・予防するかということ。<br />
                   しかし、複雑な脳の状態を安全かつ正確に把握することは<br />
@@ -876,7 +868,7 @@ const Index = (props) => {
           </div>
 
           <div className={style.mask}>
-            <p id="details">AI×OIを用いた<br />脳画像解析技術の開発・販売事業</p>
+            <p id="details">AI×OIを用いた<br />脳画像解析技術の研究開発・販売事業</p>
           </div>
 
           <div className={style.detailContents}>
@@ -887,7 +879,7 @@ const Index = (props) => {
                   <h1>01</h1>
                   <h2>検査サービス</h2>
                   <h3>一般コンシューマ向けに脳ドックのオプションサービスや、
-                    認知機能簡便チェックアプリを提供
+                    認知機能チェックアプリを提供<br />
                     日本や中国、その他地域で導入施設を拡大中</h3>
                 </div>
               </div>
@@ -900,8 +892,8 @@ const Index = (props) => {
                   <h2>診断支援<br />
                     ソフトウェア販売</h2>
                   <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、
-                    医師向けのAIソフトウェアを開発
-                    うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+                    医師向けのAIソフトウェアを開発<br />
+                    うつ・双極性障害、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
                 </div>
               </div>
             </div>
@@ -925,7 +917,7 @@ const Index = (props) => {
         <div className={style.companyProfile}>
           <div className={style.companyContainer}>
             <div className={style.companyTitle}>
-              <div className={style.mask}><h1 id="companyTitle">COMPANY<br />PROFILE</h1></div>
+              <div className={style.mask}><h1 id="companyTitle" translate="no">COMPANY<br />PROFILE</h1></div>
               <div className={style.titleMask}><h2 id="companyTitle">会社概要</h2></div>
             </div>
 
@@ -938,7 +930,7 @@ const Index = (props) => {
               <div id="profile" className={style.profile}>
                 <div id="profileContent" className={style.profileContent}>
                   <h1>会社名</h1>
-                  <h2>株式会社ERISA<br /><small>Everyplan Research Institute of<br className={style.brSP}></br> Statistics and Analysis</small></h2>
+                  <h2 translate="no">株式会社ERISA(ERISA Co.,Ltd.)</h2>
                 </div>
                 <div id="profileContent" className={style.profileContent}>
                   <h1>所在地</h1>
@@ -954,7 +946,7 @@ const Index = (props) => {
                 </div>
                 <div id="profileContent" className={style.profileContent}>
                   <h1>代表取締役</h1>
-                  <h2>河原 八郎</h2>
+                  <h2 translate="no">河原 八郎(Hachiro Gobara)</h2>
                 </div>
                 <div id="profileContent" className={style.profileContent}>
                   <h1>設立</h1>
@@ -978,7 +970,7 @@ const Index = (props) => {
               <div id="certification" className={style.certification}>
                 <h1>医療機器認証取得</h1>
                 <h2>■販売名：脳画像解析プログラム BAAD</h2>
-                <h2>■認証番号：303AGBZX00065000</h2>
+                <h2>■医療機器認証番号：303AGBZX00065000</h2>
               </div>
             </div>
 
@@ -994,13 +986,11 @@ const Index = (props) => {
           <div className={style.partnerLogo}>
             <div className={style.partnerLogoContainer}>
               <img src={shimadzuLogo} alt="logo" id="partnerLogo" className={style.shimadzuLogo} />
+              <img src={mcsLogo} alt="logo" id="partnerLogo" className={style.mcsLogo} />
               <img src={fujikkoLogo} alt="logo" id="partnerLogo" className={style.fujikkoLogo} />
-              <img src={mcsLogo} alt="logo" id="partnerLogo" className={style.mcsLogo} />
             </div>
-            <div className={style.partnerLogoContainerSP}>
-              <img src={mcsLogo} alt="logo" id="partnerLogo" className={style.mcsLogo} />
-            </div>
-            <div className={style.partnerLogoContainer}>
+
+            <div className={style.partnerLogoContainer0}>
               <img src={dvgLogo} alt="logo" id="partnerLogo" className={style.dvgLogo} />
               <img src={saninsansoLogo} alt="logo" id="partnerLogo" className={style.saninsansoLogo} />
               <img src={imaiLogo} alt="logo" id="partnerLogo" className={style.imaiLogo} />
@@ -1017,89 +1007,18 @@ const Index = (props) => {
           </div>
 
           <div className={style.historyContents}>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2017年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>会社設立</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>島根県より「ヘルスケアビジネス先進モデル構築支援事業」を受託</p></p>
-                </div>
+            {props.data.allMicrocmsHistory.edges.map((history, index) => (
+              <div className={style.historyContent} key={index}>
+                <hr />
+                  <div id="historyContent" className={style.historyText}>
+                    <div className={style.circle}></div>
+                    <p className={style.year}>{history.node.year}</p>
+                    <div className={style.content} dangerouslySetInnerHTML={{ __html: history.node.history }}>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2018年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>第三者割当増資により1.45億円を調達</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>デジタルガレージ社Onlab Bioプログラムに採択</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>島津製作所、メディカル・ケア・サービス、島根大学、ERISAで共同研究契約締結</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>滋賀医科大学よりBAADの独占商用ライセンスを取得</p></p>
-                </div>
-              </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2019年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>島根大学より脳画像解析技術（認知症将来リスク検査技術）に関する特許権を譲り受け</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>経産省の中国における認知症ケア拠点化、認知症早期発見拠点化の事業化に関する実証調査事業にMCSと共同参画</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>AMEDのフィージビリティ研究事業に協力機関として参画</p></p>
-                </div>
-              </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2020年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>中国（青島）で開催されたピッチ大会に、日本予選1位企業として参加し、優秀賞を受賞</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>アルツハイマー病の発症時期予測プログラムについて医学専門サイトBrain Communicationsに掲載</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>中国江蘇省南通市の大手医療グループ瑞慈医療集団と認知症リスク検査サービスの提供契約を締結</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>第二種医療機器の製造販売業許可を取得</p></p>
-                </div>
-              </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2021年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>島根県とCOVID-19対策としてのPCR用検体採取事業を受託</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>中国江蘇省の大手医療グループと認知症リスク検査サービスのトライアル実施契約</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>脳画像解析プログラムBAADの医療機器認証取得</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>日本国内で認知症リスク検査マーケットイン</p></p>
-                </div>
-              </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2022年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>韓国に合弁会社を設立</p></p>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>慶應義塾大学と大うつ病と双極性障害に関する共同研究を開始</p></p>
-                </div>
-              </div>
-            </div>
-            <div className={style.historyContent}>
-              <hr />
-              <div id="historyContent" className={style.historyText}>
-                <div className={style.circle}></div>
-                <p className={style.year}>2023年</p>
-                <div className={style.content}>
-                  <p className={style.textContainer}><p className={style.point}>・</p><p>認知機能簡便チェックツール「CADi２」のリリース</p></p>
-                </div>
-              </div>
-            </div>
+            )
+            )}
           </div>
 
         </div>
@@ -1111,6 +1030,18 @@ const Index = (props) => {
 
 export default Index
 
+export const query = graphql`
+  query MicrocmsHistoryQuery {
+    allMicrocmsHistory {
+      edges {
+        node {
+          year
+          history
+        }
+      }
+    }
+  }
+`
 
 export const Head = () => {
   return (

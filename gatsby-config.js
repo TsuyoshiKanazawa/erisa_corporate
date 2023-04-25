@@ -25,11 +25,14 @@ module.exports = {
     {
       resolve: `gatsby-source-microcms`,
       options: {
-        apiKey: `4olgSiK40Grms4KjzEQShSPx9LROyCFPNTB8`,
-        serviceId: `iaxlerntfh`,
+        apiKey: `h797t58PIrqdefVRsuznYzm647R6JmGnmvjS`,
+        serviceId: `erisa`,
         apis: [
           {
             endpoint: `information`,
+          },
+          {
+            endpoint: `history`,
           },
         ],
       },

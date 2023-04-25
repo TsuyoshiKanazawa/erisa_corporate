@@ -3,6 +3,9 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Helmet } from 'react-helmet'
 import { graphql } from "gatsby"
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
@@ -18,10 +21,12 @@ import logoWhite from '../images/logoWhite.svg'
 import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
 gsap.registerPlugin(ScrollTrigger);
 
 export const Index = (props) => {
-
+  
   useLayoutEffect(() => {
     window.gtranslateSettings = {
       "default_language": "ja",
@@ -369,9 +374,6 @@ export const Index = (props) => {
         trigger: '#detailContents',
         start: 'top 80%',
       },
-      stagger: {
-        each: 0.5,
-      }
     }
   )
   gsap.fromTo(
@@ -380,7 +382,6 @@ export const Index = (props) => {
     {  //toの設定
       width: "100%",
       duration: 0.5,
-      delay: 1,
       scrollTrigger: {
         trigger: '#detailContents',
         start: 'top 80%',
@@ -744,12 +745,10 @@ export const Index = (props) => {
                   </a>
                 </div>
                 <div className={style.copyright}>
-                  <p>©2023 ERISA Co.</p>
+                  <p>©2023 ERISA Co.,Ltd.</p>
                 </div>
 
-                <div className={style.comingSoon}>
-                  <p>COMING<br />SOON</p>
-                </div>
+
               </div>
             </div>
           </div>
@@ -805,7 +804,7 @@ export const Index = (props) => {
         <div id="information" className={style.information}>
           <div className={style.informationTitle} >
             <h1 id="informationTitle">INFORMATION</h1>
-            <a href="/" className={style.informationMore}>
+            <a href="/information" className={style.informationMore}>
               <p>VIEW MORE</p>
               <span className={style.playButton}></span>
             </a>
@@ -817,7 +816,7 @@ export const Index = (props) => {
             {props.data.allMicrocmsInformation.edges.map((information, index) => (
               <div className={style.informationContent} key={index}>
                 <div id="informationContent" className={style.informationText}>
-                  <h1>{information.node.date}</h1>
+                  <h1>{dayjs.utc(information.node.date).add(1, 'd').format('YYYY/MM/DD')}</h1>
                   <hr className={style.vertical}></hr>
                   <div className={style.bodyText} dangerouslySetInnerHTML={{ __html: information.node.bodyText }} />
                 </div>
@@ -842,9 +841,10 @@ export const Index = (props) => {
             <h1 id="ourMissionText">脳を知り、<br />
               あなたらしさを<br />
               支える。</h1>
-            <p id="ourMissionText">人生１００年時代の超高齢社会。<br />
-              要介護の原因で上位を占める認知症患者は６００万人を超え、<br />
-              今後も増加が見込まれています。</p>
+            <p id="ourMissionText">人生１００年時代の現代社会。<br />
+              脳や神経、それに由来する疾患における脳の構造は人類未到の<br />
+              超高齢化社会でますます多様化し、<br />
+              その疾患人口は今後も増加が見込まれています。</p>
             <p id="ourMissionText">重要なのは脳の状態を把握して、<br />
               いかに病気を予知・予防するかということ。<br />
               しかし、複雑な脳の状態を安全かつ正確に把握することは<br />
@@ -870,10 +870,9 @@ export const Index = (props) => {
                 <StaticImage src="../images/product1.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1} />
                 <div className={style.productText}>
                   <h1 id="productContentSPFlug">認知症リスク検査</h1>
-                  <h2 id="productContentSPFlug">認知症リスク検査は、島根大学医学部、滋賀医科大学、株式会社ERISAで共同開発された、世界で唯一の脳画像解析技術で、脳の状態から3年後の認知症リスクを検査します。<br />
-                    脳の一部だけではなく、脳全体を膨大なデータと比較することで、高い精度を実現。将来を見据えた認知症予防の検討材料として、受診者様のライフスタイル見直しに貢献します。</h2>
+                  <h2 id="productContentSPFlug">認知症リスク検査は、島根大学医学部、滋賀医科大学、株式会社ERISAで共同開発された脳画像解析技術で、脳の状態を検査し将来の認知症リスクを予測します。脳の一部だけではなく、脳全体を膨大なデータと比較することで、高い精度を実現。将来を見据えた認知症予防に取り組むきっかけを提供し、受検者のライフスタイル見直しに貢献します。</h2>
 
-                  <a href="https://dementiarisk.erisa.co.jp/" id="productContentSPFlug" className={style.productMore}>
+                  <a href="https://dementiarisk.erisa.co.jp/" target="_blank" rel="noopener noreferrer" id="productContentSPFlug" className={style.productMore}>
                     <p>製品サイトはこちら</p>
                     <span className={style.playButton}></span>
                   </a>
@@ -884,10 +883,10 @@ export const Index = (props) => {
                 <StaticImage src="../images/product2.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1SP} />
                 <div className={style.productText0}>
                   <h1 id="productContentSPFlug">脳画像解析プログラムBAAD</h1>
-                  <h2 id="productContentSPFlug"><b>認証番号：303AGBZX00065000脳画像解析プログラム</b><br />
+                  <h2 id="productContentSPFlug"><b>医療機器認証番号：303AGBZX00065000脳画像解析プログラム</b><br />
                     BAAD（バード）は弊社が国立大学法人滋賀医科大学と共同開発したプログラムです。脳MRI画像を用いて、脳全体の萎縮度合いを視覚的・数値的に表現することにより、客観的な疾病診断を臨床医療現場へ普及させ、診断の迅速化や精度向上に資すると共に 、臨床医療現場でのMRI画像診断に関する負担軽減を目的としています。プログラム上の画面操作で、脳MRI画像を読み込み、画像処理や統計処理を行います。ROIごとの体積（ml）、萎縮率（%）、Z値の計算を脳全体に対して実施します。</h2>
 
-                  <a href="https://www.las.jp/products/s22_BAAD/index.html" id="productContentSPFlug" className={style.productMore0}>
+                  <a href="https://www.las.jp/products/s22_BAAD/index.html" target="_blank" rel="noopener noreferrer" id="productContentSPFlug" className={style.productMore0}>
                     <p>製品サイトはこちら</p>
                     <span className={style.playButton}></span>
                   </a>
@@ -899,12 +898,12 @@ export const Index = (props) => {
                 <StaticImage src="../images/product3.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1} />
                 <div className={style.productText}>
                   <h1 id="productContentSPFlug">CADi2</h1>
-                  <h2 id="productContentSPFlug">「CADi2（キャディーツー）」は認知症早期発見のための検査アプリです。スマートフォン、タブレット、PCなどあらゆるデバイスから利用可能です。音声を聞きながら１０個の検査項目に回答することで、数分間で検査できます。いくつかの自治体における住民健診や，全国複数の脳ドック施設において認知症早期発見のため活用がなされています。</h2>
+                  <h2 id="productContentSPFlug">「CADi2（キャディーツー）」は認知機能チェックアプリです。スマートフォン、タブレット、PCなどあらゆるデバイスから利用可能です。音声を聞きながら１０個の検査項目に回答することで、数分間で検査できます。自治体住民健診や，脳ドック施設において認知症早期発見のため活用がなされています。</h2>
                 </div>
               </div>
               <hr />
             </div>
-            <a href="/" id="productMore" className={style.productMore}>
+            <a href="/" id="productMore" className={style.productMore1}>
               <p>VIEW MORE</p>
               <span className={style.playButton}></span>
             </a>
@@ -914,7 +913,7 @@ export const Index = (props) => {
         <div id="details" className={style.details}>
           <div className={style.detailTitle}>
             <h1 id="detailTitle1">BUSINESS<br />DETAILS</h1>
-            <h2 id="detailTitle2">AI×OIを用いた<br />脳画像解析技術の開発・販売事業</h2>
+            <h2 id="detailTitle2">AI×OIを用いた<br />脳画像解析技術の研究開発・販売事業</h2>
           </div>
 
           <div className={style.detailContents}>
@@ -925,7 +924,7 @@ export const Index = (props) => {
                   <h1>01</h1>
                   <h2>検査サービス</h2>
                   <h3>一般コンシューマ向けに脳ドックのオプションサービスや、
-                    認知機能簡便チェックアプリを提供
+                    認知機能チェックアプリを提供<br />
                     日本や中国、その他地域で導入施設を拡大中</h3>
                 </div>
               </div>
@@ -938,8 +937,8 @@ export const Index = (props) => {
                   <h2>診断支援<br />
                     ソフトウェア販売</h2>
                   <h3>脳の関心領域ごとの萎縮度算定を行うBAADをベースとした、
-                    医師向けのAIソフトウェアを開発
-                    うつ、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
+                    医師向けのAIソフトウェアを開発<br />
+                    うつ・双極性障害、認知症、脳動脈瘤、水頭症、統合失調症などの中枢神経系疾患を、客観的に脳画像から判別することが可能となる</h3>
                 </div>
               </div>
             </div>

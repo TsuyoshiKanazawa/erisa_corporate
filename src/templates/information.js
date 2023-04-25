@@ -3,6 +3,9 @@ import { graphql } from "gatsby"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Helmet } from 'react-helmet'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 
 import Layout from "../components/layout"
 import * as style from "../styles/information.module.scss"
@@ -14,7 +17,11 @@ import informationTitleSP from '../images/informationTitleSP.svg'
 import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 const IndexPage = ({ data, pageContext }) => {
+
   useLayoutEffect(() => {
     window.gtranslateSettings = {
       "default_language": "ja",
@@ -96,6 +103,17 @@ const IndexPage = ({ data, pageContext }) => {
       { visibility: "hidden" }, //fromの設定
       {  //toの設定
         visibility: "visible",
+      }
+    )
+
+    gsap.fromTo(
+      '#informationTitle',
+      { y: 100, autoAlpha: 0 }, //fromの設定
+      {  //toの設定
+        y: 0,
+        autoAlpha: 1,
+        delay: 0.5,
+        duration: 0.5,
       }
     )
 
@@ -216,43 +234,38 @@ const IndexPage = ({ data, pageContext }) => {
                           </a>
                         </div>
                         <div className={style.copyright}>
-                          <p>©2023 ERISA Co.</p>
-                        </div>
-                        <div className={style.comingSoon}>
-                          <p>COMING<br />SOON</p>
+                          <p>©2023 ERISA Co.,Ltd.</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </header>
 
-                <div className={style.information}>
-                    <h1>お知らせ</h1>
-                    <img src={informationTitle} alt="informationTitle" className={style.informationTitle} />
-                    <img src={informationTitleSP} alt="informationTitle" className={style.informationTitleSP} />
+                <div id="informationTitle" className={style.information}>
+                  <h1>お知らせ</h1>
+                  <img src={informationTitle} alt="informationTitle" className={style.informationTitle} />
+                  <img src={informationTitleSP} alt="informationTitle" className={style.informationTitleSP} />
 
-                    <div className={style.informationContentsContainer}>
-                        <div className={style.informationContents}>
-                            <hr />
-
-                            {data.allMicrocmsInformation.edges.map((information, index) => (
-                                <div className={style.informationContent} key={index}>
-                                  <div id="informationContent" className={style.informationText}>
-                                        <h1>{information.node.date}</h1>
-                                        <hr className={style.vertical}></hr>
-                                        <div className={style.bodyText} dangerouslySetInnerHTML={{ __html: information.node.bodyText }} />
-                                    </div>
-                                    <hr />
-                                </div>
-                                
-                            )
-                            )}
-                        </div>
-                        <div className={style.pagenations}>
-                          <Pagenation pageContext={pageContext} />
-                        </div>
-                        <div className={style.space}></div>
-                    </div>
+                  <div className={style.informationContentsContainer}>
+                      <div className={style.informationContents}>
+                          <hr />
+                          {data.allMicrocmsInformation.edges.map((information, index) => (
+                            <div className={style.informationContent} key={index}>
+                              <div id="informationContent" className={style.informationText}>
+                                  <h1>{dayjs.utc(information.node.date).add(1, 'd').format('YYYY/MM/DD')}</h1>
+                                  <hr className={style.vertical}></hr>
+                                  <div className={style.bodyText} dangerouslySetInnerHTML={{ __html: information.node.bodyText }} />
+                              </div>
+                              <hr />
+                            </div>
+                          )
+                          )}
+                      </div>
+                      <div className={style.pagenations}>
+                        <Pagenation pageContext={pageContext} />
+                      </div>
+                      <div className={style.space}></div>
+                  </div>
                 </div>
 
             </body>

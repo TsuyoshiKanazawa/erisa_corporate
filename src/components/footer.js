@@ -48,7 +48,7 @@ const Footer = () => {
                     <a>-&emsp;MEMBER</a>
                 </div>
 
-                <p className={style.copyright}>©2023 ERISA Co.</p>
+                <p className={style.copyright}>©2023 ERISA Co.,Ltd.</p>
             </div>
 
             <img src={footerEnd} alt="" className={style.footerEnd} />

@@ -98,7 +98,16 @@ const Index = () => {
                 visibility: "visible",
             }
         )
-
+        gsap.fromTo(
+            '#contactTitle',
+            { y: 100, autoAlpha: 0 }, //fromの設定
+            {  //toの設定
+                y: 0,
+                autoAlpha: 1,
+                delay: 0.5,
+                duration: 0.5,
+            }
+        )
         //共通/////////////////////////
 
         mm.add("(min-width: 901px)", () => {
@@ -212,14 +221,14 @@ const Index = () => {
                                     </a>
                                 </div>
                                 <div className={style.copyright}>
-                                    <p>©2023 ERISA Co.</p>
+                                    <p>©2023 ERISA Co.,Ltd.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </header>
 
-                <div className={style.contactTitle}>
+                <div id="contactTitle" className={style.contactTitle}>
                     <div className={style.titleText}>
                         <h1>お問い合わせ</h1>
                         <img src={contactTitle} alt="contactTitle" className={style.contactTitleImg} />
