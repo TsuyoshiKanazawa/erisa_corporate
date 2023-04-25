@@ -710,9 +710,9 @@ const Index = (props) => {
             <div className={style.headerRight}>
               <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
               <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-              <a href="/" ><p id="headerMenu">PRODUCT</p></a>
-              <a href="/" ><p id="headerMenu">MEMBER</p></a>
-              <a href="/" ><p id="headerMenu">RECRUIT</p></a>
+              <a><p id="headerMenu">PRODUCT</p></a>
+              <a><p id="headerMenu">MEMBER</p></a>
+              <a><p id="headerMenu">RECRUIT</p></a>
               <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
               <button
                 className={style.hmb}
