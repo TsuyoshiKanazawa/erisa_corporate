@@ -14,6 +14,7 @@ import contactTitle from '../images/contactTitle.svg'
 
 import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
+import ogp from '../images/OGP.jpg'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -405,6 +406,15 @@ export const Head = () => {
     return (
         <>
             <title>株式会社ERISA</title>
+            <meta name="description" content="ERISAは、AI×OIを用いた脳画像解析技術の研究開発・販売事業を行っています。" />
+            <meta property="og:image" content={ogp} />
+            <meta property="og:title;" content="株式会社ERISA" />
+            <meta property="og:site-name;" content="株式会社ERISA" />
+            <meta property="og:type" content="website" />
+            <meta property="og:locale" content="ja_JP" />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="株式会社ERISA" />
+            <meta name="twitter:description" content="ERISAは、AI×OIを用いた脳画像解析技術の研究開発・販売事業を行っています。" />
         </>
     )
 }
