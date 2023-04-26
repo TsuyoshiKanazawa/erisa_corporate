@@ -24,7 +24,7 @@ const Confirmation = props => {
   const message = values.contact; //お問い合わせ内容
 
   const sendMail = () => {
-    init("OhzGRqewkPcbhrZ0o");
+    init("YDhr2yz42Wq5BPUL0");
 
     const template_param = {
       orname: orname,
@@ -36,7 +36,7 @@ const Confirmation = props => {
       message: message,
     };
 
-    send("service_1obp7sd", "template_ggft61b", template_param).then(() => {
+    send("Erisa_info_1", "template_6yulyon", template_param).then(() => {
       window.location.href = '/contact-completion';;
     });
   }
@@ -95,11 +95,13 @@ const Confirmation = props => {
               <span className={style.playButton}></span>
           </div>
 
-          <div className={isSendButton ? "contact-module--sendButtonContainer--39688" : "contact-module--sendButtonContainer_visible--66c2b"}>
+          <div className={style.sendButtonContainer_visible}>
+            {/*{isSendButton ? "contact-module--sendButtonContainer--39688" : "contact-module--sendButtonContainer_visible--66c2b"} */}
             <button 
               className={style.sendButton}
               onClick={sendMail}
-              disabled={!isChecked}><p>送信</p></button>
+              ><p>送信</p></button>
+              {/*disabled={!isChecked}*/}
             <span className={style.playButton}></span>
           </div>
 
