@@ -209,7 +209,7 @@ export const Index = (props) => {
     '#KVTextMask',
     { width: 0 }, //fromの設定
     {  //toの設定
-      width: "90vw",
+      width: "75vw",
       duration: 1.14,
       delay: 1,
     }
