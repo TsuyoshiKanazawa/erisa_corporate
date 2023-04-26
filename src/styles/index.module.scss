@@ -707,6 +707,7 @@
                 .productImage1 {
                     width: 300px;
                     height: 240px;
+                    border-radius: 5px;
                 }
                 .productImage1PC {
                     width: 300px;
@@ -2308,7 +2309,7 @@
                 .productImage1 {
                     width: 100%;
                     height: 240px;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     z-index: 0;
                 }
                 .productImage1PC {
@@ -2317,7 +2318,7 @@
                 .productImage1SP {
                     display: block;
                     width: 100%;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     z-index: 0;
                 }
 
