@@ -34,6 +34,22 @@ module.exports = {
           {
             endpoint: `history`,
           },
+          {
+            endpoint: `privacypolicy`,
+            format: 'object',
+          },
+          {
+            endpoint: `product`,
+          },
+          {
+            endpoint: `member`,
+          },
+          {
+            endpoint: `recruit`,
+          },
+          {
+            endpoint: `information_detail`,
+          },
         ],
       },
     },

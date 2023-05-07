@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect, useState, useCallback } from "react"
+import React, { useRef, useEffect, useLayoutEffect, useState } from "react"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useForm } from 'react-hook-form'
@@ -12,8 +12,6 @@ import "../styles/input.css"
 
 import contactTitle from '../images/contactTitle.svg'
 
-import logoColor from '../images/logoColor.svg'
-import hamberger from '../images/hamberger.svg'
 import ogp from '../images/OGP.jpg'
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,61 +25,6 @@ const Index = () => {
             "wrapper_selector": ".gtranslate_wrapper"
         }
     });
-
-    //ヘッダーが表示・非表示になる/////////////////
-    const [isHeaderShown, setIsHeaderShown] = useState(true);
-    const [lastPosition, setLastPosition] = useState(0);
-    const headerHeight = 100;
-    const scrollEvent = React.useCallback(() => {
-        const offset = window.pageYOffset;
-
-        if (offset > headerHeight) {
-            setIsHeaderShown(false);
-
-        } else {
-            setIsHeaderShown(true);
-        }
-
-        if (offset < lastPosition) {
-            setIsHeaderShown(true);
-        }
-
-        setLastPosition(offset);
-    }, [lastPosition]);
-
-    useLayoutEffect(() => {
-        window.addEventListener('scroll', scrollEvent);
-
-        return () => {
-            window.removeEventListener('scroll', scrollEvent);
-        };
-    }, [scrollEvent]);
-    ///////////////////////////////////////////
-    //ハンバーガーメニューの開閉////////////////
-    const handle = useCallback((e) => {
-        e.preventDefault();
-    }, []);
-
-    const scrollLock = () => {//ハンバーガーメニューを空けた時はスクロール禁止
-        document.addEventListener('touchmove', handle, { passive: false });
-        document.addEventListener('mousewheel', handle, { passive: false });
-    }
-
-    const scrollLockLift = () => {//ハンバーガーメニューを閉じたらスクロール禁止解除
-        document.removeEventListener('touchmove', handle,);
-        document.removeEventListener('mousewheel', handle,);
-    }
-
-
-    const [isShow, setIsShow] = useState(false);
-    const closeWithClickOutSideMethod = (e, setter) => {
-        if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
-            setter(false);//メニューを閉じる
-            document.body.style.overflow = "auto";
-            scrollLockLift();
-        }
-    };
-///////////////////////////////////////////
 
     //アニメーション専用/////////////////////////////////////////
     const div = useRef();
@@ -103,25 +46,34 @@ const Index = () => {
                 visibility: "visible",
             }
         )
-        gsap.fromTo(
-            '#contactTitle',
-            { y: 100, autoAlpha: 0 }, //fromの設定
-            {  //toの設定
-                y: 0,
-                autoAlpha: 1,
-                delay: 0.5,
-                duration: 0.5,
-            }
-        )
+
         //共通/////////////////////////
 
         mm.add("(min-width: 901px)", () => {
-
+            gsap.fromTo(
+                '#contactTitle',
+                { y: 100, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
         });
 
 
         mm.add("(max-width: 900px)", () => {
-
+            gsap.fromTo(
+                '#contactTitle',
+                { y: 50, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
         });
 
     }
@@ -157,16 +109,16 @@ const Index = () => {
     const Contact = watch('contact')
     //watchに各フォーム部品のnameの値を引数で渡すとでタイムリーで入力状態を監視してる
 
-    
-    
+
     useEffect(() => {
-        if (isConfirmationVisible == true) {
+        if (isConfirmationVisible === true) {
             scroller.scrollTo('scrollTarget', {
                 duration: 0,
             })
             setIsContactShown(false);
         }
     }, [isConfirmationVisible])
+    
     return (
         <Layout>
             <Helmet>
@@ -174,92 +126,6 @@ const Index = () => {
             </Helmet>
             <body id="body" className={style.body} name='scrollTarget'>
                 <div class="gtranslate_wrapper"></div>
-                <header id="headerWrapper" className={isHeaderShown ? "contact-module--container--6353d" : "contact-module--show--ef6ee"}>
-                    <div className={style.flexContainer}>
-                        <a href="/">
-                            <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
-                        </a>
-                        <div className={style.headerRight}>
-                            <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
-                            <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-                            <a><p id="headerMenu">PRODUCT</p></a>
-                            <a><p id="headerMenu">MEMBER</p></a>
-                            <a><p id="headerMenu">RECRUIT</p></a>
-                            <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
-                            <button
-                                className={style.hmb}
-                                id="hamberger"
-                                onClick={() => {
-                                    setIsShow(!isShow);
-                                    scrollLock();
-                                }}
-                            >
-                                <img src={hamberger} id="hambergerSVG" className={style.hamberger} />
-                            </button>
-                        </div>
-                        <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-                            className={`contact-module--menuWrapper--5421e ${isShow ? "contact-module--menuWrapper__active--99f07" : ""}`}
-                            onClick={(e) => {
-                                closeWithClickOutSideMethod(e, setIsShow);
-                            }}
-                            style={{ '-webkit-tap-highlight-color': 'rgba(0,0,0,0)' }}
-                        >
-                            <div id="menu" className={style.menu}>
-                                <div className={style.menuTop}>
-                                    <button
-                                        className={style.close}
-                                        onClick={() => {
-                                            setIsShow(!isShow);
-                                            scrollLockLift();
-                                        }}>
-                                    </button>
-                                </div>
-
-                                <div className={style.menuList}>
-                                    <a href="/information"
-                                        className={style.list}
-                                        onClick={() => {
-                                            setIsShow(!isShow);
-                                            scrollLockLift();
-                                        }}>
-                                        <p>INFORMATION</p>
-                                    </a>
-                                    <a href="/about"
-                                        className={style.list}
-                                        onClick={() => {
-                                            setIsShow(!isShow);
-                                            scrollLockLift();
-                                        }}>
-                                        <p>ABOUT</p>
-                                    </a>
-                                    <a
-                                        className={style.list}>
-                                        <p>PRODUCT</p>
-                                    </a>
-                                    <a
-                                        className={style.list}>
-                                        <p>MEMBER</p>
-                                    </a>
-                                    <a
-                                        className={style.list}>
-                                        <p>RECRUIT</p>
-                                    </a>
-                                    <a href="/contact"
-                                        className={style.list}
-                                        onClick={() => {
-                                            setIsShow(!isShow);
-                                            scrollLockLift();
-                                        }}>
-                                        <p>CONTACT</p>
-                                    </a>
-                                </div>
-                                <div className={style.copyright}>
-                                    <p>©2023 ERISA Co.,Ltd.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
 
                 <div id="contactTitle" className={style.contactTitle}>
                     <div className={style.titleText}>

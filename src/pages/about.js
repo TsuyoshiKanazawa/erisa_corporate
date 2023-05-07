@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
+import React, { useRef, useEffect, useLayoutEffect } from "react"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { graphql } from "gatsby"
@@ -20,14 +20,11 @@ import dvgLogo from '../images/dvgLogo.svg'
 import saninsansoLogo from '../images/saninsansoLogo.png'
 import imaiLogo from '../images/imaiLogo.svg'
 
-import logoColor from '../images/logoColor.svg'
-import hamberger from '../images/hamberger.svg'
 import ogp from '../images/OGP.jpg'
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = (props) => {
-  console.log(props)
 
   useLayoutEffect(() => {
     window.gtranslateSettings = {
@@ -37,61 +34,6 @@ const Index = (props) => {
       "wrapper_selector": ".gtranslate_wrapper"
     }
   });
-
-  //ヘッダーが表示・非表示になる/////////////////
-  const [isHeaderShown, setIsHeaderShown] = useState(true);
-  const [lastPosition, setLastPosition] = useState(0);
-  const headerHeight = 100;
-  const scrollEvent = React.useCallback(() => {
-    const offset = window.pageYOffset;
-
-    if (offset > headerHeight) {
-      setIsHeaderShown(false);
-
-    } else {
-      setIsHeaderShown(true);
-    }
-
-    if (offset < lastPosition) {
-      setIsHeaderShown(true);
-    }
-
-    setLastPosition(offset);
-  }, [lastPosition]);
-
-  useLayoutEffect(() => {
-    window.addEventListener('scroll', scrollEvent);
-
-    return () => {
-      window.removeEventListener('scroll', scrollEvent);
-    };
-  }, [scrollEvent]);
-  ///////////////////////////////////////////
-  //ハンバーガーメニューの開閉////////////////
-  const handle = useCallback((e) => {
-    e.preventDefault();
-  }, []);
-
-  const scrollLock = () => {//ハンバーガーメニューを空けた時はスクロール禁止
-    document.addEventListener('touchmove', handle, { passive: false });
-    document.addEventListener('mousewheel', handle, { passive: false });
-  }
-
-  const scrollLockLift = () => {//ハンバーガーメニューを閉じたらスクロール禁止解除
-    document.removeEventListener('touchmove', handle,);
-    document.removeEventListener('mousewheel', handle,);
-  }
-
-
-  const [isShow, setIsShow] = useState(false);
-  const closeWithClickOutSideMethod = (e, setter) => {
-    if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
-      setter(false);//メニューを閉じる
-      document.body.style.overflow = "auto";
-      scrollLockLift();
-    }
-  };
-///////////////////////////////////////////
 
   //アニメーション専用/////////////////////////////////////////
   const div = useRef();
@@ -702,92 +644,8 @@ const Index = (props) => {
       </Helmet>
       <body id="body" className={style.body}>
         <div class="gtranslate_wrapper"></div>
-        <header id="headerWrapper" className={isHeaderShown ? "about-module--container--517ce" : "about-module--show--6213c"}>
-          <div className={style.flexContainer}>
-            <a href="/">
-              <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
-            </a>
-            <div className={style.headerRight}>
-              <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
-              <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-              <a><p id="headerMenu">PRODUCT</p></a>
-              <a><p id="headerMenu">MEMBER</p></a>
-              <a><p id="headerMenu">RECRUIT</p></a>
-              <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
-              <button
-                className={style.hmb}
-                id="hamberger"
-                onClick={() => {
-                  setIsShow(!isShow);
-                  scrollLock();
-                }}
-              >
-                <img src={hamberger} id="hambergerSVG" className={style.hamberger} />
-              </button>
-            </div>
-            <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-              className={`about-module--menuWrapper--8a103 ${isShow ? "about-module--menuWrapper__active--b0964" : ""}`}
-              onClick={(e) => {
-                closeWithClickOutSideMethod(e, setIsShow);
-              }}
-              style={{ '-webkit-tap-highlight-color': 'rgba(0,0,0,0)' }}
-            >
-              <div id="menu" className={style.menu}>
-                <div className={style.menuTop}>
-                  <button
-                    className={style.close}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
-                  </button>
-                </div>
 
-                <div className={style.menuList}>
-                  <a href="/information"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
-                    <p>INFORMATION</p>
-                  </a>
-                  <a href="/about"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
-                    <p>ABOUT</p>
-                  </a>
-                  <a
-                    className={style.list}>
-                    <p>PRODUCT</p>
-                  </a>
-                  <a
-                    className={style.list}>
-                    <p>MEMBER</p>
-                  </a>
-                  <a
-                    className={style.list}>
-                    <p>RECRUIT</p>
-                  </a>
-                  <a href="/contact"
-                    className={style.list}
-                    onClick={() => {
-                      setIsShow(!isShow);
-                      scrollLockLift();
-                    }}>
-                    <p>CONTACT</p>
-                  </a>
-                </div>
-                <div className={style.copyright}>
-                  <p>©2023 ERISA Co.,Ltd.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
+        <div className={style.topSpace}></div>
 
         <div id="aboutTitle" className={style.aboutTitle}>
           <div id="aboutTitleText" className={style.titleText}>
@@ -960,7 +818,7 @@ const Index = (props) => {
               </div>
             </div>
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18375.428671631627!2d133.05067595147918!3d35.49568335470689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f4.1!3m3!1m2!1s0x3557043386d6dd69%3A0x2c185922801cd47f!2z5qCq5byP5Lya56S-RVJJU0EgKOOCqOODluODquODl-ODqeODs-e1seioiOino-aekOeglOeptuaJgCk!5e0!3m2!1sja!2sjp!4v1681299641493!5m2!1sja!2sjp" width="1120" height="400" className={style.googleMap} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18375.428671631627!2d133.05067595147918!3d35.49568335470689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f4.1!3m3!1m2!1s0x3557043386d6dd69%3A0x2c185922801cd47f!2z5qCq5byP5Lya56S-RVJJU0EgKOOCqOODluODquODl-ODqeODs-e1seioiOino-aekOeglOeptuaJgCk!5e0!3m2!1sja!2sjp!4v1681299641493!5m2!1sja!2sjp" width="1120" height="400" className={style.googleMap} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="所在を表示"></iframe>
             
             <div className={style.certifications}>
               <div id="certification" className={style.certification}>

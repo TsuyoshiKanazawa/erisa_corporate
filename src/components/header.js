@@ -1,70 +1,68 @@
 import React, { useState, useLayoutEffect, useRef, useEffect, useCallback } from "react"
-import * as style from "../styles/index.module.scss"
+import * as style from "../styles/header.module.scss"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { StaticImage } from "gatsby-plugin-image"
 
-import logoWhite from '../images/logoWhite.svg'
 import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
-//ヘッダーが表示・非表示になる/////////////////
-    const [isHeaderShown, setIsHeaderShown] = useState(true);
-    const [lastPosition, setLastPosition] = useState(0);
-    const headerHeight = 100;
-    const scrollEvent = React.useCallback(() => {
-        const offset = window.pageYOffset;
+    //ヘッダーが表示・非表示になる/////////////////
+        const [isHeaderShown, setIsHeaderShown] = useState(true);
+        const [lastPosition, setLastPosition] = useState(0);
+        const headerHeight = 100;
+        const scrollEvent = React.useCallback(() => {
+            const offset = window.pageYOffset;
 
-        if (offset > headerHeight) {
-            setIsHeaderShown(false);
+            if (offset > headerHeight) {
+                setIsHeaderShown(false);
 
-        } else {
-            setIsHeaderShown(true);
-        }
+            } else {
+                setIsHeaderShown(true);
+            }
 
-        if (offset < lastPosition) {
-            setIsHeaderShown(true);
-        }
+            if (offset < lastPosition) {
+                setIsHeaderShown(true);
+            }
 
-        setLastPosition(offset);
-    }, [lastPosition]);
+            setLastPosition(offset);
+        }, [lastPosition]);
 
-    useLayoutEffect(() => {
-        window.addEventListener('scroll', scrollEvent);
+        useLayoutEffect(() => {
+            window.addEventListener('scroll', scrollEvent);
 
-        return () => {
-            window.removeEventListener('scroll', scrollEvent);
-        };
-    }, [scrollEvent]);
-///////////////////////////////////////////
-//ハンバーガーメニューの開閉////////////////
-const handle = useCallback((e) => { 
-e.preventDefault();
-}, []);
+            return () => {
+                window.removeEventListener('scroll', scrollEvent);
+            };
+        }, [scrollEvent]);
+    ///////////////////////////////////////////
+    //ハンバーガーメニューの開閉////////////////
+    const handle = useCallback((e) => { 
+    e.preventDefault();
+    }, []);
 
-const scrollLock = () => {//ハンバーガーメニューを空けた時はスクロール禁止
-document.addEventListener('touchmove', handle, { passive: false });
-document.addEventListener('mousewheel', handle, { passive: false });
-}
+    const scrollLock = () => {//ハンバーガーメニューを空けた時はスクロール禁止
+    document.addEventListener('touchmove', handle, { passive: false });
+    document.addEventListener('mousewheel', handle, { passive: false });
+    }
 
-const scrollLockLift = () => {//ハンバーガーメニューを閉じたらスクロール禁止解除
-document.removeEventListener('touchmove', handle,);
-document.removeEventListener('mousewheel', handle,);
-}
+    const scrollLockLift = () => {//ハンバーガーメニューを閉じたらスクロール禁止解除
+    document.removeEventListener('touchmove', handle,);
+    document.removeEventListener('mousewheel', handle,);
+    }
 
 
-const [isShow, setIsShow] = useState(false);
-const closeWithClickOutSideMethod = (e, setter) => {
-if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
-    setter(false);//メニューを閉じる
-    document.body.style.overflow = "auto";
-    scrollLockLift();
-}
-};
-///////////////////////////////////////////
+    const [isShow, setIsShow] = useState(false);
+    const closeWithClickOutSideMethod = (e, setter) => {
+    if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
+        setter(false);//メニューを閉じる
+        document.body.style.overflow = "auto";
+        scrollLockLift();
+    }
+    };
+    ///////////////////////////////////////////
 
 //アニメーション専用/////////////////////////////////////////
     const div = useRef();
@@ -86,18 +84,17 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
 //アニメーション専用/////////////////////////////////////////
 
     return (
-        <header id="headerWrapper" className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
+        <header id="headerWrapper" className={isHeaderShown ? "header-module--container--621b5" : "header-module--show--e0006"}>
             <div className={style.flexContainer}>
                 <a href="/">
                     <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
-                    <img src={logoWhite} id="logoWhite" className={style.logoWhite} alt="logo" />
                 </a>
                 <div className={style.headerRight}>
                     <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
                     <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-                    <a href="/" ><p id="headerMenu">PRODUCT</p></a>
-                    <a href="/" ><p id="headerMenu">MEMBER</p></a>
-                    <a href="/" ><p id="headerMenu">RECRUIT</p></a>
+                    <a href="/product" ><p id="headerMenu">PRODUCT</p></a>
+                    <a href="/member" ><p id="headerMenu">MEMBER</p></a>
+                    <a href="/recruit" ><p id="headerMenu">RECRUIT</p></a>
                     <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
                     <button
                         className={style.hmb}
@@ -111,7 +108,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                     </button>
                 </div>
                 <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-                    className={`index-module--menuWrapper--8e435 ${isShow ? "index-module--menuWrapper__active--16a38" : ""}`}
+                    className={`header-module--menuWrapper--6f039 ${isShow ? "header-module--menuWrapper__active--1803f" : ""}`}
                     onClick={(e) => {
                         closeWithClickOutSideMethod(e, setIsShow);
                     }}
@@ -145,8 +142,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                                 }}>
                                 <p>ABOUT</p>
                             </a>
-                            <a href="/"
-                                offset='120'
+                            <a href="/product"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -154,8 +150,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                                 }}>
                                 <p>PRODUCT</p>
                             </a>
-                            <a href="/"
-                                offset='30'
+                            <a href="/member"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -163,9 +158,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                                 }}>
                                 <p>MEMBER</p>
                             </a>
-                            <a href="/"
-                                target="_blank"
-                                rel="noreferrer"
+                            <a href="/recruit"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -173,9 +166,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                                 }}>
                                 <p>RECRUIT</p>
                             </a>
-                            <a href="/"
-                                target="_blank"
-                                rel="noreferrer"
+                            <a href="/contact"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
@@ -185,7 +176,7 @@ if (e.target === e.currentTarget) {//メニュー外側をクリックしたら
                             </a>
                         </div>
                         <div className={style.copyright}>
-                            <p>©2023 ERISA Co.</p>
+                            <p>©2023 ERISA Co.,Ltd.</p>
                         </div>
                     </div>
                 </div>

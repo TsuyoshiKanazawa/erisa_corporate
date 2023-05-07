@@ -2,17 +2,21 @@ import React, { useRef, useEffect, useLayoutEffect } from "react"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Helmet } from 'react-helmet'
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import * as style from "../styles/contact.module.scss"
+import * as style from "../styles/privacypolicy.module.scss"
 import "../styles/input.css"
 
-import contactTitle from '../images/contactTitle.svg'
+import privacypolicyTitle from '../images/privacypolicyTitle.svg'
+import privacypolicyTitleSP from '../images/privacypolicyTitleSP.svg'
 
+import ogp from '../images/OGP.jpg'
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Index = () => {
+const Index = ({data}) => {
+
     useLayoutEffect(() => {
         window.gtranslateSettings = {
             "default_language": "ja",
@@ -43,7 +47,7 @@ const Index = () => {
             }
         )
         gsap.fromTo(
-            '#contactTitle',
+            '#privacypolicyTitle',
             { y: 100, autoAlpha: 0 }, //fromの設定
             {  //toの設定
                 y: 0,
@@ -54,34 +58,38 @@ const Index = () => {
         )
         //共通/////////////////////////
 
+        mm.add("(min-width: 901px)", () => {
+
+        });
+
+
+        mm.add("(max-width: 900px)", () => {
+
+        });
+
     }
     //アニメーション専用/////////////////////////////////////////
+
 
     return (
         <Layout>
             <Helmet>
                 <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
             </Helmet>
-            <body id="body" className={style.body}>
+            <body id="body" className={style.body} name='scrollTarget'>
                 <div class="gtranslate_wrapper"></div>
 
-                <div id="contactTitle" className={style.contactTitle}>
+                <div id="privacypolicyTitle" className={style.privacypolicyTitle}>
                     <div className={style.titleText}>
-                        <h1>お問い合わせ</h1>
-                        <img src={contactTitle} alt="contactTitle" className={style.contactTitleImg} />
+                        <h1>プライバシーポリシー</h1>
+                        <img src={privacypolicyTitle} alt="privacypolicyTitle" className={style.privacypolicyTitleImg} />
+                        <img src={privacypolicyTitleSP} alt="privacypolicyTitle" className={style.privacypolicyTitleImgSP} />
                     </div>
                 </div>
 
-                <div className={style.contactCompletionContainer}>
-                    <div className={style.contactCompletion}>
-
-                        <h1>お問い合わせが<br />完了いたしました。</h1>
-                        <h2>メールアドレスに<br />確認用メールをお送りしますのでご確認ください。</h2>
-
-                        <a href="/">
-                            <p>TOPに戻る</p>
-                            <span className={style.playButton}></span>
-                        </a>
+                <div className={style.privacypolicyContents}>
+                    <div className={style.privacypolicyContentsContainer}>
+                        <div dangerouslySetInnerHTML={{ __html: data.microcmsPrivacypolicy.ppText }} />
                     </div>
                 </div>
             </body>
@@ -91,12 +99,20 @@ const Index = () => {
 
 export default Index
 
+export const query = graphql`
+    query MicrocmsPrivacypolicyQuery {
+        microcmsPrivacypolicy {
+            ppText
+        }
+    }
+`
 
 export const Head = () => {
     return (
         <>
             <title>株式会社ERISA</title>
             <meta name="description" content="ERISAは、AI×OIを用いた脳画像解析技術の研究開発・販売事業を行っています。" />
+            <meta property="og:image" content={ogp} />
             <meta property="og:title;" content="株式会社ERISA" />
             <meta property="og:site-name;" content="株式会社ERISA" />
             <meta property="og:type" content="website" />

@@ -1,0 +1,323 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+
+
+.body {
+    background-color: #fff !important;
+    width: 100%;
+    height: 100vh;
+}
+
+.confirmation {
+    background-color: #fff;
+    height: auto;
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    h1 {
+        font-size: 14px;
+        letter-spacing: 0.16rem;
+        font-weight: 500;
+        line-height: 190%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        letter-spacing: 0.16rem;
+        font-weight: 700;
+        line-height: 190%;
+        text-align: center;
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 50px;
+
+        h1 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.16rem;
+            color: #000;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .noButton {
+            display: block;
+            width: 380px;
+            height: 50px;
+            border: 2px solid #000;
+            border-radius: 35px;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            transition: 0.3s;
+            cursor: pointer;
+
+            p {
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 0.16rem;
+                color: #000;
+                line-height: 50px;
+                margin: 0;
+            }
+
+            .playButton {
+                display: block;
+                width: 32px;
+                height: 32px;
+                margin-top: auto;
+                margin-bottom: auto;
+                background-color: #000;
+                border-radius: 25px;
+                border-style: none;
+                position: absolute;
+                top: 18%;
+                left: 2%;
+                transition: .3s;
+                z-index: 1;
+            }
+
+            .playButton::after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8px 15px 8px 0;
+                border-color: transparent #fff transparent transparent;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-60%, -50%);
+                transition: .3s;
+            }
+        }
+
+        .noButton:hover {
+            transition: 0.3s;
+            transform: scale(1.05, 1.05);
+        }
+
+        .yesButton {
+            display: block;
+            width: 380px;
+            height: 50px;
+            border: 2px solid #7FC0EF;
+            border-radius: 35px;
+            background-color: #7FC0EF;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            transition: 0.3s;
+
+            p {
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 0.16rem;
+                color: #fff;
+                line-height: 50px;
+                margin: 0;
+            }
+
+            .playButton {
+                display: block;
+                width: 32px;
+                height: 32px;
+                margin-top: auto;
+                margin-bottom: auto;
+                background-color: #fff;
+                border-radius: 25px;
+                border-style: none;
+                position: absolute;
+                top: 18%;
+                right: 2%;
+                transition: .3s;
+                z-index: 1;
+            }
+
+            .playButton::after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8px 0 8px 15px;
+                border-color: transparent transparent transparent #7FC0EF;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-40%, -50%);
+                transition: .3s;
+            }
+        }
+
+        .yesButton:hover {
+            transition: 0.3s;
+            transform: scale(1.05, 1.05);
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .confirmation {
+        background-color: #fff;
+        width: 100%;
+
+        h1 {
+            font-size: 12px;
+            letter-spacing: 0.1rem;
+            font-weight: 500;
+            line-height: 190%;
+            width: 248px;
+            text-align: center;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 20px;
+            letter-spacing: 0.1rem;
+            font-weight: 700;
+            line-height: 190%;
+            text-align: center;
+        }
+
+        .buttonContainer {
+            display: flex;
+            flex-flow: column;
+            gap: 30px;
+            margin: 30px auto 0;
+
+            .noButtonConteiner {
+                order: 2;
+                .noButton {
+                    display: block;
+                    width: 85%;
+                    height: 50px;
+                    border: 2px solid #000;
+                    border-radius: 35px;
+                    text-align: center;
+                    margin: 0 auto;
+                    position: relative;
+                    transition: 0.3s;
+            
+                    p {
+                        font-size: 14px;
+                        font-weight: 700;
+                        letter-spacing: 0.16rem;
+                        color: #000;
+                        line-height: 50px;
+                        margin: 0;
+                    }
+            
+                    .playButton {
+                        display: block;
+                        width: 32px;
+                        height: 32px;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        background-color: #000;
+                        border-radius: 25px;
+                        border-style: none;
+                        position: absolute;
+                        top: 18%;
+                        left: auto;
+                        right: 2% !important;
+                        transition: .3s;
+                        z-index: 1;
+                    }
+            
+                    .playButton::after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 15px;
+                        border-color: transparent transparent transparent #fff;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-40%, -50%);
+                        transition: .3s;
+                    }
+                }
+            
+                .noButton:hover {
+                    transition: 0.3s;
+                    transform: scale(1.05, 1.05);
+                }
+            }
+
+            .yesButtonConteiner {
+                order: 1;
+                .yesButton {
+                    display: block;
+                    margin: auto;
+                    width: 85%;
+                    height: 50px;
+                    border: 2px solid #7FC0EF;
+                    border-radius: 35px;
+                    background-color: #7FC0EF;
+                    text-align: center;
+                    margin: 0 auto;
+                    position: relative;
+                    transition: 0.3s;
+            
+                    p {
+                        font-size: 14px;
+                        font-weight: 700;
+                        letter-spacing: 0.16rem;
+                        color: #fff;
+                        line-height: 50px;
+                        margin: 0;
+                    }
+            
+                    .playButton {
+                        display: block;
+                        width: 32px;
+                        height: 32px;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        background-color: #fff;
+                        border-radius: 25px;
+                        border-style: none;
+                        position: absolute;
+                        top: 18%;
+                        right: 2%;
+                        transition: .3s;
+                        z-index: 1;
+                    }
+            
+                    .playButton::after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 15px;
+                        border-color: transparent transparent transparent #7FC0EF;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-40%, -50%);
+                        transition: .3s;
+                    }
+                }
+            
+                .yesButton:hover {
+                    transition: 0.3s;
+                    transform: scale(1.05, 1.05);
+                }
+            }
+
+        }
+    }
+
+}

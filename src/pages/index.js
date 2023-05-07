@@ -27,7 +27,8 @@ dayjs.extend(timezone);
 gsap.registerPlugin(ScrollTrigger);
 
 export const Index = (props) => {
-  
+    console.log(props)
+
   useLayoutEffect(() => {
     window.gtranslateSettings = {
       "default_language": "ja",
@@ -658,7 +659,7 @@ export const Index = (props) => {
   }
   //アニメーション専用/////////////////////////////////////////
   return (
-    <Layout>
+    <Layout hideHeader>
       <Helmet>
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
       </Helmet>
@@ -674,9 +675,9 @@ export const Index = (props) => {
             <div className={style.headerRight}>
               <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
               <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-              <a><p id="headerMenu">PRODUCT</p></a>
-              <a><p id="headerMenu">MEMBER</p></a>
-              <a><p id="headerMenu">RECRUIT</p></a>
+              <a href="/product" ><p id="headerMenu">PRODUCT</p></a>
+              <a href="/member"><p id="headerMenu">MEMBER</p></a>
+              <a href="/recruit"><p id="headerMenu">RECRUIT</p></a>
               <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
               <button
                 className={style.hmb}
@@ -724,16 +725,28 @@ export const Index = (props) => {
                     }}>
                     <p>ABOUT</p>
                   </a>
-                  <a
-                    className={style.list}>
+                  <a href="/product"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
                     <p>PRODUCT</p>
                   </a>
-                  <a
-                    className={style.list}>
+                  <a href="/member"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
                     <p>MEMBER</p>
                   </a>
-                  <a
-                    className={style.list}>
+                  <a href="/recruit"
+                    className={style.list}
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      scrollLockLift();
+                    }}>
                     <p>RECRUIT</p>
                   </a>
                   <a href="/contact"
@@ -865,46 +878,37 @@ export const Index = (props) => {
               <h1 id="productTitle">PRODUCT<br /><small>開発・販売製品</small></h1>
             </div>
 
-            <div className={style.productContents}>
-              <hr />
-              <div id="productContent" className={style.productContent}>
-                <StaticImage src="../images/product1.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1} />
-                <div className={style.productText}>
-                  <h1 id="productContentSPFlug">認知症リスク検査</h1>
-                  <h2 id="productContentSPFlug">認知症リスク検査は、島根大学医学部、滋賀医科大学、株式会社ERISAで共同開発された脳画像解析技術で、脳の状態を検査し将来の認知症リスクを予測します。脳の一部だけではなく、脳全体を膨大なデータと比較することで、高い精度を実現。将来を見据えた認知症予防に取り組むきっかけを提供し、受検者のライフスタイル見直しに貢献します。</h2>
-
-                  <a href="https://dementiarisk.erisa.co.jp/" target="_blank" rel="noopener noreferrer" id="productContentSPFlug" className={style.productMore}>
-                    <p>製品サイトはこちら</p>
-                    <span className={style.playButton}></span>
-                  </a>
+            <div className={style.productContentsTop}>
+              {props.data.allMicrocmsProduct.edges.map((product, index) => (
+                <div id="productContent" className={style.productContent} key={index}>
+                  <div className={style.topLine}></div>
+                  <div className={style.contentContainer}>
+                    <img src={product.node.eyecatch.url} id="productContentImageFlug" alt="productContentImage" className={style.productImage} />
+                    <div className={style.productText}>
+                      <div className={style.productTextConteiner}>
+                        <h1 id="productContentSPFlug">{product.node.title}</h1>
+                        <h2 id="productContentSPFlug" dangerouslySetInnerHTML={{ __html: product.node.bodyText }}></h2>
+                      </div>
+                      {product.node.switch1 &&
+                        <a href={product.node.url} target="_blank" rel="noopener noreferrer" id="productContentSPFlug" className={style.productMore}>
+                          <p>製品サイトはこちら</p>
+                          <span className={style.playButton}></span>
+                        </a>
+                      }
+                      {product.node.switch2 &&
+                        <a href={"/product/" + product.node.slug} id="productContentSPFlug" className={style.productMore}>
+                          <p>製品サイトはこちら</p>
+                          <span className={style.playButton}></span>
+                        </a>
+                      }
+                    </div>
+                  </div>
+                  <div className={style.bottomLine}></div>
                 </div>
-              </div>
-              <hr />
-              <div id="productContent" className={style.productContent}>
-                <StaticImage src="../images/product2.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1SP} />
-                <div className={style.productText0}>
-                  <h1 id="productContentSPFlug">脳画像解析プログラムBAAD</h1>
-                  <h2 id="productContentSPFlug"><b>医療機器認証番号：303AGBZX00065000脳画像解析プログラム</b><br />
-                    BAAD（バード）は弊社が国立大学法人滋賀医科大学と共同開発したプログラムです。脳MRI画像を用いて、脳全体の萎縮度合いを視覚的・数値的に表現することにより、客観的な疾病診断を臨床医療現場へ普及させ、診断の迅速化や精度向上に資すると共に 、臨床医療現場でのMRI画像診断に関する負担軽減を目的としています。プログラム上の画面操作で、脳MRI画像を読み込み、画像処理や統計処理を行います。ROIごとの体積（ml）、萎縮率（%）、Z値の計算を脳全体に対して実施します。</h2>
-
-                  <a href="https://www.las.jp/products/s22_BAAD/index.html" target="_blank" rel="noopener noreferrer" id="productContentSPFlug" className={style.productMore0}>
-                    <p>製品サイトはこちら</p>
-                    <span className={style.playButton}></span>
-                  </a>
-                </div>
-                <StaticImage src="../images/product2.jpg" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1PC} />
-              </div>
-              <hr />
-              <div id="productContent" className={style.productContent}>
-                <StaticImage src="../images/product3.jpg" id="productContentImageFlug" alt=" profile" quality={90} placeholder="none" formats={["AUTO", "WEBP", "AVIF"]} className={style.productImage1} />
-                <div className={style.productText}>
-                  <h1 id="productContentSPFlug">CADi2</h1>
-                  <h2 id="productContentSPFlug">「CADi2（キャディーツー）」は認知機能チェックアプリです。スマートフォン、タブレット、PCなどあらゆるデバイスから利用可能です。音声を聞きながら１０個の検査項目に回答することで、数分間で検査できます。自治体住民健診や，脳ドック施設において認知症早期発見のため活用がなされています。</h2>
-                </div>
-              </div>
-              <hr />
+              )
+              )}
             </div>
-            <a href="/" id="productMore" className={style.productMore1}>
+            <a href="/product" id="productMore" className={style.productMore1}>
               <p>VIEW MORE</p>
               <span className={style.playButton}></span>
             </a>
@@ -963,7 +967,7 @@ export const Index = (props) => {
           <a href="/about" className={style.link}>
             <h1>会社概要</h1>
           </a>
-          <a className={style.link0}>
+          <a href="/recruit" className={style.link}>
             <h1>採用情報</h1>
           </a>
           <a href="/contact" className={style.link}>
@@ -987,6 +991,21 @@ export const query = graphql`
           date(formatString: "YYYY/MM/DD")
         }
       }
+    }
+    allMicrocmsProduct(sort: {createdAt: ASC}, limit: 3) {
+        edges {
+            node {
+                bodyText
+                slug
+                switch1
+                switch2
+                title
+                url
+                eyecatch {
+                    url
+                }
+            }
+        }
     }
   }
 `

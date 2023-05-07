@@ -95,13 +95,14 @@ const Confirmation = props => {
               <span className={style.playButton}></span>
           </div>
 
-          <div className={style.sendButtonContainer_visible}>
-            {/*{isSendButton ? "contact-module--sendButtonContainer--39688" : "contact-module--sendButtonContainer_visible--66c2b"} */}
+          <div className={isSendButton ? "contact-module--sendButtonContainer--39688" : "contact-module--sendButtonContainer_visible--66c2b"}>
+            
             <button 
               className={style.sendButton}
               onClick={sendMail}
+              disabled={!isChecked}
               ><p>送信</p></button>
-              {/*disabled={!isChecked}*/}
+
             <span className={style.playButton}></span>
           </div>
 
