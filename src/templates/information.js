@@ -45,13 +45,12 @@ const IndexPage = ({ data, pageContext }) => {
 
     gsap.fromTo(
       '#body',
-      { visibility: "hidden" }, //fromの設定
+      { autoAlpha: 0 }, //fromの設定
       {  //toの設定
-        visibility: "visible",
+        autoAlpha: 1,
+        duration: 0,
       }
     )
-
-
 
     ScrollTrigger.batch('#informationContent', {
       onEnter: batch => gsap.fromTo(batch,
@@ -80,7 +79,6 @@ const IndexPage = ({ data, pageContext }) => {
         {  //toの設定
           y: 0,
           autoAlpha: 1,
-          delay: 0.5,
           duration: 0.5,
         }
       )
@@ -94,7 +92,6 @@ const IndexPage = ({ data, pageContext }) => {
         {  //toの設定
           y: 0,
           autoAlpha: 1,
-          delay: 0.5,
           duration: 0.5,
         }
       )
@@ -124,11 +121,13 @@ const IndexPage = ({ data, pageContext }) => {
             <body id="body" className={style.body}>
             <div class="gtranslate_wrapper"></div>
 
-              <div id="informationTitle" className={style.information}>
+              <div className={style.information}>
 
-                <h1>お知らせ</h1>
-                <img src={informationTitle} alt="informationTitle" className={style.informationTitle} />
-                <img src={informationTitleSP} alt="informationTitle" className={style.informationTitleSP} />
+                <div id="informationTitle" className={style.informationTitleContainer}>
+                  <h1>お知らせ</h1>
+                  <img src={informationTitle} alt="informationTitle" className={style.informationTitle} />
+                  <img src={informationTitleSP} alt="informationTitle" className={style.informationTitleSP} />
+                </div>
 
                 <div className={style.informationContentsContainer}>
                   <div className={style.informationContents}>

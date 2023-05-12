@@ -3,6 +3,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import * as style from "../styles/index.module.scss"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from "gatsby"
 
 import logoColor from '../images/logoColor.svg'
 import footerEnd from '../images/footerEnd.svg'
@@ -34,18 +35,18 @@ const Footer = () => {
     return (
         <footer id="footer" className={style.footer}>
             <div className={style.footerContainer}>
-                <a href="/" className={style.logoFooter}>
+                <Link to="/" className={style.logoFooter}>
                     <img src={logoColor} alt="logo" className={style.logo} loading="lazy" />
-                </a>
+                </Link>
 
                 <div className={style.footerMenu}>
-                    <a href="/information">-&emsp;INFORMATION</a>
-                    <a href="/recruit">-&emsp;RECRUIT</a>
-                    <a href="/about">-&emsp;ABOUT</a>
-                    <a href="/contact">-&emsp;CONTACT</a>
-                    <a href="/product">-&emsp;PRODUCT</a>
-                    <a href="/privacypolicy">-&emsp;PRIVACY POLICY</a>
-                    <a href="/member">-&emsp;MEMBER</a>
+                    <Link to="/information">-&emsp;INFORMATION</Link>
+                    <Link to="/recruit">-&emsp;RECRUIT</Link>
+                    <Link to="/about">-&emsp;ABOUT</Link>
+                    <Link to="/contact">-&emsp;CONTACT</Link>
+                    <Link to="/product">-&emsp;PRODUCT</Link>
+                    <Link to="/privacypolicy">-&emsp;PRIVACY POLICY</Link>
+                    <Link to="/member">-&emsp;MEMBER</Link>
                 </div>
 
                 <p className={style.copyright}>©2023 ERISA Co.,Ltd.</p>

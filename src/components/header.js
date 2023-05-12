@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect, useRef, useEffect, useCallback } from
 import * as style from "../styles/header.module.scss"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from "gatsby"
 
 import logoColor from '../images/logoColor.svg'
 import hamberger from '../images/hamberger.svg'
@@ -90,12 +91,12 @@ const Header = () => {
                     <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
                 </a>
                 <div className={style.headerRight}>
-                    <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
-                    <a href="/about" ><p id="headerMenu">ABOUT</p></a>
-                    <a href="/product" ><p id="headerMenu">PRODUCT</p></a>
-                    <a href="/member" ><p id="headerMenu">MEMBER</p></a>
-                    <a href="/recruit" ><p id="headerMenu">RECRUIT</p></a>
-                    <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
+                    <Link to="/information/" ><p id="headerMenu">INFORMATION</p></Link>
+                    <Link to="/about" ><p id="headerMenu">ABOUT</p></Link>
+                    <Link to="/product" ><p id="headerMenu">PRODUCT</p></Link>
+                    <Link to="/member" ><p id="headerMenu">MEMBER</p></Link>
+                    <Link to="/recruit" ><p id="headerMenu">RECRUIT</p></Link>
+                    <Link to="/contact" ><p id="headerMenu">CONTACT</p></Link>
                     <button
                         className={style.hmb}
                         id="hamberger"
@@ -126,54 +127,54 @@ const Header = () => {
                         </div>
 
                         <div className={style.menuList}>
-                            <a href="/information"
+                            <Link to="/information"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>INFORMATION</p>
-                            </a>
-                            <a href="/about"
+                            </Link>
+                            <Link to="/about"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>ABOUT</p>
-                            </a>
-                            <a href="/product"
+                            </Link>
+                            <Link to="/product"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>PRODUCT</p>
-                            </a>
-                            <a href="/member"
+                            </Link>
+                            <Link to="/member"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>MEMBER</p>
-                            </a>
-                            <a href="/recruit"
+                            </Link>
+                            <Link to="/recruit"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>RECRUIT</p>
-                            </a>
-                            <a href="/contact"
+                            </Link>
+                            <Link to="/contact"
                                 className={style.list}
                                 onClick={() => {
                                     setIsShow(!isShow);
                                     scrollLockLift();
                                 }}>
                                 <p>CONTACT</p>
-                            </a>
+                            </Link>
                         </div>
                         <div className={style.copyright}>
                             <p>©2023 ERISA Co.,Ltd.</p>

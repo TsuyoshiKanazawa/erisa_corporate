@@ -5,6 +5,7 @@
     background-color: #F6F6F6 !important;
     margin: 0;
     padding: 0;
+    opacity: 0;
 }
 
 .recruitTitle {
@@ -154,6 +155,11 @@
                     line-height: 140%;
                     padding: 18px 40px 0 40px;
                     box-sizing: border-box;
+                }
+
+                a {
+                    color: #3988FF;
+                    text-decoration: underline;
                 }
             }
 

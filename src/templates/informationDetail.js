@@ -4,6 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Helmet } from 'react-helmet'
 import { graphql } from "gatsby"
 import { AzureMP } from 'react-azure-mp'
+import "../styles/input.css"
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 
 import Layout from "../components/layout"
 import * as style from "../styles/information.module.scss"
@@ -14,10 +18,10 @@ import informationTitleSP from '../images/informationTitleSP.svg'
 import ogp from '../images/OGP.jpg'
 
 gsap.registerPlugin(ScrollTrigger);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const Index = ({data}) => {
-
-    console.log(data);
 
     useLayoutEffect(() => {
         window.gtranslateSettings = {
@@ -27,7 +31,6 @@ const Index = ({data}) => {
             "wrapper_selector": ".gtranslate_wrapper"
         }
     });
-
 
     //アニメーション専用/////////////////////////////////////////
     const div = useRef();
@@ -44,30 +47,63 @@ const Index = ({data}) => {
 
         gsap.fromTo(
             '#body',
-            { visibility: "hidden" }, //fromの設定
+            { autoAlpha: 0 }, //fromの設定
             {  //toの設定
-                visibility: "visible",
-            }
-        )
-        gsap.fromTo(
-            '#privacypolicyTitle',
-            { y: 100, autoAlpha: 0 }, //fromの設定
-            {  //toの設定
-                y: 0,
                 autoAlpha: 1,
-                delay: 0.5,
-                duration: 0.5,
+                duration: 0,
             }
         )
+
         //共通/////////////////////////
 
         mm.add("(min-width: 901px)", () => {
 
+            gsap.fromTo(
+                '#informationTitle',
+                { y: 100, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
+
+            gsap.fromTo(
+                '#informationContents',
+                { y: 100, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
         });
 
 
         mm.add("(max-width: 900px)", () => {
+            gsap.fromTo(
+                '#informationTitle',
+                { y: 50, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
 
+            gsap.fromTo(
+                '#informationContents',
+                { y: 50, autoAlpha: 0 }, //fromの設定
+                {  //toの設定
+                    y: 0,
+                    autoAlpha: 1,
+                    delay: 0.5,
+                    duration: 0.5,
+                }
+            )
         });
 
     }
@@ -93,16 +129,23 @@ const Index = ({data}) => {
 
                 <div className={style.informationDetailContents}>
                     <div className={style.informationContentsContainer}>
-                        <div dangerouslySetInnerHTML={{ __html: data.microcmsInformationDetail.bodyText }} />
+                        <h1 id="informationContents" className={style.date}>{dayjs.utc(data.microcmsInformationDetail.date).add(1, 'd').format('YYYY/MM/DD')}</h1>
+                        <div id="informationContents" dangerouslySetInnerHTML={{ __html: data.microcmsInformationDetail.bodyText }} />
                         
                         {data.microcmsInformationDetail.azureswitch &&
                             <AzureMP
+                                id="informationContents"
+                                className={style.azureMedia}
+                                tabIndex="0"
                                 options={{ autoplayInView: false }}
                                 skin="amp-flush"
                                 src={[{ src: data.microcmsInformationDetail.azureurl, type: "application/vnd.ms-sstr+xml" }]}
                             />
                         }
-
+                        <a href="/information" id="informationBack" className={style.informationBack}>
+                            <p>戻る</p>
+                            <span className={style.playButton}></span>
+                        </a>
                     </div>
                 </div>
             </body>

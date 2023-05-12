@@ -41,9 +41,10 @@ const Index = () => {
 
         gsap.fromTo(
             '#body',
-            { visibility: "hidden" }, //fromの設定
+            { autoAlpha: 0 }, //fromの設定
             {  //toの設定
-                visibility: "visible",
+                autoAlpha: 1,
+                duration: 0,
             }
         )
 
@@ -56,7 +57,6 @@ const Index = () => {
                 {  //toの設定
                     y: 0,
                     autoAlpha: 1,
-                    delay: 0.5,
                     duration: 0.5,
                 }
             )
@@ -70,7 +70,6 @@ const Index = () => {
                 {  //toの設定
                     y: 0,
                     autoAlpha: 1,
-                    delay: 0.5,
                     duration: 0.5,
                 }
             )

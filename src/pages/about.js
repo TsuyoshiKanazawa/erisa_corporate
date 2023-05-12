@@ -48,14 +48,14 @@ const Index = (props) => {
   const setAnimation = () => {
   //共通/////////////////////////
 
-  gsap.fromTo(
-    '#body',
-    { visibility: "hidden" }, //fromの設定
-    {  //toの設定
-      visibility: "visible",
-      delay: 0.2,
-    }
-  )
+    gsap.fromTo(
+      '#body',
+      { autoAlpha: 0 }, //fromの設定
+      {  //toの設定
+        autoAlpha: 1,
+        duration: 0,
+      }
+    )
 
   gsap.fromTo(
     '#ourMission',
