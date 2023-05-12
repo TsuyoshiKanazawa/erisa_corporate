@@ -131,9 +131,12 @@ const Index = ({data}) => {
                 </div>
                 
                 <div className={style.recruitContainer}>
-                    <Accordion allowMultipleExpanded={true} allowZeroExpanded >
+                    <Accordion allowMultipleExpanded={true} allowZeroExpanded>
                         {data.allMicrocmsRecruit.edges.map((recruit, index) => (
-                            <AccordionItem defaultCollapsed={true} className={style.accordionItem} key={index}>
+                            <AccordionItem 
+                                className={style.accordionItem} 
+                                key={index} 
+                                uuid={index}>
 
                                 <AccordionItemButton className={style.occupation} >
                                     <p>{recruit.node.occupation}</p><span></span>
@@ -147,6 +150,7 @@ const Index = ({data}) => {
                                         </div>
                                     ))}
                                 </AccordionItemPanel>
+
                             </AccordionItem>
                         )
                         )}
@@ -165,10 +169,11 @@ export default Index
 
 export const query = graphql`
     query MicrocmsRecruitQuery {
-        allMicrocmsRecruit {
+        allMicrocmsRecruit(sort: {arrangement: ASC}) {
             edges {
                 node {
                     id
+                    arrangement
                     bodyText {
                         item
                         overview
