@@ -20,8 +20,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = ({data}) => {
 
-    console.log(data)
-
     useLayoutEffect(() => {
         window.gtranslateSettings = {
             "default_language": "ja",
