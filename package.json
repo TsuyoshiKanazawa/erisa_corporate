@@ -35,6 +35,7 @@
     "react-accordion": "^0.3.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-azure-mp": "^1.0.5",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "6.15.8",

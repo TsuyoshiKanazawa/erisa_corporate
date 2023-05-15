@@ -129,7 +129,7 @@ const Index = ({data}) => {
                 </div>
                 
                 <div className={style.recruitContainer}>
-                    <Accordion allowMultipleExpanded={true} allowZeroExpanded>
+                    <Accordion allowMultipleExpanded={true} allowZeroExpanded >
                         {data.allMicrocmsRecruit.edges.map((recruit, index) => (
                             <AccordionItem 
                                 className={style.accordionItem} 
