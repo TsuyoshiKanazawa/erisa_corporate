@@ -30,11 +30,12 @@ const Footer = () => {
             }
         )
     }
+
   //アニメーション専用/////////////////////////////////////////
     return (
         <footer id="footer" className={style.footer}>
             <div className={style.footerContainer}>
-                <a href="/" className={style.logoFooter}>
+                <a href="/#body" className={style.logoFooter}>
                     <img src={logoColor} alt="logo" className={style.logo} loading="lazy" />
                 </a>
 

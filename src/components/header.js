@@ -102,8 +102,7 @@ const Header = () => {
                         onClick={() => {
                             setIsShow(!isShow);
                             scrollLock();
-                        }}
-                    >
+                        }}>
                         <img src={hamberger} id="hambergerSVG" className={style.hamberger} />
                     </button>
                 </div>

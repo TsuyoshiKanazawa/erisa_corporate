@@ -27,7 +27,6 @@ dayjs.extend(timezone);
 gsap.registerPlugin(ScrollTrigger);
 
 export const Index = (props) => {
-    console.log(props)
 
   useLayoutEffect(() => {
     window.gtranslateSettings = {
@@ -672,17 +671,17 @@ export const Index = (props) => {
 
         <header id="headerWrapper" className={isHeaderShown ? "index-module--container--defd5" : "index-module--show--051e9"}>
           <div className={style.flexContainer}>
-            <Link to="/">
+            <a href="#top">
               <img src={logoColor} id="logoColor" className={style.logoColor} alt="logo" />
               <img src={logoWhite} id="logoWhite" className={style.logoWhite} alt="logo" />
-            </Link>
+            </a>
             <div className={style.headerRight}>
-              <Link to="/information/" ><p id="headerMenu">INFORMATION</p></Link>
-              <Link to="/about" ><p id="headerMenu">ABOUT</p></Link>
-              <Link to="/product" ><p id="headerMenu">PRODUCT</p></Link>
-              <Link to="/member"><p id="headerMenu">MEMBER</p></Link>
-              <Link to="/recruit"><p id="headerMenu">RECRUIT</p></Link>
-              <Link to="/contact" ><p id="headerMenu">CONTACT</p></Link>
+              <a href="/information/" ><p id="headerMenu">INFORMATION</p></a>
+              <a href="/about" ><p id="headerMenu">ABOUT</p></a>
+              <a href="/product" ><p id="headerMenu">PRODUCT</p></a>
+              <a href="/member"><p id="headerMenu">MEMBER</p></a>
+              <a href="/recruit"><p id="headerMenu">RECRUIT</p></a>
+              <a href="/contact" ><p id="headerMenu">CONTACT</p></a>
               <button
                 className={style.hmb}
                 id="hamberger"
@@ -713,54 +712,54 @@ export const Index = (props) => {
                 </div>
 
                 <div className={style.menuList}>
-                  <Link href="/information"
+                  <a href="/information"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>INFORMATION</p>
-                  </Link>
-                  <Link href="/about"
+                  </a>
+                  <a href="/about"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>ABOUT</p>
-                  </Link>
-                  <Link href="/product"
+                  </a>
+                  <a href="/product"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>PRODUCT</p>
-                  </Link>
-                  <Link href="/member"
+                  </a>
+                  <a href="/member"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>MEMBER</p>
-                  </Link>
-                  <Link href="/recruit"
+                  </a>
+                  <a href="/recruit"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>RECRUIT</p>
-                  </Link>
-                  <Link href="/contact"
+                  </a>
+                  <a href="/contact"
                     className={style.list}
                     onClick={() => {
                       setIsShow(!isShow);
                       scrollLockLift();
                     }}>
                     <p>CONTACT</p>
-                  </Link>
+                  </a>
                 </div>
                 <div className={style.copyright}>
                   <p>©2023 ERISA Co.,Ltd.</p>
