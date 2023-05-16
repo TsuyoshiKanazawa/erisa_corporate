@@ -78,8 +78,8 @@ const Confirmation = props => {
 
         <div className={style.terms}>
           <input type="checkbox" name="agree" id="agreeCheck" onChange={() => toggleCheckbox()}/>
-          <label htmlFor="agreeCheck">「<a href="/">個人情報の取り扱い</a>」同意の上、<br />申込みます。</label>
-          <a href="/"><StaticImage src="../images/linkIcon.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.linkIcon} loading="lazy" alt="background" /></a>
+          <label htmlFor="agreeCheck">「<a href="/privacypolicy" target="_blank" rel="noopener noreferrer">個人情報の取り扱い</a>」同意の上、<br />申込みます。</label>
+          <a href="/privacypolicy" target="_blank" rel="noopener noreferrer"><StaticImage src="../images/linkIcon.png" quality={90} formats={["AUTO", "WEBP", "AVIF"]} className={style.linkIcon} loading="lazy" alt="background" /></a>
         </div>
 
         <div className={style.buttonContainer}>

@@ -642,6 +642,7 @@ const Index = (props) => {
       <Helmet>
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js"></script>
       </Helmet>
+
       <body id="body" className={style.body}>
         <div class="gtranslate_wrapper"></div>
 

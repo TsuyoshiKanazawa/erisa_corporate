@@ -39,6 +39,7 @@ const Index = ({data}) => {
 
     let mm = gsap.matchMedia();
 
+    
     const setAnimation = () => {
         //共通/////////////////////////
 
