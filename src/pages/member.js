@@ -169,12 +169,12 @@ export const Head = () => {
             <title>株式会社ERISA</title>
             <meta name="description" content="ERISAは、AI×OIを用いた脳画像解析技術の研究開発・販売事業を行っています。" />
             <meta property="og:image" content={ogp} />
-            <meta property="og:title;" content="株式会社ERISA" />
-            <meta property="og:site-name;" content="株式会社ERISA" />
+            <meta property="og:title;" content="株式会社ERISA｜脳を知り、あなたらしさを支える。" />
+            <meta property="og:site-name;" content="株式会社ERISA｜脳を知り、あなたらしさを支える。" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="ja_JP" />
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content="株式会社ERISA" />
+            <meta name="twitter:title" content="株式会社ERISA｜脳を知り、あなたらしさを支える。" />
             <meta name="twitter:description" content="ERISAは、AI×OIを用いた脳画像解析技術の研究開発・販売事業を行っています。" />
         </>
     )
