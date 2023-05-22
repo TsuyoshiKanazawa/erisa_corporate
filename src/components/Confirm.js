@@ -25,6 +25,7 @@ const Confirmation = props => {
 
   const sendMail = () => {
     setisSendButton(!isSendButton);
+    setIsChecked(!isChecked)
     init("OhzGRqewkPcbhrZ0o");
 
     const template_param = {
@@ -42,7 +43,7 @@ const Confirmation = props => {
     });
   }
   
-  
+
   return (
     <>
       <div className={style.confirmBox}>
