@@ -24,7 +24,8 @@ const Confirmation = props => {
   const message = values.contact; //お問い合わせ内容
 
   const sendMail = () => {
-    init("YDhr2yz42Wq5BPUL0");
+    setisSendButton(!isSendButton);
+    init("OhzGRqewkPcbhrZ0o");
 
     const template_param = {
       orname: orname,
@@ -36,7 +37,7 @@ const Confirmation = props => {
       message: message,
     };
 
-    send("Erisa_info_1", "template_6yulyon", template_param).then(() => {
+    send("service_1obp7sd", "template_ggft61b", template_param).then(() => {
       window.location.href = '/contact-completion';;
     });
   }
