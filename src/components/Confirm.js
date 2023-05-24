@@ -45,6 +45,7 @@ const Confirmation = props => {
     });
   }
   
+
   return (
     <>
       <div className={style.confirmBox}>
